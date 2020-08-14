@@ -62,13 +62,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridResults = new System.Windows.Forms.DataGridView();
-            this.archiveOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.inputOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.outputOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.btnExportCSV = new System.Windows.Forms.Button();
             this.openArchiveDialog = new System.Windows.Forms.OpenFileDialog();
             this.openInputDialog = new System.Windows.Forms.OpenFileDialog();
             this.openOutputDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveCSVFile = new System.Windows.Forms.SaveFileDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -428,14 +426,6 @@
             this.dataGridResults.Size = new System.Drawing.Size(769, 238);
             this.dataGridResults.TabIndex = 0;
             // 
-            // inputOpenFileDialog
-            // 
-            this.inputOpenFileDialog.FileName = "openFileDialog1";
-            // 
-            // outputOpenFileDialog
-            // 
-            this.outputOpenFileDialog.FileName = "openFileDialog1";
-            // 
             // btnExportCSV
             // 
             this.btnExportCSV.Location = new System.Drawing.Point(322, 682);
@@ -448,14 +438,17 @@
             // openArchiveDialog
             // 
             this.openArchiveDialog.FileName = "openArchiveDialog";
+            this.openArchiveDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openArchiveDialog_FileOk);
             // 
             // openInputDialog
             // 
             this.openInputDialog.FileName = "openInputDialog";
+            this.openInputDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openInputDialog_FileOk);
             // 
             // openOutputDialog
             // 
             this.openOutputDialog.FileName = "openOutputDialog";
+            this.openOutputDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openOutputDialog_FileOk);
             // 
             // MainScreen
             // 
@@ -518,9 +511,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridResults;
-        private System.Windows.Forms.OpenFileDialog archiveOpenFileDialog;
-        private System.Windows.Forms.OpenFileDialog inputOpenFileDialog;
-        private System.Windows.Forms.OpenFileDialog outputOpenFileDialog;
         private System.Windows.Forms.TextBox txtOutputAppend;
         private System.Windows.Forms.TextBox txtInputAppend;
         private System.Windows.Forms.Label label9;
@@ -530,6 +520,7 @@
         private System.Windows.Forms.OpenFileDialog openArchiveDialog;
         private System.Windows.Forms.OpenFileDialog openInputDialog;
         private System.Windows.Forms.OpenFileDialog openOutputDialog;
+        private System.Windows.Forms.SaveFileDialog saveCSVFile;
     }
 }
 

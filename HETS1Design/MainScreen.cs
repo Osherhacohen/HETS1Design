@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO.Compression;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace HETS1Design
 {
@@ -14,7 +16,7 @@ namespace HETS1Design
     {
         public MainScreen()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
         #region GUI
         private void MainScreen_HelpButtonClicked(object sender, CancelEventArgs e)
@@ -65,6 +67,76 @@ namespace HETS1Design
         {
             openOutputDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
             openOutputDialog.ShowDialog();
+        }
+
+        
+        private void openArchiveDialog_FileOk(object sender, CancelEventArgs e)
+        {
+
+            try
+            {
+
+                string zipFile = openArchiveDialog.FileName;
+                this.txtArchivePath.Text = openArchiveDialog.FileName;
+                //ZipArchive zip=ZipFile.OpenRead(zipFile);
+
+                //Had to open with correct Hebrew encoding so we won't get Gibbreish
+                ZipArchive zip = new ZipArchive(File.OpenRead(zipFile), ZipArchiveMode.Read, false, Encoding.GetEncoding("cp862"));
+
+                //var cCodeArray; //Array of code files. Maybe not needed?
+                //var exeArray; //Array of exe files. Maybe not needed?
+
+
+                { //This is just to test the zip entries
+                    this.txtInputAppend.Text = "";
+                    foreach (ZipArchiveEntry zipEntry in zip.Entries)
+                        this.txtInputAppend.Text += zipEntry.FullName + "\n";
+                } //************************************
+
+
+
+
+
+                //some_buttons.Enabled = true; //Do this later
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void openInputDialog_FileOk(object sender, CancelEventArgs e)
+        {
+            try
+            {
+                string inputTextFile = openInputDialog.FileName;
+                this.txtInputPath.Text = openInputDialog.FileName;
+                //some_buttons.Enabled = true; //Do this later
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void openOutputDialog_FileOk(object sender, CancelEventArgs e)
+        {
+            try
+            {
+                string outputTextFile = openOutputDialog.FileName;
+                this.txtOutputPath.Text = openOutputDialog.FileName;
+                //some_buttons.Enabled = true; //Do this later
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }
