@@ -1,0 +1,535 @@
+﻿namespace HETS1Design
+{
+    partial class MainScreen
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtArchivePath = new System.Windows.Forms.TextBox();
+            this.btnBrowseArchive = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtOutputAppend = new System.Windows.Forms.TextBox();
+            this.txtInputAppend = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnCaseAppend = new System.Windows.Forms.Button();
+            this.txtOutputPath = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnBrowseOutput = new System.Windows.Forms.Button();
+            this.btnBrowseInput = new System.Windows.Forms.Button();
+            this.txtInputPath = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioCheckByComp = new System.Windows.Forms.RadioButton();
+            this.radioMakeNo = new System.Windows.Forms.RadioButton();
+            this.radioExeNo = new System.Windows.Forms.RadioButton();
+            this.radioMakeYes = new System.Windows.Forms.RadioButton();
+            this.radioExeYes = new System.Windows.Forms.RadioButton();
+            this.radioCompileNo = new System.Windows.Forms.RadioButton();
+            this.radioCompileYes = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dataGridResults = new System.Windows.Forms.DataGridView();
+            this.archiveOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.inputOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.outputOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.btnExportCSV = new System.Windows.Forms.Button();
+            this.openArchiveDialog = new System.Windows.Forms.OpenFileDialog();
+            this.openInputDialog = new System.Windows.Forms.OpenFileDialog();
+            this.openOutputDialog = new System.Windows.Forms.OpenFileDialog();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridResults)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(145, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Choose archive file to check:";
+            // 
+            // txtArchivePath
+            // 
+            this.txtArchivePath.Location = new System.Drawing.Point(158, 16);
+            this.txtArchivePath.Name = "txtArchivePath";
+            this.txtArchivePath.ReadOnly = true;
+            this.txtArchivePath.Size = new System.Drawing.Size(530, 20);
+            this.txtArchivePath.TabIndex = 2;
+            // 
+            // btnBrowseArchive
+            // 
+            this.btnBrowseArchive.Location = new System.Drawing.Point(694, 13);
+            this.btnBrowseArchive.Name = "btnBrowseArchive";
+            this.btnBrowseArchive.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowseArchive.TabIndex = 3;
+            this.btnBrowseArchive.Text = "Browse...";
+            this.btnBrowseArchive.UseVisualStyleBackColor = true;
+            this.btnBrowseArchive.Click += new System.EventHandler(this.btnBrowseArchive_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.btnBrowseArchive);
+            this.groupBox1.Controls.Add(this.txtArchivePath);
+            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(775, 45);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Files for checking";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtOutputAppend);
+            this.groupBox2.Controls.Add(this.txtInputAppend);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.btnCaseAppend);
+            this.groupBox2.Controls.Add(this.txtOutputPath);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.btnBrowseOutput);
+            this.groupBox2.Controls.Add(this.btnBrowseInput);
+            this.groupBox2.Controls.Add(this.txtInputPath);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Location = new System.Drawing.Point(13, 64);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(775, 189);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Input/Output case files";
+            // 
+            // txtOutputAppend
+            // 
+            this.txtOutputAppend.Location = new System.Drawing.Point(397, 64);
+            this.txtOutputAppend.Multiline = true;
+            this.txtOutputAppend.Name = "txtOutputAppend";
+            this.txtOutputAppend.Size = new System.Drawing.Size(372, 96);
+            this.txtOutputAppend.TabIndex = 10;
+            // 
+            // txtInputAppend
+            // 
+            this.txtInputAppend.Location = new System.Drawing.Point(13, 64);
+            this.txtInputAppend.Multiline = true;
+            this.txtInputAppend.Name = "txtInputAppend";
+            this.txtInputAppend.Size = new System.Drawing.Size(361, 96);
+            this.txtInputAppend.TabIndex = 9;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(394, 47);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(157, 13);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Output file additional test cases:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(10, 47);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(149, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Input file additional test cases:";
+            // 
+            // btnCaseAppend
+            // 
+            this.btnCaseAppend.Location = new System.Drawing.Point(274, 166);
+            this.btnCaseAppend.Name = "btnCaseAppend";
+            this.btnCaseAppend.Size = new System.Drawing.Size(234, 23);
+            this.btnCaseAppend.TabIndex = 6;
+            this.btnCaseAppend.Text = "Append Test Cases for I/O Files...";
+            this.btnCaseAppend.UseVisualStyleBackColor = true;
+            // 
+            // txtOutputPath
+            // 
+            this.txtOutputPath.Location = new System.Drawing.Point(458, 17);
+            this.txtOutputPath.Name = "txtOutputPath";
+            this.txtOutputPath.ReadOnly = true;
+            this.txtOutputPath.Size = new System.Drawing.Size(230, 20);
+            this.txtOutputPath.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(394, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Output file:";
+            // 
+            // btnBrowseOutput
+            // 
+            this.btnBrowseOutput.Location = new System.Drawing.Point(694, 15);
+            this.btnBrowseOutput.Name = "btnBrowseOutput";
+            this.btnBrowseOutput.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowseOutput.TabIndex = 3;
+            this.btnBrowseOutput.Text = "Browse...";
+            this.btnBrowseOutput.UseVisualStyleBackColor = true;
+            this.btnBrowseOutput.Click += new System.EventHandler(this.btnBrowseOutput_Click);
+            // 
+            // btnBrowseInput
+            // 
+            this.btnBrowseInput.Location = new System.Drawing.Point(299, 15);
+            this.btnBrowseInput.Name = "btnBrowseInput";
+            this.btnBrowseInput.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowseInput.TabIndex = 2;
+            this.btnBrowseInput.Text = "Browse...";
+            this.btnBrowseInput.UseVisualStyleBackColor = true;
+            this.btnBrowseInput.Click += new System.EventHandler(this.btnBrowseInput_Click);
+            // 
+            // txtInputPath
+            // 
+            this.txtInputPath.Location = new System.Drawing.Point(63, 17);
+            this.txtInputPath.Name = "txtInputPath";
+            this.txtInputPath.ReadOnly = true;
+            this.txtInputPath.Size = new System.Drawing.Size(230, 20);
+            this.txtInputPath.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Input file:";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.radioButton2);
+            this.groupBox3.Controls.Add(this.radioButton1);
+            this.groupBox3.Controls.Add(this.radioCheckByComp);
+            this.groupBox3.Controls.Add(this.radioMakeNo);
+            this.groupBox3.Controls.Add(this.radioExeNo);
+            this.groupBox3.Controls.Add(this.radioMakeYes);
+            this.groupBox3.Controls.Add(this.radioExeYes);
+            this.groupBox3.Controls.Add(this.radioCompileNo);
+            this.groupBox3.Controls.Add(this.radioCompileYes);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Location = new System.Drawing.Point(13, 259);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(775, 116);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Validation options";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(356, 66);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(334, 17);
+            this.radioButton2.TabIndex = 11;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Both (select only if you choose to compile AND create executable";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(285, 66);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(64, 17);
+            this.radioButton1.TabIndex = 10;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Runtime";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioCheckByComp
+            // 
+            this.radioCheckByComp.AutoSize = true;
+            this.radioCheckByComp.Location = new System.Drawing.Point(165, 65);
+            this.radioCheckByComp.Name = "radioCheckByComp";
+            this.radioCheckByComp.Size = new System.Drawing.Size(113, 17);
+            this.radioCheckByComp.TabIndex = 9;
+            this.radioCheckByComp.TabStop = true;
+            this.radioCheckByComp.Text = "Compilation (.c file)";
+            this.radioCheckByComp.UseVisualStyleBackColor = true;
+            // 
+            // radioMakeNo
+            // 
+            this.radioMakeNo.AutoSize = true;
+            this.radioMakeNo.Location = new System.Drawing.Point(215, 87);
+            this.radioMakeNo.Name = "radioMakeNo";
+            this.radioMakeNo.Size = new System.Drawing.Size(39, 17);
+            this.radioMakeNo.TabIndex = 8;
+            this.radioMakeNo.TabStop = true;
+            this.radioMakeNo.Text = "No";
+            this.radioMakeNo.UseVisualStyleBackColor = true;
+            // 
+            // radioExeNo
+            // 
+            this.radioExeNo.AutoSize = true;
+            this.radioExeNo.Location = new System.Drawing.Point(215, 41);
+            this.radioExeNo.Name = "radioExeNo";
+            this.radioExeNo.Size = new System.Drawing.Size(39, 17);
+            this.radioExeNo.TabIndex = 7;
+            this.radioExeNo.TabStop = true;
+            this.radioExeNo.Text = "No";
+            this.radioExeNo.UseVisualStyleBackColor = true;
+            // 
+            // radioMakeYes
+            // 
+            this.radioMakeYes.AutoSize = true;
+            this.radioMakeYes.Location = new System.Drawing.Point(165, 87);
+            this.radioMakeYes.Name = "radioMakeYes";
+            this.radioMakeYes.Size = new System.Drawing.Size(43, 17);
+            this.radioMakeYes.TabIndex = 7;
+            this.radioMakeYes.TabStop = true;
+            this.radioMakeYes.Text = "Yes";
+            this.radioMakeYes.UseVisualStyleBackColor = true;
+            // 
+            // radioExeYes
+            // 
+            this.radioExeYes.AutoSize = true;
+            this.radioExeYes.Location = new System.Drawing.Point(165, 41);
+            this.radioExeYes.Name = "radioExeYes";
+            this.radioExeYes.Size = new System.Drawing.Size(43, 17);
+            this.radioExeYes.TabIndex = 6;
+            this.radioExeYes.TabStop = true;
+            this.radioExeYes.Text = "Yes";
+            this.radioExeYes.UseVisualStyleBackColor = true;
+            // 
+            // radioCompileNo
+            // 
+            this.radioCompileNo.AutoSize = true;
+            this.radioCompileNo.Location = new System.Drawing.Point(215, 18);
+            this.radioCompileNo.Name = "radioCompileNo";
+            this.radioCompileNo.Size = new System.Drawing.Size(39, 17);
+            this.radioCompileNo.TabIndex = 5;
+            this.radioCompileNo.TabStop = true;
+            this.radioCompileNo.Text = "No";
+            this.radioCompileNo.UseVisualStyleBackColor = true;
+            // 
+            // radioCompileYes
+            // 
+            this.radioCompileYes.AutoSize = true;
+            this.radioCompileYes.Location = new System.Drawing.Point(165, 18);
+            this.radioCompileYes.Name = "radioCompileYes";
+            this.radioCompileYes.Size = new System.Drawing.Size(43, 17);
+            this.radioCompileYes.TabIndex = 4;
+            this.radioCompileYes.TabStop = true;
+            this.radioCompileYes.Text = "Yes";
+            this.radioCompileYes.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(10, 89);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Makefile needed:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(10, 66);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Check I/O by:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 43);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(116, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Create Executable file?";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(149, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Compile code? (check .c files)";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(13, 382);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(159, 30);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Start Validation Process";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(629, 382);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(159, 30);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "Close";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dataGridResults);
+            this.groupBox4.Location = new System.Drawing.Point(13, 419);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(775, 257);
+            this.groupBox4.TabIndex = 9;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Results Table";
+            // 
+            // dataGridResults
+            // 
+            this.dataGridResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridResults.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridResults.Location = new System.Drawing.Point(3, 16);
+            this.dataGridResults.Name = "dataGridResults";
+            this.dataGridResults.Size = new System.Drawing.Size(769, 238);
+            this.dataGridResults.TabIndex = 0;
+            // 
+            // inputOpenFileDialog
+            // 
+            this.inputOpenFileDialog.FileName = "openFileDialog1";
+            // 
+            // outputOpenFileDialog
+            // 
+            this.outputOpenFileDialog.FileName = "openFileDialog1";
+            // 
+            // btnExportCSV
+            // 
+            this.btnExportCSV.Location = new System.Drawing.Point(322, 682);
+            this.btnExportCSV.Name = "btnExportCSV";
+            this.btnExportCSV.Size = new System.Drawing.Size(113, 26);
+            this.btnExportCSV.TabIndex = 10;
+            this.btnExportCSV.Text = "Export to CSV";
+            this.btnExportCSV.UseVisualStyleBackColor = true;
+            // 
+            // openArchiveDialog
+            // 
+            this.openArchiveDialog.FileName = "openArchiveDialog";
+            // 
+            // openInputDialog
+            // 
+            this.openInputDialog.FileName = "openInputDialog";
+            // 
+            // openOutputDialog
+            // 
+            this.openOutputDialog.FileName = "openOutputDialog";
+            // 
+            // MainScreen
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 717);
+            this.Controls.Add(this.btnExportCSV);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.HelpButton = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "MainScreen";
+            this.Text = "Form1";
+            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.MainScreen_HelpButtonClicked);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridResults)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtArchivePath;
+        private System.Windows.Forms.Button btnBrowseArchive;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtOutputPath;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnBrowseOutput;
+        private System.Windows.Forms.Button btnBrowseInput;
+        private System.Windows.Forms.TextBox txtInputPath;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioCheckByComp;
+        private System.Windows.Forms.RadioButton radioMakeNo;
+        private System.Windows.Forms.RadioButton radioExeNo;
+        private System.Windows.Forms.RadioButton radioMakeYes;
+        private System.Windows.Forms.RadioButton radioExeYes;
+        private System.Windows.Forms.RadioButton radioCompileNo;
+        private System.Windows.Forms.RadioButton radioCompileYes;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridView dataGridResults;
+        private System.Windows.Forms.OpenFileDialog archiveOpenFileDialog;
+        private System.Windows.Forms.OpenFileDialog inputOpenFileDialog;
+        private System.Windows.Forms.OpenFileDialog outputOpenFileDialog;
+        private System.Windows.Forms.TextBox txtOutputAppend;
+        private System.Windows.Forms.TextBox txtInputAppend;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnCaseAppend;
+        private System.Windows.Forms.Button btnExportCSV;
+        private System.Windows.Forms.OpenFileDialog openArchiveDialog;
+        private System.Windows.Forms.OpenFileDialog openInputDialog;
+        private System.Windows.Forms.OpenFileDialog openOutputDialog;
+    }
+}
+
