@@ -18,7 +18,7 @@ namespace HETS1Design
         {
             InitializeComponent();            
         }
-        #region GUI
+       // #region GUI
         private void MainScreen_HelpButtonClicked(object sender, CancelEventArgs e)
         {
             MessageBox.Show("File I/O:\n\nUse :case: before every case of I/O\nUse :notcase: if you want the program output to NOT match the text output.\n\nGUI Textbox I/O:\n\nYou are also able to append test cases to your I/O files, this will create a new file with the new use cases.\n\nIn addition, you may use boundary test cases in the GUI append function:\n\nUse :boundary: <Minimum value> <Maximum value> (They must be different)\nbefore an input line to add boundary test cases. \nEvery line with :boundary: will create 7 additional test cases in the new file; 3 for Min boundary, 3 for Max boundary and 1 for Opt case.\nYou must make sure that cases lower than min or higher than max have different value than input", "User guide");
@@ -37,7 +37,7 @@ namespace HETS1Design
             if (validateOk.CompareTo("OK") != 0)
                 MessageBox.Show(validateOk, "Error");
         }
-        #endregion
+       // #endregion
         private string FormValidate()
         {
             if (txtArchivePath.Text == "")
@@ -82,7 +82,7 @@ namespace HETS1Design
 
                 //Had to open with correct Hebrew encoding so we won't get Gibbreish
                 ZipArchive zip = new ZipArchive(File.OpenRead(zipFile), ZipArchiveMode.Read, false, Encoding.GetEncoding("cp862"));
-
+                
                 //var cCodeArray; //Array of code files. Maybe not needed?
                 //var exeArray; //Array of exe files. Maybe not needed?
 
@@ -94,7 +94,8 @@ namespace HETS1Design
                 } //************************************
 
 
-
+                //Put all the things in classes and then do:
+                //zipFile.Dispose();
 
 
                 //some_buttons.Enabled = true; //Do this later
