@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
+
 namespace HETS1Design
 {
     public partial class MainScreen : Form
@@ -25,7 +26,7 @@ namespace HETS1Design
             //This is probably recursion, careful here. IF NEEDED LIMIT BOUNDARY TO ONE PER CASE.
         }
 
-        //CHANGE BUTTUB NAME
+        //CHANGE BUTTON NAME
         private void button3_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -93,7 +94,7 @@ namespace HETS1Design
                         this.txtInputAppend.Text += zipEntry.FullName + "\n";
                 } //************************************
 
-
+                
                 //Put all the things in classes and then do:
                 //zipFile.Dispose();
 
