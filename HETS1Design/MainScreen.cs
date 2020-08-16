@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
 
 
 namespace HETS1Design
@@ -138,6 +139,13 @@ namespace HETS1Design
             {
                 MessageBox.Show(ex.Message);
             }
+
+        }
+
+
+        private void testCOMP_Click(object sender, EventArgs e) //TEMPRORARY
+        {
+            CProgramHandler.CompileCode();
 
         }
     }
