@@ -1,15 +1,13 @@
-
-
 #include <stdio.h> //אלמוג אבירם אמיר זדה
-#define _CRT_SECURE_NO_WARNINGS
+
 int main()
 {
 	char x, space, y;
 	int diff;
 	printf("enter 2 chars seperated by space:\n");
-	scanf("%c",&x);
-	scanf("%c", &space);
-	scanf("%c", &y);
+	scanf_s("%c",&x);
+	scanf_s("%c", &space);
+	scanf_s("%c", &y);
 	if (space != ' ') {
 		printf("The chars must be seperated by a comma!\n");
 	}
@@ -20,7 +18,8 @@ int main()
 		}
 		printf("your char diff is: %d\n", diff);
 	}
-	getchar();
+
+return 0;
 }
 //enter 2 chars seperated by space:
 //A B

@@ -68,6 +68,7 @@
             this.openOutputDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveCSVFile = new System.Windows.Forms.SaveFileDialog();
             this.testCOMP = new System.Windows.Forms.Button();
+            this.exeOutputBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -461,11 +462,22 @@
             this.testCOMP.UseVisualStyleBackColor = true;
             this.testCOMP.Click += new System.EventHandler(this.testCOMP_Click);
             // 
+            // exeOutputBtn
+            // 
+            this.exeOutputBtn.Location = new System.Drawing.Point(471, 389);
+            this.exeOutputBtn.Name = "exeOutputBtn";
+            this.exeOutputBtn.Size = new System.Drawing.Size(75, 23);
+            this.exeOutputBtn.TabIndex = 12;
+            this.exeOutputBtn.Text = "Exe/Output";
+            this.exeOutputBtn.UseVisualStyleBackColor = true;
+            this.exeOutputBtn.Click += new System.EventHandler(this.exeOutputBtn_Click);
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 717);
+            this.Controls.Add(this.exeOutputBtn);
             this.Controls.Add(this.testCOMP);
             this.Controls.Add(this.btnExportCSV);
             this.Controls.Add(this.groupBox4);
@@ -534,6 +546,7 @@
         private System.Windows.Forms.OpenFileDialog openOutputDialog;
         private System.Windows.Forms.SaveFileDialog saveCSVFile;
         private System.Windows.Forms.Button testCOMP;
+        private System.Windows.Forms.Button exeOutputBtn;
     }
 }
 

@@ -13,21 +13,24 @@ namespace HETS1Design
     {
         public static void CompileCode()//string codeFilePath)
         {
-            string codeName = "Source"; 
-            string codePath = "..\\..\\..\\Assets\\CodeToCheck";
-
             //Path from bin to tcc: ..\\..\\..\\Assets\\tcc\\tcc.exe
 
-            string command = "cd " + codePath+"&"+"..\\tcc\\tcc.exe "+codeName+".c";
-            ProcessStartInfo psi = new ProcessStartInfo("cmd", " /k "+ command);
 
+            //string codeName = "Source"; 
+            //string codePath = "..\\..\\..\\Assets\\CodeToCheck";
+            //string command = "cd " + codePath+"&"+"..\\tcc\\tcc.exe "+codeName+".c"; //This is with CMD usage
+            //ProcessStartInfo psi = new ProcessStartInfo("cmd", " /k "+ command); // This is with CMD usage
+
+
+            ProcessStartInfo psi = new ProcessStartInfo("..\\..\\..\\Assets\\tcc\\tcc.exe","Source.c");
             psi.RedirectStandardInput = true;
             psi.RedirectStandardOutput = true;
             psi.UseShellExecute = false;
-
+            psi.WorkingDirectory = "..\\..\\..\\Assets\\CodeToCheck";
 
             Process p = new Process();
             p.StartInfo = psi;
+            
             p.Start();
 
 
@@ -39,15 +42,17 @@ namespace HETS1Design
         public static void RunEXE()//string codeFilePath, string inFilePath)
         {
 
-            string codeName = "Source";
-            string codePath = "..\\..\\..\\Assets\\CodeToCheck";
-            string command = "cd " + codePath;// + "&" + codeName + ".exe";
-            ProcessStartInfo psi = new ProcessStartInfo("cmd", " /k " + command);
+            //string codeName = "Source";
+            //string codePath = "..\\..\\..\\Assets\\CodeToCheck";
+            //string command = "cd " + codePath;// + "&" + codeName + ".exe";
+            //ProcessStartInfo psi = new ProcessStartInfo("cmd", " /k " + command);
 
+
+            ProcessStartInfo psi = new ProcessStartInfo("..\\..\\..\\Assets\\CodeToCheck\\Source.exe");
             psi.RedirectStandardInput = true;
             psi.RedirectStandardOutput = true;
             psi.UseShellExecute = false;
-
+            psi.WorkingDirectory = "..\\..\\..\\Assets\\CodeToCheck\\";
 
             Process p = new Process();
             p.StartInfo = psi;
@@ -59,14 +64,18 @@ namespace HETS1Design
 
                 if (sw.BaseStream.CanWrite)
                 {
-                    sw.WriteLine("3 2");
+                    sw.WriteLine("2 9"); //Example, we'll be directing a file into stream writer
                 }
             }
             using (StreamReader sr = p.StandardOutput)
             {
-                results = sr.ReadToEnd();
-                MessageBox.Show(results);
+                if (sr.BaseStream.CanRead)
+                {
+                    results = sr.ReadToEnd();
+                    MessageBox.Show(results); //Example in a text box. We'll be comparing the results to the output file.
+                }
             }
+
         }
     }
 }
