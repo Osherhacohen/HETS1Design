@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.IO;
-
+using System.Windows.Forms;
 
 namespace HETS1Design
 {
@@ -37,7 +37,7 @@ namespace HETS1Design
 
         /*Trying to run the EXE file with i/o doesn't work yet*/
         public static void RunEXE()//string codeFilePath, string inFilePath)
-            {
+        {
 
             string codeName = "Source";
             string codePath = "..\\..\\..\\Assets\\CodeToCheck";
@@ -53,7 +53,7 @@ namespace HETS1Design
             p.StartInfo = psi;
             p.Start();
 
-
+            string results;
             using (StreamWriter sw = p.StandardInput)
             {
 
@@ -62,7 +62,11 @@ namespace HETS1Design
                     sw.WriteLine("3 2");
                 }
             }
-
+            using (StreamReader sr = p.StandardOutput)
+            {
+                results = sr.ReadToEnd();
+                MessageBox.Show(results);
+            }
         }
     }
 }

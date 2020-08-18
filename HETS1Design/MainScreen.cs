@@ -145,8 +145,8 @@ namespace HETS1Design
 
         private void testCOMP_Click(object sender, EventArgs e) //TEMPRORARY
         {
-            CProgramHandler.CompileCode();
-
+            //CProgramHandler.CompileCode();
+            CProgramHandler.RunEXE();
         }
     }
 }
