@@ -94,14 +94,14 @@ namespace HETS1Design
                 return true;
             return false;
         }
-        public string RemoveTCTNC(string testCase)
+
+        public string RemoveTCTNC(string testCase) //Test this!!!!!
         {
-            if (TC_or_TNC(testCase))
-                return testCase.Replace("__[TC]", "");
-            return testCase.Replace("__[TNC]", "");
+            var lines = Regex.Split(testCase, "\r\n|\r|\n").Skip(1);
+            return string.Join(Environment.NewLine, lines.ToArray());
         }
 
-        public void MultiplyTestCasesByBoundary(List<SingleTestCase> tc)
+        public void MultiplyTestCasesByBoundary()
         {
             /*This goes over the list in a while loop as long as there's a test case with a TRUE value in 
             hasBoundInText If a test case has a TRUE in this, it will call ReturnBoundaryTestCases.
@@ -110,7 +110,7 @@ namespace HETS1Design
         }
 
 
-        public void MultiplyTestCasesByEQPart(List<SingleTestCase> tc)
+        public void MultiplyTestCasesByEQPart()
         {
             /*This goes over the list in a while loop as long as there's a test case with a TRUE value in  
             hasEQPartInText. If a test case has a TRUE in this, it will call ReturnEQPartTestCases.
