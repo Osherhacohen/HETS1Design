@@ -72,7 +72,7 @@ namespace HETS1Design
                     }                 
                     testCasesList[testCasesList.Count - 1] += line;
                 }
-            }                        
+            }                       
 
             return testCasesList;
         }
