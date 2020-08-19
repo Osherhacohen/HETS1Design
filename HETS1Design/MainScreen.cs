@@ -79,31 +79,49 @@ namespace HETS1Design
             {
 
                 string zipFile = openArchiveDialog.FileName;
-                this.txtArchivePath.Text = openArchiveDialog.FileName;
+                this.txtArchivePath.Text = zipFile;
                 //ZipArchive zip=ZipFile.OpenRead(zipFile);
 
                 //Had to open with correct Hebrew encoding so we won't get Gibbreish
                 ZipArchive zip = new ZipArchive(File.OpenRead(zipFile), ZipArchiveMode.Read, false, Encoding.GetEncoding("cp862"));
-                
+
                 //var cCodeArray; //Array of code files. Maybe not needed?
                 //var exeArray; //Array of exe files. Maybe not needed?
 
+                string ctcFolder = Path.GetDirectoryName(zipFile) + "\\CodesToCheck";
+                Directory.CreateDirectory(ctcFolder);
 
-                { //This is just to test the zip entries
-                    this.txtInputAppend.Text = "";
+                { //This extracts the ZIP entries into directories.
                     foreach (ZipArchiveEntry zipEntry in zip.Entries)
                     {
                         this.txtInputAppend.Text += zipEntry.FullName + "\n";
+
+                        string newDirectory= ctcFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName); //To avoid unassigned error.
+
+                        if (!(Directory.Exists(ctcFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName))))
+                        {
+                            newDirectory = ctcFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName);
+                            Directory.CreateDirectory(newDirectory);
+                        }
+
+                        if (zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 2)) == ".c")
+                            zipEntry.ExtractToFile(newDirectory + "\\" + Path.GetFileName(zipEntry.FullName));
+
+                        if (zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 4)) == ".exe")
+                            zipEntry.ExtractToFile(newDirectory + "\\" + Path.GetFileName(zipEntry.FullName));
+
                     }
 
-                } //************************************
+                } 
 
-                
+
+
+
                 //Put all the things in classes and then do:
-                //zipFile.Dispose();
+                zip.Dispose();
 
 
-                //some_buttons.Enabled = true; //Do this later
+                //some_buttons.Enabled = true; //Do this later******************************************************
 
             }
             catch (Exception ex)
