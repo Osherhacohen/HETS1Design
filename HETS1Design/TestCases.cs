@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace HETS1Design
 {
@@ -23,6 +24,7 @@ namespace HETS1Design
         public TestCases(string inputFileContent, string outputFileContent)
         {
             //Separation to Test Cases will be done here
+            this.testCases = new List<SingleTestCase>();
         }
 
 
@@ -42,19 +44,21 @@ namespace HETS1Design
         public List<string> TestCasesSeparator(string textFile)
         {
             /*This function will separate each test cases by __[TC] or __[TNC]
-             Example:
+             Example, for a file contains:
 
-             __[TC]
-             9 5             
-             __[TNC]
-             3 4
+             
+           "__[TC]9 5             
+             __[TNC]3 4"
 
-            will add 
-            __[TC]
-            9 5 
+            will create the list 
+            <"__[TC]9 5", "__[TNC]3 4"
             to one element in the string list          
              */
-            return null;
+            string textCaseContent = File.ReadAllText(textFile);
+            List<string> testCasesList = new List<string>();
+            var lines = Regex.Split(textCaseContent, "\r\n|\r|\n");
+            testCasesList.AddRange(lines);
+            return testCasesList;
         }
 
         public void TestCasesBuilder(string inputFile, string outputFile)
@@ -65,8 +69,8 @@ namespace HETS1Design
             for (int i = 0; i <= input.Count(); i++)
             {
                 isTC = TC_or_TNC(input[i]);
-                input[i] = RemoveFirstLine(input[i]);
-                output[i] = RemoveFirstLine(output[i]);
+                input[i] = RemoveTCTNC(input[i]);
+                output[i] = RemoveTCTNC(output[i]);
                 testCases.Add(new SingleTestCase(input[i], output[i], isTC));
             }
 
@@ -74,13 +78,15 @@ namespace HETS1Design
 
         public bool TC_or_TNC(string testCase)
         {
-            //Checks whether the first line is __[TC] or __[TNC]
-            return true;
+            if (testCase.Contains("__[TC]"))
+                return true;
+            return false;
         }
-        public string RemoveFirstLine(string testCase)
+        public string RemoveTCTNC(string testCase)
         {
-            //Removes the first line (until \n including \n) from a string. Returns the string without first line.
-            return null;
+            if (TC_or_TNC(testCase))
+                return testCase.Replace("__[TC]", "");
+            return testCase.Replace("__[TNC]", "");
         }
 
         public void MultiplyTestCasesByBoundary(List<SingleTestCase> tc)
