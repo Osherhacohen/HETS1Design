@@ -18,20 +18,16 @@ namespace HETS1Design
         We'll also have __[TNC] for test cases where the result needs to be DIFFERENT than what's written
         on the output file.*/
 
-        List<SingleTestCase> testCases; //List of test cases. We'll add the separated test cases here and it'll be possible to add to it with Append.
+        public static List<SingleTestCase> testCases = new List<SingleTestCase>();  //List of test cases. We'll add the separated test cases here and it'll be possible to add to it with Append.
 
 
-        public TestCases(string inputFileContent, string outputFileContent)
-        {
-            //Separation to Test Cases will be done here
-            this.testCases = new List<SingleTestCase>();
-        }
 
+        
 
         /********************We need to think of the order in which we'll use these functions in the construct********************/
 
 
-        public int CountTestCases(string fileToCheck)
+        public static int CountTestCases(string fileToCheck)
         {
             /*This function should count and return the amount of special characters in each of the files.
              We'll then use it in the construct to make sure the files have the same amount of test cases
