@@ -77,42 +77,48 @@ namespace HETS1Design
 
             try
             {
-
                 string zipFile = openArchiveDialog.FileName;
                 this.txtArchivePath.Text = zipFile;
-                //ZipArchive zip=ZipFile.OpenRead(zipFile);
 
-                //Had to open with correct Hebrew encoding so we won't get Gibbreish
+                //We had to open with correct Hebrew encoding so we won't get Gibbreish
                 ZipArchive zip = new ZipArchive(File.OpenRead(zipFile), ZipArchiveMode.Read, false, Encoding.GetEncoding("cp862"));
 
-                //var cCodeArray; //Array of code files. Maybe not needed?
-                //var exeArray; //Array of exe files. Maybe not needed?
-
                 string ctcFolder = Path.GetDirectoryName(zipFile) + "\\CodesToCheck";
-                Directory.CreateDirectory(ctcFolder);
+                //Directory.Delete(ctcFolder+"\\");
+                Directory.CreateDirectory(ctcFolder); //Create CodesToCheck Folder
 
-                { //This extracts the ZIP entries into directories.
-                    foreach (ZipArchiveEntry zipEntry in zip.Entries)
+                //This extracts the ZIP entries into directories in CodesToCheck Folder.
+                foreach (ZipArchiveEntry zipEntry in zip.Entries)
+                {
+                    //this.txtInputAppend.Text += zipEntry.FullName + "\n"; //This is just a test to see the files.
+
+                    string newDirectory = ctcFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName); //To avoid unassigned var error.
+
+                    if (!(Directory.Exists(ctcFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName)))) //If path isn't taken
                     {
-                        this.txtInputAppend.Text += zipEntry.FullName + "\n";
-
-                        string newDirectory= ctcFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName); //To avoid unassigned error.
-
-                        if (!(Directory.Exists(ctcFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName))))
-                        {
-                            newDirectory = ctcFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName);
-                            Directory.CreateDirectory(newDirectory);
-                        }
-
-                        if (zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 2)) == ".c")
-                            zipEntry.ExtractToFile(newDirectory + "\\" + Path.GetFileName(zipEntry.FullName));
-
-                        if (zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 4)) == ".exe")
-                            zipEntry.ExtractToFile(newDirectory + "\\" + Path.GetFileName(zipEntry.FullName));
-
+                        newDirectory = ctcFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName);
+                        Directory.CreateDirectory(newDirectory); //Create a directory for a submission. Will also serve as ID.
+                        Submissions.submissions.Add(new SingleSubmission(newDirectory)); //If a new directory is created it also means a new submission.
                     }
 
-                } 
+                    if (zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 2)) == ".c") //If extension is .c
+                    {
+                        string codePath = newDirectory + "\\" + Path.GetFileName(zipEntry.FullName);
+                        zipEntry.ExtractToFile(codePath);
+                        Submissions.submissions[Submissions.submissions.Count - 1].codePath = codePath; //Always edit the newest Submission entry.
+                    }
+
+                    if (zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 4)) == ".exe") //If extension is .exe
+                    {
+                        string exePath = newDirectory + "\\" + Path.GetFileName(zipEntry.FullName);
+                        zipEntry.ExtractToFile(exePath);
+                        Submissions.submissions[Submissions.submissions.Count - 1].exePath = exePath;  //Always edit the newest Submission entry.
+                    }
+
+
+                }
+
+
 
 
 

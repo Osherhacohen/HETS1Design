@@ -128,8 +128,7 @@ namespace HETS1Design
                 return ""; //Or for cases with no input.
         }
 
-
-
+        
         /**************************************************************************************************
         The following functions may have a shallow/deep copy problem, therefore, when calling it on the 
         construct call it like this: 

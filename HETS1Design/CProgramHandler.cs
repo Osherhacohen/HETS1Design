@@ -33,18 +33,12 @@ namespace HETS1Design
             p.Start();
 
             string compilerOutput;
-            using (StreamReader sr = p.StandardOutput)
+            using (StreamReader sr = p.StandardError)
             {
                 if (sr.BaseStream.CanRead)
                 {
                     compilerOutput = sr.ReadToEnd();
-                   
-                    /*Trying to get the compiler errors and warnings, doesn't work right now.*/                    
-                   //if (compilerOutput=="")
-                   // MessageBox.Show("OK"); //Example in a text box. We'll be comparing the results to the output file.
-                   // else
-                   // MessageBox.Show(compilerOutput); //Example in a text box. We'll be comparing the results to the output file.
-
+                    MessageBox.Show(compilerOutput); //Example in a text box. We'll be comparing the results to the output file.                    
                 }
             }
         }
