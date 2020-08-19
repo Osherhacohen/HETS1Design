@@ -47,17 +47,33 @@ namespace HETS1Design
              Example, for a file contains:
 
              
-           "__[TC]9 5             
-             __[TNC]3 4"
+           __[TC]
+           9 5             
+           __[TNC]
+           3 4
 
             will create the list 
-            <"__[TC]9 5", "__[TNC]3 4"
+            <"__[TC]9 5\n", "__[TNC]3 4\n"
             to one element in the string list          
              */
+
             string textCaseContent = File.ReadAllText(textFile);
             List<string> testCasesList = new List<string>();
-            var lines = Regex.Split(textCaseContent, "\r\n|\r|\n");
-            testCasesList.AddRange(lines);
+
+
+            using (StringReader sr = new StringReader(textFile))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (line.Contains("__[T"))
+                    {
+                        testCasesList.Add(line);
+                    }                 
+                    testCasesList[testCasesList.Count - 1] += line;
+                }
+            }                        
+
             return testCasesList;
         }
 
@@ -105,6 +121,10 @@ namespace HETS1Design
             Once it receives a list of the 7 test cases, it will add them to the list (AddRange) and remove the original
             test case that had the EQpartition=true, notice that SingleTestCase checks for that value*/
         }
+
+
+        
+
 
 
 
