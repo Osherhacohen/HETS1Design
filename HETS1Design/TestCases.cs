@@ -10,23 +10,29 @@ namespace HETS1Design
 {
     class TestCases
     {
-        /*We obtain 2 files for i/o testing we'll need to make sure they have the same
-        amount of test cases. We'll need special uncommon string that will separate test cases 
-        for example: __[TC] (In this case anything that starts with __[TC will delete the whole 
-        line and take the next lines as a input for a test case until the end of file or until next __[TC
-        so that means __[TCslkdjvhlksjdhv] is also a legal TC name, for the convenience of the user).
-        We'll also have __[TNC] for test cases where the result needs to be DIFFERENT than what's written
-        on the output file.*/
 
         public static List<SingleTestCase> testCases = new List<SingleTestCase>();  //List of test cases. We'll add the separated test cases here and it'll be possible to add to it with Append.
 
 
+        /*Since this is a static function and we don't have a construct, we need to have a function that triggers
+        once we have both Input and Output test cases. Activate this from MainScreen on 2 files loaded event.*/
+        public static void StartFunction(string inputFile, string outputFile)
+        {
 
+        }
 
+        //Add a new Test Case (one at a time, without TC/TNC keywords from text boxes and activate MultiplyTestCasesBy functions.
+        public static void OnAppend(string inputBox, string outputBox)
+        {
 
-        /********************We need to think of the order in which we'll use these functions in the construct********************/
+        }
+        
 
-        // Counts the amount of __[TC] and __[TNC] in the text
+        //*******************************************************
+        //Functions to be used in the StartFunction and OnAppend.
+        //*******************************************************
+
+        //Counts the amount of __[TC] and __[TNC] in the text. Will be used to make sure I and O are simetric.
         public static int CountTestCases(string fileToCheck) 
         {
 
@@ -43,31 +49,28 @@ namespace HETS1Design
                     
                 }
                 return count;
-            }
-
-            /*This function should count and return the amount of special characters in each of the files.
-             We'll then use it in the construct to make sure the files have the same amount of test cases
-             like this: if(CountTestCases(inputFileContent)==CountTestCases(outputFileContent)) then continue...
-             Counts both __[TC] and __[TNC]*/
-            
+            }            
         }
 
+        /*The following function will separate each test cases by __[TC] or __[TNC]
+         and adds them to a string list element. The element will include the special keyword.
+         Our keywords for test cases are __[TC] for Test Case and __[TNC] for Test NOT Case (Output must be different)
+         This will have an impact only according to the input file, output may use any of them to separate.
+         For example, for an input file that contains:
+         __[TC]
+         9 5             
+         __[TNC]
+         3 4
 
+        will create the list 
+        <"__[TC]9 5\n", "__[TNC]3 4\n">       
+         */
+        
+            
+        //Description above.
         public List<string> TestCasesSeparator(string textFile)
         {
-            /*This function will separate each test cases by __[TC] or __[TNC]
-             Example, for a file contains:
 
-             
-           __[TC]
-           9 5             
-           __[TNC]
-           3 4
-
-            will create the list 
-            <"__[TC]9 5\n", "__[TNC]3 4\n"
-            to one element in the string list          
-             */
 
             string textCaseContent = File.ReadAllText(textFile);
             List<string> testCasesList = new List<string>();
@@ -89,10 +92,11 @@ namespace HETS1Design
             return testCasesList;
         }
 
-        public void TestCasesBuilder(string inputFile, string outputFile)
+        //Fills the test cases list according the the Input/Output files.
+        public void TestCasesBuilder(string inputFileText, string outputFileText)
         {
-            List<String> input = TestCasesSeparator(inputFile);
-            List<String> output = TestCasesSeparator(outputFile);
+            List<String> input = TestCasesSeparator(inputFileText);
+            List<String> output = TestCasesSeparator(outputFileText);
             bool isTC;
             for (int i = 0; i <= input.Count(); i++)
             {
@@ -104,34 +108,92 @@ namespace HETS1Design
 
         }
 
+        //Checks whether a test case is TC or TNC before removing the keyword.
         public bool TC_or_TNC(string testCase)
         {
-            if (testCase.Contains("__[TC]"))
+            if (testCase.Contains("__[TC]")) //First line must contain either TC or TNC.
                 return true;
-            return false;
+            return false; //It can only be TNC if not TC because otherwise it wouldn't be the first line.
         }
 
-        public string RemoveTCTNC(string testCase) //Test this!!!!!
+        //Removes the special keyword after separating to test cases.
+        public string RemoveTCTNC(string testCase) 
         {
             var lines = Regex.Split(testCase, "\r\n|\r|\n").Skip(1);
-            return string.Join(Environment.NewLine, lines.ToArray());
-        }
+            string testCaseWithoutKeyword = string.Join(Environment.NewLine, lines.ToArray());
 
-        public void MultiplyTestCasesByBoundary()
-        {
-            /*This goes over the list in a while loop as long as there's a test case with a TRUE value in 
-            hasBoundInText If a test case has a TRUE in this, it will call ReturnBoundaryTestCases.
-            Once it receives a list of the 5 test cases, it will add them to the list (AddRange) and remove the original
-            test case that had the EQpartition=true, notice that SingleTestCase checks for that value*/
+            if (testCaseWithoutKeyword != null) //If tester forgot to write anything below keyword.
+                return testCaseWithoutKeyword;
+            else
+                return ""; //Or for cases with no input.
         }
 
 
-        public void MultiplyTestCasesByEQPart()
+
+        /**************************************************************************************************
+        The following functions may have a shallow/deep copy problem, therefore, when calling it on the 
+        construct call it like this: 
+        testCases = MultiplyTestCasesByBoundary(testCases.ToList());
+        ***************************************************************************************************/
+
+        //Recursive function to get rid of __[Bound] keyword and add the appropriate 5 test cases
+        public List<SingleTestCase> MultiplyTestCasesByBoundary(List<SingleTestCase> testCasesCopy) 
         {
-            /*This goes over the list in a while loop as long as there's a test case with a TRUE value in  
-            hasEQPartInText. If a test case has a TRUE in this, it will call ReturnEQPartTestCases.
-            Once it receives a list of the 7 test cases, it will add them to the list (AddRange) and remove the original
-            test case that had the EQpartition=true, notice that SingleTestCase checks for that value*/
+            int i = 0;
+            foreach (SingleTestCase tc in testCasesCopy.ToList()) //testCases.ToList() is a new temporary copy of testCases.
+            {
+                if (tc.hasBoundInText) //If current tc (of the temp test cases list has the keyword)
+                {
+                    testCasesCopy.AddRange(tc.ReturnBoundaryTestCases()); //Add 7 test cases to the original passed testCasesCopy list.
+                    testCasesCopy.RemoveAt(i); //Removing from the passed list will need to have index i stay in place (they all move back).
+                }
+                else
+                i++; //Advance index at the original list only if nothing was removed.
+            }
+
+            bool tcListisClearofBound = true;
+            foreach (SingleTestCase tc in testCasesCopy) //Checking the original list for more keywords.
+            {
+                if (tc.hasBoundInText)
+                {
+                    tcListisClearofBound = false;
+                }
+            }
+
+            if (tcListisClearofBound == true)
+                return testCasesCopy;
+            else
+                return MultiplyTestCasesByBoundary(testCasesCopy);
+        }
+
+        //Recursive function to get rid of __[EQPart] keyword and add the appropriate 7 test cases.
+        public static List<SingleTestCase> MultiplyTestCasesByEQPart(List<SingleTestCase> testCasesCopy)
+        {
+            int i = 0;
+            foreach (SingleTestCase tc in testCasesCopy.ToList()) //testCases.ToList() is a new temporary copy of testCases.
+            {
+                if (tc.hasEQPartInText) //If current tc (of the temp test cases list has the keyword)
+                {
+                    testCasesCopy.AddRange(tc.ReturnEQPartTestCases()); //Add 7 test cases to the original passed testCasesCopy list.
+                    testCasesCopy.RemoveAt(i); //Removing from the passed list will need to have index i stay in place (they all move back). 
+                }
+                else
+                    i++; //Advance index at the original list only if nothing was removed.
+            }
+
+            bool tcListisClearofEQPart = true; 
+            foreach (SingleTestCase tc in testCasesCopy) //Checking the original list for more keywords.
+            {
+                if (tc.hasEQPartInText)
+                {
+                    tcListisClearofEQPart = false;
+                }
+            }
+
+            if (tcListisClearofEQPart == true)
+                return testCasesCopy; //Return the list clear of keywords.
+            else
+                return MultiplyTestCasesByEQPart(testCasesCopy); //Recursive call.
         }
 
 
