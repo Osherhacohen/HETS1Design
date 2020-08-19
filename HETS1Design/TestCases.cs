@@ -24,6 +24,7 @@ namespace HETS1Design
         public TestCases(string inputFileContent, string outputFileContent)
         {
             //Separation to Test Cases will be done here
+            this.testCases = new List<SingleTestCase>();
         }
 
 
