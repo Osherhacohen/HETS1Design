@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CProgramHandler.cs" />
-    <Compile Include="Input.cs" />
+    <Compile Include="TestCases.cs" />
     <Compile Include="MainScreen.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HETS1Design
 {
-    class Input
+    class TestCases
     {
         string[] testCases;
     }
