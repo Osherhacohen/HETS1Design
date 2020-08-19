@@ -11,26 +11,25 @@ namespace HETS1Design
 {
     static class CProgramHandler //Prototype of C code compilation.
     {
-        public static void CompileCode()//string codeFilePath)  //We'll need to get a path into this function (Including file name).
+        public static void CompileCode()//string codeFilePath)  //We'll need to pass a path into this function (Including file name).
         {
-            //Path from bin to tcc: ..\\..\\..\\Assets\\tcc\\tcc.exe
+            string compilerPath = "..\\..\\..\\Assets\\tcc\\tcc.exe"; //We'll need to make sure this is the right directory later on build.
+
+            string codeFilePath = "..\\..\\..\\Assets\\CodeToCheck\\Source.c"; //Just for now, it'll eventualy be passed to the function.
+
+            string cFileName = Path.GetFileName(codeFilePath);
+            string directoryName = Path.GetDirectoryName(codeFilePath);
 
 
-            //string codeName = "Source"; 
-            //string codePath = "..\\..\\..\\Assets\\CodeToCheck";
-            //string command = "cd " + codePath+"&"+"..\\tcc\\tcc.exe "+codeName+".c"; //This is with CMD usage
-            //ProcessStartInfo psi = new ProcessStartInfo("cmd", " /k "+ command); // This is with CMD usage
-
-
-            ProcessStartInfo psi = new ProcessStartInfo("..\\..\\..\\Assets\\tcc\\tcc.exe", "mtla3.c"); //tcc path will stay, file and current directory will change.
+            ProcessStartInfo psi = new ProcessStartInfo(compilerPath, cFileName); 
             psi.RedirectStandardInput = true;
             psi.RedirectStandardOutput = true;
             psi.UseShellExecute = false;
-            psi.WorkingDirectory = "..\\..\\..\\Assets\\CodeToCheck";
+            psi.RedirectStandardError = true;
+            psi.WorkingDirectory = directoryName; //Set process' working directory.
 
             Process p = new Process();
-            p.StartInfo = psi;
-            
+            p.StartInfo = psi;            
             p.Start();
 
             string compilerOutput;
@@ -39,27 +38,20 @@ namespace HETS1Design
                 if (sr.BaseStream.CanRead)
                 {
                     compilerOutput = sr.ReadToEnd();
-                    //if (compilerOutput=="")
+                   
+                    /*Trying to get the compiler errors and warnings, doesn't work right now.*/                    
+                   //if (compilerOutput=="")
                    // MessageBox.Show("OK"); //Example in a text box. We'll be comparing the results to the output file.
                    // else
-                    MessageBox.Show(compilerOutput); //Example in a text box. We'll be comparing the results to the output file.
+                   // MessageBox.Show(compilerOutput); //Example in a text box. We'll be comparing the results to the output file.
 
                 }
             }
-
-
-            //return codePath + "\\" + codeName + ".exe";
-
         }
 
       
         public static void RunEXE()//string exeFilePath, SingleTestCase inputTestCase) //We'll need to get a path and a test case in here.
         {
-
-            //string codeName = "Source";
-            //string codePath = "..\\..\\..\\Assets\\CodeToCheck";
-            //string command = "cd " + codePath;// + "&" + codeName + ".exe";
-            //ProcessStartInfo psi = new ProcessStartInfo("cmd", " /k " + command);
 
 
             ProcessStartInfo psi = new ProcessStartInfo("..\\..\\..\\Assets\\CodeToCheck\\Source.exe");
@@ -92,16 +84,6 @@ namespace HETS1Design
 
         }
 
-        private static string GetCodeNameFromPath() //We'll use this in the above functions to get .c file name.
-        {
-            return null;
-
-        }
-
-        private static string GetDirectoryNameFromPath() //We'll use this in the above functions to get the path for code directory.
-        {
-            return null;
-        }
 
 
     }

@@ -58,7 +58,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnValidate = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridResults = new System.Windows.Forms.DataGridView();
@@ -389,15 +389,15 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Compile code? (check .c files)";
             // 
-            // button2
+            // btnValidate
             // 
-            this.button2.Location = new System.Drawing.Point(13, 382);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(159, 30);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Start Validation Process";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnValidate.Location = new System.Drawing.Point(13, 382);
+            this.btnValidate.Name = "btnValidate";
+            this.btnValidate.Size = new System.Drawing.Size(159, 30);
+            this.btnValidate.TabIndex = 7;
+            this.btnValidate.Text = "Start Validation Process";
+            this.btnValidate.UseVisualStyleBackColor = true;
+            this.btnValidate.Click += new System.EventHandler(this.btnValidate_Click);
             // 
             // button3
             // 
@@ -482,7 +482,7 @@
             this.Controls.Add(this.btnExportCSV);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnValidate);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -531,7 +531,7 @@
         private System.Windows.Forms.RadioButton radioExeYes;
         private System.Windows.Forms.RadioButton radioCompileNo;
         private System.Windows.Forms.RadioButton radioCompileYes;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnValidate;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridResults;
