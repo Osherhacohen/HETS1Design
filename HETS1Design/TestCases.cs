@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace HETS1Design
 {
@@ -54,7 +55,11 @@ namespace HETS1Design
             9 5 
             to one element in the string list          
              */
-            return null;
+            string textCaseContent = File.ReadAllText(textFile);
+            List<string> testCasesList = new List<string>();
+            var lines = Regex.Split(textCaseContent, "\r\n|\r|\n");
+            testCasesList.AddRange(lines);
+            return testCasesList;
         }
 
         public void TestCasesBuilder(string inputFile, string outputFile)
