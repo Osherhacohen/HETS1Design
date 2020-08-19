@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace HETS1Design
 {
@@ -41,14 +42,34 @@ namespace HETS1Design
 
         private bool BoundaryScan(string input) //scans if there are Boundary values
         {
-            //Write this
-            return false;
+            using (StringReader sr = new StringReader(input))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (line.Contains("__[Bound]"))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
         }
 
-        private bool EQPartScan(string input) //scans if there are Boundary values
+        private bool EQPartScan(string input) //scans if there are EQPart values
         {
-            //Write this
-            return false;
+            using (StringReader sr = new StringReader(input))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (line.Contains("__[EQPart]")) 
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
         }
 
         private List<SingleTestCase> ReturnBoundaryTestCases(string input)
