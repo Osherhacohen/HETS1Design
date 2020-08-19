@@ -33,7 +33,7 @@ namespace HETS1Design
             Application.Exit();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnValidate_Click(object sender, EventArgs e)
         {
             string validateOk = FormValidate();
             if (validateOk.CompareTo("OK") != 0)
@@ -92,7 +92,10 @@ namespace HETS1Design
                 { //This is just to test the zip entries
                     this.txtInputAppend.Text = "";
                     foreach (ZipArchiveEntry zipEntry in zip.Entries)
+                    {
                         this.txtInputAppend.Text += zipEntry.FullName + "\n";
+                    }
+
                 } //************************************
 
                 
