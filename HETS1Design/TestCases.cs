@@ -22,18 +22,34 @@ namespace HETS1Design
 
 
 
-        
+
 
         /********************We need to think of the order in which we'll use these functions in the construct********************/
 
-
-        public static int CountTestCases(string fileToCheck)
+        // Counts the amount of __[TC] and __[TNC] in the text
+        public static int CountTestCases(string fileToCheck) 
         {
+
+            using (StringReader sr = new StringReader(fileToCheck))
+            {
+                int count = 0;
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (line.Contains("__[T"))
+                    {
+                        count++;
+                    }
+                    
+                }
+                return count;
+            }
+
             /*This function should count and return the amount of special characters in each of the files.
              We'll then use it in the construct to make sure the files have the same amount of test cases
              like this: if(CountTestCases(inputFileContent)==CountTestCases(outputFileContent)) then continue...
              Counts both __[TC] and __[TNC]*/
-            return 0;
+            
         }
 
 
