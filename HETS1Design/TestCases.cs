@@ -79,7 +79,8 @@ namespace HETS1Design
         }
         public string RemoveFirstLine(string testCase)
         {
-            //Removes the first line (until \n including \n) from a string.
+            //Removes the first line (until \n including \n) from a string. Returns the string without first line.
+            return null;
         }
 
         public void MultiplyTestCasesByBoundary(List<SingleTestCase> tc)
