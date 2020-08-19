@@ -5,8 +5,8 @@ int main()
 	char x, b;
 	printf("helo ther, this app give you the absolute value of the subtract between the value of two chares in ascii table ");
 	printf("so now please enter 2 char ");
-	scanf("%c\n",&x);
-	scanf("%c", &b);
+	scanf_s("%c\n",&x);
+	scanf_s("%c", &b);
 	if (x - b < 0)
 	{
 		printf("the difference between the values is %d", (x - b)*-1);
