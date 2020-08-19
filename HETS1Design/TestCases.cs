@@ -105,10 +105,5 @@ namespace HETS1Design
             Once it receives a list of the 7 test cases, it will add them to the list (AddRange) and remove the original
             test case that had the EQpartition=true, notice that SingleTestCase checks for that value*/
         }
-
-
-
-
-
     }
 }
