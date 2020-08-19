@@ -10,12 +10,12 @@ namespace HETS1Design
     {
         private string input { set; get; } //Input for test case.
         private string output { set; get; } //Output for test case given input.
-        bool equal { set; get; } //Whether the output needs to be equal or NOT equal given the input.  
-        bool hasBoundInText { set; get; }
-        bool hasEQPartInText { set; get; }
+        private bool equal { set; get; } //Whether the output needs to be equal or NOT equal given the input.  
+        private bool hasBoundInText { set; get; }
+        private bool hasEQPartInText { set; get; }
 
 
-        SingleTestCase(string input, string output, bool equal)
+        public SingleTestCase(string input, string output, bool equal)
         {
             this.input = input;
             this.output = output;

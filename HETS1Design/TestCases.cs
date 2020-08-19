@@ -37,12 +37,49 @@ namespace HETS1Design
              Counts both __[TC] and __[TNC]*/
             return 0;
         }
-        
 
-        public List<SingleTestCase> TestCasesSeparator(string inoroutFile)
+
+        public List<string> TestCasesSeparator(string textFile)
         {
-            /*This function will separate each */
+            /*This function will separate each test cases by __[TC] or __[TNC]
+             Example:
+
+             __[TC]
+             9 5             
+             __[TNC]
+             3 4
+
+            will add 
+            __[TC]
+            9 5 
+            to one element in the string list          
+             */
             return null;
+        }
+
+        public void TestCasesBuilder(string inputFile, string outputFile)
+        {
+            List<String> input = TestCasesSeparator(inputFile);
+            List<String> output = TestCasesSeparator(outputFile);
+            bool isTC;
+            for (int i = 0; i <= input.Count(); i++)
+            {
+                isTC = TC_or_TNC(input[i]);
+                input[i] = RemoveFirstLine(input[i]);
+                output[i] = RemoveFirstLine(output[i]);
+                testCases.Add(new SingleTestCase(input[i], output[i], isTC));
+            }
+
+        }
+
+        public bool TC_or_TNC(string testCase)
+        {
+            //Checks whether the first line is __[TC] or __[TNC]
+            return true;
+        }
+        public string RemoveFirstLine(string testCase)
+        {
+            //Removes the first line (until \n including \n) from a string.
         }
 
         public void MultiplyTestCasesByBoundary(List<SingleTestCase> tc)
