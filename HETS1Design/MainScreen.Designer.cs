@@ -48,15 +48,9 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioCheckByComp = new System.Windows.Forms.RadioButton();
-            this.radioMakeNo = new System.Windows.Forms.RadioButton();
-            this.radioExeNo = new System.Windows.Forms.RadioButton();
-            this.radioMakeYes = new System.Windows.Forms.RadioButton();
-            this.radioExeYes = new System.Windows.Forms.RadioButton();
             this.radioCompileNo = new System.Windows.Forms.RadioButton();
             this.radioCompileYes = new System.Windows.Forms.RadioButton();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnValidate = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
@@ -237,19 +231,13 @@
             this.groupBox3.Controls.Add(this.radioButton2);
             this.groupBox3.Controls.Add(this.radioButton1);
             this.groupBox3.Controls.Add(this.radioCheckByComp);
-            this.groupBox3.Controls.Add(this.radioMakeNo);
-            this.groupBox3.Controls.Add(this.radioExeNo);
-            this.groupBox3.Controls.Add(this.radioMakeYes);
-            this.groupBox3.Controls.Add(this.radioExeYes);
             this.groupBox3.Controls.Add(this.radioCompileNo);
             this.groupBox3.Controls.Add(this.radioCompileYes);
-            this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Location = new System.Drawing.Point(13, 259);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(775, 116);
+            this.groupBox3.Size = new System.Drawing.Size(775, 72);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Validation options";
@@ -257,7 +245,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(356, 66);
+            this.radioButton2.Location = new System.Drawing.Point(356, 43);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(334, 17);
             this.radioButton2.TabIndex = 11;
@@ -268,7 +256,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(285, 66);
+            this.radioButton1.Location = new System.Drawing.Point(285, 43);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(64, 17);
             this.radioButton1.TabIndex = 10;
@@ -279,57 +267,13 @@
             // radioCheckByComp
             // 
             this.radioCheckByComp.AutoSize = true;
-            this.radioCheckByComp.Location = new System.Drawing.Point(165, 65);
+            this.radioCheckByComp.Location = new System.Drawing.Point(165, 42);
             this.radioCheckByComp.Name = "radioCheckByComp";
             this.radioCheckByComp.Size = new System.Drawing.Size(113, 17);
             this.radioCheckByComp.TabIndex = 9;
             this.radioCheckByComp.TabStop = true;
             this.radioCheckByComp.Text = "Compilation (.c file)";
             this.radioCheckByComp.UseVisualStyleBackColor = true;
-            // 
-            // radioMakeNo
-            // 
-            this.radioMakeNo.AutoSize = true;
-            this.radioMakeNo.Location = new System.Drawing.Point(215, 87);
-            this.radioMakeNo.Name = "radioMakeNo";
-            this.radioMakeNo.Size = new System.Drawing.Size(39, 17);
-            this.radioMakeNo.TabIndex = 8;
-            this.radioMakeNo.TabStop = true;
-            this.radioMakeNo.Text = "No";
-            this.radioMakeNo.UseVisualStyleBackColor = true;
-            // 
-            // radioExeNo
-            // 
-            this.radioExeNo.AutoSize = true;
-            this.radioExeNo.Location = new System.Drawing.Point(215, 41);
-            this.radioExeNo.Name = "radioExeNo";
-            this.radioExeNo.Size = new System.Drawing.Size(39, 17);
-            this.radioExeNo.TabIndex = 7;
-            this.radioExeNo.TabStop = true;
-            this.radioExeNo.Text = "No";
-            this.radioExeNo.UseVisualStyleBackColor = true;
-            // 
-            // radioMakeYes
-            // 
-            this.radioMakeYes.AutoSize = true;
-            this.radioMakeYes.Location = new System.Drawing.Point(165, 87);
-            this.radioMakeYes.Name = "radioMakeYes";
-            this.radioMakeYes.Size = new System.Drawing.Size(43, 17);
-            this.radioMakeYes.TabIndex = 7;
-            this.radioMakeYes.TabStop = true;
-            this.radioMakeYes.Text = "Yes";
-            this.radioMakeYes.UseVisualStyleBackColor = true;
-            // 
-            // radioExeYes
-            // 
-            this.radioExeYes.AutoSize = true;
-            this.radioExeYes.Location = new System.Drawing.Point(165, 41);
-            this.radioExeYes.Name = "radioExeYes";
-            this.radioExeYes.Size = new System.Drawing.Size(43, 17);
-            this.radioExeYes.TabIndex = 6;
-            this.radioExeYes.TabStop = true;
-            this.radioExeYes.Text = "Yes";
-            this.radioExeYes.UseVisualStyleBackColor = true;
             // 
             // radioCompileNo
             // 
@@ -353,32 +297,14 @@
             this.radioCompileYes.Text = "Yes";
             this.radioCompileYes.UseVisualStyleBackColor = true;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 89);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 13);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Makefile needed:";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 66);
+            this.label6.Location = new System.Drawing.Point(10, 43);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 13);
             this.label6.TabIndex = 2;
             this.label6.Text = "Check I/O by:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 43);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Create Executable file?";
             // 
             // label4
             // 
@@ -391,7 +317,7 @@
             // 
             // btnValidate
             // 
-            this.btnValidate.Location = new System.Drawing.Point(13, 382);
+            this.btnValidate.Location = new System.Drawing.Point(13, 337);
             this.btnValidate.Name = "btnValidate";
             this.btnValidate.Size = new System.Drawing.Size(159, 30);
             this.btnValidate.TabIndex = 7;
@@ -401,7 +327,7 @@
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(629, 382);
+            this.closeButton.Location = new System.Drawing.Point(629, 337);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(159, 30);
             this.closeButton.TabIndex = 8;
@@ -412,9 +338,9 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dataGridResults);
-            this.groupBox4.Location = new System.Drawing.Point(13, 419);
+            this.groupBox4.Location = new System.Drawing.Point(13, 373);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(775, 257);
+            this.groupBox4.Size = new System.Drawing.Size(775, 303);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Results Table";
@@ -425,7 +351,7 @@
             this.dataGridResults.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridResults.Location = new System.Drawing.Point(3, 16);
             this.dataGridResults.Name = "dataGridResults";
-            this.dataGridResults.Size = new System.Drawing.Size(769, 238);
+            this.dataGridResults.Size = new System.Drawing.Size(769, 284);
             this.dataGridResults.TabIndex = 0;
             // 
             // btnExportCSV
@@ -454,9 +380,9 @@
             // 
             // testCOMP
             // 
-            this.testCOMP.Location = new System.Drawing.Point(334, 369);
+            this.testCOMP.Location = new System.Drawing.Point(287, 344);
             this.testCOMP.Name = "testCOMP";
-            this.testCOMP.Size = new System.Drawing.Size(131, 56);
+            this.testCOMP.Size = new System.Drawing.Size(131, 23);
             this.testCOMP.TabIndex = 11;
             this.testCOMP.Text = "TEST COMPILATION";
             this.testCOMP.UseVisualStyleBackColor = true;
@@ -464,7 +390,7 @@
             // 
             // exeOutputBtn
             // 
-            this.exeOutputBtn.Location = new System.Drawing.Point(471, 389);
+            this.exeOutputBtn.Location = new System.Drawing.Point(424, 344);
             this.exeOutputBtn.Name = "exeOutputBtn";
             this.exeOutputBtn.Size = new System.Drawing.Size(75, 23);
             this.exeOutputBtn.TabIndex = 12;
@@ -518,17 +444,11 @@
         private System.Windows.Forms.TextBox txtInputPath;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioCheckByComp;
-        private System.Windows.Forms.RadioButton radioMakeNo;
-        private System.Windows.Forms.RadioButton radioExeNo;
-        private System.Windows.Forms.RadioButton radioMakeYes;
-        private System.Windows.Forms.RadioButton radioExeYes;
         private System.Windows.Forms.RadioButton radioCompileNo;
         private System.Windows.Forms.RadioButton radioCompileYes;
         private System.Windows.Forms.Button btnValidate;
