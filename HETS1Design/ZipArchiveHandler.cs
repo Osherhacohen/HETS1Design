@@ -27,9 +27,9 @@ namespace HETS1Design
 
             //Names the folder to extract into. Master zip is Codes To Check and inner zip keeps its original name. 
             if (isMasterZipDirectory) 
-                extractToFolderName = "\\Codes To Check"; 
+                extractToFolderName = @"\Codes To Check"; 
             else
-                extractToFolderName = "\\"+ Path.GetFileName(zipFile).Substring(0,Path.GetFileName(zipFile).Length-4); //Removes ".zip" from the name.
+                extractToFolderName = @"\"+ Path.GetFileName(zipFile).Substring(0,Path.GetFileName(zipFile).Length-4); //Removes ".zip" from the name.
 
 
             string extractToFolder = Path.GetDirectoryName(zipFile) + extractToFolderName; //Full path of the folder/directory.
@@ -43,42 +43,60 @@ namespace HETS1Design
 
             Directory.CreateDirectory(extractToFolder); //Creates the folder, this needs the full path.
 
-            foreach (ZipArchiveEntry zipEntry in zip.Entries) //This extracts the ZIP entries into directories in CodesToCheck Folder.
+            //We need to make sure the entries are ordered by directories.
+            var orderedZipEntries =
+                from entry in zip.Entries
+                orderby entry.FullName
+                select entry;
+
+
+            foreach (ZipArchiveEntry zipEntry in orderedZipEntries) //This extracts the ZIP entries into directories in CodesToCheck Folder.
             {
-                string newDirectory = extractToFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName); //To avoid unassigned error.
+                string newDirectory = extractToFolder + @"\" + Path.GetDirectoryName(zipEntry.FullName); //To avoid unassigned error.
                 
-                if (!(Directory.Exists(extractToFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName)))) //If that directory doesn't exist yet.
+                
+                if (!(Directory.Exists(newDirectory))) //If that directory doesn't exist yet.
                 {
-                    newDirectory = extractToFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName);
+                    newDirectory = extractToFolder + @"\" + Path.GetDirectoryName(zipEntry.FullName);
                     Directory.CreateDirectory(newDirectory);    //Create a directory for a submission. Its name will serve as ID.
 
-                    Submissions.submissions.Add(new SingleSubmission(newDirectory)); //New directory = new submission.
+                    /*If it's a new directory that doesn't represent a new submission but still needs to be created
+                    like an folder-in-folder situation, we make sure we don't make it into a new submission
+                    so we check whether the new "submission" path doesn't happen to be a folder under the actual submission.*/
+
+                    if (Submissions.submissions.Count == 0)  //Assuring we have at least 1 element in the list to use .Last()
+                        Submissions.submissions.Add(new SingleSubmission(newDirectory));
+
+                    if (!(newDirectory.Contains(Submissions.submissions.Last().submitID)))
+                        Submissions.submissions.Add(new SingleSubmission(newDirectory)); 
                 }
 
                 string _2CharExtention = zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 2)); //File extension.
 
                 if (_2CharExtention == ".c"|| _2CharExtention == ".h") //If extension is .c (c code) or .h (c header).
                 {
-                    string codePath = newDirectory + "\\" + Path.GetFileName(zipEntry.FullName);
+                    string codePath = newDirectory + @"\" + Path.GetFileName(zipEntry.FullName);
                     zipEntry.ExtractToFile(codePath);
 
-                    Submissions.submissions[Submissions.submissions.Count - 1].codePath = codePath; //Always edit the newest Submission entry.
+                    Submissions.submissions.Last().codePath = codePath; //Always edit the newest Submission entry.
                 }
-
 
                 string _4CharExtension = zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 4)); //File extension.
 
-                if (_4CharExtension == ".exe") //If extension is .exe
+                if (_4CharExtension == ".exe") //If extension is .exe put it in a new folder to prevent conflict with any TCC compiled .exe.
                 {
-                    string exePath = newDirectory + "\\" + Path.GetFileName(zipEntry.FullName);
+                    if (!(Directory.Exists(newDirectory + @"\Exe\"))) //If it exists already, it may have more than 1 .exe file.
+                    Directory.CreateDirectory(newDirectory + @"\Exe\");
+
+                    string exePath = newDirectory + @"\Exe\" + Path.GetFileName(zipEntry.FullName);                    
                     zipEntry.ExtractToFile(exePath);
 
-                    Submissions.submissions[Submissions.submissions.Count - 1].exePath = exePath;  //Always edit the newest Submission entry.
+                    Submissions.submissions.Last().exePath = exePath;  //Always edit the newest Submission entry.
                 }
 
-                if (_4CharExtension == ".zip") //If extension is .zip, unfortunately this may create a long path with a new CTC folder.
+                if (_4CharExtension == ".zip") //If extension is .zip, put it in a new folder with the same zip archive file name.
                 {
-                    string innerZipPath = newDirectory + "\\" + Path.GetFileName(zipEntry.FullName);
+                    string innerZipPath = newDirectory + @"\" + Path.GetFileName(zipEntry.FullName);
                     zipEntry.ExtractToFile(innerZipPath);
                     GetSubmissionData(innerZipPath, false); //Recursive call. This is an inner zip, we pass false here.
                     File.Delete(innerZipPath);                    

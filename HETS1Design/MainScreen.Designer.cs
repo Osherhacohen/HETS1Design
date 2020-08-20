@@ -45,6 +45,8 @@
             this.txtInputPath = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBoxContainExe = new System.Windows.Forms.CheckBox();
+            this.checkBoxContainCode = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnValidate = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
@@ -58,6 +60,7 @@
             this.testCOMP = new System.Windows.Forms.Button();
             this.exeOutputBtn = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.checkBoxEnableGrading = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.menuResultsWeight = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
@@ -67,9 +70,6 @@
             this.menuCodeWeight = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.checkBoxContainCode = new System.Windows.Forms.CheckBox();
-            this.checkBoxContainExe = new System.Windows.Forms.CheckBox();
-            this.checkBoxEnableGrading = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -145,6 +145,7 @@
             this.txtOutputAppend.Location = new System.Drawing.Point(397, 64);
             this.txtOutputAppend.Multiline = true;
             this.txtOutputAppend.Name = "txtOutputAppend";
+            this.txtOutputAppend.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtOutputAppend.Size = new System.Drawing.Size(372, 96);
             this.txtOutputAppend.TabIndex = 10;
             // 
@@ -153,6 +154,7 @@
             this.txtInputAppend.Location = new System.Drawing.Point(13, 64);
             this.txtInputAppend.Multiline = true;
             this.txtInputAppend.Name = "txtInputAppend";
+            this.txtInputAppend.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtInputAppend.Size = new System.Drawing.Size(361, 96);
             this.txtInputAppend.TabIndex = 9;
             // 
@@ -248,6 +250,26 @@
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Validation options";
+            // 
+            // checkBoxContainExe
+            // 
+            this.checkBoxContainExe.AutoSize = true;
+            this.checkBoxContainExe.Location = new System.Drawing.Point(214, 19);
+            this.checkBoxContainExe.Name = "checkBoxContainExe";
+            this.checkBoxContainExe.Size = new System.Drawing.Size(79, 17);
+            this.checkBoxContainExe.TabIndex = 2;
+            this.checkBoxContainExe.Text = "Executable";
+            this.checkBoxContainExe.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxContainCode
+            // 
+            this.checkBoxContainCode.AutoSize = true;
+            this.checkBoxContainCode.Location = new System.Drawing.Point(122, 19);
+            this.checkBoxContainCode.Name = "checkBoxContainCode";
+            this.checkBoxContainCode.Size = new System.Drawing.Size(80, 17);
+            this.checkBoxContainCode.TabIndex = 1;
+            this.checkBoxContainCode.Text = "C Code File";
+            this.checkBoxContainCode.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -359,6 +381,17 @@
             this.groupBox5.TabIndex = 13;
             this.groupBox5.TabStop = false;
             // 
+            // checkBoxEnableGrading
+            // 
+            this.checkBoxEnableGrading.AutoSize = true;
+            this.checkBoxEnableGrading.Location = new System.Drawing.Point(9, -1);
+            this.checkBoxEnableGrading.Name = "checkBoxEnableGrading";
+            this.checkBoxEnableGrading.Size = new System.Drawing.Size(63, 17);
+            this.checkBoxEnableGrading.TabIndex = 10;
+            this.checkBoxEnableGrading.Text = "Grading";
+            this.checkBoxEnableGrading.UseVisualStyleBackColor = true;
+            this.checkBoxEnableGrading.CheckedChanged += new System.EventHandler(this.checkBoxEnableGrading_CheckedChanged);
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -436,37 +469,6 @@
             this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 0;
             this.label5.Text = "Code:";
-            // 
-            // checkBoxContainCode
-            // 
-            this.checkBoxContainCode.AutoSize = true;
-            this.checkBoxContainCode.Location = new System.Drawing.Point(122, 19);
-            this.checkBoxContainCode.Name = "checkBoxContainCode";
-            this.checkBoxContainCode.Size = new System.Drawing.Size(80, 17);
-            this.checkBoxContainCode.TabIndex = 1;
-            this.checkBoxContainCode.Text = "C Code File";
-            this.checkBoxContainCode.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxContainExe
-            // 
-            this.checkBoxContainExe.AutoSize = true;
-            this.checkBoxContainExe.Location = new System.Drawing.Point(214, 19);
-            this.checkBoxContainExe.Name = "checkBoxContainExe";
-            this.checkBoxContainExe.Size = new System.Drawing.Size(79, 17);
-            this.checkBoxContainExe.TabIndex = 2;
-            this.checkBoxContainExe.Text = "Executable";
-            this.checkBoxContainExe.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxEnableGrading
-            // 
-            this.checkBoxEnableGrading.AutoSize = true;
-            this.checkBoxEnableGrading.Location = new System.Drawing.Point(9, -1);
-            this.checkBoxEnableGrading.Name = "checkBoxEnableGrading";
-            this.checkBoxEnableGrading.Size = new System.Drawing.Size(63, 17);
-            this.checkBoxEnableGrading.TabIndex = 10;
-            this.checkBoxEnableGrading.Text = "Grading";
-            this.checkBoxEnableGrading.UseVisualStyleBackColor = true;
-            this.checkBoxEnableGrading.CheckedChanged += new System.EventHandler(this.checkBoxEnableGrading_CheckedChanged);
             // 
             // MainScreen
             // 

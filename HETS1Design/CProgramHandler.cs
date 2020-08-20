@@ -13,9 +13,9 @@ namespace HETS1Design
     {
         public static void CompileCode()//string codeFilePath)  //We'll need to pass a path into this function (Including file name).
         {
-            string compilerPath = "..\\..\\..\\Assets\\tcc\\tcc.exe"; //We'll need to make sure this is the right directory later on build.
+            string compilerPath = @"..\..\..\Assets\tcc\tcc.exe"; //We'll need to make sure this is the right directory later on build.
 
-            string codeFilePath = "..\\..\\..\\Assets\\CodeToCheck\\Source.c"; //Just for now, it'll eventualy be passed to the function.
+            string codeFilePath = @"..\..\..\Assets\CodeToCheck\Source.c"; //Just for now, it'll eventualy be passed to the function.
 
             string cFileName = Path.GetFileName(codeFilePath);
             string directoryName = Path.GetDirectoryName(codeFilePath);
@@ -48,11 +48,11 @@ namespace HETS1Design
         {
 
 
-            ProcessStartInfo psi = new ProcessStartInfo("..\\..\\..\\Assets\\CodeToCheck\\Source.exe");
+            ProcessStartInfo psi = new ProcessStartInfo(@"..\..\..\Assets\CodeToCheck\Source.exe");
             psi.RedirectStandardInput = true;
             psi.RedirectStandardOutput = true;
             psi.UseShellExecute = false;
-            psi.WorkingDirectory = "..\\..\\..\\Assets\\CodeToCheck";
+            psi.WorkingDirectory = @"..\..\..\Assets\CodeToCheck";
 
             Process p = new Process();
             p.StartInfo = psi;

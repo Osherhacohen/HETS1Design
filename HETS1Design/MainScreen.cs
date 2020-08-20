@@ -18,7 +18,7 @@ namespace HETS1Design
     {
         public MainScreen()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
         private void MainScreen_Load(object sender, EventArgs e)
         {
@@ -50,14 +50,13 @@ namespace HETS1Design
         {
             if (txtArchivePath.Text == "")
                 return "Choose archive file to continue!";
-            if (txtInputPath.Text == "") 
+            if (txtInputPath.Text == "")
                 return "Choose input test case file to continue!";
             if (txtOutputPath.Text == "")
                 return "Choose output test case file to continue!";
-            /*TODO: Radio button logics*/
             return "OK";
         }
-        
+
 
         private void btnBrowseArchive_Click(object sender, EventArgs e)
         {
@@ -77,7 +76,7 @@ namespace HETS1Design
             openOutputDialog.ShowDialog();
         }
 
-        
+
         private void openArchiveDialog_FileOk(object sender, CancelEventArgs e)
         {
 
@@ -86,7 +85,7 @@ namespace HETS1Design
                 string zipFile = openArchiveDialog.FileName;
                 this.txtArchivePath.Text = zipFile;
                 ZipArchiveHandler.GetSubmissionData(zipFile, true); //Extract submissions data.
-
+                GetAllSubmissions(zipFile);
                 //some_buttons.Enabled = true; //Do this later******************************************************
 
             }
@@ -166,7 +165,7 @@ namespace HETS1Design
 
         private void checkBoxEnableGrading_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkBoxEnableGrading.Checked)
+            if (checkBoxEnableGrading.Checked)
             {
                 this.menuCodeWeight.Enabled = true;
                 this.menuExeWeight.Enabled = true;
@@ -194,6 +193,16 @@ namespace HETS1Design
             txtOutputAppend.Text += output;
         }
 
+        public void GetAllSubmissions(string zipPath)
+        {
+            string createText = "";
+            foreach (SingleSubmission sub in Submissions.submissions)
+                createText += "ID: "+ sub.submitID + "\n"
+                    +"Code Path: "+ sub.codePath + "\n"
+                    +"Exe Path: "+ sub.exePath + "\n";
+
+            File.WriteAllText(Path.GetDirectoryName(zipPath)+@"\info.txt", createText);
+        }
         /************************************************************/
         //DEBUGGING PURPOSES ONLY - DELETE THIS LATER
         /************************************************************/

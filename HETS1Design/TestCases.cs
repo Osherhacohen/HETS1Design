@@ -79,11 +79,8 @@ namespace HETS1Design
         //Description above.
         public List<string> TestCasesSeparator(string textFile)
         {
-
-
             string textCaseContent = File.ReadAllText(textFile);
             List<string> testCasesList = new List<string>();
-
 
             using (StringReader sr = new StringReader(textFile))
             {
@@ -96,8 +93,7 @@ namespace HETS1Design
                     }                 
                     testCasesList[testCasesList.Count - 1] += line;
                 }
-            }                       
-
+            }                     
             return testCasesList;
         }
 
@@ -128,7 +124,7 @@ namespace HETS1Design
         //Removes the special keyword after separating to test cases.
         public string RemoveTCTNC(string testCase) 
         {
-            var lines = Regex.Split(testCase, "\r\n|\r|\n").Skip(1);
+            var lines = Regex.Split(testCase, "\r\n|\r|\n").Skip(1); //TODO: Use Environment.NewLine. if doesn't work.
             string testCaseWithoutKeyword = string.Join(Environment.NewLine, lines.ToArray());
 
             if (testCaseWithoutKeyword != null) //If tester forgot to write anything below keyword.
