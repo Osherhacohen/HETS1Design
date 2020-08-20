@@ -58,6 +58,13 @@ namespace HETS1Design
                     Submissions.submissions[Submissions.submissions.Count - 1].exePath = exePath;  //Always edit the newest Submission entry.
                 }
 
+                if (zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 4)) == ".zip") //If extension is .zip
+                {
+                    string zipPath = newDirectory + "\\" + Path.GetFileName(zipEntry.FullName);                    
+                    zipEntry.ExtractToFile(zipPath);
+                    GetSubmissionData(zipPath); //Recursive call.
+                    File.Delete(zipPath);                    
+                }
 
             }
 
