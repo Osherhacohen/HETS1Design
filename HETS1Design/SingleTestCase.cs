@@ -93,12 +93,13 @@ namespace HETS1Design
 
         public List<SingleTestCase> ReturnEPTestCases()
         {
-            //Takes one (the first to scan) boundary syntax and multiply the test case by 7 with the boundary input range. (2_ [TNC], 5 __[TC])
+            //Takes one (the first to scan) boundary syntax and multiply the test case by 7 with the boundary input range. (2 __[TNC], 5 __[TC]) 
+            //or if this current case was already TNC then (2 __[TC], 5 __[TNC]).
             //Multiplies the rest of the text including other boundary syntax and returns a list of 7 test cases with same output
             //but input according to boundary range. (TC: lower limit, 1 above lower limit, middle, one below upper limit, upper limit)
             //(TNC: 1 below lower limit, 1 above upper limit):
 
-            //We can use ReturnBoundaryTestCases for this to create the middle 5 Test Cases 
+            //We can use ReturnBoundaryTestCases for this to create the middle 5 Test Cases and create 2 other cases.
             return null;
         }
 
