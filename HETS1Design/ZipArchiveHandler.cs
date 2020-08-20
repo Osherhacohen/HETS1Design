@@ -15,6 +15,7 @@ namespace HETS1Design
 {
     static class ZipArchiveHandler
     {
+        //This funtion will extract .c and .exe files and save them 
         public static void GetSubmissionData(string zipFile)
         {
             //Open ZIP Archive with Hebrew encoding.
@@ -33,7 +34,7 @@ namespace HETS1Design
             foreach (ZipArchiveEntry zipEntry in zip.Entries) //This extracts the ZIP entries into directories in CodesToCheck Folder.
             {
                 string newDirectory = ctcFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName); //To avoid unassigned error.
-
+                
                 if (!(Directory.Exists(ctcFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName)))) //If path isn't taken
                 {
                     newDirectory = ctcFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName);
@@ -42,7 +43,9 @@ namespace HETS1Design
                     Submissions.submissions.Add(new SingleSubmission(newDirectory)); //New directory = new submission.
                 }
 
-                if (zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 2)) == ".c") //If extension is .c
+                string _2CharExtention = zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 2)); //File extension.
+
+                if (_2CharExtention == ".c"|| _2CharExtention == ".h") //If extension is .c (c code) or .h (c header).
                 {
                     string codePath = newDirectory + "\\" + Path.GetFileName(zipEntry.FullName);
                     zipEntry.ExtractToFile(codePath);
@@ -50,7 +53,10 @@ namespace HETS1Design
                     Submissions.submissions[Submissions.submissions.Count - 1].codePath = codePath; //Always edit the newest Submission entry.
                 }
 
-                if (zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 4)) == ".exe") //If extension is .exe
+
+                string _4CharExtension = zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 4)); //File extension.
+
+                if (_4CharExtension == ".exe") //If extension is .exe
                 {
                     string exePath = newDirectory + "\\" + Path.GetFileName(zipEntry.FullName);
                     zipEntry.ExtractToFile(exePath);
@@ -58,12 +64,12 @@ namespace HETS1Design
                     Submissions.submissions[Submissions.submissions.Count - 1].exePath = exePath;  //Always edit the newest Submission entry.
                 }
 
-                if (zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 4)) == ".zip") //If extension is .zip
+                if (_4CharExtension == ".zip") //If extension is .zip
                 {
-                    string zipPath = newDirectory + "\\" + Path.GetFileName(zipEntry.FullName);                    
-                    zipEntry.ExtractToFile(zipPath);
-                    GetSubmissionData(zipPath); //Recursive call.
-                    File.Delete(zipPath);                    
+                    string innerZipPath = newDirectory + "\\" + Path.GetFileName(zipEntry.FullName);
+                    zipEntry.ExtractToFile(innerZipPath);
+                    GetSubmissionData(innerZipPath); //Recursive call.
+                    File.Delete(innerZipPath);                    
                 }
 
             }
