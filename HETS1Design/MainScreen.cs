@@ -20,7 +20,6 @@ namespace HETS1Design
         {
             InitializeComponent();            
         }
-       // #region GUI
         private void MainScreen_HelpButtonClicked(object sender, CancelEventArgs e)
         {
             MessageBox.Show("File I/O:\n\nUse :case: before every case of I/O\nUse :notcase: if you want the program output to NOT match the text output.\n\nGUI Textbox I/O:\n\nYou are also able to append test cases to your I/O files, this will create a new file with the new use cases.\n\nIn addition, you may use boundary test cases in the GUI append function:\n\nUse :boundary: <Minimum value> <Maximum value> (They must be different)\nbefore an input line to add boundary test cases. \nEvery line with :boundary: will create 7 additional test cases in the new file; 3 for Min boundary, 3 for Max boundary and 1 for Opt case.\nYou must make sure that cases lower than min or higher than max have different value than input", "User guide");
@@ -28,7 +27,7 @@ namespace HETS1Design
         }
 
         //CHANGE BUTTON NAME
-        private void button3_Click(object sender, EventArgs e)
+        private void closeButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -39,7 +38,6 @@ namespace HETS1Design
             if (validateOk.CompareTo("OK") != 0)
                 MessageBox.Show(validateOk, "Error");
         }
-       // #endregion
         private string FormValidate()
         {
             if (txtArchivePath.Text == "")
@@ -79,53 +77,7 @@ namespace HETS1Design
             {
                 string zipFile = openArchiveDialog.FileName;
                 this.txtArchivePath.Text = zipFile;
-
-                //We had to open with correct Hebrew encoding so we won't get Gibbreish
-                ZipArchive zip = new ZipArchive(File.OpenRead(zipFile), ZipArchiveMode.Read, false, Encoding.GetEncoding("cp862"));
-
-                string ctcFolder = Path.GetDirectoryName(zipFile) + "\\CodesToCheck";
-                //Directory.Delete(ctcFolder+"\\");
-                Directory.CreateDirectory(ctcFolder); //Create CodesToCheck Folder
-
-                //This extracts the ZIP entries into directories in CodesToCheck Folder.
-                foreach (ZipArchiveEntry zipEntry in zip.Entries)
-                {
-                    //this.txtInputAppend.Text += zipEntry.FullName + "\n"; //This is just a test to see the files.
-
-                    string newDirectory = ctcFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName); //To avoid unassigned var error.
-
-                    if (!(Directory.Exists(ctcFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName)))) //If path isn't taken
-                    {
-                        newDirectory = ctcFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName);
-                        Directory.CreateDirectory(newDirectory); //Create a directory for a submission. Will also serve as ID.
-                        Submissions.submissions.Add(new SingleSubmission(newDirectory)); //If a new directory is created it also means a new submission.
-                    }
-
-                    if (zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 2)) == ".c") //If extension is .c
-                    {
-                        string codePath = newDirectory + "\\" + Path.GetFileName(zipEntry.FullName);
-                        zipEntry.ExtractToFile(codePath);
-                        Submissions.submissions[Submissions.submissions.Count - 1].codePath = codePath; //Always edit the newest Submission entry.
-                    }
-
-                    if (zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 4)) == ".exe") //If extension is .exe
-                    {
-                        string exePath = newDirectory + "\\" + Path.GetFileName(zipEntry.FullName);
-                        zipEntry.ExtractToFile(exePath);
-                        Submissions.submissions[Submissions.submissions.Count - 1].exePath = exePath;  //Always edit the newest Submission entry.
-                    }
-
-
-                }
-
-
-
-
-
-
-                //Put all the things in classes and then do:
-                zip.Dispose();
-
+                ZipArchiveHandler.GetSubmissionData(zipFile); //Extract submissions data.
 
                 //some_buttons.Enabled = true; //Do this later******************************************************
 
@@ -136,6 +88,8 @@ namespace HETS1Design
             }
 
         }
+
+
 
         private void openInputDialog_FileOk(object sender, CancelEventArgs e)
         {
@@ -179,5 +133,21 @@ namespace HETS1Design
         {
             CProgramHandler.RunEXE();
         }
+
+
+        /************************************************************/
+        //DEBUGGING PURPOSES ONLY - DELETE THIS LATER (if we won't need it.)
+        /************************************************************/
+        public void AppendInputTXT(string input) //FOR DEBUGGING, DELETE THIS LATER***************
+        {
+            txtInputAppend.Text += input;
+        }
+        public void AppendOutputTXT(string output) //FOR DEBUGGING, DELETE THIS LATER****************
+        {
+            txtOutputAppend.Text += output;
+        }
+        /************************************************************/
+        //DEBUGGING PURPOSES ONLY - DELETE THIS LATER
+        /************************************************************/
     }
 }

@@ -10,28 +10,31 @@ namespace HETS1Design
     public class SingleTestCase
     {
         public string input { private set; get; } //Input for test case.
-        public string output { private set; get; } //Output for test case given input.
-        public bool equal { private set; get; } //Whether the output needs to be equal or NOT equal given the input.  
-        public bool hasBoundInText { private set;  get; }
-        public bool hasEQPartInText { private set;  get; }
+        public string output { private set; get; } //Desired output for test case given input.
+        public bool equal { private set; get; } //Whether the result output must be equal or NOT equal to desired output.
+        public bool hasBoundInText { private set;  get; } 
+        public bool hasEPInText { private set;  get; }
 
 
+        //A single test case containts input, desired output and whether is TC ot TNC.
         public SingleTestCase(string input, string output, bool equal)
         {
             this.input = input;
             this.output = output;
             this.equal = equal;
-            if (BoundaryScan(input))
+
+            if (BoundaryScan(input)) //Check for special keywords.
                 hasBoundInText = true;
             else
                 hasBoundInText = false;
 
-            if (EQPartScan(input))
-                hasEQPartInText = true;
+            if (EPScan(input))
+                hasEPInText = true;
             else
-                hasEQPartInText = false;
+                hasEPInText = false;
         }
 
+        //Compares TC (desired) output to actual program output.
         bool CompareOutput(string resultOutput)
         {
             if (this.output == resultOutput)
@@ -40,7 +43,8 @@ namespace HETS1Design
             else return !this.equal; //Returns true when it's NOT supposed to be equal and false where it's supposed to be but isn't.            
         }
 
-        private bool BoundaryScan(string input) //scans if there are Boundary values
+        //Scans if there are Boundary Values keywords
+        private bool BoundaryScan(string input)
         {
             using (StringReader sr = new StringReader(input))
             {
@@ -56,14 +60,15 @@ namespace HETS1Design
             }
         }
 
-        private bool EQPartScan(string input) //scans if there are EQPart values
+        //Scans if there are Equivalence Partitioning keywords
+        private bool EPScan(string input) 
         {
             using (StringReader sr = new StringReader(input))
             {
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    if (line.Contains("__[EQPart]")) 
+                    if (line.Contains("__[EP]")) 
                     {
                         return true;
                     }
@@ -86,12 +91,14 @@ namespace HETS1Design
             return null;
         }
 
-        public List<SingleTestCase> ReturnEQPartTestCases()
+        public List<SingleTestCase> ReturnEPTestCases()
         {
             //Takes one (the first to scan) boundary syntax and multiply the test case by 7 with the boundary input range. (2_ [TNC], 5 __[TC])
             //Multiplies the rest of the text including other boundary syntax and returns a list of 7 test cases with same output
             //but input according to boundary range. (TC: lower limit, 1 above lower limit, middle, one below upper limit, upper limit)
             //(TNC: 1 below lower limit, 1 above upper limit):
+
+            //We can use ReturnBoundaryTestCases for this to create the middle 5 Test Cases 
             return null;
         }
 

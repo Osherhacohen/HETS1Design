@@ -11,28 +11,36 @@ namespace HETS1Design
     class TestCases
     {
 
-        public static List<SingleTestCase> testCases = new List<SingleTestCase>();  //List of test cases. We'll add the separated test cases here and it'll be possible to add to it with Append.
+        public static List<SingleTestCase> testCases = new List<SingleTestCase>();  //The list of test cases. 
 
 
         /*Since this is a static function and we don't have a construct, we need to have a function that triggers
-        once we have both Input and Output test cases. Activate this from MainScreen on 2 files loaded event.*/
+        once we have both Input and Output test cases. Activate this from MainScreen when both i/o filed loaded.*/
         public static void StartFunction(string inputFile, string outputFile)
         {
+            try
+            {
 
+            }
+
+            catch
+            {
+
+            }
         }
 
         //Add a new Test Case (one at a time, without TC/TNC keywords from text boxes and activate MultiplyTestCasesBy functions.
-        public static void OnAppend(string inputBox, string outputBox)
+        public static void OnAppend(string inputBox, string outputBox, bool isTC)
         {
 
         }
-        
+
 
         //*******************************************************
         //Functions to be used in the StartFunction and OnAppend.
         //*******************************************************
 
-        //Counts the amount of __[TC] and __[TNC] in the text. Will be used to make sure I and O are simetric.
+        //Counts the amount of __[TC] and __[TNC] in the text. Will be used to gurantee symmetry.
         public static int CountTestCases(string fileToCheck) 
         {
 
@@ -61,9 +69,10 @@ namespace HETS1Design
          9 5             
          __[TNC]
          3 4
+         1
 
         will create the list 
-        <"__[TC]9 5\n", "__[TNC]3 4\n">       
+        <"__[TC]9 5\n", "__[TNC]3 4\n1\n">       
          */
         
             
@@ -165,34 +174,34 @@ namespace HETS1Design
                 return MultiplyTestCasesByBoundary(testCasesCopy);
         }
 
-        //Recursive function to get rid of __[EQPart] keyword and add the appropriate 7 test cases.
-        public static List<SingleTestCase> MultiplyTestCasesByEQPart(List<SingleTestCase> testCasesCopy)
+        //Recursive function to get rid of __[EP] keyword and add the appropriate 7 test cases.
+        public static List<SingleTestCase> MultiplyTestCasesByEP(List<SingleTestCase> testCasesCopy)
         {
             int i = 0;
             foreach (SingleTestCase tc in testCasesCopy.ToList()) //testCases.ToList() is a new temporary copy of testCases.
             {
-                if (tc.hasEQPartInText) //If current tc (of the temp test cases list has the keyword)
+                if (tc.hasEPInText) //If current tc (of the temp test cases list has the keyword)
                 {
-                    testCasesCopy.AddRange(tc.ReturnEQPartTestCases()); //Add 7 test cases to the original passed testCasesCopy list.
+                    testCasesCopy.AddRange(tc.ReturnEPTestCases()); //Add 7 test cases to the original passed testCasesCopy list.
                     testCasesCopy.RemoveAt(i); //Removing from the passed list will need to have index i stay in place (they all move back). 
                 }
                 else
                     i++; //Advance index at the original list only if nothing was removed.
             }
 
-            bool tcListisClearofEQPart = true; 
+            bool tcListisClearofEP = true; 
             foreach (SingleTestCase tc in testCasesCopy) //Checking the original list for more keywords.
             {
-                if (tc.hasEQPartInText)
+                if (tc.hasEPInText)
                 {
-                    tcListisClearofEQPart = false;
+                    tcListisClearofEP = false;
                 }
             }
 
-            if (tcListisClearofEQPart == true)
+            if (tcListisClearofEP == true)
                 return testCasesCopy; //Return the list clear of keywords.
             else
-                return MultiplyTestCasesByEQPart(testCasesCopy); //Recursive call.
+                return MultiplyTestCasesByEP(testCasesCopy); //Recursive call.
         }
 
 

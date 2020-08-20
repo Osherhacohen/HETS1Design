@@ -3,23 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace HETS1Design
 {
     class SingleSubmission
     {
 
-        public string submitID { get; private set; } //We'll take the number from the foldername (may add name in possible, not sure since it's in Hebrew)
-        public string codePath { get;  set; } //Each submission will have either both .c or .exe file or just one of them.
-        public bool codeExists { get; private set; } //Does code exist?
-        public string exePath { get;  set; } //Each submission will have either both .c or .exe file or just one of them. 
-        public bool exeExists { get; private set; } //Does execution file exist?
-        List<string> resultOutput; //Output per test case.         
-        double grade; //We'll grade it by percentage
+        public string submitID { get; private set; } //Submission folder name. 
+        public string codePath { get;  set; } //.c file.
+        public bool codeExists { get; private set; } 
+        public string exePath { get;  set; } //.exe file.
+        public bool exeExists { get; private set; } 
+        List<string> resultOutput; //Program output per test case.          
+        double grade; //Final grade.
 
-        public SingleSubmission(string submitID) //For when we have none of the files. (Grade =0);
+        //Every submission must have an ID, paths will be added only if an ID exists.
+        public SingleSubmission(string submitID) 
         {
             //Run compilation/running/grading functions.
+            this.submitID = Path.GetFileName(submitID);
         }
 
 
@@ -32,6 +35,8 @@ namespace HETS1Design
                 //Compiles the submitted code from codePath. Inserts exe file path to exePath after that.
             }
         }
+
+
         //Run this function from construct. Run the .exe file.
         public void RunSubmittedProgram()
         {
@@ -45,7 +50,9 @@ namespace HETS1Design
         {
         }
 
-        public void Grading(int codeWeight, int exeWeight, int correctResultsWeight)
+
+        //This is a grading function that goes by weight. First two 
+        public void Grading(int codeWeight, int exeWeight, int correctResultsWeight) 
         {
             if (!(codeExists || exeExists))
             {
@@ -55,7 +62,6 @@ namespace HETS1Design
             {
                 //Compute grade by wieghts.
             }
-                //Grading function for later
         }
 
     }
