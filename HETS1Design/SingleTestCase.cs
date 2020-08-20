@@ -85,7 +85,8 @@ namespace HETS1Design
 
         public List<SingleTestCase> ReturnBoundaryTestCases() 
         {
-            //Takes one (the first to scan) boundary syntax and multiply the test case by 5 with the boundary input range. (5 __[TC])
+            //Takes one (the first to scan) boundary syntax and multiply the test case by 5 with the boundary input range. (5 __[TC])  
+            //or (5 __[TNC]) is it was originally TNC.
             //Multiplies the rest of the text including other boundary syntax and returns a list of 5 test cases with same output
             //but input according to boundary range. (lower limit, 1 above lower limit, middle, one below upper limit, upper limit)
             return null;
