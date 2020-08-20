@@ -64,7 +64,7 @@ namespace HETS1Design
                     Submissions.submissions[Submissions.submissions.Count - 1].exePath = exePath;  //Always edit the newest Submission entry.
                 }
 
-                if (_4CharExtension == ".zip") //If extension is .zip
+                if (_4CharExtension == ".zip") //If extension is .zip, unfortunately this may create a long path with a new CTC folder.
                 {
                     string innerZipPath = newDirectory + "\\" + Path.GetFileName(zipEntry.FullName);
                     zipEntry.ExtractToFile(innerZipPath);
