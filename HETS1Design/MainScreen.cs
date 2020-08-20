@@ -85,7 +85,7 @@ namespace HETS1Design
             {
                 string zipFile = openArchiveDialog.FileName;
                 this.txtArchivePath.Text = zipFile;
-                ZipArchiveHandler.GetSubmissionData(zipFile); //Extract submissions data.
+                ZipArchiveHandler.GetSubmissionData(zipFile, true); //Extract submissions data.
 
                 //some_buttons.Enabled = true; //Do this later******************************************************
 

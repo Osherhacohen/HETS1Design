@@ -15,29 +15,41 @@ namespace HETS1Design
 {
     static class ZipArchiveHandler
     {
-        //This funtion will extract .c and .exe files and save them 
-        public static void GetSubmissionData(string zipFile)
+        //This funtion extracts .c, .h and .exe files from an archive file and saves their paths in a SingleSubmission. 
+        //zipFile is the zip path.  isMasterZipDirectory indicates whether it's the master or inner (Zip in a zip) zip directory.
+        public static void GetSubmissionData(string zipFile, bool isMasterZipDirectory)
         {
             //Open ZIP Archive with Hebrew encoding.
             ZipArchive zip = new ZipArchive(File.OpenRead(zipFile), ZipArchiveMode.Read, false, Encoding.GetEncoding("cp862"));
 
-            string ctcFolder = Path.GetDirectoryName(zipFile) + "\\CodesToCheck";
 
-            //Make sure there's no conflict of existing CTC folder
-            if (Directory.Exists(ctcFolder))
+            string extractToFolderName; //The name of the folder that will hold our extracted files.
+
+            //Names the folder to extract into. Master zip is Codes To Check and inner zip keeps its original name. 
+            if (isMasterZipDirectory) 
+                extractToFolderName = "\\Codes To Check"; 
+            else
+                extractToFolderName = "\\"+ Path.GetFileName(zipFile).Substring(0,Path.GetFileName(zipFile).Length-4); //Removes ".zip" from the name.
+
+
+            string extractToFolder = Path.GetDirectoryName(zipFile) + extractToFolderName; //Full path of the folder/directory.
+
+
+            //Makes sure there's no conflict with an existing folder.
+            if (Directory.Exists(extractToFolder))
             {
-                Directory.Delete(ctcFolder, true);
+                Directory.Delete(extractToFolder, true);
             }
-                        
-            Directory.CreateDirectory(ctcFolder); //Create CodesToCheck Folder
+
+            Directory.CreateDirectory(extractToFolder); //Creates the folder, this needs the full path.
 
             foreach (ZipArchiveEntry zipEntry in zip.Entries) //This extracts the ZIP entries into directories in CodesToCheck Folder.
             {
-                string newDirectory = ctcFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName); //To avoid unassigned error.
+                string newDirectory = extractToFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName); //To avoid unassigned error.
                 
-                if (!(Directory.Exists(ctcFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName)))) //If path isn't taken
+                if (!(Directory.Exists(extractToFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName)))) //If that directory doesn't exist yet.
                 {
-                    newDirectory = ctcFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName);
+                    newDirectory = extractToFolder + "\\" + Path.GetDirectoryName(zipEntry.FullName);
                     Directory.CreateDirectory(newDirectory);    //Create a directory for a submission. Its name will serve as ID.
 
                     Submissions.submissions.Add(new SingleSubmission(newDirectory)); //New directory = new submission.
@@ -68,7 +80,7 @@ namespace HETS1Design
                 {
                     string innerZipPath = newDirectory + "\\" + Path.GetFileName(zipEntry.FullName);
                     zipEntry.ExtractToFile(innerZipPath);
-                    GetSubmissionData(innerZipPath); //Recursive call.
+                    GetSubmissionData(innerZipPath, false); //Recursive call. This is an inner zip, we pass false here.
                     File.Delete(innerZipPath);                    
                 }
 
