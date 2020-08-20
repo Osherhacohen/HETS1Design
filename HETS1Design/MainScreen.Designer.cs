@@ -63,11 +63,25 @@
             this.saveCSVFile = new System.Windows.Forms.SaveFileDialog();
             this.testCOMP = new System.Windows.Forms.Button();
             this.exeOutputBtn = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.menuResultsGrade = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.menuExeGrade = new System.Windows.Forms.NumericUpDown();
+            this.menuCodeWeight = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResults)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.menuResultsGrade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuExeGrade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuCodeWeight)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -237,7 +251,7 @@
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Location = new System.Drawing.Point(13, 259);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(775, 72);
+            this.groupBox3.Size = new System.Drawing.Size(775, 67);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Validation options";
@@ -317,7 +331,7 @@
             // 
             // btnValidate
             // 
-            this.btnValidate.Location = new System.Drawing.Point(13, 337);
+            this.btnValidate.Location = new System.Drawing.Point(13, 385);
             this.btnValidate.Name = "btnValidate";
             this.btnValidate.Size = new System.Drawing.Size(159, 30);
             this.btnValidate.TabIndex = 7;
@@ -327,7 +341,7 @@
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(629, 337);
+            this.closeButton.Location = new System.Drawing.Point(629, 385);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(159, 30);
             this.closeButton.TabIndex = 8;
@@ -338,9 +352,9 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dataGridResults);
-            this.groupBox4.Location = new System.Drawing.Point(13, 373);
+            this.groupBox4.Location = new System.Drawing.Point(13, 421);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(775, 303);
+            this.groupBox4.Size = new System.Drawing.Size(775, 255);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Results Table";
@@ -351,7 +365,7 @@
             this.dataGridResults.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridResults.Location = new System.Drawing.Point(3, 16);
             this.dataGridResults.Name = "dataGridResults";
-            this.dataGridResults.Size = new System.Drawing.Size(769, 284);
+            this.dataGridResults.Size = new System.Drawing.Size(769, 236);
             this.dataGridResults.TabIndex = 0;
             // 
             // btnExportCSV
@@ -380,7 +394,7 @@
             // 
             // testCOMP
             // 
-            this.testCOMP.Location = new System.Drawing.Point(287, 344);
+            this.testCOMP.Location = new System.Drawing.Point(287, 392);
             this.testCOMP.Name = "testCOMP";
             this.testCOMP.Size = new System.Drawing.Size(131, 23);
             this.testCOMP.TabIndex = 11;
@@ -390,7 +404,7 @@
             // 
             // exeOutputBtn
             // 
-            this.exeOutputBtn.Location = new System.Drawing.Point(424, 344);
+            this.exeOutputBtn.Location = new System.Drawing.Point(424, 392);
             this.exeOutputBtn.Name = "exeOutputBtn";
             this.exeOutputBtn.Size = new System.Drawing.Size(75, 23);
             this.exeOutputBtn.TabIndex = 12;
@@ -398,11 +412,108 @@
             this.exeOutputBtn.UseVisualStyleBackColor = true;
             this.exeOutputBtn.Click += new System.EventHandler(this.exeOutputBtn_Click);
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label13);
+            this.groupBox5.Controls.Add(this.menuResultsGrade);
+            this.groupBox5.Controls.Add(this.label12);
+            this.groupBox5.Controls.Add(this.label11);
+            this.groupBox5.Controls.Add(this.label10);
+            this.groupBox5.Controls.Add(this.menuExeGrade);
+            this.groupBox5.Controls.Add(this.menuCodeWeight);
+            this.groupBox5.Controls.Add(this.label7);
+            this.groupBox5.Controls.Add(this.label5);
+            this.groupBox5.Location = new System.Drawing.Point(13, 333);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(775, 46);
+            this.groupBox5.TabIndex = 13;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Grading";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(492, 20);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(15, 13);
+            this.label13.TabIndex = 9;
+            this.label13.Text = "%";
+            // 
+            // menuResultsGrade
+            // 
+            this.menuResultsGrade.Location = new System.Drawing.Point(434, 18);
+            this.menuResultsGrade.Name = "menuResultsGrade";
+            this.menuResultsGrade.Size = new System.Drawing.Size(52, 20);
+            this.menuResultsGrade.TabIndex = 8;
+            this.menuResultsGrade.ValueChanged += new System.EventHandler(this.menuResultsGrade_ValueChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(287, 20);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(15, 13);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "%";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(109, 20);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(15, 13);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "%";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(351, 19);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(77, 13);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Correct results:";
+            // 
+            // menuExeGrade
+            // 
+            this.menuExeGrade.Location = new System.Drawing.Point(229, 17);
+            this.menuExeGrade.Name = "menuExeGrade";
+            this.menuExeGrade.Size = new System.Drawing.Size(52, 20);
+            this.menuExeGrade.TabIndex = 4;
+            this.menuExeGrade.ValueChanged += new System.EventHandler(this.menuExeGrade_ValueChanged);
+            // 
+            // menuCodeWeight
+            // 
+            this.menuCodeWeight.Location = new System.Drawing.Point(51, 17);
+            this.menuCodeWeight.Name = "menuCodeWeight";
+            this.menuCodeWeight.Size = new System.Drawing.Size(52, 20);
+            this.menuCodeWeight.TabIndex = 3;
+            this.menuCodeWeight.ValueChanged += new System.EventHandler(this.menuCodeWeight_ValueChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(162, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Executable:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Code:";
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 717);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.exeOutputBtn);
             this.Controls.Add(this.testCOMP);
             this.Controls.Add(this.btnExportCSV);
@@ -427,6 +538,11 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResults)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.menuResultsGrade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuExeGrade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuCodeWeight)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -467,6 +583,16 @@
         private System.Windows.Forms.SaveFileDialog saveCSVFile;
         private System.Windows.Forms.Button testCOMP;
         private System.Windows.Forms.Button exeOutputBtn;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.NumericUpDown menuExeGrade;
+        private System.Windows.Forms.NumericUpDown menuCodeWeight;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown menuResultsGrade;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
     }
 }
 

@@ -134,6 +134,28 @@ namespace HETS1Design
             CProgramHandler.RunEXE();
         }
 
+        private void LimitWeightsChange()
+        {
+            this.menuCodeWeight.Maximum = 100 - (this.menuExeGrade.Value + this.menuResultsGrade.Value);
+            this.menuExeGrade.Maximum = 100 - (this.menuCodeWeight.Value + this.menuResultsGrade.Value);
+            this.menuResultsGrade.Maximum = 100 - (this.menuExeGrade.Value + this.menuCodeWeight.Value);
+        }
+
+        private void menuCodeWeight_ValueChanged(object sender, EventArgs e)
+        {
+            LimitWeightsChange();
+        }
+
+        private void menuExeGrade_ValueChanged(object sender, EventArgs e)
+        {
+            LimitWeightsChange();
+        }
+
+        private void menuResultsGrade_ValueChanged(object sender, EventArgs e)
+        {
+            LimitWeightsChange();
+        }
+
 
         /************************************************************/
         //DEBUGGING PURPOSES ONLY - DELETE THIS LATER (if we won't need it.)
@@ -146,6 +168,8 @@ namespace HETS1Design
         {
             txtOutputAppend.Text += output;
         }
+
+
         /************************************************************/
         //DEBUGGING PURPOSES ONLY - DELETE THIS LATER
         /************************************************************/
