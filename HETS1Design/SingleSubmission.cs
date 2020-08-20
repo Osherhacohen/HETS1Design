@@ -14,6 +14,7 @@ namespace HETS1Design
         public string codePath { get;  set; } //.c file.
         public bool codeExists { get; private set; } 
         public string exePath { get;  set; } //.exe file.
+        public string compiledExePath { get; set; } //.exe file made by our compiler.
         public bool exeExists { get; private set; } 
         List<string> resultOutput; //Program output per test case.          
         double grade; //Final grade.
