@@ -45,12 +45,6 @@
             this.txtInputPath = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioCheckByComp = new System.Windows.Forms.RadioButton();
-            this.radioCompileNo = new System.Windows.Forms.RadioButton();
-            this.radioCompileYes = new System.Windows.Forms.RadioButton();
-            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnValidate = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
@@ -65,22 +59,25 @@
             this.exeOutputBtn = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.menuResultsGrade = new System.Windows.Forms.NumericUpDown();
+            this.menuResultsWeight = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.menuExeGrade = new System.Windows.Forms.NumericUpDown();
+            this.menuExeWeight = new System.Windows.Forms.NumericUpDown();
             this.menuCodeWeight = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.checkBoxContainCode = new System.Windows.Forms.CheckBox();
+            this.checkBoxContainExe = new System.Windows.Forms.CheckBox();
+            this.checkBoxEnableGrading = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResults)).BeginInit();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.menuResultsGrade)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.menuExeGrade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuResultsWeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuExeWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuCodeWeight)).BeginInit();
             this.SuspendLayout();
             // 
@@ -242,12 +239,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.radioButton2);
-            this.groupBox3.Controls.Add(this.radioButton1);
-            this.groupBox3.Controls.Add(this.radioCheckByComp);
-            this.groupBox3.Controls.Add(this.radioCompileNo);
-            this.groupBox3.Controls.Add(this.radioCompileYes);
-            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.checkBoxContainExe);
+            this.groupBox3.Controls.Add(this.checkBoxContainCode);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Location = new System.Drawing.Point(13, 259);
             this.groupBox3.Name = "groupBox3";
@@ -256,78 +249,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Validation options";
             // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(356, 43);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(334, 17);
-            this.radioButton2.TabIndex = 11;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Both (select only if you choose to compile AND create executable";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(285, 43);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(64, 17);
-            this.radioButton1.TabIndex = 10;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Runtime";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioCheckByComp
-            // 
-            this.radioCheckByComp.AutoSize = true;
-            this.radioCheckByComp.Location = new System.Drawing.Point(165, 42);
-            this.radioCheckByComp.Name = "radioCheckByComp";
-            this.radioCheckByComp.Size = new System.Drawing.Size(113, 17);
-            this.radioCheckByComp.TabIndex = 9;
-            this.radioCheckByComp.TabStop = true;
-            this.radioCheckByComp.Text = "Compilation (.c file)";
-            this.radioCheckByComp.UseVisualStyleBackColor = true;
-            // 
-            // radioCompileNo
-            // 
-            this.radioCompileNo.AutoSize = true;
-            this.radioCompileNo.Location = new System.Drawing.Point(215, 18);
-            this.radioCompileNo.Name = "radioCompileNo";
-            this.radioCompileNo.Size = new System.Drawing.Size(39, 17);
-            this.radioCompileNo.TabIndex = 5;
-            this.radioCompileNo.TabStop = true;
-            this.radioCompileNo.Text = "No";
-            this.radioCompileNo.UseVisualStyleBackColor = true;
-            // 
-            // radioCompileYes
-            // 
-            this.radioCompileYes.AutoSize = true;
-            this.radioCompileYes.Location = new System.Drawing.Point(165, 18);
-            this.radioCompileYes.Name = "radioCompileYes";
-            this.radioCompileYes.Size = new System.Drawing.Size(43, 17);
-            this.radioCompileYes.TabIndex = 4;
-            this.radioCompileYes.TabStop = true;
-            this.radioCompileYes.Text = "Yes";
-            this.radioCompileYes.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 43);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Check I/O by:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(10, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(149, 13);
+            this.label4.Size = new System.Drawing.Size(106, 13);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Compile code? (check .c files)";
+            this.label4.Text = "Submission contains:";
             // 
             // btnValidate
             // 
@@ -414,21 +343,21 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.checkBoxEnableGrading);
             this.groupBox5.Controls.Add(this.label13);
-            this.groupBox5.Controls.Add(this.menuResultsGrade);
+            this.groupBox5.Controls.Add(this.menuResultsWeight);
             this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.label10);
-            this.groupBox5.Controls.Add(this.menuExeGrade);
+            this.groupBox5.Controls.Add(this.menuExeWeight);
             this.groupBox5.Controls.Add(this.menuCodeWeight);
             this.groupBox5.Controls.Add(this.label7);
             this.groupBox5.Controls.Add(this.label5);
-            this.groupBox5.Location = new System.Drawing.Point(13, 333);
+            this.groupBox5.Location = new System.Drawing.Point(13, 335);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(775, 46);
             this.groupBox5.TabIndex = 13;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Grading";
             // 
             // label13
             // 
@@ -439,18 +368,18 @@
             this.label13.TabIndex = 9;
             this.label13.Text = "%";
             // 
-            // menuResultsGrade
+            // menuResultsWeight
             // 
-            this.menuResultsGrade.Location = new System.Drawing.Point(434, 18);
-            this.menuResultsGrade.Name = "menuResultsGrade";
-            this.menuResultsGrade.Size = new System.Drawing.Size(52, 20);
-            this.menuResultsGrade.TabIndex = 8;
-            this.menuResultsGrade.ValueChanged += new System.EventHandler(this.menuResultsGrade_ValueChanged);
+            this.menuResultsWeight.Location = new System.Drawing.Point(434, 18);
+            this.menuResultsWeight.Name = "menuResultsWeight";
+            this.menuResultsWeight.Size = new System.Drawing.Size(52, 20);
+            this.menuResultsWeight.TabIndex = 8;
+            this.menuResultsWeight.ValueChanged += new System.EventHandler(this.menuResultsGrade_ValueChanged);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(287, 20);
+            this.label12.Location = new System.Drawing.Point(295, 20);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(15, 13);
             this.label12.TabIndex = 7;
@@ -474,13 +403,13 @@
             this.label10.TabIndex = 5;
             this.label10.Text = "Correct results:";
             // 
-            // menuExeGrade
+            // menuExeWeight
             // 
-            this.menuExeGrade.Location = new System.Drawing.Point(229, 17);
-            this.menuExeGrade.Name = "menuExeGrade";
-            this.menuExeGrade.Size = new System.Drawing.Size(52, 20);
-            this.menuExeGrade.TabIndex = 4;
-            this.menuExeGrade.ValueChanged += new System.EventHandler(this.menuExeGrade_ValueChanged);
+            this.menuExeWeight.Location = new System.Drawing.Point(237, 17);
+            this.menuExeWeight.Name = "menuExeWeight";
+            this.menuExeWeight.Size = new System.Drawing.Size(52, 20);
+            this.menuExeWeight.TabIndex = 4;
+            this.menuExeWeight.ValueChanged += new System.EventHandler(this.menuExeGrade_ValueChanged);
             // 
             // menuCodeWeight
             // 
@@ -493,7 +422,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(162, 19);
+            this.label7.Location = new System.Drawing.Point(170, 19);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 13);
             this.label7.TabIndex = 2;
@@ -507,6 +436,37 @@
             this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 0;
             this.label5.Text = "Code:";
+            // 
+            // checkBoxContainCode
+            // 
+            this.checkBoxContainCode.AutoSize = true;
+            this.checkBoxContainCode.Location = new System.Drawing.Point(122, 19);
+            this.checkBoxContainCode.Name = "checkBoxContainCode";
+            this.checkBoxContainCode.Size = new System.Drawing.Size(80, 17);
+            this.checkBoxContainCode.TabIndex = 1;
+            this.checkBoxContainCode.Text = "C Code File";
+            this.checkBoxContainCode.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxContainExe
+            // 
+            this.checkBoxContainExe.AutoSize = true;
+            this.checkBoxContainExe.Location = new System.Drawing.Point(214, 19);
+            this.checkBoxContainExe.Name = "checkBoxContainExe";
+            this.checkBoxContainExe.Size = new System.Drawing.Size(79, 17);
+            this.checkBoxContainExe.TabIndex = 2;
+            this.checkBoxContainExe.Text = "Executable";
+            this.checkBoxContainExe.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxEnableGrading
+            // 
+            this.checkBoxEnableGrading.AutoSize = true;
+            this.checkBoxEnableGrading.Location = new System.Drawing.Point(9, -1);
+            this.checkBoxEnableGrading.Name = "checkBoxEnableGrading";
+            this.checkBoxEnableGrading.Size = new System.Drawing.Size(63, 17);
+            this.checkBoxEnableGrading.TabIndex = 10;
+            this.checkBoxEnableGrading.Text = "Grading";
+            this.checkBoxEnableGrading.UseVisualStyleBackColor = true;
+            this.checkBoxEnableGrading.CheckedChanged += new System.EventHandler(this.checkBoxEnableGrading_CheckedChanged);
             // 
             // MainScreen
             // 
@@ -530,6 +490,7 @@
             this.Name = "MainScreen";
             this.Text = "Form1";
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.MainScreen_HelpButtonClicked);
+            this.Load += new System.EventHandler(this.MainScreen_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -540,8 +501,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResults)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.menuResultsGrade)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.menuExeGrade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuResultsWeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuExeWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuCodeWeight)).EndInit();
             this.ResumeLayout(false);
 
@@ -560,13 +521,7 @@
         private System.Windows.Forms.TextBox txtInputPath;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioCheckByComp;
-        private System.Windows.Forms.RadioButton radioCompileNo;
-        private System.Windows.Forms.RadioButton radioCompileYes;
         private System.Windows.Forms.Button btnValidate;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -587,12 +542,15 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.NumericUpDown menuExeGrade;
+        private System.Windows.Forms.NumericUpDown menuExeWeight;
         private System.Windows.Forms.NumericUpDown menuCodeWeight;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.NumericUpDown menuResultsGrade;
+        private System.Windows.Forms.NumericUpDown menuResultsWeight;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.CheckBox checkBoxContainExe;
+        private System.Windows.Forms.CheckBox checkBoxContainCode;
+        private System.Windows.Forms.CheckBox checkBoxEnableGrading;
     }
 }
 

@@ -20,6 +20,14 @@ namespace HETS1Design
         {
             InitializeComponent();            
         }
+        private void MainScreen_Load(object sender, EventArgs e)
+        {
+            this.menuCodeWeight.Enabled = false;
+            this.menuExeWeight.Enabled = false;
+            this.menuResultsWeight.Enabled = false;
+
+        }
+
         private void MainScreen_HelpButtonClicked(object sender, CancelEventArgs e)
         {
             MessageBox.Show("File I/O:\n\nUse :case: before every case of I/O\nUse :notcase: if you want the program output to NOT match the text output.\n\nGUI Textbox I/O:\n\nYou are also able to append test cases to your I/O files, this will create a new file with the new use cases.\n\nIn addition, you may use boundary test cases in the GUI append function:\n\nUse :boundary: <Minimum value> <Maximum value> (They must be different)\nbefore an input line to add boundary test cases. \nEvery line with :boundary: will create 7 additional test cases in the new file; 3 for Min boundary, 3 for Max boundary and 1 for Opt case.\nYou must make sure that cases lower than min or higher than max have different value than input", "User guide");
@@ -136,9 +144,9 @@ namespace HETS1Design
 
         private void LimitWeightsChange()
         {
-            this.menuCodeWeight.Maximum = 100 - (this.menuExeGrade.Value + this.menuResultsGrade.Value);
-            this.menuExeGrade.Maximum = 100 - (this.menuCodeWeight.Value + this.menuResultsGrade.Value);
-            this.menuResultsGrade.Maximum = 100 - (this.menuExeGrade.Value + this.menuCodeWeight.Value);
+            this.menuCodeWeight.Maximum = 100 - (this.menuExeWeight.Value + this.menuResultsWeight.Value);
+            this.menuExeWeight.Maximum = 100 - (this.menuCodeWeight.Value + this.menuResultsWeight.Value);
+            this.menuResultsWeight.Maximum = 100 - (this.menuExeWeight.Value + this.menuCodeWeight.Value);
         }
 
         private void menuCodeWeight_ValueChanged(object sender, EventArgs e)
@@ -156,6 +164,23 @@ namespace HETS1Design
             LimitWeightsChange();
         }
 
+        private void checkBoxEnableGrading_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBoxEnableGrading.Checked)
+            {
+                this.menuCodeWeight.Enabled = true;
+                this.menuExeWeight.Enabled = true;
+                this.menuResultsWeight.Enabled = true;
+            }
+            else
+            {
+                this.menuCodeWeight.Enabled = false;
+                this.menuExeWeight.Enabled = false;
+                this.menuResultsWeight.Enabled = false;
+            }
+        }
+
+
 
         /************************************************************/
         //DEBUGGING PURPOSES ONLY - DELETE THIS LATER (if we won't need it.)
@@ -168,7 +193,6 @@ namespace HETS1Design
         {
             txtOutputAppend.Text += output;
         }
-
 
         /************************************************************/
         //DEBUGGING PURPOSES ONLY - DELETE THIS LATER
