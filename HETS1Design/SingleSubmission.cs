@@ -15,8 +15,9 @@ namespace HETS1Design
         public bool codeExists { get; private set; } 
         public string exePath { get;  set; } //.exe file.
         public string compiledExePath { get; set; } //.exe file made by our compiler.
-        public bool exeExists { get; private set; } 
+        public bool exeExists { get; private set; }
         List<string> resultOutput; //Program output per test case.          
+        List<string> resultCompiledExeOPutput; //In case we have 2 exe files, compiled one and attached one
         double grade; //Final grade.
 
         //Every submission must have an ID, paths will be added only if an ID exists.
@@ -51,6 +52,16 @@ namespace HETS1Design
         {
         }
 
+        //Check possible cheating
+        public bool CompareBothLists()
+        {
+            if (this.resultOutput.SequenceEqual<string>(this.resultCompiledExeOPutput))
+                return true;
+            return false;
+            //Just in case
+            /*IEnumerable<string> difference = a1.Except(a2);
+            if (!difference.Any()) { }*/
+        }
 
         //This is a grading function that goes by weight. First two 
         public void Grading(int codeWeight, int exeWeight, int correctResultsWeight) 
@@ -62,6 +73,7 @@ namespace HETS1Design
             else
             {
                 //Compute grade by wieghts.
+
             }
         }
 
