@@ -204,6 +204,7 @@ namespace HETS1Design
                 createText = "Compiler version: 32Bit\r\n\r\n";
 
             Submissions.ActivateCompilation();
+            Submissions.ActivateExecution();
 
 
             int i = 0;
@@ -218,6 +219,10 @@ namespace HETS1Design
                     + "Exe exists: " + sub.exeExists + "\r\n"
                     + "Compiler output: " + sub.compilerOutput  
                     + "Compiled Exe path: " + sub.compiledExePath + "\r\n\r\n";
+                if (sub.GetResultsSubmittedExe().Count != 0)
+                    createText += "Submitted Exe result (first one): " + "\r\n" + sub.GetResultsSubmittedExe().Last() + "\r\n";
+                if (sub.GetResultsCompiledExe().Count != 0)
+                    createText += "Compiled Exe result (first one): " + "\r\n" + sub.GetResultsCompiledExe().Last() + "\r\n\r\n\r\n";
                 i++;
             }
 

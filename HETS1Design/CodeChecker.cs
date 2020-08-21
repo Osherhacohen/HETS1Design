@@ -48,38 +48,53 @@ namespace HETS1Design
         }
 
       
-        public static void RunEXE()//string exeFilePath, SingleTestCase inputTestCase) //We'll need to get a path and a test case in here.
+        public static string RunEXE(string exeFilePath, string input) //We'll need to get a path and a test case in here.
         {
+            string exeFileName = Path.GetFileName(exeFilePath);
+            string directoryName = Path.GetDirectoryName(exeFilePath);
 
-
-            ProcessStartInfo psi = new ProcessStartInfo(@"..\..\..\Assets\CodeToCheck\Source.exe");
+            ProcessStartInfo psi = new ProcessStartInfo(exeFilePath);
             psi.RedirectStandardInput = true;
             psi.RedirectStandardOutput = true;
             psi.UseShellExecute = false;
-            psi.WorkingDirectory = @"..\..\..\Assets\CodeToCheck";
+            psi.RedirectStandardError = true;
+            psi.WorkingDirectory = directoryName; //Set process' working directory.
 
             Process p = new Process();
             p.StartInfo = psi;
             p.Start();
 
-            string results;
+            string results="";
             using (StreamWriter sw = p.StandardInput)
             {
 
                 if (sw.BaseStream.CanWrite)
                 {
-                    sw.WriteLine("2 9"); //Example, we'll be directing a file into stream writer
-                }
-            }
-            using (StreamReader sr = p.StandardOutput)
-            {
-                if (sr.BaseStream.CanRead)
-                {
-                    results = sr.ReadToEnd();
-                    MessageBox.Show(results); //Example in a text box. We'll be comparing the results to the output file.
+                    sw.Write(input);
+                    //sw.WriteLine("2 9"); //Example, we'll be directing a file into stream writer
                 }
             }
 
+            using (StreamReader sr = p.StandardError)
+            {
+                if (sr.BaseStream.CanRead)
+                {
+                    results += sr.ReadToEnd();                    
+                }
+            }
+
+            if (results == "")
+            {
+                using (StreamReader sr = p.StandardOutput)
+                {
+                    if (sr.BaseStream.CanRead)
+                    {
+                        results = sr.ReadToEnd();
+                    }
+                }
+            }
+
+            return results;
         }
 
 

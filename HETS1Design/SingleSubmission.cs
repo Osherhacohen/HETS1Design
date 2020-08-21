@@ -17,8 +17,8 @@ namespace HETS1Design
         public string exePath { get; private set; } //.exe file.
         public string compiledExePath { get; private set; } //.exe file made by our compiler.
         public bool exeExists { get; private set; }
-        List<string> resultOutput; //Program output per test case.          
-        List<string> resultCompiledExeOPutput; //In case we have 2 exe files, compiled one and attached one
+        List<string> resultOutput =new List<string>(); //Program output per test case.          
+        List<string> resultCompiledExeOPutput=new List<string>(); //In case we have 2 exe files, compiled one and attached one
         double grade; //Final grade.
 
         /*Every submission must have an ID, paths will be added only if an ID exists. 
@@ -44,7 +44,14 @@ namespace HETS1Design
                 exeExists = true;
         }
 
-        //Run this function from construct. Compile the .c code.
+        public List<string> GetResultsSubmittedExe() //Temporary, we may return something else in another function instead
+        { return resultOutput; } 
+        public List<string> GetResultsCompiledExe() //Temporary, we may return something else in another function instead
+        { return resultCompiledExeOPutput; }
+
+
+
+        //Run this function from Start buttun. Compile the .c code.
         //We don't pass an argument here since SingleSubmission it supposed to be contained in Submissions and it has the list.
         public void CompileSubmittedCode()
         {
@@ -65,18 +72,25 @@ namespace HETS1Design
         //Run this function from construct. Run the .exe file.
         /*We're passing a list argument here since we don't want the two types (Submissions/TestCases) to be dependent.
         This way, if this class is used in another program, it's always possible to pass a string list instead for example.*/
-        public void RunSubmittedProgram(List<SingleTestCase> testCase) 
+
+        public void RunSubmittedProgram(string input)//List<SingleTestCase> testCaseIn) //For now it's a string - we'll change later.
         {
             if (exeExists)
             {
-                //Runs the submitted/compiled .exe from exePath, adds to results list.
+                if(File.Exists(exePath))
+                    resultOutput.Add(CodeChecker.RunEXE(exePath, input));
+                if (File.Exists(compiledExePath))
+                    resultCompiledExeOPutput.Add(CodeChecker.RunEXE(compiledExePath, input));
             }
         }
 
-        public void CompareResults()
+        //Compares result to an output.
+        public int CompareResults(List<string> desiredOutput)//List<SingleTestCase> testCaseOut) //We'll change it later too
         {
-
+            //Compare desired output list 
+            return 1;
         }
+
 
 
         //Check possible cheating
