@@ -135,16 +135,6 @@ namespace HETS1Design
         }
 
 
-        private void testCOMP_Click(object sender, EventArgs e) //TEMPRORARY
-        {
-            //MessageBox.Show(CodeChecker.CompileCode(@"..\..\..\Assets\CodeToCheck\Source.c"));
-        }
-
-        private void exeOutputBtn_Click(object sender, EventArgs e)
-        {
-            CodeChecker.RunEXE();
-        }
-
         private void LimitWeightsChange()
         {
             this.menuCodeWeight.Maximum = 100 - (this.menuExeWeight.Value + this.menuResultsWeight.Value);
@@ -209,13 +199,19 @@ namespace HETS1Design
 
         public bool GetAllSubmissions(string zipPath) //We may turn this into the final csv file at some point.
         {
-            string createText = "";
+            string createText = "Compiler version: 64Bit\r\n\r\n";
+            if (Submissions.use32bitCompiler)
+                createText = "Compiler version: 32Bit\r\n\r\n";
+
             Submissions.ActivateCompilation();
+
+
             int i = 0;
             this.textBoxTEMPORARY.Text = "";
+
             foreach (SingleSubmission sub in Submissions.submissions)
             {
-                createText += "\r\n" + i.ToString() + ". ID: " + sub.submitID + "\r\n"
+                createText += i.ToString() + ". ID: " + sub.submitID + "\r\n"
                     + "Code path: " + sub.codePath + "\r\n"
                     + "Exe path: " + sub.exePath + "\r\n"
                     + "Code exists: " + sub.codeExists + "\r\n"

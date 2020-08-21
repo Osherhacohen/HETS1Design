@@ -57,8 +57,6 @@
             this.openInputDialog = new System.Windows.Forms.OpenFileDialog();
             this.openOutputDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveCSVFile = new System.Windows.Forms.SaveFileDialog();
-            this.testCOMP = new System.Windows.Forms.Button();
-            this.exeOutputBtn = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.checkBoxEnableGrading = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -355,26 +353,6 @@
             this.openOutputDialog.FileName = "openOutputDialog";
             this.openOutputDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openOutputDialog_FileOk);
             // 
-            // testCOMP
-            // 
-            this.testCOMP.Location = new System.Drawing.Point(287, 392);
-            this.testCOMP.Name = "testCOMP";
-            this.testCOMP.Size = new System.Drawing.Size(131, 23);
-            this.testCOMP.TabIndex = 11;
-            this.testCOMP.Text = "TEST COMPILATION";
-            this.testCOMP.UseVisualStyleBackColor = true;
-            this.testCOMP.Click += new System.EventHandler(this.testCOMP_Click);
-            // 
-            // exeOutputBtn
-            // 
-            this.exeOutputBtn.Location = new System.Drawing.Point(424, 392);
-            this.exeOutputBtn.Name = "exeOutputBtn";
-            this.exeOutputBtn.Size = new System.Drawing.Size(75, 23);
-            this.exeOutputBtn.TabIndex = 12;
-            this.exeOutputBtn.Text = "Exe/Output";
-            this.exeOutputBtn.UseVisualStyleBackColor = true;
-            this.exeOutputBtn.Click += new System.EventHandler(this.exeOutputBtn_Click);
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.checkBoxEnableGrading);
@@ -534,8 +512,6 @@
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(800, 717);
             this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.exeOutputBtn);
-            this.Controls.Add(this.testCOMP);
             this.Controls.Add(this.btnExportCSV);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.closeButton);
@@ -597,8 +573,6 @@
         private System.Windows.Forms.OpenFileDialog openInputDialog;
         private System.Windows.Forms.OpenFileDialog openOutputDialog;
         private System.Windows.Forms.SaveFileDialog saveCSVFile;
-        private System.Windows.Forms.Button testCOMP;
-        private System.Windows.Forms.Button exeOutputBtn;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
