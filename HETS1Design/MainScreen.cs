@@ -220,9 +220,9 @@ namespace HETS1Design
                     + "Compiler output: " + sub.compilerOutput  
                     + "Compiled Exe path: " + sub.compiledExePath + "\r\n\r\n";
                 if (sub.GetResultsSubmittedExe().Count != 0)
-                    createText += "Submitted Exe result (first one): " + "\r\n" + sub.GetResultsSubmittedExe().Last() + "\r\n";
+                    createText += "Submitted Exe result (first one): " + "\r\n" + sub.GetResultsSubmittedExe().Last().ResultOutput + "\r\n";
                 if (sub.GetResultsCompiledExe().Count != 0)
-                    createText += "Compiled Exe result (first one): " + "\r\n" + sub.GetResultsCompiledExe().Last() + "\r\n\r\n\r\n";
+                    createText += "Compiled Exe result (first one): " + "\r\n" + sub.GetResultsCompiledExe().Last().ResultOutput + "\r\n\r\n\r\n";
                 i++;
             }
 

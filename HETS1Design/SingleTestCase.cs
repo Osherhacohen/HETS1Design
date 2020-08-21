@@ -34,8 +34,13 @@ namespace HETS1Design
                 hasEPInText = false;
         }
 
+        public void AppendTestCase(string input, string output, bool equal)
+        {
+            //For when we wish to add another test case. //WRITE THIS
+        }
+
         //Compares TC (desired) output to actual program output.
-        bool CompareOutput(string resultOutput)
+        public bool CompareOutput(string resultOutput)
         {
             if (this.output == resultOutput)
                 return this.equal && true; //Returns true only if it's both equal AND it supposed to be equal.

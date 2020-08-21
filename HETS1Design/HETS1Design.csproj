@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeChecker.cs" />
+    <Compile Include="Result.cs" />
     <Compile Include="SingleTestCase.cs" />
     <Compile Include="Submissions.cs" />
     <Compile Include="TestCases.cs" />

@@ -17,8 +17,8 @@ namespace HETS1Design
         public string exePath { get; private set; } //.exe file.
         public string compiledExePath { get; private set; } //.exe file made by our compiler.
         public bool exeExists { get; private set; }
-        List<string> resultOutput =new List<string>(); //Program output per test case.          
-        List<string> resultCompiledExeOPutput=new List<string>(); //In case we have 2 exe files, compiled one and attached one
+        List<Result> resultOutput = new List<Result>(); //Program output per test case.          
+        List<Result> resultCompiledExeOutput=new List<Result>(); //In case we have 2 exe files, compiled one and attached one
         double grade; //Final grade.
 
         /*Every submission must have an ID, paths will be added only if an ID exists. 
@@ -44,10 +44,10 @@ namespace HETS1Design
                 exeExists = true;
         }
 
-        public List<string> GetResultsSubmittedExe() //Temporary, we may return something else in another function instead
+        public List<Result> GetResultsSubmittedExe() //Temporary, we may return something else in another function instead
         { return resultOutput; } 
-        public List<string> GetResultsCompiledExe() //Temporary, we may return something else in another function instead
-        { return resultCompiledExeOPutput; }
+        public List<Result> GetResultsCompiledExe() //Temporary, we may return something else in another function instead
+        { return resultCompiledExeOutput; }
 
 
 
@@ -69,40 +69,51 @@ namespace HETS1Design
         }
 
 
-        //Run this function from construct. Run the .exe file.
-        /*We're passing a list argument here since we don't want the two types (Submissions/TestCases) to be dependent.
-        This way, if this class is used in another program, it's always possible to pass a string list instead for example.*/
-
-        public void RunSubmittedProgram(string input)//List<SingleTestCase> testCaseIn) //For now it's a string - we'll change later.
+        //Run this function from construct. Run the .exe file.       
+        public void RunSubmittedProgram()//List<SingleTestCase> testCaseIn) //For now it's a string - we'll change later.
         {
             if (exeExists)
             {
-                if(File.Exists(exePath))
-                    resultOutput.Add(CodeChecker.RunEXE(exePath, input));
-                if (File.Exists(compiledExePath))
-                    resultCompiledExeOPutput.Add(CodeChecker.RunEXE(compiledExePath, input));
+                if(TestCases.testCases.Count!=0)
+                foreach (SingleTestCase tc in TestCases.testCases)
+                {
+                    if (File.Exists(exePath))
+                        resultOutput.Add(new Result(CodeChecker.RunEXE(exePath, tc.input)));
+                    if (File.Exists(compiledExePath))
+                        resultCompiledExeOutput.Add(new Result(CodeChecker.RunEXE(compiledExePath, tc.input)));
+                }
             }
         }
 
         //Compares result to an output.
-        public int CompareResults(List<string> desiredOutput)//List<SingleTestCase> testCaseOut) //We'll change it later too
+        public void CompareResults()
         {
-            //Compare desired output list 
-            return 1;
+            int i = 0;
+            foreach (SingleTestCase tc in TestCases.testCases)
+            {
+                if (tc.CompareOutput(resultOutput[i].ResultOutput))
+                    resultOutput[i].Match();
+                else
+                    resultOutput[i].Mismatch();
+                i++;
+            }
         }
 
 
 
-        //Check possible cheating
+        //Check possible cheating when comparing submitted .exe results to compiled .exe results.
         public bool CompareBothLists()
         {
-            if (this.resultOutput.SequenceEqual<string>(this.resultCompiledExeOPutput))
+            if (resultOutput.Count == resultCompiledExeOutput.Count) 
+            {
+                for (int i = 0; i < resultOutput.Count;i++)
+                    if (resultOutput[i].ResultOutput != resultCompiledExeOutput[i].ResultOutput)
+                    {
+                        return false;
+                    }
                 return true;
+            }
             return false;
-
-            //Just in case
-            /*IEnumerable<string> difference = a1.Except(a2);
-            if (!difference.Any()) { }*/
         }
 
 
