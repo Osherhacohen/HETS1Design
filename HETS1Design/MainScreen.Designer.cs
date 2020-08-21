@@ -70,6 +70,10 @@
             this.menuCodeWeight = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.labelCompilerVersion = new System.Windows.Forms.Label();
+            this.radioButton64BitCompiler = new System.Windows.Forms.RadioButton();
+            this.radioButton32BitCompiler = new System.Windows.Forms.RadioButton();
+            this.textBoxTEMPORARY = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -142,21 +146,25 @@
             // 
             // txtOutputAppend
             // 
-            this.txtOutputAppend.Location = new System.Drawing.Point(397, 64);
+            this.txtOutputAppend.BackColor = System.Drawing.SystemColors.Info;
+            this.txtOutputAppend.Location = new System.Drawing.Point(400, 63);
             this.txtOutputAppend.Multiline = true;
             this.txtOutputAppend.Name = "txtOutputAppend";
             this.txtOutputAppend.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtOutputAppend.Size = new System.Drawing.Size(372, 96);
             this.txtOutputAppend.TabIndex = 10;
+            this.txtOutputAppend.WordWrap = false;
             // 
             // txtInputAppend
             // 
+            this.txtInputAppend.BackColor = System.Drawing.SystemColors.Info;
             this.txtInputAppend.Location = new System.Drawing.Point(13, 64);
             this.txtInputAppend.Multiline = true;
             this.txtInputAppend.Name = "txtInputAppend";
             this.txtInputAppend.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtInputAppend.Size = new System.Drawing.Size(361, 96);
             this.txtInputAppend.TabIndex = 9;
+            this.txtInputAppend.WordWrap = false;
             // 
             // label9
             // 
@@ -241,6 +249,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.radioButton32BitCompiler);
+            this.groupBox3.Controls.Add(this.radioButton64BitCompiler);
+            this.groupBox3.Controls.Add(this.labelCompilerVersion);
             this.groupBox3.Controls.Add(this.checkBoxContainExe);
             this.groupBox3.Controls.Add(this.checkBoxContainCode);
             this.groupBox3.Controls.Add(this.label4);
@@ -254,7 +265,7 @@
             // checkBoxContainExe
             // 
             this.checkBoxContainExe.AutoSize = true;
-            this.checkBoxContainExe.Location = new System.Drawing.Point(214, 19);
+            this.checkBoxContainExe.Location = new System.Drawing.Point(204, 32);
             this.checkBoxContainExe.Name = "checkBoxContainExe";
             this.checkBoxContainExe.Size = new System.Drawing.Size(79, 17);
             this.checkBoxContainExe.TabIndex = 2;
@@ -264,7 +275,7 @@
             // checkBoxContainCode
             // 
             this.checkBoxContainCode.AutoSize = true;
-            this.checkBoxContainCode.Location = new System.Drawing.Point(122, 19);
+            this.checkBoxContainCode.Location = new System.Drawing.Point(118, 32);
             this.checkBoxContainCode.Name = "checkBoxContainCode";
             this.checkBoxContainCode.Size = new System.Drawing.Size(80, 17);
             this.checkBoxContainCode.TabIndex = 1;
@@ -274,7 +285,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 20);
+            this.label4.Location = new System.Drawing.Point(6, 32);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 13);
             this.label4.TabIndex = 0;
@@ -302,6 +313,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.textBoxTEMPORARY);
             this.groupBox4.Controls.Add(this.dataGridResults);
             this.groupBox4.Location = new System.Drawing.Point(13, 421);
             this.groupBox4.Name = "groupBox4";
@@ -470,10 +482,56 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Code:";
             // 
+            // labelCompilerVersion
+            // 
+            this.labelCompilerVersion.AutoSize = true;
+            this.labelCompilerVersion.Location = new System.Drawing.Point(351, 0);
+            this.labelCompilerVersion.Name = "labelCompilerVersion";
+            this.labelCompilerVersion.Size = new System.Drawing.Size(87, 13);
+            this.labelCompilerVersion.TabIndex = 3;
+            this.labelCompilerVersion.Text = "Compiler version:";
+            // 
+            // radioButton64BitCompiler
+            // 
+            this.radioButton64BitCompiler.AutoSize = true;
+            this.radioButton64BitCompiler.Checked = true;
+            this.radioButton64BitCompiler.Location = new System.Drawing.Point(352, 32);
+            this.radioButton64BitCompiler.Name = "radioButton64BitCompiler";
+            this.radioButton64BitCompiler.Size = new System.Drawing.Size(85, 17);
+            this.radioButton64BitCompiler.TabIndex = 4;
+            this.radioButton64BitCompiler.TabStop = true;
+            this.radioButton64BitCompiler.Text = "64bit version";
+            this.radioButton64BitCompiler.UseVisualStyleBackColor = true;
+            this.radioButton64BitCompiler.CheckedChanged += new System.EventHandler(this.radioButton64BitCompiler_CheckedChanged);
+            // 
+            // radioButton32BitCompiler
+            // 
+            this.radioButton32BitCompiler.AutoSize = true;
+            this.radioButton32BitCompiler.Location = new System.Drawing.Point(443, 32);
+            this.radioButton32BitCompiler.Name = "radioButton32BitCompiler";
+            this.radioButton32BitCompiler.Size = new System.Drawing.Size(85, 17);
+            this.radioButton32BitCompiler.TabIndex = 5;
+            this.radioButton32BitCompiler.Text = "32bit version";
+            this.radioButton32BitCompiler.UseVisualStyleBackColor = true;
+            this.radioButton32BitCompiler.CheckedChanged += new System.EventHandler(this.radioButton32BitCompiler_CheckedChanged);
+            // 
+            // textBoxTEMPORARY
+            // 
+            this.textBoxTEMPORARY.BackColor = System.Drawing.SystemColors.Info;
+            this.textBoxTEMPORARY.Location = new System.Drawing.Point(13, 19);
+            this.textBoxTEMPORARY.Multiline = true;
+            this.textBoxTEMPORARY.Name = "textBoxTEMPORARY";
+            this.textBoxTEMPORARY.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBoxTEMPORARY.Size = new System.Drawing.Size(756, 230);
+            this.textBoxTEMPORARY.TabIndex = 11;
+            this.textBoxTEMPORARY.Text = "Temporary Text Box";
+            this.textBoxTEMPORARY.WordWrap = false;
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(800, 717);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.exeOutputBtn);
@@ -500,6 +558,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResults)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -553,6 +612,10 @@
         private System.Windows.Forms.CheckBox checkBoxContainExe;
         private System.Windows.Forms.CheckBox checkBoxContainCode;
         private System.Windows.Forms.CheckBox checkBoxEnableGrading;
+        private System.Windows.Forms.RadioButton radioButton32BitCompiler;
+        private System.Windows.Forms.RadioButton radioButton64BitCompiler;
+        private System.Windows.Forms.Label labelCompilerVersion;
+        private System.Windows.Forms.TextBox textBoxTEMPORARY;
     }
 }
 

@@ -45,15 +45,20 @@ namespace HETS1Design
             string validateOk = FormValidate();
             if (validateOk.CompareTo("OK") != 0)
                 MessageBox.Show(validateOk, "Error");
+
+            this.btnValidate.Text = "Working on it...";
+            this.btnValidate.Update();
+            if (GetAllSubmissions(this.txtArchivePath.Text)) //Both run and check that it finished running.
+            this.btnValidate.Text = "Start Validation Process";
         }
         private string FormValidate()
         {
             if (txtArchivePath.Text == "")
                 return "Choose archive file to continue!";
-            if (txtInputPath.Text == "")
-                return "Choose input test case file to continue!";
-            if (txtOutputPath.Text == "")
-                return "Choose output test case file to continue!";
+            //if (txtInputPath.Text == "")
+                //return "Choose input test case file to continue!";
+            //if (txtOutputPath.Text == "")
+                //return "Choose output test case file to continue!";
             return "OK";
         }
 
@@ -80,19 +85,18 @@ namespace HETS1Design
         private void openArchiveDialog_FileOk(object sender, CancelEventArgs e)
         {
 
-            try
-            {
+            //try
+            //{
                 string zipFile = openArchiveDialog.FileName;
                 this.txtArchivePath.Text = zipFile;
                 ZipArchiveHandler.GetSubmissionData(zipFile, true); //Extract submissions data.
-                GetAllSubmissions(zipFile);
                 //some_buttons.Enabled = true; //Do this later******************************************************
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
 
         }
 
@@ -133,12 +137,12 @@ namespace HETS1Design
 
         private void testCOMP_Click(object sender, EventArgs e) //TEMPRORARY
         {
-            CProgramHandler.CompileCode();
+            //MessageBox.Show(CodeChecker.CompileCode(@"..\..\..\Assets\CodeToCheck\Source.c"));
         }
 
         private void exeOutputBtn_Click(object sender, EventArgs e)
         {
-            CProgramHandler.RunEXE();
+            CodeChecker.RunEXE();
         }
 
         private void LimitWeightsChange()
@@ -179,6 +183,16 @@ namespace HETS1Design
             }
         }
 
+        private void radioButton64BitCompiler_CheckedChanged(object sender, EventArgs e)
+        {
+            Submissions.use32bitCompiler = false; //Default is 64
+        }
+
+        private void radioButton32BitCompiler_CheckedChanged(object sender, EventArgs e)
+        {
+            Submissions.use32bitCompiler = true;
+        }
+
 
 
         /************************************************************/
@@ -193,16 +207,30 @@ namespace HETS1Design
             txtOutputAppend.Text += output;
         }
 
-        public void GetAllSubmissions(string zipPath)
+        public bool GetAllSubmissions(string zipPath) //We may turn this into the final csv file at some point.
         {
             string createText = "";
+            Submissions.ActivateCompilation();
+            int i = 0;
+            this.textBoxTEMPORARY.Text = "";
             foreach (SingleSubmission sub in Submissions.submissions)
-                createText += "ID: "+ sub.submitID + "\n"
-                    +"Code Path: "+ sub.codePath + "\n"
-                    +"Exe Path: "+ sub.exePath + "\n";
+            {
+                createText += "\r\n" + i.ToString() + ". ID: " + sub.submitID + "\r\n"
+                    + "Code path: " + sub.codePath + "\r\n"
+                    + "Exe path: " + sub.exePath + "\r\n"
+                    + "Code exists: " + sub.codeExists + "\r\n"
+                    + "Exe exists: " + sub.exeExists + "\r\n"
+                    + "Compiler output: " + sub.compilerOutput  
+                    + "Compiled Exe path: " + sub.compiledExePath + "\r\n\r\n";
+                i++;
+            }
 
-            File.WriteAllText(Path.GetDirectoryName(zipPath)+@"\info.txt", createText);
+            this.textBoxTEMPORARY.Text += createText;
+            //File.WriteAllText(Path.GetDirectoryName(zipPath)+@"\info.txt", createText);
+
+            return true;
         }
+
         /************************************************************/
         //DEBUGGING PURPOSES ONLY - DELETE THIS LATER
         /************************************************************/

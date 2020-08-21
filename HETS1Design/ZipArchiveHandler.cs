@@ -78,7 +78,7 @@ namespace HETS1Design
                     string codePath = newDirectory + @"\" + Path.GetFileName(zipEntry.FullName);
                     zipEntry.ExtractToFile(codePath);
 
-                    Submissions.submissions.Last().codePath = codePath; //Always edit the newest Submission entry.
+                    Submissions.submissions.Last().AddCode(codePath); //Always edit the newest Submission entry.
                 }
 
                 string _4CharExtension = zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 4)); //File extension.
@@ -91,7 +91,7 @@ namespace HETS1Design
                     string exePath = newDirectory + @"\Exe\" + Path.GetFileName(zipEntry.FullName);                    
                     zipEntry.ExtractToFile(exePath);
 
-                    Submissions.submissions.Last().exePath = exePath;  //Always edit the newest Submission entry.
+                    Submissions.submissions.Last().AddExe(exePath);  //Always edit the newest Submission entry.
                 }
 
                 if (_4CharExtension == ".zip") //If extension is .zip, put it in a new folder with the same zip archive file name.

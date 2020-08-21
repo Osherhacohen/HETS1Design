@@ -59,7 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CProgramHandler.cs" />
+    <Compile Include="CodeChecker.cs" />
     <Compile Include="SingleTestCase.cs" />
     <Compile Include="Submissions.cs" />
     <Compile Include="TestCases.cs" />

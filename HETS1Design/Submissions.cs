@@ -9,5 +9,16 @@ namespace HETS1Design
     static class Submissions
     {
         public static List<SingleSubmission> submissions = new List<SingleSubmission>(); //List of submissions from students.
+        public static bool use32bitCompiler; //Whether submissions will be compiled in a 32 bit version of a compiler.
+
+        public static void ActivateCompilation()
+        {
+            foreach (SingleSubmission sub in submissions)
+                sub.CompileSubmittedCode();
+        }
+
+        public static void ActivateExecution()
+        {
+        }
     }
 }

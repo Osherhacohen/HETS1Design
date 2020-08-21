@@ -9,19 +9,23 @@ using System.Windows.Forms;
 
 namespace HETS1Design
 {
-    static class CProgramHandler //Prototype of C code compilation.
+    static class CodeChecker //Prototype of C code compilation.
     {
-        public static void CompileCode()//string codeFilePath)  //We'll need to pass a path into this function (Including file name).
+        static string compilerPath64 = @"..\..\..\Assets\tcc\tcc.exe"; //We'll need to make sure this is the right directory later on build.        
+        static string compilerPath32 = @"..\..\..\Assets\tcc\i386-win32-tcc.exe";
+
+        public static string CompileCode(string codeFilePath)  //We'll need to pass a path into this function (Including file name).
         {
-            string compilerPath = @"..\..\..\Assets\tcc\tcc.exe"; //We'll need to make sure this is the right directory later on build.
-
-            string codeFilePath = @"..\..\..\Assets\CodeToCheck\Source.c"; //Just for now, it'll eventualy be passed to the function.
-
             string cFileName = Path.GetFileName(codeFilePath);
             string directoryName = Path.GetDirectoryName(codeFilePath);
+            string compilerPath=compilerPath64;
 
+            if (Submissions.use32bitCompiler) //If tester chose the 32 bit version of the compiler.
+            {
+                compilerPath = compilerPath32;
+            }
 
-            ProcessStartInfo psi = new ProcessStartInfo(compilerPath, cFileName); 
+            ProcessStartInfo psi = new ProcessStartInfo(compilerPath, cFileName);
             psi.RedirectStandardInput = true;
             psi.RedirectStandardOutput = true;
             psi.UseShellExecute = false;
@@ -32,15 +36,15 @@ namespace HETS1Design
             p.StartInfo = psi;            
             p.Start();
 
-            string compilerOutput;
+            string compilerOutput = "No errors or warnings detected."; //If compiler doesn't have anything to complain about.
             using (StreamReader sr = p.StandardError)
             {
                 if (sr.BaseStream.CanRead)
                 {
                     compilerOutput = sr.ReadToEnd();
-                    MessageBox.Show(compilerOutput); //Example in a text box. We'll be comparing the results to the output file.                    
                 }
             }
+                return compilerOutput;
         }
 
       
