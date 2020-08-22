@@ -45,12 +45,16 @@
             this.txtInputPath = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.radioButton32BitCompiler = new System.Windows.Forms.RadioButton();
+            this.radioButton64BitCompiler = new System.Windows.Forms.RadioButton();
+            this.labelCompilerVersion = new System.Windows.Forms.Label();
             this.checkBoxContainExe = new System.Windows.Forms.CheckBox();
             this.checkBoxContainCode = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnValidate = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBoxTEMPORARY = new System.Windows.Forms.TextBox();
             this.dataGridResults = new System.Windows.Forms.DataGridView();
             this.btnExportCSV = new System.Windows.Forms.Button();
             this.openArchiveDialog = new System.Windows.Forms.OpenFileDialog();
@@ -58,6 +62,8 @@
             this.openOutputDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveCSVFile = new System.Windows.Forms.SaveFileDialog();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.timeoutLabel = new System.Windows.Forms.Label();
+            this.timeoutNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.checkBoxEnableGrading = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.menuResultsWeight = new System.Windows.Forms.NumericUpDown();
@@ -68,16 +74,14 @@
             this.menuCodeWeight = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.labelCompilerVersion = new System.Windows.Forms.Label();
-            this.radioButton64BitCompiler = new System.Windows.Forms.RadioButton();
-            this.radioButton32BitCompiler = new System.Windows.Forms.RadioButton();
-            this.textBoxTEMPORARY = new System.Windows.Forms.TextBox();
+            this.scndLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResults)).BeginInit();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeoutNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuResultsWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuExeWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuCodeWeight)).BeginInit();
@@ -260,6 +264,39 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Validation options";
             // 
+            // radioButton32BitCompiler
+            // 
+            this.radioButton32BitCompiler.AutoSize = true;
+            this.radioButton32BitCompiler.Location = new System.Drawing.Point(443, 32);
+            this.radioButton32BitCompiler.Name = "radioButton32BitCompiler";
+            this.radioButton32BitCompiler.Size = new System.Drawing.Size(85, 17);
+            this.radioButton32BitCompiler.TabIndex = 5;
+            this.radioButton32BitCompiler.Text = "32bit version";
+            this.radioButton32BitCompiler.UseVisualStyleBackColor = true;
+            this.radioButton32BitCompiler.CheckedChanged += new System.EventHandler(this.radioButton32BitCompiler_CheckedChanged);
+            // 
+            // radioButton64BitCompiler
+            // 
+            this.radioButton64BitCompiler.AutoSize = true;
+            this.radioButton64BitCompiler.Checked = true;
+            this.radioButton64BitCompiler.Location = new System.Drawing.Point(352, 32);
+            this.radioButton64BitCompiler.Name = "radioButton64BitCompiler";
+            this.radioButton64BitCompiler.Size = new System.Drawing.Size(85, 17);
+            this.radioButton64BitCompiler.TabIndex = 4;
+            this.radioButton64BitCompiler.TabStop = true;
+            this.radioButton64BitCompiler.Text = "64bit version";
+            this.radioButton64BitCompiler.UseVisualStyleBackColor = true;
+            this.radioButton64BitCompiler.CheckedChanged += new System.EventHandler(this.radioButton64BitCompiler_CheckedChanged);
+            // 
+            // labelCompilerVersion
+            // 
+            this.labelCompilerVersion.AutoSize = true;
+            this.labelCompilerVersion.Location = new System.Drawing.Point(351, 0);
+            this.labelCompilerVersion.Name = "labelCompilerVersion";
+            this.labelCompilerVersion.Size = new System.Drawing.Size(87, 13);
+            this.labelCompilerVersion.TabIndex = 3;
+            this.labelCompilerVersion.Text = "Compiler version:";
+            // 
             // checkBoxContainExe
             // 
             this.checkBoxContainExe.AutoSize = true;
@@ -320,6 +357,18 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Results Table";
             // 
+            // textBoxTEMPORARY
+            // 
+            this.textBoxTEMPORARY.BackColor = System.Drawing.SystemColors.Info;
+            this.textBoxTEMPORARY.Location = new System.Drawing.Point(13, 19);
+            this.textBoxTEMPORARY.Multiline = true;
+            this.textBoxTEMPORARY.Name = "textBoxTEMPORARY";
+            this.textBoxTEMPORARY.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBoxTEMPORARY.Size = new System.Drawing.Size(756, 230);
+            this.textBoxTEMPORARY.TabIndex = 11;
+            this.textBoxTEMPORARY.Text = "Temporary Text Box";
+            this.textBoxTEMPORARY.WordWrap = false;
+            // 
             // dataGridResults
             // 
             this.dataGridResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -355,6 +404,9 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.scndLabel);
+            this.groupBox5.Controls.Add(this.timeoutLabel);
+            this.groupBox5.Controls.Add(this.timeoutNumUpDown);
             this.groupBox5.Controls.Add(this.checkBoxEnableGrading);
             this.groupBox5.Controls.Add(this.label13);
             this.groupBox5.Controls.Add(this.menuResultsWeight);
@@ -370,6 +422,38 @@
             this.groupBox5.Size = new System.Drawing.Size(775, 46);
             this.groupBox5.TabIndex = 13;
             this.groupBox5.TabStop = false;
+            // 
+            // timeoutLabel
+            // 
+            this.timeoutLabel.AutoSize = true;
+            this.timeoutLabel.Location = new System.Drawing.Point(575, 20);
+            this.timeoutLabel.Name = "timeoutLabel";
+            this.timeoutLabel.Size = new System.Drawing.Size(48, 13);
+            this.timeoutLabel.TabIndex = 12;
+            this.timeoutLabel.Text = "Timeout:";
+            // 
+            // timeoutNumUpDown
+            // 
+            this.timeoutNumUpDown.Location = new System.Drawing.Point(629, 17);
+            this.timeoutNumUpDown.Maximum = new decimal(new int[] {
+            3600,
+            0,
+            0,
+            0});
+            this.timeoutNumUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.timeoutNumUpDown.Name = "timeoutNumUpDown";
+            this.timeoutNumUpDown.Size = new System.Drawing.Size(52, 20);
+            this.timeoutNumUpDown.TabIndex = 11;
+            this.timeoutNumUpDown.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.timeoutNumUpDown.ValueChanged += new System.EventHandler(this.timeoutNumUpDown_ValueChanged);
             // 
             // checkBoxEnableGrading
             // 
@@ -460,50 +544,14 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Code:";
             // 
-            // labelCompilerVersion
+            // scndLabel
             // 
-            this.labelCompilerVersion.AutoSize = true;
-            this.labelCompilerVersion.Location = new System.Drawing.Point(351, 0);
-            this.labelCompilerVersion.Name = "labelCompilerVersion";
-            this.labelCompilerVersion.Size = new System.Drawing.Size(87, 13);
-            this.labelCompilerVersion.TabIndex = 3;
-            this.labelCompilerVersion.Text = "Compiler version:";
-            // 
-            // radioButton64BitCompiler
-            // 
-            this.radioButton64BitCompiler.AutoSize = true;
-            this.radioButton64BitCompiler.Checked = true;
-            this.radioButton64BitCompiler.Location = new System.Drawing.Point(352, 32);
-            this.radioButton64BitCompiler.Name = "radioButton64BitCompiler";
-            this.radioButton64BitCompiler.Size = new System.Drawing.Size(85, 17);
-            this.radioButton64BitCompiler.TabIndex = 4;
-            this.radioButton64BitCompiler.TabStop = true;
-            this.radioButton64BitCompiler.Text = "64bit version";
-            this.radioButton64BitCompiler.UseVisualStyleBackColor = true;
-            this.radioButton64BitCompiler.CheckedChanged += new System.EventHandler(this.radioButton64BitCompiler_CheckedChanged);
-            // 
-            // radioButton32BitCompiler
-            // 
-            this.radioButton32BitCompiler.AutoSize = true;
-            this.radioButton32BitCompiler.Location = new System.Drawing.Point(443, 32);
-            this.radioButton32BitCompiler.Name = "radioButton32BitCompiler";
-            this.radioButton32BitCompiler.Size = new System.Drawing.Size(85, 17);
-            this.radioButton32BitCompiler.TabIndex = 5;
-            this.radioButton32BitCompiler.Text = "32bit version";
-            this.radioButton32BitCompiler.UseVisualStyleBackColor = true;
-            this.radioButton32BitCompiler.CheckedChanged += new System.EventHandler(this.radioButton32BitCompiler_CheckedChanged);
-            // 
-            // textBoxTEMPORARY
-            // 
-            this.textBoxTEMPORARY.BackColor = System.Drawing.SystemColors.Info;
-            this.textBoxTEMPORARY.Location = new System.Drawing.Point(13, 19);
-            this.textBoxTEMPORARY.Multiline = true;
-            this.textBoxTEMPORARY.Name = "textBoxTEMPORARY";
-            this.textBoxTEMPORARY.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxTEMPORARY.Size = new System.Drawing.Size(756, 230);
-            this.textBoxTEMPORARY.TabIndex = 11;
-            this.textBoxTEMPORARY.Text = "Temporary Text Box";
-            this.textBoxTEMPORARY.WordWrap = false;
+            this.scndLabel.AutoSize = true;
+            this.scndLabel.Location = new System.Drawing.Point(687, 20);
+            this.scndLabel.Name = "scndLabel";
+            this.scndLabel.Size = new System.Drawing.Size(50, 13);
+            this.scndLabel.TabIndex = 13;
+            this.scndLabel.Text = "seconds.";
             // 
             // MainScreen
             // 
@@ -538,6 +586,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResults)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeoutNumUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuResultsWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuExeWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuCodeWeight)).EndInit();
@@ -590,6 +639,9 @@
         private System.Windows.Forms.RadioButton radioButton64BitCompiler;
         private System.Windows.Forms.Label labelCompilerVersion;
         private System.Windows.Forms.TextBox textBoxTEMPORARY;
+        private System.Windows.Forms.Label timeoutLabel;
+        private System.Windows.Forms.NumericUpDown timeoutNumUpDown;
+        private System.Windows.Forms.Label scndLabel;
     }
 }
 

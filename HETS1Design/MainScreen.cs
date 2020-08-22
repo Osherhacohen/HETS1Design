@@ -184,6 +184,11 @@ namespace HETS1Design
         }
 
 
+        private void timeoutNumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            CodeChecker.timeoutSeconds = (int)timeoutNumUpDown.Value;
+        }
+
 
         /************************************************************/
         //DEBUGGING PURPOSES ONLY - DELETE THIS LATER (if we won't need it.)
@@ -231,6 +236,8 @@ namespace HETS1Design
 
             return true;
         }
+
+
 
         /************************************************************/
         //DEBUGGING PURPOSES ONLY - DELETE THIS LATER
