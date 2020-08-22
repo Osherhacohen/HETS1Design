@@ -572,7 +572,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainScreen";
-            this.Text = "Form1";
+            this.Text = "HETS - AZO Version";
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.MainScreen_HelpButtonClicked);
             this.Load += new System.EventHandler(this.MainScreen_Load);
             this.groupBox1.ResumeLayout(false);

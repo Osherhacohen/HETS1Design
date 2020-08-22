@@ -92,7 +92,7 @@ namespace HETS1Design
             {
                 p.Kill();
                 p.Dispose();
-                return "Timed out";
+                return "Timed out!";
             }
 
             if (results == "") //If there are no errors (runtime) go ahead and read output.
@@ -107,7 +107,7 @@ namespace HETS1Design
                 {
                     p.Kill();
                     p.Dispose();
-                    return "Timed out";
+                    return "Timed out!";
                 }
             }
 
