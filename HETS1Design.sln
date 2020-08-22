@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HETS1Design", "HETS1Design\HETS1Design.csproj", "{BC5F2E1B-4C55-45B0-B051-56E8940369EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HETS1Design.UnitTests", "HETS1Design.UnitTests\HETS1Design.UnitTests.csproj", "{CF930D1D-836A-46A9-AA3E-1846CA5B63C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BC5F2E1B-4C55-45B0-B051-56E8940369EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC5F2E1B-4C55-45B0-B051-56E8940369EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC5F2E1B-4C55-45B0-B051-56E8940369EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF930D1D-836A-46A9-AA3E-1846CA5B63C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF930D1D-836A-46A9-AA3E-1846CA5B63C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF930D1D-836A-46A9-AA3E-1846CA5B63C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF930D1D-836A-46A9-AA3E-1846CA5B63C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
