@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace HETS1Design
 {
-    class TestCases
+    public class TestCases
     {
 
         public static List<SingleTestCase> testCases = new List<SingleTestCase>();  //The list of test cases. 
