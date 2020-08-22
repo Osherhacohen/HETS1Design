@@ -17,8 +17,8 @@ namespace HETS1Design
         public string exePath { get; private set; } //.exe file.
         public string compiledExePath { get; private set; } //.exe file made by our compiler.
         public bool exeExists { get; private set; }
-        List<Result> resultOutput = new List<Result>(); //Program output per test case.          
-        List<Result> resultCompiledExeOutput=new List<Result>(); //In case we have 2 exe files, compiled one and attached one
+        List<OutputResult> submittedProgramOutputs = new List<OutputResult>(); //Program output per test case.          
+        List<OutputResult> compiledProgramOutputs = new List<OutputResult>(); //In case we have 2 exe files, compiled one and attached one
         double grade; //Final grade.
 
         /*Every submission must have an ID, paths will be added only if an ID exists. 
@@ -44,10 +44,10 @@ namespace HETS1Design
                 exeExists = true;
         }
 
-        public List<Result> GetResultsSubmittedExe() //Temporary, we may return something else in another function instead
-        { return resultOutput; } 
-        public List<Result> GetResultsCompiledExe() //Temporary, we may return something else in another function instead
-        { return resultCompiledExeOutput; }
+        public List<OutputResult> GetResultsSubmittedExe() //Temporary, we may return something else in another function instead
+        { return submittedProgramOutputs; } 
+        public List<OutputResult> GetResultsCompiledExe() //Temporary, we may return something else in another function instead
+        { return compiledProgramOutputs; }
 
 
 
@@ -69,18 +69,24 @@ namespace HETS1Design
         }
 
 
-        //Run this function from construct. Run the .exe file.       
-        public void RunSubmittedProgram()//List<SingleTestCase> testCaseIn) //For now it's a string - we'll change later.
+        //Since RunExe returns the results string, we run it and right after add it to the result list.
+        public void RunSubmittedProgram()
         {
             if (exeExists)
             {
                 if(TestCases.testCases.Count!=0)
                 foreach (SingleTestCase tc in TestCases.testCases)
                 {
-                    if (File.Exists(exePath))
-                        resultOutput.Add(new Result(CodeChecker.RunEXE(exePath, tc.input)));
-                    if (File.Exists(compiledExePath))
-                        resultCompiledExeOutput.Add(new Result(CodeChecker.RunEXE(compiledExePath, tc.input)));
+                        if (File.Exists(exePath))
+                        {
+                            string outputResults = CodeChecker.RunEXE(exePath, tc.input);
+                            submittedProgramOutputs.Add(new OutputResult(outputResults));
+                        }
+                        if (File.Exists(compiledExePath))
+                        {
+                            string outputResults = CodeChecker.RunEXE(compiledExePath, tc.input);
+                            compiledProgramOutputs.Add(new OutputResult(outputResults));
+                        }
                 }
             }
         }
@@ -88,14 +94,28 @@ namespace HETS1Design
         //Compares result to an output.
         public void CompareResults()
         {
-            int i = 0;
-            foreach (SingleTestCase tc in TestCases.testCases)
+            if (exeExists)
             {
-                if (tc.CompareOutput(resultOutput[i].ResultOutput))
-                    resultOutput[i].Match();
-                else
-                    resultOutput[i].Mismatch();
-                i++;
+                int i = 0;
+                foreach (SingleTestCase tc in TestCases.testCases)
+                {
+                    //Compare the desired result output in test case to actual result.
+                    if (submittedProgramOutputs.Count!=0)
+                    {
+                        if (tc.CompareOutput(submittedProgramOutputs[i].GetResultOutput))
+                            submittedProgramOutputs[i].Match();
+                        else
+                            submittedProgramOutputs[i].Mismatch();
+                    }
+                    if (compiledProgramOutputs.Count != 0)
+                    {
+                        if (tc.CompareOutput(compiledProgramOutputs[i].GetResultOutput))
+                            compiledProgramOutputs[i].Match();
+                        else
+                            compiledProgramOutputs[i].Mismatch();
+                    }
+                    i++;
+                }
             }
         }
 
@@ -104,10 +124,10 @@ namespace HETS1Design
         //Check possible cheating when comparing submitted .exe results to compiled .exe results.
         public bool CompareBothLists()
         {
-            if (resultOutput.Count == resultCompiledExeOutput.Count) 
+            if (submittedProgramOutputs.Count == compiledProgramOutputs.Count) 
             {
-                for (int i = 0; i < resultOutput.Count;i++)
-                    if (resultOutput[i].ResultOutput != resultCompiledExeOutput[i].ResultOutput)
+                for (int i = 0; i < submittedProgramOutputs.Count;i++)
+                    if (submittedProgramOutputs[i].GetResultOutput != compiledProgramOutputs[i].GetResultOutput)
                     {
                         return false;
                     }

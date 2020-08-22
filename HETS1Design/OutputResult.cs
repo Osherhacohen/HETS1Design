@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace HETS1Design
 {
-    class Result
+    class OutputResult
     {
-        public string ResultOutput { get; private set; }
+        public string GetResultOutput { get; private set; }
         public bool DidItMatch { get; private set; }
         private bool chosenAlready; //Can use Match or Mismatch only once.
 
-        public Result(string resultOutput)
+        public OutputResult(string resultOutput)
         {
-            this.ResultOutput = resultOutput;
+            this.GetResultOutput = resultOutput;
             DidItMatch = false; //We didn't choose whether it matches or not yet.
         }
 

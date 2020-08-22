@@ -28,12 +28,13 @@ namespace HETS1Design
             ProcessStartInfo psi = new ProcessStartInfo(compilerPath, cFileName);
             psi.RedirectStandardInput = true;
             psi.RedirectStandardOutput = true;
-            psi.UseShellExecute = false;
             psi.RedirectStandardError = true;
+            psi.UseShellExecute = false;
+            psi.CreateNoWindow = false;
             psi.WorkingDirectory = directoryName; //Set process' working directory.
 
             Process p = new Process();
-            p.StartInfo = psi;            
+            p.StartInfo = psi; 
             p.Start();
 
             string compilerOutput = "No errors or warnings detected."; //If compiler doesn't have anything to complain about.
@@ -43,8 +44,10 @@ namespace HETS1Design
                 {
                     compilerOutput = sr.ReadToEnd();
                 }
-            }
-                return compilerOutput;
+            }        
+
+            p.Close();
+            return compilerOutput;
         }
 
       
@@ -56,8 +59,9 @@ namespace HETS1Design
             ProcessStartInfo psi = new ProcessStartInfo(exeFilePath);
             psi.RedirectStandardInput = true;
             psi.RedirectStandardOutput = true;
-            psi.UseShellExecute = false;
             psi.RedirectStandardError = true;
+            psi.UseShellExecute = false;
+            psi.CreateNoWindow = false;
             psi.WorkingDirectory = directoryName; //Set process' working directory.
 
             Process p = new Process();
@@ -71,7 +75,6 @@ namespace HETS1Design
                 if (sw.BaseStream.CanWrite)
                 {
                     sw.Write(input);
-                    //sw.WriteLine("2 9"); //Example, we'll be directing a file into stream writer
                 }
             }
 
@@ -93,7 +96,7 @@ namespace HETS1Design
                     }
                 }
             }
-
+            p.Close();
             return results;
         }
 
