@@ -17,6 +17,7 @@ namespace HETS1Design
         public string exePath { get; private set; } //.exe file.
         public string compiledExePath { get; private set; } //.exe file made by our compiler.
         public bool exeExists { get; private set; }
+        public bool possibleCheating { get; private set; }
         List<OutputResult> submittedProgramOutputs = new List<OutputResult>(); //Program output per test case.          
         List<OutputResult> compiledProgramOutputs = new List<OutputResult>(); //In case we have 2 exe files, compiled one and attached one
         double grade; //Final grade.
@@ -28,6 +29,7 @@ namespace HETS1Design
             this.submitID = Path.GetFileName(submitID);
             codeExists = false;
             exeExists = false;
+            possibleCheating = false;
         }
 
         public void AddCode(string codePath)
@@ -88,6 +90,10 @@ namespace HETS1Design
                             compiledProgramOutputs.Add(new OutputResult(outputResults));
                         }
                 }
+
+                if (File.Exists(exePath) && File.Exists(compiledExePath))
+                    possibleCheating = !CompareBothLists(); //If the 2 lists are different, there might be a possible cheating. Check manually.
+
             }
         }
 
@@ -129,9 +135,9 @@ namespace HETS1Design
                 for (int i = 0; i < submittedProgramOutputs.Count;i++)
                     if (submittedProgramOutputs[i].GetResultOutput != compiledProgramOutputs[i].GetResultOutput)
                     {
-                        return false;
-                    }
-                return true;
+                        return false; //Lists are different (possible cheating).
+                    } 
+                return true; //Both lists are the same.
             }
             return false;
         }
@@ -146,7 +152,12 @@ namespace HETS1Design
             }
             else
             {
-                //Compute grade by wieghts.
+                if (!possibleCheating)
+                {
+                    
+
+
+                }
 
             }
         }

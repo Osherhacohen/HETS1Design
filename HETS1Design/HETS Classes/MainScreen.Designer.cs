@@ -51,8 +51,8 @@
             this.checkBoxContainExe = new System.Windows.Forms.CheckBox();
             this.checkBoxContainCode = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnValidate = new System.Windows.Forms.Button();
-            this.closeButton = new System.Windows.Forms.Button();
+            this.btnCompile = new System.Windows.Forms.Button();
+            this.btnResults = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textBoxTEMPORARY = new System.Windows.Forms.TextBox();
             this.dataGridResults = new System.Windows.Forms.DataGridView();
@@ -62,6 +62,7 @@
             this.openOutputDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveCSVFile = new System.Windows.Forms.SaveFileDialog();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.scndLabel = new System.Windows.Forms.Label();
             this.timeoutLabel = new System.Windows.Forms.Label();
             this.timeoutNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.checkBoxEnableGrading = new System.Windows.Forms.CheckBox();
@@ -74,7 +75,8 @@
             this.menuCodeWeight = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.scndLabel = new System.Windows.Forms.Label();
+            this.btnRunProgram = new System.Windows.Forms.Button();
+            this.btnDetailedResults = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -326,25 +328,25 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Submission contains:";
             // 
-            // btnValidate
+            // btnCompile
             // 
-            this.btnValidate.Location = new System.Drawing.Point(13, 385);
-            this.btnValidate.Name = "btnValidate";
-            this.btnValidate.Size = new System.Drawing.Size(159, 30);
-            this.btnValidate.TabIndex = 7;
-            this.btnValidate.Text = "Start Validation Process";
-            this.btnValidate.UseVisualStyleBackColor = true;
-            this.btnValidate.Click += new System.EventHandler(this.btnValidate_Click);
+            this.btnCompile.Location = new System.Drawing.Point(13, 385);
+            this.btnCompile.Name = "btnCompile";
+            this.btnCompile.Size = new System.Drawing.Size(160, 30);
+            this.btnCompile.TabIndex = 7;
+            this.btnCompile.Text = "Compile Programs";
+            this.btnCompile.UseVisualStyleBackColor = true;
+            this.btnCompile.Click += new System.EventHandler(this.btnCompile_Click);
             // 
-            // closeButton
+            // btnResults
             // 
-            this.closeButton.Location = new System.Drawing.Point(629, 385);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(159, 30);
-            this.closeButton.TabIndex = 8;
-            this.closeButton.Text = "Close";
-            this.closeButton.UseVisualStyleBackColor = true;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            this.btnResults.Location = new System.Drawing.Point(423, 385);
+            this.btnResults.Name = "btnResults";
+            this.btnResults.Size = new System.Drawing.Size(160, 30);
+            this.btnResults.TabIndex = 8;
+            this.btnResults.Text = "Results";
+            this.btnResults.UseVisualStyleBackColor = true;
+            this.btnResults.Click += new System.EventHandler(this.btnResults_Click);
             // 
             // groupBox4
             // 
@@ -360,7 +362,7 @@
             // textBoxTEMPORARY
             // 
             this.textBoxTEMPORARY.BackColor = System.Drawing.SystemColors.Info;
-            this.textBoxTEMPORARY.Location = new System.Drawing.Point(13, 19);
+            this.textBoxTEMPORARY.Location = new System.Drawing.Point(10, 19);
             this.textBoxTEMPORARY.Multiline = true;
             this.textBoxTEMPORARY.Name = "textBoxTEMPORARY";
             this.textBoxTEMPORARY.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -422,6 +424,15 @@
             this.groupBox5.Size = new System.Drawing.Size(775, 46);
             this.groupBox5.TabIndex = 13;
             this.groupBox5.TabStop = false;
+            // 
+            // scndLabel
+            // 
+            this.scndLabel.AutoSize = true;
+            this.scndLabel.Location = new System.Drawing.Point(687, 20);
+            this.scndLabel.Name = "scndLabel";
+            this.scndLabel.Size = new System.Drawing.Size(50, 13);
+            this.scndLabel.TabIndex = 13;
+            this.scndLabel.Text = "seconds.";
             // 
             // timeoutLabel
             // 
@@ -544,26 +555,39 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Code:";
             // 
-            // scndLabel
+            // btnRunProgram
             // 
-            this.scndLabel.AutoSize = true;
-            this.scndLabel.Location = new System.Drawing.Point(687, 20);
-            this.scndLabel.Name = "scndLabel";
-            this.scndLabel.Size = new System.Drawing.Size(50, 13);
-            this.scndLabel.TabIndex = 13;
-            this.scndLabel.Text = "seconds.";
+            this.btnRunProgram.Location = new System.Drawing.Point(218, 385);
+            this.btnRunProgram.Name = "btnRunProgram";
+            this.btnRunProgram.Size = new System.Drawing.Size(160, 30);
+            this.btnRunProgram.TabIndex = 14;
+            this.btnRunProgram.Text = "Run Programs";
+            this.btnRunProgram.UseVisualStyleBackColor = true;
+            this.btnRunProgram.Click += new System.EventHandler(this.btnRunProgram_Click);
+            // 
+            // btnDetailedResults
+            // 
+            this.btnDetailedResults.Location = new System.Drawing.Point(628, 385);
+            this.btnDetailedResults.Name = "btnDetailedResults";
+            this.btnDetailedResults.Size = new System.Drawing.Size(160, 30);
+            this.btnDetailedResults.TabIndex = 15;
+            this.btnDetailedResults.Text = "Detailed Results";
+            this.btnDetailedResults.UseVisualStyleBackColor = true;
+            this.btnDetailedResults.Click += new System.EventHandler(this.btnDetailedResults_Click);
             // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(800, 717);
+            this.ClientSize = new System.Drawing.Size(800, 721);
+            this.Controls.Add(this.btnDetailedResults);
+            this.Controls.Add(this.btnRunProgram);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.btnExportCSV);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.closeButton);
-            this.Controls.Add(this.btnValidate);
+            this.Controls.Add(this.btnResults);
+            this.Controls.Add(this.btnCompile);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -608,8 +632,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnValidate;
-        private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Button btnCompile;
+        private System.Windows.Forms.Button btnResults;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridResults;
         private System.Windows.Forms.TextBox txtOutputAppend;
@@ -642,6 +666,8 @@
         private System.Windows.Forms.Label timeoutLabel;
         private System.Windows.Forms.NumericUpDown timeoutNumUpDown;
         private System.Windows.Forms.Label scndLabel;
+        private System.Windows.Forms.Button btnRunProgram;
+        private System.Windows.Forms.Button btnDetailedResults;
     }
 }
 

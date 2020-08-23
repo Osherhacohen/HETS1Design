@@ -11,7 +11,7 @@ namespace HETS1Design
     {
         public string input { private set; get; } //Input for test case.
         public string output { private set; get; } //Desired output for test case given input.
-        public bool equal { private set; get; } //Whether the result output must be equal or NOT equal to desired output.
+        public bool equal { private set; get; } //Whether the result output must be equal or NOT equal to desired output. (TC/TNC).
         public bool hasBoundInText { private set;  get; } 
         public bool hasEPInText { private set;  get; }
 
