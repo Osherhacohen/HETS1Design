@@ -49,12 +49,15 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="HETS Test Classes\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestCasesTest.cs" />
+    <Compile Include="HETS Test Classes\TestCasesTest.cs" />
+    <Compile Include="HETS Test Classes\SubmissionsTest.cs" />
+    <Compile Include="HETS Test Classes\OutputResultTest.cs" />
+    <Compile Include="HETS Test Classes\SingleSubmissionTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="HETS Test Config\packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HETS1Design\HETS1Design.csproj">

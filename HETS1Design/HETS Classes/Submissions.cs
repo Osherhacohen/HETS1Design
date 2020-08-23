@@ -9,12 +9,14 @@ namespace HETS1Design
     public static class Submissions
     {
         public static List<SingleSubmission> submissions = new List<SingleSubmission>(); //List of submissions from students.
+        
 
         public static void ActivateCompilation()
         {
             foreach (SingleSubmission sub in submissions)
                 sub.CompileSubmittedCode();
         }
+
 
         public static void ActivateExecution()
         {
