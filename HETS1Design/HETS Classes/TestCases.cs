@@ -18,10 +18,9 @@ namespace HETS1Design
         once we have both Input and Output test cases. Activate this from MainScreen when both i/o filed loaded.*/
         public static void ExtractTestCasesFromText(string inputFilePath, string outputFilePath)
         {
-            //using (StreamReader sr = File.ReadAllText(inputFilePath))
-            //{
-            //}
-            //    File.ReadAllText(inputFilePath);
+
+            string inputText = File.ReadAllText(inputFilePath);
+            string outputText = File.ReadAllText(outputFilePath);
         }
 
         //Add a new Test Case (one at a time, without TC/TNC keywords from text boxes and activate MultiplyTestCasesBy functions.
