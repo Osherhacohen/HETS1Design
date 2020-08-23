@@ -13,7 +13,7 @@ using System.Diagnostics;
 
 namespace HETS1Design
 {
-    static class ZipArchiveHandler
+    public static class ZipArchiveHandler
     {
         //This funtion extracts .c, .h and .exe files from an archive file and saves their paths in a SingleSubmission. 
         //zipFile is the zip path.  isMasterZipDirectory indicates whether it's the master or inner (Zip in a zip) zip directory.

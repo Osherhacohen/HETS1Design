@@ -5,10 +5,10 @@ using HETS1Design;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
 
-namespace HETS1Design.UnitTests
+namespace HETS1Design
 {
     [TestClass]
-    public class TestCasesTest
+     class TestCasesTest
     {
         //Global variable used for testing
         string fileToCheckContent;

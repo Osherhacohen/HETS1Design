@@ -19,22 +19,13 @@ namespace HETS1Design
         }
 
         public void Match()
-        {
-            if (!(chosenAlready))
-            {
-                this.DidItMatch = true;
-                chosenAlready = true;
-            }
+        {            
+                this.DidItMatch = true;            
         }
 
         public void Mismatch()
         {
-            if (!(chosenAlready))
-            {
                 this.DidItMatch = false;
-                chosenAlready = true;
-            }
-
         }
 
     }

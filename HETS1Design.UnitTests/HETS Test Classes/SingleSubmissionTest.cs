@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HETS1Design.UnitTests
+namespace HETS1Design
 {
     [TestClass]
     public class SingleSubmissionTest
