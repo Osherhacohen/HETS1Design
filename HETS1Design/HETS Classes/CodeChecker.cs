@@ -14,7 +14,7 @@ namespace HETS1Design
      Do notice that TCC (the compiler we use, Tiny C Compiler, may not support all known c libraries and better
      not count on it for threading, unless you're willing to tweak the compiler so it will.
      We may make a possibility to choose another C compiler if we have time.*/
-    static class CodeChecker 
+    public static class CodeChecker 
     {
         static string compilerPath64 = @"..\..\..\Assets\tcc\tcc.exe"; //We'll need to make sure this is the right directory.   
         static string compilerPath32 = @"..\..\..\Assets\tcc\i386-win32-tcc.exe";
