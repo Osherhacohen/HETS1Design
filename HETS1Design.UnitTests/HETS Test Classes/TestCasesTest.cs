@@ -27,9 +27,9 @@ namespace HETS1Design.UnitTests
             //Act
             var result = TestCases.CountTestCases(fileToCheckContent);
             //Assert
-            Assert.AreEqual(4, result);
-            Assert.AreNotEqual(3, result);
-            Assert.AreNotEqual(5, result);
+            Assert.AreEqual(5, result);
+            Assert.AreNotEqual(4, result);
+            Assert.AreNotEqual(6, result);
         }
 
         [TestMethod]
