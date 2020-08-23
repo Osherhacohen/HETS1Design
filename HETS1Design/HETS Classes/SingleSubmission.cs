@@ -143,7 +143,7 @@ namespace HETS1Design
         }
 
         //Count the amount of matching results in the list.
-        public int ResultsVsCorrectResults()
+        public double ResultsVsCorrectResults()
         {
             int count = 0;
             if (submittedProgramOutputs.Count > 0)
