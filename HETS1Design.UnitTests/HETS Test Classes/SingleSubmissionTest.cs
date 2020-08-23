@@ -36,6 +36,29 @@ namespace HETS1Design
             Assert.IsTrue(s1.exeExists);
         }
 
+        [TestMethod]
+        public void RunSubmittedProgram_AddedTestCasesToList()
+        {
+            //TODO
+        }
+
+        [TestMethod]
+        public void CompareResults_Test()
+        {
+            //TODO, Also name of the method needs to be changed!
+        }
+
+        [TestMethod]
+        public void CompareBothLists_CheckEqual()
+        {
+            Assert.IsTrue(s1.CompareBothLists());
+        }
+
+        [TestMethod]
+        public void Grading_Test()
+        {
+            //TODO
+        }
 
     }
 }

@@ -15,5 +15,16 @@ namespace HETS1Design
             var results = CodeChecker.CompileCode(filePath);
             Assert.IsNotNull(results);
         }
+
+        [TestMethod]
+        public void RunEXE_ReturnsOutput()
+        {
+            //Arrange
+            var filePath = @"..\..\..\Assets\CodeToCheck\Source.exe";
+            var input = "2 3";
+            //Act
+            var results = CodeChecker.RunEXE(filePath, input);
+            Assert.IsNotNull(results);
+        }
     }
 }
