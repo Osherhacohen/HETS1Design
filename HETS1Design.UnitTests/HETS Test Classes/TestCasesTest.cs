@@ -21,6 +21,31 @@ namespace HETS1Design
         }
 
         [TestMethod]
+        public void StartFunction_Starts()
+        {
+            //TODO
+        }
+
+        [TestMethod]
+        public void OnAppend_Test()
+        {
+            //TODO
+        }
+
+        [TestMethod]
+        public void TestCasesBuilder_AddedSuccessfully()
+        {
+            //Arrange
+            var inputFileText = ""; //What to put here?
+            var outputFileTest = ""; //What to put here?
+            var listSize = TestCases.testCases.Count;
+            //Act
+            TestCases.TestCasesBuilder(inputFileText, outputFileTest);
+            //Assert
+            Assert.AreNotEqual(listSize, TestCases.testCases.Count);
+        }
+
+        [TestMethod]
         public void CountTestCases_Test()
         {
             //Arrange
@@ -57,5 +82,29 @@ namespace HETS1Design
 
             CollectionAssert.AreEqual(expectedList, result);
         }
+
+        [TestMethod]
+        public void RemoveTCTNC_Removed()
+        {
+            //Arrange
+            var testCase = "__[TC]\r\n3 4";
+            //Act
+            var result = TestCases.RemoveTCTNC(testCase);
+            //Assert
+            Assert.AreEqual("3 4", result);
+        }
+
+        [TestMethod]
+        public void MultiplyTestCasesByBoundary_Multiplies()
+        {
+            //TODO (how to validate recursive method?)
+        }
+
+        [TestMethod]
+        public void MultiplyTestCasesByEP_Multiplies()
+        {
+            //TODO (how to validate recursive method?)
+        }
+
     }
 }
