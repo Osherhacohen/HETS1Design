@@ -49,11 +49,10 @@ namespace HETS1Design.UnitTests
         {
             //Arrange
             //Act
-            string res = "";
             var result = TestCases.TestCasesSeparator(fileToCheckContent);           
 
             //Assert
-            string[] expected = { "__[TC]\r\n9 5", "__[TNC]\r\n3 4\r\n1\r\n__[Bound] 5 9\r\n10", "__[TNC]\r\n7 3", "__[TC] 19\r\n" };
+            string[] expected = { "__[TC]\r\n9 5", "__[TNC]\r\n3 4\r\n1\r\n__[Bound] 5 9\r\n10", "__[TNC]\r\n7 3", "__[TC] 19\r\n", "__[TC] bla bla\r\n75" };
             List<string> expectedList = new List<string>(expected);
 
             CollectionAssert.AreEqual(expectedList, result);
