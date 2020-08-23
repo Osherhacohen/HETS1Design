@@ -23,18 +23,19 @@ namespace HETS1Design
         [TestMethod]
         public void AddCode_Success()
         {
-            s1.AddCode(@"C:\Users\CHAOSEnKrojerk\Source\Repos\Osherhacohen\HETS1Design\Assets\CodeToCheck\Source.c");
-            Assert.AreEqual(@"C:\Users\CHAOSEnKrojerk\Source\Repos\Osherhacohen\HETS1Design\Assets\CodeToCheck\Source.c", s1.codePath);
+            s1.AddCode(@"..\..\..\Assets\CodeToCheck\Source.c");
+            Assert.AreEqual(@"..\..\..\Assets\CodeToCheck\Source.c", s1.codePath);
             Assert.IsTrue(s1.codeExists);
         }
 
         [TestMethod]
         public void AddExe_Success()
         {
-            s1.AddExe(@"C:\Users\CHAOSEnKrojerk\Source\Repos\Osherhacohen\HETS1Design\Assets\CodeToCheck\Source.exe");
-            Assert.AreEqual(@"C:\Users\CHAOSEnKrojerk\Source\Repos\Osherhacohen\HETS1Design\Assets\CodeToCheck\Source.exe", s1.exePath);
+            s1.AddExe(@"..\..\..\Assets\CodeToCheck\Source.exe");
+            Assert.AreEqual(@"..\..\..\Assets\CodeToCheck\Source.exe", s1.exePath);
             Assert.IsTrue(s1.exeExists);
         }
+
 
     }
 }
