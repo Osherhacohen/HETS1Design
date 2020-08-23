@@ -18,8 +18,8 @@ namespace HETS1Design
         public string compiledExePath { get; private set; } //.exe file made by our compiler.
         public bool exeExists { get; private set; }
         public bool possibleCheating { get; private set; }
-        List<OutputResult> submittedProgramOutputs = new List<OutputResult>(); //Program output per test case.          
-        List<OutputResult> compiledProgramOutputs = new List<OutputResult>(); //In case we have 2 exe files, compiled one and attached one
+        public List<OutputResult> submittedProgramOutputs { get; private set; } //Program output per test case.          
+        public List<OutputResult> compiledProgramOutputs { get; private set; } //In case we have 2 exe files, compiled one and attached one
         public double grade { get; private set; } //Final grade.
 
         /*Every submission must have an ID, paths will be added only if an ID exists. 
@@ -30,6 +30,8 @@ namespace HETS1Design
             codeExists = false;
             exeExists = false;
             possibleCheating = false;
+            submittedProgramOutputs = new List<OutputResult>(); //Program output per test case.          
+            compiledProgramOutputs = new List<OutputResult>();
         }
 
         public void AddCode(string codePath)
@@ -45,14 +47,8 @@ namespace HETS1Design
             if (exePath != null)
                 exeExists = true;
         }
-
-        public List<OutputResult> GetResultsSubmittedExe() //Temporary, we may return something else in another function instead
-        { return submittedProgramOutputs; } 
-        public List<OutputResult> GetResultsCompiledExe() //Temporary, we may return something else in another function instead
-        { return compiledProgramOutputs; }
-
-
-
+        
+               
         //Run this function from Start buttun. Compile the .c code.
         //We don't pass an argument here since SingleSubmission it supposed to be contained in Submissions and it has the list.
         public void CompileSubmittedCode()

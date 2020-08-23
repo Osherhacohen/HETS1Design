@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace HETS1Design
 {
@@ -18,9 +19,19 @@ namespace HETS1Design
         once we have both Input and Output test cases. Activate this from MainScreen when both i/o filed loaded.*/
         public static void ExtractTestCasesFromText(string inputFilePath, string outputFilePath)
         {
-
             string inputText = File.ReadAllText(inputFilePath);
             string outputText = File.ReadAllText(outputFilePath);
+            if (CountTestCases(inputText) != CountTestCases(outputText))
+                MessageBox.Show("Test cases number does not match!");
+
+            else
+            {
+                if (File.Exists(inputFilePath) && File.Exists(outputFilePath))
+                    TestCasesBuilder(inputText, outputText);
+                else
+                    MessageBox.Show("Files are missing!");
+            }
+            
         }
 
         //Add a new Test Case (one at a time, without TC/TNC keywords from text boxes and activate MultiplyTestCasesBy functions.
@@ -28,11 +39,7 @@ namespace HETS1Design
         {
 
         }
-
-
-        //*******************************************************
-        //Functions to be used in the StartFunction and OnAppend.
-        //*******************************************************
+        
 
         //Counts the amount of __[TC] and __[TNC] in the text. Will be used to gurantee symmetry.
         public static int CountTestCases(string fileToCheckContent) 
@@ -47,8 +54,7 @@ namespace HETS1Design
                     if (line.Contains("__[T"))
                     {
                         count++;
-                    }
-                    
+                    }                    
                 }
                 return count;
             }            
@@ -92,22 +98,6 @@ namespace HETS1Design
             return testCasesList;
         }
 
-        //Fills the test cases list according the the Input/Output files.
-        public static void TestCasesBuilder(string inputFileText, string outputFileText)
-        {
-            List<String> input = TestCasesSeparator(inputFileText);
-            List<String> output = TestCasesSeparator(outputFileText);
-            bool isTC;
-            for (int i = 0; i <= input.Count(); i++)
-            {
-                isTC = TC_or_TNC(input[i]);
-                input[i] = RemoveTCTNC(input[i]);
-                output[i] = RemoveTCTNC(output[i]);
-                testCases.Add(new SingleTestCase(input[i], output[i], isTC));
-            }
-
-        }
-
         //Checks whether a test case is TC or TNC before removing the keyword.
         public static bool TC_or_TNC(string testCase)
         {
@@ -128,7 +118,24 @@ namespace HETS1Design
                 return ""; //Or for cases with no input.
         }
 
-        
+        //Fills the test cases list according the the Input/Output files.
+        public static void TestCasesBuilder(string inputFileText, string outputFileText)
+        {
+            List<String> input = TestCasesSeparator(inputFileText);
+            List<String> output = TestCasesSeparator(outputFileText);
+            bool isTC;
+            for (int i = 0; i < input.Count(); i++)
+            {
+                isTC = TC_or_TNC(input[i]);
+                input[i] = RemoveTCTNC(input[i]);
+                output[i] = RemoveTCTNC(output[i]);
+                testCases.Add(new SingleTestCase(input[i], output[i], isTC));                
+            }
+
+            testCases = MultiplyTestCasesByBoundary(testCases.ToList());
+            testCases = MultiplyTestCasesByEP(testCases.ToList());
+        }
+
         /**************************************************************************************************
         The following functions may have a shallow/deep copy problem, therefore, when calling it on the 
         construct call it like this: 

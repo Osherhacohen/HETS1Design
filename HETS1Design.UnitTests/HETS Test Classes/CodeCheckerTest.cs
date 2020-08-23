@@ -6,6 +6,10 @@ namespace HETS1Design
     [TestClass]
     public class CodeCheckerTest
     {
+        /******************************/
+        //Standalone Unit Tests
+        /******************************/
+
         [TestMethod]
         public void CompileCode_ReturnsOutput()
         {
@@ -26,5 +30,9 @@ namespace HETS1Design
             var results = CodeChecker.RunEXE(filePath, input);
             Assert.IsNotNull(results);
         }
+
+        /******************************/
+        //Combined Integration Tests
+        /******************************/
     }
 }

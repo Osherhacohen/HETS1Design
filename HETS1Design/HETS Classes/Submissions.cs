@@ -21,13 +21,18 @@ namespace HETS1Design
 
         public static bool ActivateExecution()
         {
-            TestCases.testCases.Add(new SingleTestCase("2 9", "7", true));
             foreach (SingleSubmission sub in submissions)
             {
-                sub.RunSubmittedProgram(); //This is temporary, the Run function will receive a SingleTestCase.
+                sub.RunSubmittedProgram(); 
                 sub.CompareResultsToDesiredResults();
             }
             return true;
         }
+
+        public static void SaveResults()
+        { }
+
+        public static void SaveDetailedResults()
+        { }
     }
 }

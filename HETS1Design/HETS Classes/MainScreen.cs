@@ -44,6 +44,7 @@ namespace HETS1Design
            
             if (Submissions.ActivateCompilation()) //Both run and check that it finished running.
                 this.btnCompile.Text = "Compile Programs";
+
         }
 
 
@@ -57,7 +58,7 @@ namespace HETS1Design
             this.btnRunProgram.Update();
 
             if (Submissions.ActivateExecution()) //Both run and check that it finished running.
-                this.btnCompile.Text = "Compile Programs";
+                this.btnRunProgram.Text = "Run Programs";
         }
 
 
@@ -129,8 +130,10 @@ namespace HETS1Design
             //{
                 string inputTextFile = openInputDialog.FileName;
                 this.txtInputPath.Text = openInputDialog.FileName;
+                if (this.txtInputPath.Text != "" && this.txtOutputPath.Text != "")
+                TestCases.ExtractTestCasesFromText(this.txtInputPath.Text, this.txtOutputPath.Text);
 
-                //some_buttons.Enabled = true; //Do this later
+            //some_buttons.Enabled = true; //Do this later
 
             //}
             //catch (Exception ex)
@@ -146,7 +149,9 @@ namespace HETS1Design
             //{
                 string outputTextFile = openOutputDialog.FileName;
                 this.txtOutputPath.Text = openOutputDialog.FileName;
-                //some_buttons.Enabled = true; //Do this later
+                if (this.txtInputPath.Text != "" && this.txtOutputPath.Text != "")
+                TestCases.ExtractTestCasesFromText(this.txtInputPath.Text, this.txtOutputPath.Text);
+            //some_buttons.Enabled = true; //Do this later
 
             //}
             //catch (Exception ex)
@@ -213,7 +218,7 @@ namespace HETS1Design
 
 
         /************************************************************/
-        //DEBUGGING PURPOSES ONLY - DELETE THIS LATER (if we won't need it.)
+        //Non-event functions.
         /************************************************************/
         public void AppendInputTXT(string input) //FOR DEBUGGING, DELETE THIS LATER***************
         {
@@ -223,6 +228,8 @@ namespace HETS1Design
         {
             txtOutputAppend.Text += output;
         }
+
+
 
         public bool GetAllSubmissions(string zipPath) //We may turn this into the final csv file at some point.
         {
@@ -243,10 +250,12 @@ namespace HETS1Design
                     + "Exe exists: " + sub.exeExists + "\r\n"
                     + "Compiler output: " + sub.compilerOutput +"\r\n" 
                     + "Compiled Exe path: " + sub.compiledExePath + "\r\n\r\n";
-                if (sub.GetResultsSubmittedExe().Count != 0)
-                    createText += "Submitted Exe result (first one): " + "\r\n" + sub.GetResultsSubmittedExe().Last().GetResultOutput + "\r\n";
-                if (sub.GetResultsCompiledExe().Count != 0)
-                    createText += "Compiled Exe result (first one): " + "\r\n" + sub.GetResultsCompiledExe().Last().GetResultOutput + "\r\n\r\n\r\n";
+                if (sub.submittedProgramOutputs.Count != 0)
+                    createText += "Submitted Exe result (first one): " + "\r\n" + sub.submittedProgramOutputs.Last().GetResultOutput + "\r\n"
+                    + "Success rate of: " + ((sub.ResultsVsCorrectResults()*100).ToString())+"\r\n\r\n";
+                if (sub.compiledProgramOutputs.Count != 0)
+                    createText += "Compiled Exe result (first one): " + "\r\n" + sub.compiledProgramOutputs.Last().GetResultOutput + "\r\n"
+                    + "Success rate of: " + ((sub.ResultsVsCorrectResults() * 100).ToString()) + "\r\n\r\n\r\n";
                 i++;
             }
 

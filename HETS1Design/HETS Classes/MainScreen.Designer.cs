@@ -391,17 +391,14 @@
             // 
             // openArchiveDialog
             // 
-            this.openArchiveDialog.FileName = "openArchiveDialog";
             this.openArchiveDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openArchiveDialog_FileOk);
             // 
             // openInputDialog
             // 
-            this.openInputDialog.FileName = "openInputDialog";
             this.openInputDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openInputDialog_FileOk);
             // 
             // openOutputDialog
             // 
-            this.openOutputDialog.FileName = "openOutputDialog";
             this.openOutputDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openOutputDialog_FileOk);
             // 
             // groupBox5
