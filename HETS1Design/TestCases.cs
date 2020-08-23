@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace HETS1Design
 {
-    public class TestCases
+    public static class TestCases
     {
 
         public static List<SingleTestCase> testCases = new List<SingleTestCase>();  //The list of test cases. 
@@ -41,10 +41,10 @@ namespace HETS1Design
         //*******************************************************
 
         //Counts the amount of __[TC] and __[TNC] in the text. Will be used to gurantee symmetry.
-        public static int CountTestCases(string fileToCheck) 
+        public static int CountTestCases(string fileToCheckContent) 
         {
 
-            using (StringReader sr = new StringReader(fileToCheck))
+            using (StringReader sr = new StringReader(fileToCheckContent))
             {
                 int count = 0;
                 string line;
@@ -77,12 +77,12 @@ namespace HETS1Design
         
             
         //Description above.
-        public List<string> TestCasesSeparator(string textFile)
+        public static List<string> TestCasesSeparator(string textFileContent)
         {
-            string textCaseContent = File.ReadAllText(textFile);
+            //string textCaseContent = File.ReadAllText(textFileContent); //This gets a string of content.
             List<string> testCasesList = new List<string>();
 
-            using (StringReader sr = new StringReader(textFile))
+            using (StringReader sr = new StringReader(textFileContent))
             {
                 string line;
                 while ((line = sr.ReadLine()) != null)
@@ -90,15 +90,16 @@ namespace HETS1Design
                     if (line.Contains("__[T"))
                     {
                         testCasesList.Add(line);
-                    }                 
-                    testCasesList[testCasesList.Count - 1] += line;
+                    }
+                    else
+                    testCasesList[testCasesList.Count - 1] +="\r\n"+ line;
                 }
             }                     
             return testCasesList;
         }
 
         //Fills the test cases list according the the Input/Output files.
-        public void TestCasesBuilder(string inputFileText, string outputFileText)
+        public static void TestCasesBuilder(string inputFileText, string outputFileText)
         {
             List<String> input = TestCasesSeparator(inputFileText);
             List<String> output = TestCasesSeparator(outputFileText);
@@ -114,7 +115,7 @@ namespace HETS1Design
         }
 
         //Checks whether a test case is TC or TNC before removing the keyword.
-        public bool TC_or_TNC(string testCase)
+        public static bool TC_or_TNC(string testCase)
         {
             if (testCase.Contains("__[TC]")) //First line must contain either TC or TNC.
                 return true;
@@ -122,7 +123,7 @@ namespace HETS1Design
         }
 
         //Removes the special keyword after separating to test cases.
-        public string RemoveTCTNC(string testCase) 
+        public static string RemoveTCTNC(string testCase) 
         {
             var lines = Regex.Split(testCase, "\r\n|\r|\n").Skip(1); //TODO: Use Environment.NewLine. if doesn't work.
             string testCaseWithoutKeyword = string.Join(Environment.NewLine, lines.ToArray());
@@ -141,7 +142,7 @@ namespace HETS1Design
         ***************************************************************************************************/
 
         //Recursive function to get rid of __[Bound] keyword and add the appropriate 5 test cases
-        public List<SingleTestCase> MultiplyTestCasesByBoundary(List<SingleTestCase> testCasesCopy) 
+        public static List<SingleTestCase> MultiplyTestCasesByBoundary(List<SingleTestCase> testCasesCopy) 
         {
             int i = 0;
             foreach (SingleTestCase tc in testCasesCopy.ToList()) //testCases.ToList() is a new temporary copy of testCases.

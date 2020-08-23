@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using HETS1Design;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 
 namespace HETS1Design.UnitTests
 {
@@ -10,15 +11,13 @@ namespace HETS1Design.UnitTests
     public class TestCasesTest
     {
         //Global variable used for testing
-        string fileToCheck;
-        TestCases t1;
+        string fileToCheckContent;
 
-        //Works in a similar manner to "Before" in JUnit
+       //Works in a similar manner to "Before" in JUnit
         [TestInitialize]
         public void Initialize()
         {
-            t1 = new TestCases();
-            fileToCheck = File.ReadAllText(@"C:\Users\CHAOSEnKrojerk\Source\Repos\Osherhacohen\HETS1Design\HETS1Design.UnitTests\TestCasesExample.txt");
+            fileToCheckContent = File.ReadAllText(@"..\..\..\Assets\IOToCheck\TestCasesExample.txt");
         }
 
         [TestMethod]
@@ -26,7 +25,7 @@ namespace HETS1Design.UnitTests
         {
             //Arrange
             //Act
-            var result = TestCases.CountTestCases(fileToCheck);
+            var result = TestCases.CountTestCases(fileToCheckContent);
             //Assert
             Assert.AreEqual(4, result);
             Assert.AreNotEqual(3, result);
@@ -38,8 +37,8 @@ namespace HETS1Design.UnitTests
         {
             //Arrange
             //Act
-            var result1 = t1.TC_or_TNC("__[TC]\r\n4 5 6");
-            var result2 = t1.TC_or_TNC("__[TNC]\r\n7");
+            var result1 = TestCases.TC_or_TNC("__[TC]\r\n4 5 6");
+            var result2 = TestCases.TC_or_TNC("__[TNC]\r\n7");
             //Assert
             Assert.IsTrue(result1);
             Assert.IsFalse(result2);
@@ -50,11 +49,14 @@ namespace HETS1Design.UnitTests
         {
             //Arrange
             //Act
-            var result = t1.TestCasesSeparator(@"C:\Users\CHAOSEnKrojerk\Source\Repos\Osherhacohen\HETS1Design\HETS1Design.UnitTests\TestCasesExample.txt");
+            string res = "";
+            var result = TestCases.TestCasesSeparator(fileToCheckContent);           
+
             //Assert
-            string[] contents = { "__[TC]\r\n9 5\r\n", "__[TNC]\r\n3 4\r\n1\r\n__[Bound] 5 9\r\n10\r\n", "__[TNC]\r\n7 3\r\n" , "__[TC] 19\r\n77" };
-            List<string> expected = new List<string>(contents);
-            Assert.AreEqual(expected, result);
+            string[] expected = { "__[TC]\r\n9 5", "__[TNC]\r\n3 4\r\n1\r\n__[Bound] 5 9\r\n10", "__[TNC]\r\n7 3", "__[TC] 19\r\n" };
+            List<string> expectedList = new List<string>(expected);
+
+            CollectionAssert.AreEqual(expectedList, result);
         }
     }
 }

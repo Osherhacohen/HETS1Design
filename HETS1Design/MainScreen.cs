@@ -175,12 +175,12 @@ namespace HETS1Design
 
         private void radioButton64BitCompiler_CheckedChanged(object sender, EventArgs e)
         {
-            Submissions.use32bitCompiler = false; //Default is 64
+            CodeChecker.use32bitCompiler = false; //Default is 64
         }
 
         private void radioButton32BitCompiler_CheckedChanged(object sender, EventArgs e)
         {
-            Submissions.use32bitCompiler = true;
+            CodeChecker.use32bitCompiler = true;
         }
 
 
@@ -205,7 +205,7 @@ namespace HETS1Design
         public bool GetAllSubmissions(string zipPath) //We may turn this into the final csv file at some point.
         {
             string createText = "Compiler version: 64Bit\r\n\r\n";
-            if (Submissions.use32bitCompiler)
+            if (CodeChecker.use32bitCompiler)
                 createText = "Compiler version: 32Bit\r\n\r\n";
 
             Submissions.ActivateCompilation();

@@ -7,7 +7,7 @@ using System.IO;
 
 namespace HETS1Design
 {
-    class SingleSubmission
+    public class SingleSubmission
     {
 
         public string submitID { get; private set; } //Submission folder name. 

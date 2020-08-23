@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HETS1Design
 {
-    class OutputResult
+    public class OutputResult
     {
         public string GetResultOutput { get; private set; }
         public bool DidItMatch { get; private set; }
