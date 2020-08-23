@@ -43,7 +43,7 @@ namespace HETS1Design
         }
 
         [TestMethod]
-        public void CompareResults_Test()
+        public void CompareResultsToDesiredResults_Test()
         {
             //TODO, Also name of the method needs to be changed!
         }
@@ -57,6 +57,13 @@ namespace HETS1Design
         [TestMethod]
         public void Grading_Test()
         {
+            s1.CompileSubmittedCode();
+            s1.RunSubmittedProgram();
+            s1.Grading(34, 30, 36);
+            double currentGrade = s1.grade;
+            double x = s1.ResultsVsCorrectResults();
+            double desiredGrade = 34 * 1 / 100 + 30 * 1 / 100 + 36 * x / 100;
+            Assert.Equals(currentGrade, desiredGrade);
             //TODO
         }
 
