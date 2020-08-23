@@ -96,7 +96,6 @@ namespace HETS1Design
             }
             else
             {
-                string r=results;
                 p.Kill();
                 p.Dispose();
                 return "Timed out!" ;

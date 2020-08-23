@@ -62,9 +62,15 @@ namespace HETS1Design
             s1.Grading(34, 30, 36);
             double currentGrade = s1.grade;
             double x = s1.ResultsVsCorrectResults();
-            double desiredGrade = 34 * 1 / 100 + 30 * 1 / 100 + 36 * x / 100;
+            double desiredGrade = 34*(1/100) + 30*(1/100) + 36*(x/100);
             Assert.Equals(currentGrade, desiredGrade);
             //TODO
+        }
+
+        [TestMethod]
+        public void ResultsVsCorrectResults_Test()
+        {
+            s1.
         }
 
     }
