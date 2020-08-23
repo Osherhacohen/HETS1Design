@@ -125,7 +125,7 @@ namespace HETS1Design
             }
         }
 
-
+        
 
         //Check possible cheating when comparing submitted .exe results to compiled .exe results.
         public bool CompareBothLists()
@@ -142,6 +142,29 @@ namespace HETS1Design
             return false;
         }
 
+        //Count the amount of matching results in the list.
+        public int ResultsVsCorrectResults()
+        {
+            int count = 0;
+            if (submittedProgramOutputs.Count > 0)
+            {
+                foreach (OutputResult result in submittedProgramOutputs)
+                    if (result.DidItMatch)
+                        count++;
+                return count / submittedProgramOutputs.Count;
+            }
+
+            if (compiledProgramOutputs.Count > 0)
+            {
+                foreach (OutputResult result in compiledProgramOutputs)
+                    if (result.DidItMatch)
+                        count++;
+                return count / compiledProgramOutputs.Count;
+            }
+
+            return count;
+
+        }
 
         //This is a grading function that goes by weight. First two 
         public void Grading(int codeWeight, int exeWeight, int correctResultsWeight) 
@@ -152,11 +175,16 @@ namespace HETS1Design
             }
             else
             {
-                if (!possibleCheating)
+                if (!possibleCheating) //We made sure that they're both the same list of results from .exe files.
                 {
-                    
-
-
+                    double resultGrade = (ResultsVsCorrectResults()) * (correctResultsWeight / 100);
+                    double exeGrade =0;
+                    double codeGrade =0;
+                    if (codeExists)
+                        codeGrade = codeWeight/100;
+                    if (exeExists)
+                        exeGrade = exeWeight/100;
+                    grade = resultGrade + exeGrade + codeGrade;
                 }
 
             }
