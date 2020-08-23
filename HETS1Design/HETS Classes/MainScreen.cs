@@ -25,7 +25,6 @@ namespace HETS1Design
             this.menuCodeWeight.Enabled = false;
             this.menuExeWeight.Enabled = false;
             this.menuResultsWeight.Enabled = false;
-
         }
 
         private void MainScreen_HelpButtonClicked(object sender, CancelEventArgs e)
@@ -34,23 +33,45 @@ namespace HETS1Design
             //This is probably recursion, careful here. IF NEEDED LIMIT BOUNDARY TO ONE PER CASE.
         }
 
-        //CHANGE BUTTON NAME
-        private void closeButton_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnValidate_Click(object sender, EventArgs e)
+        private void btnCompile_Click(object sender, EventArgs e)
         {
             string validateOk = FormValidate();
             if (validateOk.CompareTo("OK") != 0)
                 MessageBox.Show(validateOk, "Error");
 
-            this.btnValidate.Text = "Working on it...";
-            this.btnValidate.Update();
-            if (GetAllSubmissions(this.txtArchivePath.Text)) //Both run and check that it finished running.
-            this.btnValidate.Text = "Start Validation Process";
+            this.btnCompile.Text = "Working on compilation...";
+            this.btnCompile.Update();
+           
+            if (Submissions.ActivateCompilation()) //Both run and check that it finished running.
+                this.btnCompile.Text = "Compile Programs";
         }
+
+
+        private void btnRunProgram_Click(object sender, EventArgs e)
+        {
+            string validateOk = FormValidate();
+            if (validateOk.CompareTo("OK") != 0)
+                MessageBox.Show(validateOk, "Error");
+
+            this.btnRunProgram.Text = "Running programs...";
+            this.btnRunProgram.Update();
+
+            if (Submissions.ActivateExecution()) //Both run and check that it finished running.
+                this.btnCompile.Text = "Compile Programs";
+        }
+
+
+        private void btnResults_Click(object sender, EventArgs e)
+        {
+            GetAllSubmissions(this.txtArchivePath.Text); //This will be used to get the results table.
+        }
+
+        private void btnDetailedResults_Click(object sender, EventArgs e)
+        {
+            //TODO: Per submission test case results (Input/Output/Desired Output/Matching?)
+            //Add it in another folder called "Detailed Results"
+        }
+
         private string FormValidate()
         {
             if (txtArchivePath.Text == "")
@@ -208,9 +229,6 @@ namespace HETS1Design
             if (CodeChecker.use32bitCompiler)
                 createText = "Compiler version: 32Bit\r\n\r\n";
 
-            Submissions.ActivateCompilation();
-            Submissions.ActivateExecution();
-
 
             int i = 0;
             this.textBoxTEMPORARY.Text = "";
@@ -222,7 +240,7 @@ namespace HETS1Design
                     + "Exe path: " + sub.exePath + "\r\n"
                     + "Code exists: " + sub.codeExists + "\r\n"
                     + "Exe exists: " + sub.exeExists + "\r\n"
-                    + "Compiler output: " + sub.compilerOutput  
+                    + "Compiler output: " + sub.compilerOutput +"\r\n" 
                     + "Compiled Exe path: " + sub.compiledExePath + "\r\n\r\n";
                 if (sub.GetResultsSubmittedExe().Count != 0)
                     createText += "Submitted Exe result (first one): " + "\r\n" + sub.GetResultsSubmittedExe().Last().GetResultOutput + "\r\n";

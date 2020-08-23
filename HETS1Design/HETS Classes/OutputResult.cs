@@ -10,7 +10,6 @@ namespace HETS1Design
     {
         public string GetResultOutput { get; private set; }
         public bool DidItMatch { get; private set; }
-        private bool chosenAlready; //Can use Match or Mismatch only once.
 
         public OutputResult(string resultOutput)
         {
