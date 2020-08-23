@@ -10,7 +10,7 @@ namespace HETS1Design
         public void CompileCode_ReturnsOutput()
         {
             //Arrange
-            var filePath = @"C:\Users\CHAOSEnKrojerk\Source\Repos\Osherhacohen\HETS1Design\Assets\CodeToCheck\Source.c";
+            var filePath = @"..\..\..\Assets\CodeToCheck\Source.c";
             //Act
             var results = CodeChecker.CompileCode(filePath);
             Assert.IsNotNull(results);
