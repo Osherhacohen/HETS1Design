@@ -121,14 +121,5 @@ namespace HETS1Design
             p.Dispose();
             return results;
         }
-
-        private static string GetStreamOutput(StreamReader stream)
-        {
-            //Read output in separate task to avoid deadlocks
-            var outputReadTask = Task.Run(() => stream.ReadToEnd());
-
-            return outputReadTask.Result;
-        }
-
     }
 }

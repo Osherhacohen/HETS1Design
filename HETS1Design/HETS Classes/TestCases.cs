@@ -16,17 +16,12 @@ namespace HETS1Design
 
         /*Since this is a static function and we don't have a construct, we need to have a function that triggers
         once we have both Input and Output test cases. Activate this from MainScreen when both i/o filed loaded.*/
-        public static void StartFunction(string inputFile, string outputFile)
+        public static void ExtractTestCasesFromText(string inputFilePath, string outputFilePath)
         {
-            try
-            {
-
-            }
-
-            catch
-            {
-
-            }
+            //using (StreamReader sr = File.ReadAllText(inputFilePath))
+            //{
+            //}
+            //    File.ReadAllText(inputFilePath);
         }
 
         //Add a new Test Case (one at a time, without TC/TNC keywords from text boxes and activate MultiplyTestCasesBy functions.

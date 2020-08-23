@@ -125,33 +125,34 @@ namespace HETS1Design
 
         private void openInputDialog_FileOk(object sender, CancelEventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 string inputTextFile = openInputDialog.FileName;
                 this.txtInputPath.Text = openInputDialog.FileName;
+
                 //some_buttons.Enabled = true; //Do this later
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
 
         }
 
         private void openOutputDialog_FileOk(object sender, CancelEventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 string outputTextFile = openOutputDialog.FileName;
                 this.txtOutputPath.Text = openOutputDialog.FileName;
                 //some_buttons.Enabled = true; //Do this later
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
 
         }
 

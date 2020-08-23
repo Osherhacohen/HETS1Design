@@ -25,7 +25,7 @@ namespace HETS1Design
             foreach (SingleSubmission sub in submissions)
             {
                 sub.RunSubmittedProgram(); //This is temporary, the Run function will receive a SingleTestCase.
-                sub.CompareResults();
+                sub.CompareResultsToDesiredResults();
             }
             return true;
         }

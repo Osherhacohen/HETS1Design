@@ -20,7 +20,7 @@ namespace HETS1Design
         public bool possibleCheating { get; private set; }
         List<OutputResult> submittedProgramOutputs = new List<OutputResult>(); //Program output per test case.          
         List<OutputResult> compiledProgramOutputs = new List<OutputResult>(); //In case we have 2 exe files, compiled one and attached one
-        double grade; //Final grade.
+        public double grade { get; private set; } //Final grade.
 
         /*Every submission must have an ID, paths will be added only if an ID exists. 
         (On a new submission creation there's no code/exe files yet)*/
@@ -98,7 +98,7 @@ namespace HETS1Design
         }
 
         //Compares result to an output.
-        public void CompareResults()
+        public void CompareResultsToDesiredResults()
         {
             if (exeExists)
             {
@@ -108,14 +108,14 @@ namespace HETS1Design
                     //Compare the desired result output in test case to actual result.
                     if (submittedProgramOutputs.Count!=0)
                     {
-                        if (tc.CompareOutput(submittedProgramOutputs[i].GetResultOutput))
+                        if (tc.CompareOutput(submittedProgramOutputs[i].GetResultOutput)) //If the result matches the TC/TNC output.
                             submittedProgramOutputs[i].Match();
                         else
                             submittedProgramOutputs[i].Mismatch();
                     }
                     if (compiledProgramOutputs.Count != 0)
                     {
-                        if (tc.CompareOutput(compiledProgramOutputs[i].GetResultOutput))
+                        if (tc.CompareOutput(compiledProgramOutputs[i].GetResultOutput)) //If the result matches the TC/TNC output.
                             compiledProgramOutputs[i].Match();
                         else
                             compiledProgramOutputs[i].Mismatch();
