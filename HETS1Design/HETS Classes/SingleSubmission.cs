@@ -166,10 +166,13 @@ namespace HETS1Design
 
         }
 
+
+        //NOT WORKING YET - FIX THIS 
+        //**************************************
         //This is a grading function that goes by weight. First two 
         public void Grading(int codeWeight, int exeWeight, int correctResultsWeight) 
         {
-            if (!(codeExists || exeExists))
+            if ((!codeExists)&& (! exeExists))
             {
                 grade = 0;
             }
