@@ -8,7 +8,7 @@ using System.Diagnostics;
 namespace HETS1Design
 {
     [TestClass]
-     class TestCasesTest
+     public class TestCasesTest
     {
         //Global variable used for testing
         string fileToCheckContent;
