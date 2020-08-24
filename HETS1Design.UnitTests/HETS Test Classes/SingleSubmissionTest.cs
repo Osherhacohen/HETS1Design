@@ -61,8 +61,14 @@ namespace HETS1Design
             s1.RunSubmittedProgram();
             s1.Grading(34, 30, 36);
             double currentGrade = s1.grade;
-            double x = s1.ResultsVsCorrectResults();
-            double desiredGrade = 34*(1/100) + 30*(1/100) + 36*(x/100);
+            double x=0;
+
+            if(s1.compiledProgramOutputs.Count>0)
+            x = s1.CorrectResultsCount()/s1.compiledProgramOutputs.Count;
+            if(s1.submittedProgramOutputs.Count>0)
+            x = s1.CorrectResultsCount()/s1.submittedProgramOutputs.Count;
+
+            double desiredGrade = (34*(1/100) + 30*(1/100) + 36*(x/100))*100;
             Assert.AreEqual(currentGrade, desiredGrade);
         }
 

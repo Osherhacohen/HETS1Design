@@ -33,6 +33,7 @@ namespace HETS1Design
         {
             submissions.Clear();
         }
+        
 
         public static string GetAllSubmissionsResults(string zipPath) //We may turn this into the final csv file at some point.
         {
@@ -52,12 +53,14 @@ namespace HETS1Design
                     + "Exe exists: " + sub.exeExists + "\r\n"
                     + "Compiler output: " + sub.compilerOutput + "\r\n"
                     + "Compiled Exe path: " + sub.compiledExePath + "\r\n\r\n";
-                if (sub.submittedProgramOutputs.Count != 0)
-                    createText += "Submitted Exe result (first one): " + "\r\n" + sub.submittedProgramOutputs.Last().GetResultOutput + "\r\n"
-                    + "Success rate of: " + ((sub.ResultsVsCorrectResults() * 100).ToString()) + "\r\n\r\n";
-                if (sub.compiledProgramOutputs.Count != 0)
-                    createText += "Compiled Exe result (first one): " + "\r\n" + sub.compiledProgramOutputs.Last().GetResultOutput + "\r\n"
-                    + "Success rate of: " + ((sub.ResultsVsCorrectResults() * 100).ToString()) + "\r\n\r\n\r\n";
+                    createText += "Results: " + "\r\n" + sub.GetAllSingleSubmissionResults() + "\r\n\r\n";
+
+                
+                createText+= "Success rate of: " + sub.CorrectResultsPercentage();
+                if (sub.possibleCheating)
+                    createText += " with POSSIBLE CHEATING!\r\n\r\n\r\n";
+                else
+                    createText += "\r\n\r\n\r\n";
                 i++;
             }
 

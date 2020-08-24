@@ -139,33 +139,62 @@ namespace HETS1Design
         }
 
         //Count the amount of matching results in the list.
-        public double ResultsVsCorrectResults()
+        public int CorrectResultsCount()
         {
             int count = 0;
             if (submittedProgramOutputs.Count > 0)
             {
                 foreach (OutputResult result in submittedProgramOutputs)
-                    if (result.DidItMatch)
+                {
+                    if (result.DidItMatch == true)
                         count++;
-                return count / submittedProgramOutputs.Count;
+                }
+                return count;
             }
 
             if (compiledProgramOutputs.Count > 0)
             {
+
                 foreach (OutputResult result in compiledProgramOutputs)
-                    if (result.DidItMatch)
-                        count++;
-                return count / compiledProgramOutputs.Count;
+                { 
+                        if (result.DidItMatch == true)
+                            count++;
+                }
+                return count;
             }
 
             return count;
 
         }
 
+        public string CorrectResultsPercentage()
+        {
+            double percent = ((double)CorrectResultsCount()/(double)TestCases.testCases.Count)*100; //After all outputs go by testcases.
+            return percent.ToString()+"%";
+        }
 
-        //NOT WORKING YET - FIX THIS 
-        //**************************************
-        //This is a grading function that goes by weight. First two 
+        public string GetAllSingleSubmissionResults()
+        {
+            string allResults = "No results.";
+            if (submittedProgramOutputs.Count > 0)
+            {
+                allResults="\r\nSubmitted.exe results:\r\n";
+                foreach (OutputResult r in submittedProgramOutputs)
+                allResults +=r.GetResultOutput+"\r\n\r\n";
+            }
+
+            if (compiledProgramOutputs.Count > 0)
+            {
+                allResults += "\r\nCompiled .exe results:\r\n";
+                foreach (OutputResult r in compiledProgramOutputs)
+                    allResults += r.GetResultOutput + "\r\n\r\n";
+            }
+            return allResults;
+        }
+
+
+
+        //This is a grading function that goes by weight for each part of the submission.
         public void Grading(int codeWeight, int exeWeight, int correctResultsWeight) 
         {
             if ((!codeExists)&& (! exeExists))
@@ -176,14 +205,14 @@ namespace HETS1Design
             {
                 if (!possibleCheating) //We made sure that they're both the same list of results from .exe files.
                 {
-                    double resultGrade = (ResultsVsCorrectResults()) * (correctResultsWeight / 100);
+                    double resultGrade = (CorrectResultsCount()/TestCases.testCases.Count) * (correctResultsWeight / 100);
                     double exeGrade =0;
                     double codeGrade =0;
                     if (codeExists)
                         codeGrade = codeWeight/100;
                     if (exeExists)
                         exeGrade = exeWeight/100;
-                    grade = resultGrade + exeGrade + codeGrade;
+                    grade = (resultGrade + exeGrade + codeGrade)*100;
                 }
 
             }

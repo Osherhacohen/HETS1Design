@@ -6,4 +6,3 @@ __[TC] Same
 enter 2 chars seperated by space:
 your char diff is: 1
 
-__[TC] End
