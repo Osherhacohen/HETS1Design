@@ -48,6 +48,9 @@ namespace HETS1Design
                 }
 
                 testCases.Add(new SingleTestCase(inputBox, outputBox, isTC));
+
+                testCases = MultiplyTestCasesByBoundary(testCases.ToList());
+                testCases = MultiplyTestCasesByEP(testCases.ToList());
             }
         }
         
