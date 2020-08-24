@@ -70,7 +70,7 @@ namespace HETS1Design
         [TestMethod]
         public void ResultsVsCorrectResults_Test()
         {
-            s1.
+            
         }
 
     }

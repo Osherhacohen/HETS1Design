@@ -1,5 +1,10 @@
-﻿namespace HETS1Design
+﻿using System.Diagnostics.CodeAnalysis;
+namespace HETS1Design
 {
+    /*Since this is all automatically generated code, we exclude it from code coverage
+    by using [ExcludeFromCodeCoverage] before every method and that's because it's a partial
+    class and excluding this class will exclude all event methods that we might (not sure) be
+    able to test too.*/
     partial class MainScreen
     {
         /// <summary>
@@ -11,6 +16,7 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        [ExcludeFromCodeCoverage]
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,12 +26,13 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows Form Designer generated code. This will be excluded from code coverage.
 
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
+        [ExcludeFromCodeCoverage]
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
@@ -616,6 +623,7 @@
         }
 
         #endregion
+
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtArchivePath;
         private System.Windows.Forms.Button btnBrowseArchive;
@@ -665,6 +673,8 @@
         private System.Windows.Forms.Label scndLabel;
         private System.Windows.Forms.Button btnRunProgram;
         private System.Windows.Forms.Button btnDetailedResults;
+
     }
 }
+
 

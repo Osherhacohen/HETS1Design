@@ -7,6 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System.Diagnostics.CodeAnalysis;
 
 namespace HETS1Design.Properties
 {
@@ -14,9 +15,10 @@ namespace HETS1Design.Properties
 
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
+    //Exclude this auto generated code from code coverage.
+    [ExcludeFromCodeCoverage]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
     {
-
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
 
         public static Settings Default

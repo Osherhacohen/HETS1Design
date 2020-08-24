@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics.CodeAnalysis;
+
 
 namespace HETS1Design
 {
+    //We exclude this automatically generated code.
+    [ExcludeFromCodeCoverage]
     static class Program
     {
         /// <summary>

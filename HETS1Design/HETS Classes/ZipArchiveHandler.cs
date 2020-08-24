@@ -26,10 +26,10 @@ namespace HETS1Design
             string extractToFolderName; //The name of the folder that will hold our extracted files.
 
             //Names the folder to extract into. Master zip is Codes To Check and inner zip keeps its original name. 
-            if (isMasterZipDirectory) 
-                extractToFolderName = @"\Codes To Check"; 
+            if (isMasterZipDirectory)
+                extractToFolderName = @"\Codes To Check";
             else
-                extractToFolderName = @"\"+ Path.GetFileName(zipFile).Substring(0,Path.GetFileName(zipFile).Length-4); //Removes ".zip" from the name.
+                extractToFolderName = @"\" + Path.GetFileName(zipFile).Substring(0, Path.GetFileName(zipFile).Length - 4); //Removes ".zip" from the name.
 
 
             string extractToFolder = Path.GetDirectoryName(zipFile) + extractToFolderName; //Full path of the folder/directory.
@@ -53,8 +53,8 @@ namespace HETS1Design
             foreach (ZipArchiveEntry zipEntry in orderedZipEntries) //This extracts the ZIP entries into directories in CodesToCheck Folder.
             {
                 string newDirectory = extractToFolder + @"\" + Path.GetDirectoryName(zipEntry.FullName); //To avoid unassigned error.
-                
-                
+
+
                 if (!(Directory.Exists(newDirectory))) //If that directory doesn't exist yet.
                 {
                     newDirectory = extractToFolder + @"\" + Path.GetDirectoryName(zipEntry.FullName);
@@ -68,12 +68,12 @@ namespace HETS1Design
                         Submissions.submissions.Add(new SingleSubmission(newDirectory));
 
                     if (!(newDirectory.Contains(Submissions.submissions.Last().submitID)))
-                        Submissions.submissions.Add(new SingleSubmission(newDirectory)); 
+                        Submissions.submissions.Add(new SingleSubmission(newDirectory));
                 }
 
                 string _2CharExtention = zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 2)); //File extension.
 
-                if (_2CharExtention == ".c"|| _2CharExtention == ".h") //If extension is .c (c code) or .h (c header).
+                if (_2CharExtention == ".c" || _2CharExtention == ".h") //If extension is .c (c code) or .h (c header).
                 {
                     string codePath = newDirectory + @"\" + Path.GetFileName(zipEntry.FullName);
                     zipEntry.ExtractToFile(codePath);
@@ -86,9 +86,9 @@ namespace HETS1Design
                 if (_4CharExtension == ".exe") //If extension is .exe put it in a new folder to prevent conflict with any TCC compiled .exe.
                 {
                     if (!(Directory.Exists(newDirectory + @"\Exe\"))) //If it exists already, it may have more than 1 .exe file.
-                    Directory.CreateDirectory(newDirectory + @"\Exe\");
+                        Directory.CreateDirectory(newDirectory + @"\Exe\");
 
-                    string exePath = newDirectory + @"\Exe\" + Path.GetFileName(zipEntry.FullName);                    
+                    string exePath = newDirectory + @"\Exe\" + Path.GetFileName(zipEntry.FullName);
                     zipEntry.ExtractToFile(exePath);
 
                     Submissions.submissions.Last().AddExe(exePath);  //Always edit the newest Submission entry.
@@ -99,7 +99,7 @@ namespace HETS1Design
                     string innerZipPath = newDirectory + @"\" + Path.GetFileName(zipEntry.FullName);
                     zipEntry.ExtractToFile(innerZipPath);
                     GetSubmissionData(innerZipPath, false); //Recursive call. This is an inner zip, we pass false here.
-                    File.Delete(innerZipPath);                    
+                    File.Delete(innerZipPath);
                 }
 
             }
@@ -107,7 +107,5 @@ namespace HETS1Design
             zip.Dispose(); //Dispose once our data is in place.
 
         }
-
-}
-    
+    }    
 }
