@@ -40,11 +40,13 @@ namespace HETS1Design
             this.btnBrowseArchive = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioTNC = new System.Windows.Forms.RadioButton();
+            this.radioTC = new System.Windows.Forms.RadioButton();
             this.txtOutputAppend = new System.Windows.Forms.TextBox();
             this.txtInputAppend = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnCaseAppend = new System.Windows.Forms.Button();
+            this.btnAddTestCase = new System.Windows.Forms.Button();
             this.txtOutputPath = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnBrowseOutput = new System.Windows.Forms.Button();
@@ -52,6 +54,9 @@ namespace HETS1Design
             this.txtInputPath = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.radioBtnExecutable = new System.Windows.Forms.RadioButton();
+            this.radioBtnCode = new System.Windows.Forms.RadioButton();
+            this.radioBtnBothExeAndCode = new System.Windows.Forms.RadioButton();
             this.radioButton32BitCompiler = new System.Windows.Forms.RadioButton();
             this.radioButton64BitCompiler = new System.Windows.Forms.RadioButton();
             this.btnCompile = new System.Windows.Forms.Button();
@@ -65,9 +70,6 @@ namespace HETS1Design
             this.openOutputDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveCSVFile = new System.Windows.Forms.SaveFileDialog();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.scndLabel = new System.Windows.Forms.Label();
-            this.timeoutLabel = new System.Windows.Forms.Label();
-            this.timeoutNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.checkBoxEnableGrading = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.menuResultsWeight = new System.Windows.Forms.NumericUpDown();
@@ -78,12 +80,12 @@ namespace HETS1Design
             this.menuCodeWeight = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.scndLabel = new System.Windows.Forms.Label();
+            this.timeoutLabel = new System.Windows.Forms.Label();
+            this.timeoutNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.btnRunProgram = new System.Windows.Forms.Button();
             this.btnDetailedResults = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.radioBtnBothExeAndCode = new System.Windows.Forms.RadioButton();
-            this.radioBtnCode = new System.Windows.Forms.RadioButton();
-            this.radioBtnExecutable = new System.Windows.Forms.RadioButton();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -91,10 +93,10 @@ namespace HETS1Design
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResults)).BeginInit();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.timeoutNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuResultsWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuExeWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuCodeWeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeoutNumUpDown)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.SuspendLayout();
@@ -140,11 +142,13 @@ namespace HETS1Design
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.radioTNC);
+            this.groupBox2.Controls.Add(this.radioTC);
             this.groupBox2.Controls.Add(this.txtOutputAppend);
             this.groupBox2.Controls.Add(this.txtInputAppend);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.btnCaseAppend);
+            this.groupBox2.Controls.Add(this.btnAddTestCase);
             this.groupBox2.Controls.Add(this.txtOutputPath);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.btnBrowseOutput);
@@ -157,6 +161,29 @@ namespace HETS1Design
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Input/Output case files";
+            // 
+            // radioTNC
+            // 
+            this.radioTNC.AutoSize = true;
+            this.radioTNC.Location = new System.Drawing.Point(366, 116);
+            this.radioTNC.Name = "radioTNC";
+            this.radioTNC.Size = new System.Drawing.Size(34, 17);
+            this.radioTNC.TabIndex = 12;
+            this.radioTNC.TabStop = true;
+            this.radioTNC.Text = "!=";
+            this.radioTNC.UseVisualStyleBackColor = true;
+            // 
+            // radioTC
+            // 
+            this.radioTC.AutoSize = true;
+            this.radioTC.Checked = true;
+            this.radioTC.Location = new System.Drawing.Point(366, 93);
+            this.radioTC.Name = "radioTC";
+            this.radioTC.Size = new System.Drawing.Size(31, 17);
+            this.radioTC.TabIndex = 11;
+            this.radioTC.TabStop = true;
+            this.radioTC.Text = "=";
+            this.radioTC.UseVisualStyleBackColor = true;
             // 
             // txtOutputAppend
             // 
@@ -172,7 +199,7 @@ namespace HETS1Design
             // txtInputAppend
             // 
             this.txtInputAppend.BackColor = System.Drawing.SystemColors.Info;
-            this.txtInputAppend.Location = new System.Drawing.Point(13, 64);
+            this.txtInputAppend.Location = new System.Drawing.Point(4, 63);
             this.txtInputAppend.Multiline = true;
             this.txtInputAppend.Name = "txtInputAppend";
             this.txtInputAppend.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -198,14 +225,15 @@ namespace HETS1Design
             this.label8.TabIndex = 7;
             this.label8.Text = "Input file additional test cases:";
             // 
-            // btnCaseAppend
+            // btnAddTestCase
             // 
-            this.btnCaseAppend.Location = new System.Drawing.Point(274, 166);
-            this.btnCaseAppend.Name = "btnCaseAppend";
-            this.btnCaseAppend.Size = new System.Drawing.Size(234, 23);
-            this.btnCaseAppend.TabIndex = 6;
-            this.btnCaseAppend.Text = "Append Test Cases for I/O Files...";
-            this.btnCaseAppend.UseVisualStyleBackColor = true;
+            this.btnAddTestCase.Location = new System.Drawing.Point(274, 166);
+            this.btnAddTestCase.Name = "btnAddTestCase";
+            this.btnAddTestCase.Size = new System.Drawing.Size(234, 23);
+            this.btnAddTestCase.TabIndex = 6;
+            this.btnAddTestCase.Text = "Add Test Case";
+            this.btnAddTestCase.UseVisualStyleBackColor = true;
+            this.btnAddTestCase.Click += new System.EventHandler(this.btnAddTestCase_Click);
             // 
             // txtOutputPath
             // 
@@ -272,6 +300,40 @@ namespace HETS1Design
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Submission Contains";
+            // 
+            // radioBtnExecutable
+            // 
+            this.radioBtnExecutable.AutoSize = true;
+            this.radioBtnExecutable.Checked = true;
+            this.radioBtnExecutable.Location = new System.Drawing.Point(27, 30);
+            this.radioBtnExecutable.Name = "radioBtnExecutable";
+            this.radioBtnExecutable.Size = new System.Drawing.Size(79, 17);
+            this.radioBtnExecutable.TabIndex = 5;
+            this.radioBtnExecutable.TabStop = true;
+            this.radioBtnExecutable.Text = "C Code File";
+            this.radioBtnExecutable.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnCode
+            // 
+            this.radioBtnCode.AutoSize = true;
+            this.radioBtnCode.Location = new System.Drawing.Point(112, 30);
+            this.radioBtnCode.Name = "radioBtnCode";
+            this.radioBtnCode.Size = new System.Drawing.Size(78, 17);
+            this.radioBtnCode.TabIndex = 4;
+            this.radioBtnCode.TabStop = true;
+            this.radioBtnCode.Text = "Executable";
+            this.radioBtnCode.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnBothExeAndCode
+            // 
+            this.radioBtnBothExeAndCode.AutoSize = true;
+            this.radioBtnBothExeAndCode.Location = new System.Drawing.Point(196, 30);
+            this.radioBtnBothExeAndCode.Name = "radioBtnBothExeAndCode";
+            this.radioBtnBothExeAndCode.Size = new System.Drawing.Size(47, 17);
+            this.radioBtnBothExeAndCode.TabIndex = 3;
+            this.radioBtnBothExeAndCode.TabStop = true;
+            this.radioBtnBothExeAndCode.Text = "Both";
+            this.radioBtnBothExeAndCode.UseVisualStyleBackColor = true;
             // 
             // radioButton32BitCompiler
             // 
@@ -388,47 +450,6 @@ namespace HETS1Design
             this.groupBox5.TabIndex = 13;
             this.groupBox5.TabStop = false;
             // 
-            // scndLabel
-            // 
-            this.scndLabel.AutoSize = true;
-            this.scndLabel.Location = new System.Drawing.Point(242, 33);
-            this.scndLabel.Name = "scndLabel";
-            this.scndLabel.Size = new System.Drawing.Size(50, 13);
-            this.scndLabel.TabIndex = 13;
-            this.scndLabel.Text = "seconds.";
-            // 
-            // timeoutLabel
-            // 
-            this.timeoutLabel.AutoSize = true;
-            this.timeoutLabel.Location = new System.Drawing.Point(23, 32);
-            this.timeoutLabel.Name = "timeoutLabel";
-            this.timeoutLabel.Size = new System.Drawing.Size(155, 13);
-            this.timeoutLabel.TabIndex = 12;
-            this.timeoutLabel.Text = "Executable forced to stop after:";
-            // 
-            // timeoutNumUpDown
-            // 
-            this.timeoutNumUpDown.Location = new System.Drawing.Point(184, 29);
-            this.timeoutNumUpDown.Maximum = new decimal(new int[] {
-            3600,
-            0,
-            0,
-            0});
-            this.timeoutNumUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.timeoutNumUpDown.Name = "timeoutNumUpDown";
-            this.timeoutNumUpDown.Size = new System.Drawing.Size(52, 20);
-            this.timeoutNumUpDown.TabIndex = 11;
-            this.timeoutNumUpDown.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.timeoutNumUpDown.ValueChanged += new System.EventHandler(this.timeoutNumUpDown_ValueChanged);
-            // 
             // checkBoxEnableGrading
             // 
             this.checkBoxEnableGrading.AutoSize = true;
@@ -518,6 +539,47 @@ namespace HETS1Design
             this.label5.TabIndex = 0;
             this.label5.Text = "Code:";
             // 
+            // scndLabel
+            // 
+            this.scndLabel.AutoSize = true;
+            this.scndLabel.Location = new System.Drawing.Point(242, 33);
+            this.scndLabel.Name = "scndLabel";
+            this.scndLabel.Size = new System.Drawing.Size(50, 13);
+            this.scndLabel.TabIndex = 13;
+            this.scndLabel.Text = "seconds.";
+            // 
+            // timeoutLabel
+            // 
+            this.timeoutLabel.AutoSize = true;
+            this.timeoutLabel.Location = new System.Drawing.Point(23, 32);
+            this.timeoutLabel.Name = "timeoutLabel";
+            this.timeoutLabel.Size = new System.Drawing.Size(155, 13);
+            this.timeoutLabel.TabIndex = 12;
+            this.timeoutLabel.Text = "Executable forced to stop after:";
+            // 
+            // timeoutNumUpDown
+            // 
+            this.timeoutNumUpDown.Location = new System.Drawing.Point(184, 29);
+            this.timeoutNumUpDown.Maximum = new decimal(new int[] {
+            3600,
+            0,
+            0,
+            0});
+            this.timeoutNumUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.timeoutNumUpDown.Name = "timeoutNumUpDown";
+            this.timeoutNumUpDown.Size = new System.Drawing.Size(52, 20);
+            this.timeoutNumUpDown.TabIndex = 11;
+            this.timeoutNumUpDown.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.timeoutNumUpDown.ValueChanged += new System.EventHandler(this.timeoutNumUpDown_ValueChanged);
+            // 
             // btnRunProgram
             // 
             this.btnRunProgram.Location = new System.Drawing.Point(218, 385);
@@ -548,40 +610,6 @@ namespace HETS1Design
             this.groupBox6.TabIndex = 16;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Compiler version:";
-            // 
-            // radioBtnBothExeAndCode
-            // 
-            this.radioBtnBothExeAndCode.AutoSize = true;
-            this.radioBtnBothExeAndCode.Location = new System.Drawing.Point(196, 30);
-            this.radioBtnBothExeAndCode.Name = "radioBtnBothExeAndCode";
-            this.radioBtnBothExeAndCode.Size = new System.Drawing.Size(47, 17);
-            this.radioBtnBothExeAndCode.TabIndex = 3;
-            this.radioBtnBothExeAndCode.TabStop = true;
-            this.radioBtnBothExeAndCode.Text = "Both";
-            this.radioBtnBothExeAndCode.UseVisualStyleBackColor = true;
-            // 
-            // radioBtnCode
-            // 
-            this.radioBtnCode.AutoSize = true;
-            this.radioBtnCode.Location = new System.Drawing.Point(112, 30);
-            this.radioBtnCode.Name = "radioBtnCode";
-            this.radioBtnCode.Size = new System.Drawing.Size(78, 17);
-            this.radioBtnCode.TabIndex = 4;
-            this.radioBtnCode.TabStop = true;
-            this.radioBtnCode.Text = "Executable";
-            this.radioBtnCode.UseVisualStyleBackColor = true;
-            // 
-            // radioBtnExecutable
-            // 
-            this.radioBtnExecutable.AutoSize = true;
-            this.radioBtnExecutable.Checked = true;
-            this.radioBtnExecutable.Location = new System.Drawing.Point(27, 30);
-            this.radioBtnExecutable.Name = "radioBtnExecutable";
-            this.radioBtnExecutable.Size = new System.Drawing.Size(79, 17);
-            this.radioBtnExecutable.TabIndex = 5;
-            this.radioBtnExecutable.TabStop = true;
-            this.radioBtnExecutable.Text = "C Code File";
-            this.radioBtnExecutable.UseVisualStyleBackColor = true;
             // 
             // groupBox7
             // 
@@ -632,10 +660,10 @@ namespace HETS1Design
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResults)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.timeoutNumUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuResultsWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuExeWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuCodeWeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeoutNumUpDown)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
@@ -666,7 +694,7 @@ namespace HETS1Design
         private System.Windows.Forms.TextBox txtInputAppend;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnCaseAppend;
+        private System.Windows.Forms.Button btnAddTestCase;
         private System.Windows.Forms.Button btnExportCSV;
         private System.Windows.Forms.OpenFileDialog openArchiveDialog;
         private System.Windows.Forms.OpenFileDialog openInputDialog;
@@ -696,6 +724,8 @@ namespace HETS1Design
         private System.Windows.Forms.RadioButton radioBtnBothExeAndCode;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.RadioButton radioTNC;
+        private System.Windows.Forms.RadioButton radioTC;
     }
 }
 

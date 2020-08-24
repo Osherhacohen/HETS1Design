@@ -74,7 +74,7 @@ namespace HETS1Design
             CodeChecker.timeoutSeconds = (int)timeoutNumUpDown.Value;
         }
 
-        public static void PrepareDialog(string conditions, OpenFileDialog openDialog)
+        public static void PrepareFileDialog(string conditions, OpenFileDialog openDialog)
         {
             openDialog.Filter = conditions;
             openDialog.ShowDialog();
@@ -86,14 +86,28 @@ namespace HETS1Design
             //{
             string zipFile = openArchiveDialog.FileName;
             txtArchivePath.Text = zipFile;
+            Submissions.ResetSubmissions();
             ZipArchiveHandler.GetSubmissionData(zipFile, true); //Extract submissions data.
-                                                                //some_buttons.Enabled = true; //Do this later******************************************************
+                                                                
 
             //}
             //catch (Exception ex)
             //{
             //    MessageBox.Show(ex.Message);
             //}
+        }
+
+        public static void DisplayGuideHelpBox()
+        {
+            MessageBox.Show("*I/O files must have symmetry." +
+                "\r\n\r\n*Choose Input=Output (Test case must be titled __[TC] in the input file)" +
+                "or Input!=Output (__[TNC] instead). There are example files to follow in the " +
+                " examples folder." +
+                "\r\n\r\n*If you wish to have a Boundary test for one input, place __[Bound] Number1 Number2" +
+                " where you would place the original output." +
+                "\r\n\r\n*For the same but with Equivalence Partitioning use __[EP] Number1 Number2 instead." +
+                "\r\n\r\n*Spaces and New Lines (enter) DO matter! No matter if you don't see them, make sure" +
+                "you write your input/output files correctly (and tell your students to mind it too!) ");
         }
 
         public static void OpenInputFile(OpenFileDialog openInputDialog, TextBox txtInputPath, TextBox txtOutputPath)
@@ -136,6 +150,8 @@ namespace HETS1Design
             //    MessageBox.Show(ex.Message);
             //}
         }
+
+
 
         public static void ShowResults(TextBox textBoxTEMPORARY, TextBox txtArchivePath)
         {

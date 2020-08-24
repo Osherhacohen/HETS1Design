@@ -29,8 +29,7 @@ namespace HETS1Design
 
         private void MainScreen_HelpButtonClicked(object sender, CancelEventArgs e)
         {
-            MessageBox.Show("File I/O:\n\nUse :case: before every case of I/O\nUse :notcase: if you want the program output to NOT match the text output.\n\nGUI Textbox I/O:\n\nYou are also able to append test cases to your I/O files, this will create a new file with the new use cases.\n\nIn addition, you may use boundary test cases in the GUI append function:\n\nUse :boundary: <Minimum value> <Maximum value> (They must be different)\nbefore an input line to add boundary test cases. \nEvery line with :boundary: will create 7 additional test cases in the new file; 3 for Min boundary, 3 for Max boundary and 1 for Opt case.\nYou must make sure that cases lower than min or higher than max have different value than input", "User guide");
-            //This is probably recursion, careful here. IF NEEDED LIMIT BOUNDARY TO ONE PER CASE.
+            MainScreenLogic.DisplayGuideHelpBox();
         }
 
         private void btnCompile_Click(object sender, EventArgs e)
@@ -71,28 +70,25 @@ namespace HETS1Design
             //Add it in another folder called "Detailed Results"
         }
 
-
+        private void btnAddTestCase_Click(object sender, EventArgs e)
+        {
+            //TODO: Add this.
+        }
 
 
         private void btnBrowseArchive_Click(object sender, EventArgs e)
         {
-            MainScreenLogic.PrepareDialog("ZIP Archive files (*.zip)|*.zip|All files (*.*)|*.*", openArchiveDialog);
-            //openArchiveDialog.Filter = "ZIP Archive files (*.zip)|*.zip|All files (*.*)|*.*";
-            //openArchiveDialog.ShowDialog();
+            MainScreenLogic.PrepareFileDialog("ZIP Archive files (*.zip)|*.zip|All files (*.*)|*.*", openArchiveDialog);
         }
 
         private void btnBrowseInput_Click(object sender, EventArgs e)
         {
-            MainScreenLogic.PrepareDialog("Text files (*.txt)|*.txt|All files (*.*)|*.*", openInputDialog);
-            //openInputDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
-            //openInputDialog.ShowDialog();
+            MainScreenLogic.PrepareFileDialog("Text files (*.txt)|*.txt|All files (*.*)|*.*", openInputDialog);
         }
 
         private void btnBrowseOutput_Click(object sender, EventArgs e)
         {
-            MainScreenLogic.PrepareDialog("Text files (*.txt)|*.txt|All files (*.*)|*.*", openOutputDialog);
-            //openOutputDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
-            //openOutputDialog.ShowDialog();
+            MainScreenLogic.PrepareFileDialog("Text files (*.txt)|*.txt|All files (*.*)|*.*", openOutputDialog);
         }
 
 
@@ -163,6 +159,9 @@ namespace HETS1Design
         {
             txtOutputAppend.Text += output;
         }
+
+
+
 
 
 
