@@ -14,6 +14,9 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace HETS1Design
 {
+    /*We are excluding this from code coverage since we'll be testing these functions in
+     MainScreenLogic class.*/
+    [ExcludeFromCodeCoverage]
     public partial class MainScreen : Form
     {
         public MainScreen()
@@ -155,28 +158,5 @@ namespace HETS1Design
         {
             MainScreenLogic.TimeoutValueChange(timeoutNumUpDown);
         }
-
-
-        /************************************************************/
-        //Non-event functions.
-        /************************************************************/
-        public void AppendInputTXT(string input) //FOR DEBUGGING, DELETE THIS LATER***************
-        {
-            txtInputAppend.Text += input;
-        }
-        public void AppendOutputTXT(string output) //FOR DEBUGGING, DELETE THIS LATER****************
-        {
-            txtOutputAppend.Text += output;
-        }
-
-
-
-
-
-
-
-        /************************************************************/
-        //DEBUGGING PURPOSES ONLY - DELETE THIS LATER
-        /************************************************************/
     }
 }
