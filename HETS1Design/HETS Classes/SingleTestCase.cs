@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace HETS1Design
 {
@@ -83,13 +84,92 @@ namespace HETS1Design
 
         //***************************TODO AT SOME POINT
 
+
+         
+        //Problems:
+        //1. Boundaries are too close to each other (6999-7000)
+        //2. Left boundary is larger than the right one (9000-7000)
+        //3. Boundaries are the same (7000-7000)
+        //4. Use this snippet for the EP but with boolean value(?)
         public List<SingleTestCase> ReturnBoundaryTestCases() 
         {
             //Takes one (the first to scan) boundary syntax and multiply the test case by 5 with the boundary input range. (5 __[TC])  
             //or (5 __[TNC]) is it was originally TNC.
             //Multiplies the rest of the text including other boundary syntax and returns a list of 5 test cases with same output
             //but input according to boundary range. (lower limit, 1 above lower limit, middle, one below upper limit, upper limit)
-            return null;
+
+            List<string> inputs = new List<string>(5);
+            string[] newInputs = new string[5];
+            for (int i = 0; i < 5; i++)
+            {
+                inputs.Add(this.input);
+                //Console.WriteLine(inputs[i]);
+            }
+
+            int boundInitialIndex = this.input.IndexOf("__[Bound] ");
+
+            string[] elements = this.input.Split(' ');
+            List<string> bounds = new List<string>();
+            for (int i = 0; i < elements.Length; i++)
+            {
+                if (elements[i] == "__[Bound]")
+                {
+                    bounds.Add(elements[i] + " " + elements[i + 1] + " " + elements[i + 2]);
+                }
+            }
+            //foreach (string i in bounds)
+            //{
+            //    Console.WriteLine(i);
+            //}
+
+            int boundIndex = bounds[0].IndexOf("__[Bound] ");
+            //Console.WriteLine("Index: " + boundIndex);
+            string numerals = (boundIndex < 0) ? bounds[0] : bounds[0].Remove(boundIndex, "__[Bound] ".Length);
+            if (Regex.IsMatch(numerals, @"\d\s\d"))
+            {
+                string[] singulars = numerals.Split(' ');
+                List<int> inputsIntegers = new List<int>(singulars.Length);
+                for (int i = 0; i < singulars.Length; i++)
+                {
+                    //Console.WriteLine("Stringy: " + singulars[i]);
+                    inputsIntegers.Add(int.Parse(singulars[i]));
+                    //Console.WriteLine("Inty: " + inputsIntegers[i]);
+                }
+                newInputs[0] = inputsIntegers[0].ToString();
+                newInputs[1] = (inputsIntegers[0] + 1).ToString();
+                newInputs[2] = ((int)(inputsIntegers[0] + inputsIntegers[1]) / 2).ToString();
+                newInputs[3] = (inputsIntegers[1] - 1).ToString();
+                newInputs[4] = (inputsIntegers[1]).ToString();
+
+                ///*debug*/
+                //foreach (string s in newInputs)
+                //{
+                //    Console.WriteLine(s);
+                //}
+                ///*end debug*/
+
+                for (int i = 0; i < inputs.Count; i++)
+                {
+                    inputs[i] = (boundInitialIndex < 0) ? inputs[i] : inputs[i].Remove(boundInitialIndex, "__[Bound] ".Length + numerals.Length + 1);
+                    inputs[i] = inputs[i].Insert(boundInitialIndex, newInputs[i] + " ");
+                }
+                //for (int i = 0; i < inputs.Count; i++)
+                //{
+                //    Console.WriteLine(inputs[i]);
+                //}
+                /*end debug*/
+            }
+            else
+            {
+                throw new Exception("Boundary isn't written well!");
+            }
+
+            List<SingleTestCase> boundTests = new List<SingleTestCase>();
+            for(int i=0;i<5;i++)
+            {
+                boundTests.Add(new SingleTestCase(inputs[i], this.output, this.equal));
+            }
+            return boundTests;
         }
 
         public List<SingleTestCase> ReturnEPTestCases()
