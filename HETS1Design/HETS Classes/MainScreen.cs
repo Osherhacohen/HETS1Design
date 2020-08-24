@@ -70,6 +70,15 @@ namespace HETS1Design
             //Add it in another folder called "Detailed Results"
         }
 
+
+        private void btnSaveIO_Click(object sender, EventArgs e)
+        {
+
+            //If the tester adds use cases via text box and wishes to save it as a new file.
+            //(The program will now work on that.
+
+        }
+
         private void btnAddTestCase_Click(object sender, EventArgs e)
         {
             //TODO: Add this.
@@ -159,9 +168,6 @@ namespace HETS1Design
         {
             txtOutputAppend.Text += output;
         }
-
-
-
 
 
 

@@ -40,6 +40,7 @@ namespace HETS1Design
             this.btnBrowseArchive = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSaveIO = new System.Windows.Forms.Button();
             this.radioTNC = new System.Windows.Forms.RadioButton();
             this.radioTC = new System.Windows.Forms.RadioButton();
             this.txtOutputAppend = new System.Windows.Forms.TextBox();
@@ -142,6 +143,7 @@ namespace HETS1Design
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnSaveIO);
             this.groupBox2.Controls.Add(this.radioTNC);
             this.groupBox2.Controls.Add(this.radioTC);
             this.groupBox2.Controls.Add(this.txtOutputAppend);
@@ -157,10 +159,20 @@ namespace HETS1Design
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(13, 64);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(775, 189);
+            this.groupBox2.Size = new System.Drawing.Size(775, 204);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Input/Output case files";
+            // 
+            // btnSaveIO
+            // 
+            this.btnSaveIO.Location = new System.Drawing.Point(653, 175);
+            this.btnSaveIO.Name = "btnSaveIO";
+            this.btnSaveIO.Size = new System.Drawing.Size(116, 23);
+            this.btnSaveIO.TabIndex = 13;
+            this.btnSaveIO.Text = "Save new I/O";
+            this.btnSaveIO.UseVisualStyleBackColor = true;
+            this.btnSaveIO.Click += new System.EventHandler(this.btnSaveIO_Click);
             // 
             // radioTNC
             // 
@@ -227,7 +239,7 @@ namespace HETS1Design
             // 
             // btnAddTestCase
             // 
-            this.btnAddTestCase.Location = new System.Drawing.Point(274, 166);
+            this.btnAddTestCase.Location = new System.Drawing.Point(255, 165);
             this.btnAddTestCase.Name = "btnAddTestCase";
             this.btnAddTestCase.Size = new System.Drawing.Size(234, 23);
             this.btnAddTestCase.TabIndex = 6;
@@ -294,7 +306,7 @@ namespace HETS1Design
             this.groupBox3.Controls.Add(this.radioBtnExecutable);
             this.groupBox3.Controls.Add(this.radioBtnCode);
             this.groupBox3.Controls.Add(this.radioBtnBothExeAndCode);
-            this.groupBox3.Location = new System.Drawing.Point(13, 259);
+            this.groupBox3.Location = new System.Drawing.Point(13, 274);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(249, 67);
             this.groupBox3.TabIndex = 6;
@@ -361,7 +373,7 @@ namespace HETS1Design
             // 
             // btnCompile
             // 
-            this.btnCompile.Location = new System.Drawing.Point(13, 385);
+            this.btnCompile.Location = new System.Drawing.Point(13, 400);
             this.btnCompile.Name = "btnCompile";
             this.btnCompile.Size = new System.Drawing.Size(160, 30);
             this.btnCompile.TabIndex = 7;
@@ -371,7 +383,7 @@ namespace HETS1Design
             // 
             // btnResults
             // 
-            this.btnResults.Location = new System.Drawing.Point(423, 385);
+            this.btnResults.Location = new System.Drawing.Point(423, 400);
             this.btnResults.Name = "btnResults";
             this.btnResults.Size = new System.Drawing.Size(160, 30);
             this.btnResults.TabIndex = 8;
@@ -383,7 +395,7 @@ namespace HETS1Design
             // 
             this.groupBox4.Controls.Add(this.textBoxTEMPORARY);
             this.groupBox4.Controls.Add(this.dataGridResults);
-            this.groupBox4.Location = new System.Drawing.Point(13, 421);
+            this.groupBox4.Location = new System.Drawing.Point(17, 436);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(775, 255);
             this.groupBox4.TabIndex = 9;
@@ -393,7 +405,7 @@ namespace HETS1Design
             // textBoxTEMPORARY
             // 
             this.textBoxTEMPORARY.BackColor = System.Drawing.SystemColors.Info;
-            this.textBoxTEMPORARY.Location = new System.Drawing.Point(10, 19);
+            this.textBoxTEMPORARY.Location = new System.Drawing.Point(9, 19);
             this.textBoxTEMPORARY.Multiline = true;
             this.textBoxTEMPORARY.Name = "textBoxTEMPORARY";
             this.textBoxTEMPORARY.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -413,7 +425,7 @@ namespace HETS1Design
             // 
             // btnExportCSV
             // 
-            this.btnExportCSV.Location = new System.Drawing.Point(322, 682);
+            this.btnExportCSV.Location = new System.Drawing.Point(342, 697);
             this.btnExportCSV.Name = "btnExportCSV";
             this.btnExportCSV.Size = new System.Drawing.Size(113, 26);
             this.btnExportCSV.TabIndex = 10;
@@ -444,7 +456,7 @@ namespace HETS1Design
             this.groupBox5.Controls.Add(this.menuCodeWeight);
             this.groupBox5.Controls.Add(this.label7);
             this.groupBox5.Controls.Add(this.label5);
-            this.groupBox5.Location = new System.Drawing.Point(13, 335);
+            this.groupBox5.Location = new System.Drawing.Point(13, 350);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(516, 46);
             this.groupBox5.TabIndex = 13;
@@ -582,7 +594,7 @@ namespace HETS1Design
             // 
             // btnRunProgram
             // 
-            this.btnRunProgram.Location = new System.Drawing.Point(218, 385);
+            this.btnRunProgram.Location = new System.Drawing.Point(218, 400);
             this.btnRunProgram.Name = "btnRunProgram";
             this.btnRunProgram.Size = new System.Drawing.Size(160, 30);
             this.btnRunProgram.TabIndex = 14;
@@ -592,7 +604,7 @@ namespace HETS1Design
             // 
             // btnDetailedResults
             // 
-            this.btnDetailedResults.Location = new System.Drawing.Point(628, 385);
+            this.btnDetailedResults.Location = new System.Drawing.Point(628, 400);
             this.btnDetailedResults.Name = "btnDetailedResults";
             this.btnDetailedResults.Size = new System.Drawing.Size(160, 30);
             this.btnDetailedResults.TabIndex = 15;
@@ -604,7 +616,7 @@ namespace HETS1Design
             // 
             this.groupBox6.Controls.Add(this.radioButton32BitCompiler);
             this.groupBox6.Controls.Add(this.radioButton64BitCompiler);
-            this.groupBox6.Location = new System.Drawing.Point(268, 259);
+            this.groupBox6.Location = new System.Drawing.Point(268, 274);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(208, 67);
             this.groupBox6.TabIndex = 16;
@@ -616,7 +628,7 @@ namespace HETS1Design
             this.groupBox7.Controls.Add(this.scndLabel);
             this.groupBox7.Controls.Add(this.timeoutLabel);
             this.groupBox7.Controls.Add(this.timeoutNumUpDown);
-            this.groupBox7.Location = new System.Drawing.Point(482, 259);
+            this.groupBox7.Location = new System.Drawing.Point(482, 274);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(306, 67);
             this.groupBox7.TabIndex = 17;
@@ -628,7 +640,7 @@ namespace HETS1Design
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(800, 721);
+            this.ClientSize = new System.Drawing.Size(800, 735);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.btnDetailedResults);
@@ -726,6 +738,7 @@ namespace HETS1Design
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.RadioButton radioTNC;
         private System.Windows.Forms.RadioButton radioTC;
+        private System.Windows.Forms.Button btnSaveIO;
     }
 }
 
