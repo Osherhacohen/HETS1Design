@@ -14,6 +14,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace HETS1Design
 {
+    //[ExcludeFromCodeCoverage]
     public partial class MainScreen : Form
     {
         public MainScreen()
@@ -44,7 +45,6 @@ namespace HETS1Design
            
             if (Submissions.ActivateCompilation()) //Both run and check that it finished running.
                 this.btnCompile.Text = "Compile Programs";
-
         }
 
 
@@ -64,7 +64,10 @@ namespace HETS1Design
 
         private void btnResults_Click(object sender, EventArgs e)
         {
-            GetAllSubmissions(this.txtArchivePath.Text); //This will be used to get the results table.
+            this.textBoxTEMPORARY.Text = "";
+
+            //This will be used to get the results table. (Currently string).
+            this.textBoxTEMPORARY.Text += Submissions.GetAllSubmissionsResults(this.txtArchivePath.Text);
         }
 
         private void btnDetailedResults_Click(object sender, EventArgs e)
@@ -237,39 +240,7 @@ namespace HETS1Design
 
 
 
-        public bool GetAllSubmissions(string zipPath) //We may turn this into the final csv file at some point.
-        {
-            string createText = "Compiler version: 64Bit\r\n\r\n";
-            if (CodeChecker.use32bitCompiler)
-                createText = "Compiler version: 32Bit\r\n\r\n";
 
-
-            int i = 0;
-            this.textBoxTEMPORARY.Text = "";
-
-            foreach (SingleSubmission sub in Submissions.submissions)
-            {
-                createText += i.ToString() + ". ID: " + sub.submitID + "\r\n"
-                    + "Code path: " + sub.codePath + "\r\n"
-                    + "Exe path: " + sub.exePath + "\r\n"
-                    + "Code exists: " + sub.codeExists + "\r\n"
-                    + "Exe exists: " + sub.exeExists + "\r\n"
-                    + "Compiler output: " + sub.compilerOutput +"\r\n" 
-                    + "Compiled Exe path: " + sub.compiledExePath + "\r\n\r\n";
-                if (sub.submittedProgramOutputs.Count != 0)
-                    createText += "Submitted Exe result (first one): " + "\r\n" + sub.submittedProgramOutputs.Last().GetResultOutput + "\r\n"
-                    + "Success rate of: " + ((sub.ResultsVsCorrectResults()*100).ToString())+"\r\n\r\n";
-                if (sub.compiledProgramOutputs.Count != 0)
-                    createText += "Compiled Exe result (first one): " + "\r\n" + sub.compiledProgramOutputs.Last().GetResultOutput + "\r\n"
-                    + "Success rate of: " + ((sub.ResultsVsCorrectResults() * 100).ToString()) + "\r\n\r\n\r\n";
-                i++;
-            }
-
-            this.textBoxTEMPORARY.Text += createText;
-            //File.WriteAllText(Path.GetDirectoryName(zipPath)+@"\info.txt", createText);
-
-            return true;
-        }
 
 
 

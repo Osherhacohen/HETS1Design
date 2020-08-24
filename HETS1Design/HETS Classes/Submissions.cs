@@ -29,6 +29,44 @@ namespace HETS1Design
             return true;
         }
 
+        public static void ResetSubmissions()
+        {
+            submissions.Clear();
+        }
+
+        public static string GetAllSubmissionsResults(string zipPath) //We may turn this into the final csv file at some point.
+        {
+            string createText = "Compiler version: 64Bit\r\n\r\n";
+            if (CodeChecker.use32bitCompiler)
+                createText = "Compiler version: 32Bit\r\n\r\n";
+
+
+            int i = 0;
+
+            foreach (SingleSubmission sub in Submissions.submissions)
+            {
+                createText += i.ToString() + ". ID: " + sub.submitID + "\r\n"
+                    + "Code path: " + sub.codePath + "\r\n"
+                    + "Exe path: " + sub.exePath + "\r\n"
+                    + "Code exists: " + sub.codeExists + "\r\n"
+                    + "Exe exists: " + sub.exeExists + "\r\n"
+                    + "Compiler output: " + sub.compilerOutput + "\r\n"
+                    + "Compiled Exe path: " + sub.compiledExePath + "\r\n\r\n";
+                if (sub.submittedProgramOutputs.Count != 0)
+                    createText += "Submitted Exe result (first one): " + "\r\n" + sub.submittedProgramOutputs.Last().GetResultOutput + "\r\n"
+                    + "Success rate of: " + ((sub.ResultsVsCorrectResults() * 100).ToString()) + "\r\n\r\n";
+                if (sub.compiledProgramOutputs.Count != 0)
+                    createText += "Compiled Exe result (first one): " + "\r\n" + sub.compiledProgramOutputs.Last().GetResultOutput + "\r\n"
+                    + "Success rate of: " + ((sub.ResultsVsCorrectResults() * 100).ToString()) + "\r\n\r\n\r\n";
+                i++;
+            }
+
+
+            //File.WriteAllText(Path.GetDirectoryName(zipPath)+@"\info.txt", createText);
+
+            return createText;
+        }
+
         public static void SaveResults()
         { }
 
