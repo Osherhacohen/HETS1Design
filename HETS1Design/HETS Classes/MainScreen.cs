@@ -39,9 +39,9 @@ namespace HETS1Design
             if (validateOk.CompareTo("OK") != 0)
                 MessageBox.Show(validateOk, "Error");
 
-            this.btnCompile.Text = "Working on compilation...";
-            this.btnCompile.Update();
-           
+            MainScreenLogic.CompileHelper(btnCompile);
+
+
             if (Submissions.ActivateCompilation()) //Both run and check that it finished running.
                 this.btnCompile.Text = "Compile Programs";
         }
@@ -53,8 +53,7 @@ namespace HETS1Design
             if (validateOk.CompareTo("OK") != 0)
                 MessageBox.Show(validateOk, "Error");
 
-            this.btnRunProgram.Text = "Running programs...";
-            this.btnRunProgram.Update();
+            MainScreenLogic.RunHelper(btnRunProgram);
 
             if (Submissions.ActivateExecution()) //Both run and check that it finished running.
                 this.btnRunProgram.Text = "Run Programs";
@@ -63,9 +62,7 @@ namespace HETS1Design
 
         private void btnResults_Click(object sender, EventArgs e)
         {
-            this.textBoxTEMPORARY.Text = "";
-            //This will be used to get the results table. (Currently string).
-            this.textBoxTEMPORARY.Text += Submissions.GetAllSubmissionsResults(this.txtArchivePath.Text);
+            MainScreenLogic.ShowResults(textBoxTEMPORARY, txtArchivePath);
         }
 
         private void btnDetailedResults_Click(object sender, EventArgs e)
@@ -79,139 +76,79 @@ namespace HETS1Design
 
         private void btnBrowseArchive_Click(object sender, EventArgs e)
         {
-            openArchiveDialog.Filter = "ZIP Archive files (*.zip)|*.zip|All files (*.*)|*.*";
-            openArchiveDialog.ShowDialog();
+            MainScreenLogic.PrepareDialog("ZIP Archive files (*.zip)|*.zip|All files (*.*)|*.*", openArchiveDialog);
+            //openArchiveDialog.Filter = "ZIP Archive files (*.zip)|*.zip|All files (*.*)|*.*";
+            //openArchiveDialog.ShowDialog();
         }
 
         private void btnBrowseInput_Click(object sender, EventArgs e)
         {
-            openInputDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
-            openInputDialog.ShowDialog();
+            MainScreenLogic.PrepareDialog("Text files (*.txt)|*.txt|All files (*.*)|*.*", openInputDialog);
+            //openInputDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            //openInputDialog.ShowDialog();
         }
 
         private void btnBrowseOutput_Click(object sender, EventArgs e)
         {
-            openOutputDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
-            openOutputDialog.ShowDialog();
+            MainScreenLogic.PrepareDialog("Text files (*.txt)|*.txt|All files (*.*)|*.*", openOutputDialog);
+            //openOutputDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            //openOutputDialog.ShowDialog();
         }
 
 
         private void openArchiveDialog_FileOk(object sender, CancelEventArgs e)
         {
-
-            //try
-            //{
-                string zipFile = openArchiveDialog.FileName;
-                this.txtArchivePath.Text = zipFile;
-                ZipArchiveHandler.GetSubmissionData(zipFile, true); //Extract submissions data.
-                //some_buttons.Enabled = true; //Do this later******************************************************
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
+            MainScreenLogic.OpenArchiveFile(openArchiveDialog, txtArchivePath);
         }
 
 
 
         private void openInputDialog_FileOk(object sender, CancelEventArgs e)
         {
-            //try
-            //{
-                string inputTextFile = openInputDialog.FileName;
-                this.txtInputPath.Text = openInputDialog.FileName;
-            if (this.txtInputPath.Text != "" && this.txtOutputPath.Text != "")
-            {
-                TestCases.ResetTestCases();
-                TestCases.ExtractTestCasesFromText(this.txtInputPath.Text, this.txtOutputPath.Text);
-            }
-
-            //some_buttons.Enabled = true; //Do this later
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
+            MainScreenLogic.OpenInputFile(this.openInputDialog, this.txtInputPath, this.txtOutputPath);
         }
 
         private void openOutputDialog_FileOk(object sender, CancelEventArgs e)
         {
-            //try
-            //{
-                string outputTextFile = openOutputDialog.FileName;
-                this.txtOutputPath.Text = openOutputDialog.FileName;
-            if (this.txtInputPath.Text != "" && this.txtOutputPath.Text != "")
-            {
-                TestCases.ResetTestCases();
-                TestCases.ExtractTestCasesFromText(this.txtInputPath.Text, this.txtOutputPath.Text);
-            }
-            //some_buttons.Enabled = true; //Do this later
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
+            MainScreenLogic.OpenOutputFile(this.openOutputDialog, this.txtOutputPath, this.txtInputPath);
         }
 
 
-        private void LimitWeightsChange()
-        {
-            this.menuCodeWeight.Maximum = 100 - (this.menuExeWeight.Value + this.menuResultsWeight.Value);
-            this.menuExeWeight.Maximum = 100 - (this.menuCodeWeight.Value + this.menuResultsWeight.Value);
-            this.menuResultsWeight.Maximum = 100 - (this.menuExeWeight.Value + this.menuCodeWeight.Value);
-        }
 
         private void menuCodeWeight_ValueChanged(object sender, EventArgs e)
         {
-            LimitWeightsChange();
+            MainScreenLogic.LimitWeightsChange(this.menuCodeWeight, this.menuExeWeight, this.menuResultsWeight);
         }
 
         private void menuExeGrade_ValueChanged(object sender, EventArgs e)
         {
-            LimitWeightsChange();
+            MainScreenLogic.LimitWeightsChange(this.menuCodeWeight, this.menuExeWeight, this.menuResultsWeight);
         }
 
         private void menuResultsGrade_ValueChanged(object sender, EventArgs e)
         {
-            LimitWeightsChange();
+            MainScreenLogic.LimitWeightsChange(this.menuCodeWeight, this.menuExeWeight, this.menuResultsWeight);
         }
 
         private void checkBoxEnableGrading_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxEnableGrading.Checked)
-            {
-                this.menuCodeWeight.Enabled = true;
-                this.menuExeWeight.Enabled = true;
-                this.menuResultsWeight.Enabled = true;
-            }
-            else
-            {
-                this.menuCodeWeight.Enabled = false;
-                this.menuExeWeight.Enabled = false;
-                this.menuResultsWeight.Enabled = false;
-            }
+            MainScreenLogic.EnableGradingCheckedChange(this.checkBoxEnableGrading, this.menuCodeWeight, this.menuExeWeight, this.menuResultsWeight);
         }
 
         private void radioButton64BitCompiler_CheckedChanged(object sender, EventArgs e)
         {
-            CodeChecker.use32bitCompiler = false; //Default is 64
+            MainScreenLogic.Option64BitCompilerChange();
         }
 
         private void radioButton32BitCompiler_CheckedChanged(object sender, EventArgs e)
         {
-            CodeChecker.use32bitCompiler = true;
+            MainScreenLogic.Option32BitCompilerChange();
         }
 
 
         private void timeoutNumUpDown_ValueChanged(object sender, EventArgs e)
         {
-            CodeChecker.timeoutSeconds = (int)timeoutNumUpDown.Value;
+            MainScreenLogic.TimeoutValueChange(timeoutNumUpDown);
         }
 
 
