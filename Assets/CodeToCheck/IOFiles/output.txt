@@ -5,3 +5,11 @@ your char diff is: 2
 __[TC] Same
 enter 2 chars seperated by space:
 your char diff is: 1
+
+__[TC] Checking Source.c, for some reason he has Enter after the output
+enter 2 chars seperated by space:
+your char diff is: 3
+
+__[TC] Same
+enter 2 chars seperated by space:
+your char diff is: 4

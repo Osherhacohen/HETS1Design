@@ -586,7 +586,7 @@ namespace HETS1Design
             this.timeoutNumUpDown.Size = new System.Drawing.Size(52, 20);
             this.timeoutNumUpDown.TabIndex = 11;
             this.timeoutNumUpDown.Value = new decimal(new int[] {
-            5,
+            2,
             0,
             0,
             0});

@@ -20,7 +20,8 @@ namespace HETS1Design
         public bool possibleCheating { get; private set; }
         public List<OutputResult> submittedProgramOutputs { get; private set; } //Program output per test case.          
         public List<OutputResult> compiledProgramOutputs { get; private set; } //In case we have 2 exe files, compiled one and attached one
-        public double grade { get; private set; } //Final grade.
+        public int numberOfOverallResults;
+        public int finalGrade { get; private set; } //Final grade.
 
         /*Every submission must have an ID, paths will be added only if an ID exists. 
         (On a new submission creation there's no code/exe files yet)*/
@@ -32,8 +33,10 @@ namespace HETS1Design
             possibleCheating = false;
             submittedProgramOutputs = new List<OutputResult>(); //Program output per test case.          
             compiledProgramOutputs = new List<OutputResult>();
+            finalGrade = 0;
         }
 
+        //Add the .c code path.
         public void AddCode(string codePath)
         {
             this.codePath = codePath;
@@ -41,6 +44,7 @@ namespace HETS1Design
                 codeExists = true;
         }
 
+        //Add the submitted .exe path.
         public void AddExe(string exePath)
         {
             this.exePath = exePath;
@@ -74,8 +78,9 @@ namespace HETS1Design
             {
                 if (TestCases.testCases.Count != 0)
                 {
-                    submittedProgramOutputs.Clear();
-                    compiledProgramOutputs.Clear();
+                    numberOfOverallResults = 0;
+                    submittedProgramOutputs.Clear(); //Reset the output results upon a new Run so
+                    compiledProgramOutputs.Clear(); //we can add fresh results.
                     foreach (SingleTestCase tc in TestCases.testCases)
                     {
                         if (File.Exists(exePath))
@@ -89,23 +94,41 @@ namespace HETS1Design
                             compiledProgramOutputs.Add(new OutputResult(outputResults));
                         }
                     }
+                    numberOfOverallResults = Math.Max(submittedProgramOutputs.Count,compiledProgramOutputs.Count);
                 }
 
                 if (File.Exists(exePath) && File.Exists(compiledExePath))
-                    possibleCheating = !CompareBothLists(); //If the 2 lists are different, there might be a possible cheating. Check manually.
-
+                    possibleCheating = !CompareBothLists(); //If the 2 lists are different, there might be a possible cheating. Check manually.               
             }
+        }
+
+
+        //Check possible cheating when comparing submitted .exe results to compiled .exe results.
+        public bool CompareBothLists()
+        {
+            if (submittedProgramOutputs.Count == compiledProgramOutputs.Count)
+            {
+                for (int i = 0; i < submittedProgramOutputs.Count; i++)
+                    if (submittedProgramOutputs[i].GetResultOutput != compiledProgramOutputs[i].GetResultOutput)
+                    {
+                        return false; //Lists are different (possible cheating).
+                    }
+                return true; //Both lists are the same.
+            }
+            return false;
         }
 
         //Compares result to an output.
         public void CompareResultsToDesiredResults()
         {
             if (exeExists)
-            {
+            {                
                 int i = 0;
                 foreach (SingleTestCase tc in TestCases.testCases)
                 {
                     //Compare the desired result output in test case to actual result.
+                    
+                    //Handles the submitted program results.
                     if (submittedProgramOutputs.Count!=0)
                     {
                         if (tc.CompareOutput(submittedProgramOutputs[i].GetResultOutput)) //If the result matches the TC/TNC output.
@@ -113,6 +136,8 @@ namespace HETS1Design
                         else
                             submittedProgramOutputs[i].Mismatch();
                     }
+                    
+                    //Handles the compiled program results.
                     if (compiledProgramOutputs.Count != 0)
                     {
                         if (tc.CompareOutput(compiledProgramOutputs[i].GetResultOutput)) //If the result matches the TC/TNC output.
@@ -127,56 +152,45 @@ namespace HETS1Design
 
         
 
-        //Check possible cheating when comparing submitted .exe results to compiled .exe results.
-        public bool CompareBothLists()
-        {
-            if (submittedProgramOutputs.Count == compiledProgramOutputs.Count) 
-            {
-                for (int i = 0; i < submittedProgramOutputs.Count;i++)
-                    if (submittedProgramOutputs[i].GetResultOutput != compiledProgramOutputs[i].GetResultOutput)
-                    {
-                        return false; //Lists are different (possible cheating).
-                    } 
-                return true; //Both lists are the same.
-            }
-            return false;
-        }
 
         //Count the amount of matching results in the list.
         public int CorrectResultsCount()
         {
-            int count = 0;
+            int correctCount = 0;
             if (submittedProgramOutputs.Count > 0)
             {
                 foreach (OutputResult result in submittedProgramOutputs)
                 {
                     if (result.DidItMatch == true)
-                        count++;
+                        correctCount++;
                 }
-                return count;
+                return correctCount;
             }
 
             if (compiledProgramOutputs.Count > 0)
             {
-
                 foreach (OutputResult result in compiledProgramOutputs)
-                { 
-                        if (result.DidItMatch == true)
-                            count++;
+                {
+                    if (result.DidItMatch == true)
+                        correctCount++;
                 }
-                return count;
+                return correctCount;
             }
-
-            return count;
-
+            return correctCount;
         }
 
+
+        //Gets the percentage
         public string CorrectResultsPercentage()
         {
-            double percent = ((double)CorrectResultsCount()/(double)TestCases.testCases.Count)*100; //After all outputs go by testcases.
+            decimal percent=0;            
+            if(numberOfOverallResults != 0)
+                percent = ((decimal)CorrectResultsCount())/ ((decimal)numberOfOverallResults)*100; //After all outputs go by testcases.
+            double doublePercent =(double)percent;
             return percent.ToString()+"%";
         }
 
+        //Get all of the results from the current submission.
         public string GetAllSingleSubmissionResults()
         {
             string allResults = "No results.";
@@ -196,30 +210,28 @@ namespace HETS1Design
             return allResults;
         }
 
-
+        public void CalculateFinalGrade(int codeWeight, int exeWeight, int correctResultsWeight)
+        {
+            this.finalGrade = (int)Grading(codeWeight, exeWeight, correctResultsWeight);
+        }
 
         //This is a grading function that goes by weight for each part of the submission.
-        public void Grading(int codeWeight, int exeWeight, int correctResultsWeight) 
+        public int Grading(int codeWeight, int exeWeight, int correctResultsWeight) 
         {
-            if ((!codeExists)&& (! exeExists))
-            {
-                grade = 0;
-            }
-            else
-            {
-                if (!possibleCheating) //We made sure that they're both the same list of results from .exe files.
-                {
-                    double resultGrade = (CorrectResultsCount()/TestCases.testCases.Count) * (correctResultsWeight / 100);
-                    double exeGrade =0;
-                    double codeGrade =0;
-                    if (codeExists)
-                        codeGrade = codeWeight/100;
-                    if (exeExists)
-                        exeGrade = exeWeight/100;
-                    grade = (resultGrade + exeGrade + codeGrade)*100;
-                }
+            decimal division=0;
+            int grade = 0;
 
+            if (codeExists)
+                grade += codeWeight;
+            if (exeExists)
+                grade += exeWeight;
+            if (numberOfOverallResults != 0)
+            {
+                division = (decimal)correctResultsWeight * (decimal)CorrectResultsCount() / (decimal)numberOfOverallResults;
             }
+            grade += (int)division;
+
+            return grade;
         }
 
     }

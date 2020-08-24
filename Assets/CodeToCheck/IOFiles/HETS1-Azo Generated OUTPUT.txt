@@ -7,6 +7,4 @@ enter 2 chars seperated by space:
 your char diff is: 1
 
 __[TC]
-1
-__[TNC]
-4 2
+ 1221 

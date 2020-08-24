@@ -19,7 +19,7 @@ namespace HETS1Design
         static string compilerPath64 = @"..\..\..\Assets\tcc\tcc.exe"; //We'll need to make sure this is the right directory.   
         static string compilerPath32 = @"..\..\..\Assets\tcc\i386-win32-tcc.exe";
         public static bool use32bitCompiler=false; //Whether submissions will be compiled in a 32 bit version of a compiler. Default is 64.
-        public static int timeoutSeconds = 5; //Timeout period for .exe files (prevent infinite loops or deadlocks). Default is 5 seconds.
+        public static int timeoutSeconds = 2; //Timeout period for .exe files (prevent infinite loops or deadlocks). Default is 5 seconds.
 
         public static string CompileCode(string codeFilePath)  //We'll need to pass a path into this function (Including file name).
         {

@@ -27,9 +27,9 @@ namespace HETS1Design
         }
 
         [TestMethod]
-        public void OnAppend_Test()
+        public void OnAddTestCaseTest()
         {
-            //TODO
+            //TODO            
         }
 
         [TestMethod]

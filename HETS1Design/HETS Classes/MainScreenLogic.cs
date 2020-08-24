@@ -28,6 +28,9 @@ namespace HETS1Design
             menuCodeWeight.Maximum = 100 - (menuExeWeight.Value + menuResultsWeight.Value);
             menuExeWeight.Maximum = 100 - (menuCodeWeight.Value + menuResultsWeight.Value);
             menuResultsWeight.Maximum = 100 - (menuExeWeight.Value + menuCodeWeight.Value);
+            Submissions.exeWeight = (int)menuExeWeight.Value;
+            Submissions.codeWeight = (int)menuCodeWeight.Value;
+            Submissions.correctResultsWeight = (int)menuResultsWeight.Value;
         }
 
         public static void EnableGradingCheckedChange(CheckBox checkBoxEnableGrading, NumericUpDown menuCodeWeight, NumericUpDown menuExeWeight, NumericUpDown menuResultsWeight)
@@ -37,12 +40,18 @@ namespace HETS1Design
                 menuCodeWeight.Enabled = true;
                 menuExeWeight.Enabled = true;
                 menuResultsWeight.Enabled = true;
+                Submissions.exeWeight = (int)menuExeWeight.Value;
+                Submissions.codeWeight = (int)menuCodeWeight.Value;
+                Submissions.correctResultsWeight=(int)menuResultsWeight.Value;
             }
             else
             {
                 menuCodeWeight.Enabled = false;
                 menuExeWeight.Enabled = false;
                 menuResultsWeight.Enabled = false;
+                Submissions.exeWeight = -1;
+                Submissions.codeWeight = -1;
+                Submissions.correctResultsWeight = -1;
             }
 
         }

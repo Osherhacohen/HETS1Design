@@ -11,6 +11,8 @@ namespace HETS1Design
         public void Initialize()
         {
             s1 = new SingleSubmission("21325");
+            s1.AddCode(@"..\..\..\Assets\CodeToCheck\Source.c");
+
         }
 
         [TestMethod]
@@ -57,18 +59,16 @@ namespace HETS1Design
         [TestMethod]
         public void Grading_Test()
         {
+            s1.AddExe(@"..\..\..\Assets\CodeToCheck\Source.exe");
+            s1.AddCode(@"..\..\..\Assets\CodeToCheck\Source.c");
+
             s1.CompileSubmittedCode();
-            s1.RunSubmittedProgram();
-            s1.Grading(34, 30, 36);
-            double currentGrade = s1.grade;
-            double x=0;
+            s1.RunSubmittedProgram();            
+            s1.CalculateFinalGrade(33, 33, 34);
+            decimal currentGrade = (decimal)s1.finalGrade;
+            decimal x=0;
 
-            if(s1.compiledProgramOutputs.Count>0)
-            x = s1.CorrectResultsCount()/s1.compiledProgramOutputs.Count;
-            if(s1.submittedProgramOutputs.Count>0)
-            x = s1.CorrectResultsCount()/s1.submittedProgramOutputs.Count;
-
-            double desiredGrade = (34*(1/100) + 30*(1/100) + 36*(x/100))*100;
+            decimal desiredGrade = 33 + 33 + 0;
             Assert.AreEqual(currentGrade, desiredGrade);
         }
 
