@@ -76,19 +76,20 @@ namespace HETS1Design
 
         private void btnSaveIO_Click(object sender, EventArgs e)
         {
-
-            //If the tester adds use cases via text box and wishes to save it as a new file.
-            //(The program will now work on that.
-
+            File.WriteAllText(Path.GetDirectoryName(this.txtInputPath.Text) + @"\HETS1-Azo Generated INPUT.txt", TestCases.inputText);
+            File.WriteAllText(Path.GetDirectoryName(this.txtInputPath.Text) + @"\HETS1-Azo Generated OUTPUT.txt", TestCases.outputText);
         }
 
         private void btnAddTestCase_Click(object sender, EventArgs e)
         {
-            //TODO: Add this.
+            if (this.radioTC.Checked)
+                TestCases.OnAddTestCase(this.txtInputAppend.Text, this.txtOutputAppend.Text, true);
+            if (this.radioTNC.Checked)
+                TestCases.OnAddTestCase(this.txtInputAppend.Text, this.txtOutputAppend.Text, false);
         }
 
 
-        private void btnBrowseArchive_Click(object sender, EventArgs e)
+            private void btnBrowseArchive_Click(object sender, EventArgs e)
         {
             MainScreenLogic.PrepareFileDialog("ZIP Archive files (*.zip)|*.zip|All files (*.*)|*.*", openArchiveDialog);
         }

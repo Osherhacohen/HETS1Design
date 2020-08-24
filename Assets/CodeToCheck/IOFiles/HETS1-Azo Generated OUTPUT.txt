@@ -5,3 +5,8 @@ your char diff is: 2
 __[TC] Same
 enter 2 chars seperated by space:
 your char diff is: 1
+
+__[TC]
+1
+__[TNC]
+4 2

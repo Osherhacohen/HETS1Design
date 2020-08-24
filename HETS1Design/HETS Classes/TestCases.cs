@@ -13,14 +13,16 @@ namespace HETS1Design
     {
 
         public static List<SingleTestCase> testCases = new List<SingleTestCase>();  //The list of test cases. 
-
+        //We save these incase tester wants to save added TCs into a new file.
+        public static string inputText { get; private set; } 
+        public static string outputText { get; private set; }
 
         /*Since this is a static function and we don't have a construct, we need to have a function that triggers
         once we have both Input and Output test cases. Activate this from MainScreen when both i/o filed loaded.*/
         public static void ExtractTestCasesFromText(string inputFilePath, string outputFilePath)
         {
-            string inputText = File.ReadAllText(inputFilePath);
-            string outputText = File.ReadAllText(outputFilePath);
+            inputText = File.ReadAllText(inputFilePath);
+            outputText = File.ReadAllText(outputFilePath);
 
             if (File.Exists(inputFilePath) && File.Exists(outputFilePath))
                 TestCasesBuilder(inputText, outputText);
@@ -29,9 +31,24 @@ namespace HETS1Design
         }
 
         //Add a new Test Case (one at a time, without TC/TNC keywords from text boxes and activate MultiplyTestCasesBy functions.
-        public static void OnAppend(string inputBox, string outputBox, bool isTC)
+        public static void OnAddTestCase(string inputBox, string outputBox, bool isTC)
         {
+            if (inputBox != "" && outputBox != "")
+            {
+                if (isTC)
+                {
+                    inputText += "\r\n__[TC]" + "\r\n" + inputBox;
+                    outputText += "\r\n__[TC]" + "\r\n" + outputBox;
+                }
 
+                else
+                {
+                    inputText += "\r\n__[TNC]" + "\r\n" + inputBox;
+                    outputText += "\r\n__[TNC]" + "\r\n" + inputBox;
+                }
+
+                testCases.Add(new SingleTestCase(inputBox, outputBox, isTC));
+            }
         }
         
 

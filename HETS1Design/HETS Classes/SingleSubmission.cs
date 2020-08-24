@@ -72,9 +72,12 @@ namespace HETS1Design
         {
             if (exeExists)
             {
-                if(TestCases.testCases.Count!=0)
-                foreach (SingleTestCase tc in TestCases.testCases)
+                if (TestCases.testCases.Count != 0)
                 {
+                    submittedProgramOutputs.Clear();
+                    compiledProgramOutputs.Clear();
+                    foreach (SingleTestCase tc in TestCases.testCases)
+                    {
                         if (File.Exists(exePath))
                         {
                             string outputResults = CodeChecker.RunEXE(exePath, tc.input);
@@ -85,6 +88,7 @@ namespace HETS1Design
                             string outputResults = CodeChecker.RunEXE(compiledExePath, tc.input);
                             compiledProgramOutputs.Add(new OutputResult(outputResults));
                         }
+                    }
                 }
 
                 if (File.Exists(exePath) && File.Exists(compiledExePath))
