@@ -36,13 +36,27 @@ namespace HETS1Design
         public void TestCasesBuilder_AddedSuccessfully()
         {
             //Arrange
-            var inputFileText = ""; //What to put here?
-            var outputFileTest = ""; //What to put here?
-            var listSize = TestCases.testCases.Count;
+            var inputFileText = "__[TC]\r\n3 4\r\n__[TC]\r\n35"; 
+            var outputFileTest = "__[TC]\r\n1\r\n__[TC]\r\nWrong input"; 
+            var listSize = 2; //1 test case added
+            //Act
+            TestCases.TestCasesBuilder(inputFileText, outputFileTest);
+            //Assert
+            Assert.AreEqual(listSize, TestCases.testCases.Count);            
+        }
+
+        [TestMethod]
+        public void TestCasesBuilder_NotAddedSuccessfully()
+        {
+            //Arrange
+            var inputFileText = "__[TC]\r\n3 4\r\n__[TC]\r\n35"; 
+            var outputFileTest = "__[TC]\r\n1";
+            var listSize = 2; //Suposedely 2 test cases (but tester forgot to add the output field)
             //Act
             TestCases.TestCasesBuilder(inputFileText, outputFileTest);
             //Assert
             Assert.AreNotEqual(listSize, TestCases.testCases.Count);
+            Assert.AreEqual(0, TestCases.testCases.Count);
         }
 
         [TestMethod]

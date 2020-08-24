@@ -21,17 +21,11 @@ namespace HETS1Design
         {
             string inputText = File.ReadAllText(inputFilePath);
             string outputText = File.ReadAllText(outputFilePath);
-            if (CountTestCases(inputText) != CountTestCases(outputText))
-                MessageBox.Show("Test cases number does not match!");
 
+            if (File.Exists(inputFilePath) && File.Exists(outputFilePath))
+                TestCasesBuilder(inputText, outputText);
             else
-            {
-                if (File.Exists(inputFilePath) && File.Exists(outputFilePath))
-                    TestCasesBuilder(inputText, outputText);
-                else
-                    MessageBox.Show("Files are missing!");
-            }
-            
+                MessageBox.Show("Files are missing!");
         }
 
         //Add a new Test Case (one at a time, without TC/TNC keywords from text boxes and activate MultiplyTestCasesBy functions.
@@ -121,19 +115,26 @@ namespace HETS1Design
         //Fills the test cases list according the the Input/Output files.
         public static void TestCasesBuilder(string inputFileText, string outputFileText)
         {
-            List<String> input = TestCasesSeparator(inputFileText);
-            List<String> output = TestCasesSeparator(outputFileText);
-            bool isTC;
-            for (int i = 0; i < input.Count(); i++)
+            //Check if the input/output files content format is correct before building.
+            if (CountTestCases(inputFileText) != CountTestCases(outputFileText))
+                MessageBox.Show("Test cases number does not match!\r\nPlease check your input/output files.");
+            else
             {
-                isTC = TC_or_TNC(input[i]);
-                input[i] = RemoveTCTNC(input[i]);
-                output[i] = RemoveTCTNC(output[i]);
-                testCases.Add(new SingleTestCase(input[i], output[i], isTC));                
-            }
+                List<String> input = TestCasesSeparator(inputFileText);
+                List<String> output = TestCasesSeparator(outputFileText);
 
-            testCases = MultiplyTestCasesByBoundary(testCases.ToList());
-            testCases = MultiplyTestCasesByEP(testCases.ToList());
+                bool isTC;
+                for (int i = 0; i < input.Count(); i++)
+                {
+                    isTC = TC_or_TNC(input[i]);
+                    input[i] = RemoveTCTNC(input[i]);
+                    output[i] = RemoveTCTNC(output[i]);
+                    testCases.Add(new SingleTestCase(input[i], output[i], isTC));
+                }
+
+                testCases = MultiplyTestCasesByBoundary(testCases.ToList());
+                testCases = MultiplyTestCasesByEP(testCases.ToList());
+            }
         }
 
         /**************************************************************************************************

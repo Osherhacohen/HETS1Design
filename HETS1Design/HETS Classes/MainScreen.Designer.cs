@@ -54,10 +54,6 @@ namespace HETS1Design
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.radioButton32BitCompiler = new System.Windows.Forms.RadioButton();
             this.radioButton64BitCompiler = new System.Windows.Forms.RadioButton();
-            this.labelCompilerVersion = new System.Windows.Forms.Label();
-            this.checkBoxContainExe = new System.Windows.Forms.CheckBox();
-            this.checkBoxContainCode = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnCompile = new System.Windows.Forms.Button();
             this.btnResults = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -84,6 +80,11 @@ namespace HETS1Design
             this.label5 = new System.Windows.Forms.Label();
             this.btnRunProgram = new System.Windows.Forms.Button();
             this.btnDetailedResults = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.radioBtnBothExeAndCode = new System.Windows.Forms.RadioButton();
+            this.radioBtnCode = new System.Windows.Forms.RadioButton();
+            this.radioBtnExecutable = new System.Windows.Forms.RadioButton();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -94,6 +95,8 @@ namespace HETS1Design
             ((System.ComponentModel.ISupportInitialize)(this.menuResultsWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuExeWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuCodeWeight)).BeginInit();
+            this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -260,23 +263,20 @@ namespace HETS1Design
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.radioButton32BitCompiler);
-            this.groupBox3.Controls.Add(this.radioButton64BitCompiler);
-            this.groupBox3.Controls.Add(this.labelCompilerVersion);
-            this.groupBox3.Controls.Add(this.checkBoxContainExe);
-            this.groupBox3.Controls.Add(this.checkBoxContainCode);
-            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.radioBtnExecutable);
+            this.groupBox3.Controls.Add(this.radioBtnCode);
+            this.groupBox3.Controls.Add(this.radioBtnBothExeAndCode);
             this.groupBox3.Location = new System.Drawing.Point(13, 259);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(775, 67);
+            this.groupBox3.Size = new System.Drawing.Size(249, 67);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Validation options";
+            this.groupBox3.Text = "Submission Contains";
             // 
             // radioButton32BitCompiler
             // 
             this.radioButton32BitCompiler.AutoSize = true;
-            this.radioButton32BitCompiler.Location = new System.Drawing.Point(443, 32);
+            this.radioButton32BitCompiler.Location = new System.Drawing.Point(111, 32);
             this.radioButton32BitCompiler.Name = "radioButton32BitCompiler";
             this.radioButton32BitCompiler.Size = new System.Drawing.Size(85, 17);
             this.radioButton32BitCompiler.TabIndex = 5;
@@ -288,7 +288,7 @@ namespace HETS1Design
             // 
             this.radioButton64BitCompiler.AutoSize = true;
             this.radioButton64BitCompiler.Checked = true;
-            this.radioButton64BitCompiler.Location = new System.Drawing.Point(352, 32);
+            this.radioButton64BitCompiler.Location = new System.Drawing.Point(20, 32);
             this.radioButton64BitCompiler.Name = "radioButton64BitCompiler";
             this.radioButton64BitCompiler.Size = new System.Drawing.Size(85, 17);
             this.radioButton64BitCompiler.TabIndex = 4;
@@ -296,44 +296,6 @@ namespace HETS1Design
             this.radioButton64BitCompiler.Text = "64bit version";
             this.radioButton64BitCompiler.UseVisualStyleBackColor = true;
             this.radioButton64BitCompiler.CheckedChanged += new System.EventHandler(this.radioButton64BitCompiler_CheckedChanged);
-            // 
-            // labelCompilerVersion
-            // 
-            this.labelCompilerVersion.AutoSize = true;
-            this.labelCompilerVersion.Location = new System.Drawing.Point(351, 0);
-            this.labelCompilerVersion.Name = "labelCompilerVersion";
-            this.labelCompilerVersion.Size = new System.Drawing.Size(87, 13);
-            this.labelCompilerVersion.TabIndex = 3;
-            this.labelCompilerVersion.Text = "Compiler version:";
-            // 
-            // checkBoxContainExe
-            // 
-            this.checkBoxContainExe.AutoSize = true;
-            this.checkBoxContainExe.Location = new System.Drawing.Point(204, 32);
-            this.checkBoxContainExe.Name = "checkBoxContainExe";
-            this.checkBoxContainExe.Size = new System.Drawing.Size(79, 17);
-            this.checkBoxContainExe.TabIndex = 2;
-            this.checkBoxContainExe.Text = "Executable";
-            this.checkBoxContainExe.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxContainCode
-            // 
-            this.checkBoxContainCode.AutoSize = true;
-            this.checkBoxContainCode.Location = new System.Drawing.Point(118, 32);
-            this.checkBoxContainCode.Name = "checkBoxContainCode";
-            this.checkBoxContainCode.Size = new System.Drawing.Size(80, 17);
-            this.checkBoxContainCode.TabIndex = 1;
-            this.checkBoxContainCode.Text = "C Code File";
-            this.checkBoxContainCode.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 32);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Submission contains:";
             // 
             // btnCompile
             // 
@@ -410,9 +372,6 @@ namespace HETS1Design
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.scndLabel);
-            this.groupBox5.Controls.Add(this.timeoutLabel);
-            this.groupBox5.Controls.Add(this.timeoutNumUpDown);
             this.groupBox5.Controls.Add(this.checkBoxEnableGrading);
             this.groupBox5.Controls.Add(this.label13);
             this.groupBox5.Controls.Add(this.menuResultsWeight);
@@ -425,14 +384,14 @@ namespace HETS1Design
             this.groupBox5.Controls.Add(this.label5);
             this.groupBox5.Location = new System.Drawing.Point(13, 335);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(775, 46);
+            this.groupBox5.Size = new System.Drawing.Size(516, 46);
             this.groupBox5.TabIndex = 13;
             this.groupBox5.TabStop = false;
             // 
             // scndLabel
             // 
             this.scndLabel.AutoSize = true;
-            this.scndLabel.Location = new System.Drawing.Point(687, 20);
+            this.scndLabel.Location = new System.Drawing.Point(242, 33);
             this.scndLabel.Name = "scndLabel";
             this.scndLabel.Size = new System.Drawing.Size(50, 13);
             this.scndLabel.TabIndex = 13;
@@ -441,15 +400,15 @@ namespace HETS1Design
             // timeoutLabel
             // 
             this.timeoutLabel.AutoSize = true;
-            this.timeoutLabel.Location = new System.Drawing.Point(575, 20);
+            this.timeoutLabel.Location = new System.Drawing.Point(23, 32);
             this.timeoutLabel.Name = "timeoutLabel";
-            this.timeoutLabel.Size = new System.Drawing.Size(48, 13);
+            this.timeoutLabel.Size = new System.Drawing.Size(155, 13);
             this.timeoutLabel.TabIndex = 12;
-            this.timeoutLabel.Text = "Timeout:";
+            this.timeoutLabel.Text = "Executable forced to stop after:";
             // 
             // timeoutNumUpDown
             // 
-            this.timeoutNumUpDown.Location = new System.Drawing.Point(629, 17);
+            this.timeoutNumUpDown.Location = new System.Drawing.Point(184, 29);
             this.timeoutNumUpDown.Maximum = new decimal(new int[] {
             3600,
             0,
@@ -579,12 +538,71 @@ namespace HETS1Design
             this.btnDetailedResults.UseVisualStyleBackColor = true;
             this.btnDetailedResults.Click += new System.EventHandler(this.btnDetailedResults_Click);
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.radioButton32BitCompiler);
+            this.groupBox6.Controls.Add(this.radioButton64BitCompiler);
+            this.groupBox6.Location = new System.Drawing.Point(268, 259);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(208, 67);
+            this.groupBox6.TabIndex = 16;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Compiler version:";
+            // 
+            // radioBtnBothExeAndCode
+            // 
+            this.radioBtnBothExeAndCode.AutoSize = true;
+            this.radioBtnBothExeAndCode.Location = new System.Drawing.Point(196, 30);
+            this.radioBtnBothExeAndCode.Name = "radioBtnBothExeAndCode";
+            this.radioBtnBothExeAndCode.Size = new System.Drawing.Size(47, 17);
+            this.radioBtnBothExeAndCode.TabIndex = 3;
+            this.radioBtnBothExeAndCode.TabStop = true;
+            this.radioBtnBothExeAndCode.Text = "Both";
+            this.radioBtnBothExeAndCode.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnCode
+            // 
+            this.radioBtnCode.AutoSize = true;
+            this.radioBtnCode.Location = new System.Drawing.Point(112, 30);
+            this.radioBtnCode.Name = "radioBtnCode";
+            this.radioBtnCode.Size = new System.Drawing.Size(78, 17);
+            this.radioBtnCode.TabIndex = 4;
+            this.radioBtnCode.TabStop = true;
+            this.radioBtnCode.Text = "Executable";
+            this.radioBtnCode.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnExecutable
+            // 
+            this.radioBtnExecutable.AutoSize = true;
+            this.radioBtnExecutable.Checked = true;
+            this.radioBtnExecutable.Location = new System.Drawing.Point(27, 30);
+            this.radioBtnExecutable.Name = "radioBtnExecutable";
+            this.radioBtnExecutable.Size = new System.Drawing.Size(79, 17);
+            this.radioBtnExecutable.TabIndex = 5;
+            this.radioBtnExecutable.TabStop = true;
+            this.radioBtnExecutable.Text = "C Code File";
+            this.radioBtnExecutable.UseVisualStyleBackColor = true;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.scndLabel);
+            this.groupBox7.Controls.Add(this.timeoutLabel);
+            this.groupBox7.Controls.Add(this.timeoutNumUpDown);
+            this.groupBox7.Location = new System.Drawing.Point(482, 259);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(306, 67);
+            this.groupBox7.TabIndex = 17;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Timeout:";
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(800, 721);
+            this.Controls.Add(this.groupBox7);
+            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.btnDetailedResults);
             this.Controls.Add(this.btnRunProgram);
             this.Controls.Add(this.groupBox5);
@@ -618,6 +636,10 @@ namespace HETS1Design
             ((System.ComponentModel.ISupportInitialize)(this.menuResultsWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuExeWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuCodeWeight)).EndInit();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -636,7 +658,6 @@ namespace HETS1Design
         private System.Windows.Forms.TextBox txtInputPath;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCompile;
         private System.Windows.Forms.Button btnResults;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -661,19 +682,20 @@ namespace HETS1Design
         private System.Windows.Forms.NumericUpDown menuResultsWeight;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.CheckBox checkBoxContainExe;
-        private System.Windows.Forms.CheckBox checkBoxContainCode;
         private System.Windows.Forms.CheckBox checkBoxEnableGrading;
         private System.Windows.Forms.RadioButton radioButton32BitCompiler;
         private System.Windows.Forms.RadioButton radioButton64BitCompiler;
-        private System.Windows.Forms.Label labelCompilerVersion;
         private System.Windows.Forms.TextBox textBoxTEMPORARY;
         private System.Windows.Forms.Label timeoutLabel;
         private System.Windows.Forms.NumericUpDown timeoutNumUpDown;
         private System.Windows.Forms.Label scndLabel;
         private System.Windows.Forms.Button btnRunProgram;
         private System.Windows.Forms.Button btnDetailedResults;
-
+        private System.Windows.Forms.RadioButton radioBtnExecutable;
+        private System.Windows.Forms.RadioButton radioBtnCode;
+        private System.Windows.Forms.RadioButton radioBtnBothExeAndCode;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox groupBox7;
     }
 }
 
