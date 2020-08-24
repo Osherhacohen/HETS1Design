@@ -48,6 +48,7 @@ namespace HETS1Design
         [TestMethod]
         public void TestCasesBuilder_NotAddedSuccessfully()
         {
+            TestCases.ResetTestCases();
             //Arrange
             var inputFileText = "__[TC]\r\n3 4\r\n__[TC]\r\n35"; 
             var outputFileTest = "__[TC]\r\n1";

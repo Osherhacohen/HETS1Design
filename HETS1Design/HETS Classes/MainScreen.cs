@@ -130,8 +130,11 @@ namespace HETS1Design
             //{
                 string inputTextFile = openInputDialog.FileName;
                 this.txtInputPath.Text = openInputDialog.FileName;
-                if (this.txtInputPath.Text != "" && this.txtOutputPath.Text != "")
+            if (this.txtInputPath.Text != "" && this.txtOutputPath.Text != "")
+            {
+                TestCases.ResetTestCases();
                 TestCases.ExtractTestCasesFromText(this.txtInputPath.Text, this.txtOutputPath.Text);
+            }
 
             //some_buttons.Enabled = true; //Do this later
 
@@ -149,8 +152,11 @@ namespace HETS1Design
             //{
                 string outputTextFile = openOutputDialog.FileName;
                 this.txtOutputPath.Text = openOutputDialog.FileName;
-                if (this.txtInputPath.Text != "" && this.txtOutputPath.Text != "")
+            if (this.txtInputPath.Text != "" && this.txtOutputPath.Text != "")
+            {
+                TestCases.ResetTestCases();
                 TestCases.ExtractTestCasesFromText(this.txtInputPath.Text, this.txtOutputPath.Text);
+            }
             //some_buttons.Enabled = true; //Do this later
 
             //}
