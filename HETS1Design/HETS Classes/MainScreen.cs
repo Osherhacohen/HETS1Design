@@ -35,7 +35,7 @@ namespace HETS1Design
 
         private void btnCompile_Click(object sender, EventArgs e)
         {
-            string validateOk = FormValidate();
+            string validateOk = MainScreenLogic.FormValidate(this.txtArchivePath);
             if (validateOk.CompareTo("OK") != 0)
                 MessageBox.Show(validateOk, "Error");
 
@@ -49,7 +49,7 @@ namespace HETS1Design
 
         private void btnRunProgram_Click(object sender, EventArgs e)
         {
-            string validateOk = FormValidate();
+            string validateOk = MainScreenLogic.FormValidate(this.txtArchivePath);
             if (validateOk.CompareTo("OK") != 0)
                 MessageBox.Show(validateOk, "Error");
 
@@ -64,7 +64,6 @@ namespace HETS1Design
         private void btnResults_Click(object sender, EventArgs e)
         {
             this.textBoxTEMPORARY.Text = "";
-
             //This will be used to get the results table. (Currently string).
             this.textBoxTEMPORARY.Text += Submissions.GetAllSubmissionsResults(this.txtArchivePath.Text);
         }
@@ -75,16 +74,7 @@ namespace HETS1Design
             //Add it in another folder called "Detailed Results"
         }
 
-        private string FormValidate()
-        {
-            if (txtArchivePath.Text == "")
-                return "Choose archive file to continue!";
-            //if (txtInputPath.Text == "")
-                //return "Choose input test case file to continue!";
-            //if (txtOutputPath.Text == "")
-                //return "Choose output test case file to continue!";
-            return "OK";
-        }
+
 
 
         private void btnBrowseArchive_Click(object sender, EventArgs e)
