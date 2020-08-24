@@ -14,7 +14,6 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace HETS1Design
 {
-    //[ExcludeFromCodeCoverage]
     public partial class MainScreen : Form
     {
         public MainScreen()
