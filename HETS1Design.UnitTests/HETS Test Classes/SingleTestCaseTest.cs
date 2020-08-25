@@ -109,6 +109,13 @@ namespace HETS1Design
             Assert.AreEqual("6999", list1[4].input);
             Assert.AreEqual("7000", list1[5].input);
             Assert.AreEqual("7001", list1[6].input);
+            Assert.IsFalse(list1[0].equal);
+            Assert.IsTrue(list1[1].equal);
+            Assert.IsTrue(list1[2].equal);
+            Assert.IsTrue(list1[3].equal);
+            Assert.IsTrue(list1[4].equal);
+            Assert.IsTrue(list1[5].equal);
+            Assert.IsFalse(list1[6].equal);
 
             input = "__[EP] 7000 7000";
             SingleTestCase sp2 = new SingleTestCase(input, "kokoriko", true);
@@ -118,19 +125,24 @@ namespace HETS1Design
             Assert.AreEqual("7000", list2[1].input);
             Assert.AreEqual("7001", list2[2].input);
 
+
             input = "__[EP] 7000 7001";
-            SingleTestCase sp3 = new SingleTestCase(input, "kokoriko", true);
+            SingleTestCase sp3 = new SingleTestCase(input, "kokoriko", false);
             List<SingleTestCase> list3 = sp3.ReturnEPTestCases();
             Assert.AreEqual(4, list3.Count);
             Assert.AreEqual("6999", list3[0].input);
             Assert.AreEqual("7000", list3[1].input);
             Assert.AreEqual("7001", list3[2].input);
             Assert.AreEqual("7002", list3[3].input);
+            Assert.IsTrue(list3[0].equal);
+            Assert.IsTrue(list3[3].equal);
+
 
             input = "__[EP] 9000 7000";
             SingleTestCase sp4 = new SingleTestCase(input, "kokoriko", true);
             var ex = Assert.ThrowsException<Exception>(() => sp4.ReturnEPTestCases());
 
+            
         }
     }
 }
