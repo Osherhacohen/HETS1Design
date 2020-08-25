@@ -246,11 +246,22 @@ namespace HETS1Design
                 {
                     if(inputsIntegers[0] == inputsIntegers[1])
                     {
-                        newInputs[0] = (inputsIntegers[0]).ToString();
+                        newInputs[0] = (inputsIntegers[0] - 1).ToString();
                         inputs[0] = (boundInitialIndex < 0) ? inputs[0] : inputs[0].Remove(boundInitialIndex, "__[EP] ".Length + numerals.Length);
                         inputs[0] = inputs[0].Insert(boundInitialIndex, newInputs[0] + "");
+
+                        newInputs[1] = (inputsIntegers[0]).ToString();
+                        inputs[1] = (boundInitialIndex < 0) ? inputs[1] : inputs[1].Remove(boundInitialIndex, "__[EP] ".Length + numerals.Length);
+                        inputs[1] = inputs[1].Insert(boundInitialIndex, newInputs[1] + "");
+
+                        newInputs[2] = (inputsIntegers[0] + 1).ToString();
+                        inputs[2] = (boundInitialIndex < 0) ? inputs[2] : inputs[2].Remove(boundInitialIndex, "__[EP] ".Length + numerals.Length);
+                        inputs[2] = inputs[2].Insert(boundInitialIndex, newInputs[2] + "");
+
                         List<SingleTestCase> singleEPCaseList = new List<SingleTestCase>();
                         singleEPCaseList.Add(new SingleTestCase(inputs[0], this.output, this.equal));
+                        singleEPCaseList.Add(new SingleTestCase(inputs[1], this.output, this.equal));
+                        singleEPCaseList.Add(new SingleTestCase(inputs[2], this.output, this.equal));
                         return singleEPCaseList;
                     }
                     else
@@ -291,7 +302,7 @@ namespace HETS1Design
 
             List<SingleTestCase> epTests = new List<SingleTestCase>();
             epTests.Add(new SingleTestCase(inputs[0], this.output, !this.equal));
-            for (int i = 1; i < 5; i++)
+            for (int i = 1; i <= 5; i++)
             {
                 epTests.Add(new SingleTestCase(inputs[i], this.output, this.equal));
             }
