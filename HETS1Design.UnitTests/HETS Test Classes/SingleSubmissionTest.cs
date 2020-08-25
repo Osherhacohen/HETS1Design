@@ -59,17 +59,34 @@ namespace HETS1Design
         [TestMethod]
         public void Grading_Test()
         {
-            s1.AddExe(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.exe");
             s1.AddCode(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.c");
+            s1.AddExe(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.exe");
+            bool isTC = false; // TNC
+            string input = "Check input"; // This is a TNC and we know these vakues are incorrect output
+            string output = "check output"; // So we know the result will be true
+            TestCases.OnAddTestCase(input, output, isTC); // We want the submisstion at least one currect result
+            TestCases.OnAddTestCase(input, output, isTC); // We want the submisstion at least one currect result
 
             s1.CompileSubmittedCode();
-            s1.RunSubmittedProgram();            
-            s1.CalculateFinalGrade(33, 33, 34);
+            s1.RunSubmittedProgram();
+            s1.CompareResultsToDesiredResults();
+            s1.CalculateFinalGrade(0, 0, 0);
             decimal currentGrade = (decimal)s1.finalGrade;
-            decimal x=0;
 
-            decimal desiredGrade = 33 + 33 + 0;
+            decimal desiredGrade =  0;
             Assert.AreEqual(currentGrade, desiredGrade);
+      
+
+
+
+
+            s1.CompileSubmittedCode();
+            s1.RunSubmittedProgram();
+            s1.CompareResultsToDesiredResults();
+            decimal newdesiredGrade = 100;
+            decimal newcurrentGrade = (decimal)s1.finalGrade;
+            newcurrentGrade=s1.Grading(33, 33, 34);
+            Assert.AreEqual(newcurrentGrade, newdesiredGrade);
         }
 
         [TestMethod]
