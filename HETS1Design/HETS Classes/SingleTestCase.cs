@@ -87,10 +87,10 @@ namespace HETS1Design
 
          
         //Problems:
-        //1. Boundaries are too close to each other (6999-7000)
-        //2. Left boundary is larger than the right one (9000-7000)
-        //3. Boundaries are the same (7000-7000)
-        //4. Use this snippet for the EP but with boolean value(?)
+        //1. Boundaries are too close to each other (6999-7000) - solved with GroupBy
+        //2. Left boundary is larger than the right one (9000-7000) - solved with Exception throwing
+        //3. Boundaries are the same (7000-7000) - solved with returning a single-item list
+        //4. Use this snippet for the EP but with boolean value(?) - Done
         public List<SingleTestCase> ReturnBoundaryTestCases() 
         {
             //Takes one (the first to scan) boundary syntax and multiply the test case by 5 with the boundary input range. (5 __[TC])  
@@ -188,6 +188,7 @@ namespace HETS1Design
             {
                 boundTests.Add(new SingleTestCase(inputs[i], this.output, this.equal));
             }
+            boundTests = boundTests.GroupBy(x => x.input).Select(y => y.FirstOrDefault()).ToList();
             return boundTests;
         }
 
@@ -295,6 +296,7 @@ namespace HETS1Design
                 epTests.Add(new SingleTestCase(inputs[i], this.output, this.equal));
             }
             epTests.Add(new SingleTestCase(inputs[6], this.output, !this.equal));
+            epTests = epTests.GroupBy(x => x.input).Select(y => y.FirstOrDefault()).ToList();
             return epTests;
 
         }
