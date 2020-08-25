@@ -82,16 +82,45 @@ namespace HETS1Design.UnitTests
         }
 
         [TestMethod]
+        public void OnMainScreenLoadTest()
+        {
+            MainScreenLogic.OnMainScreenLoad(menuCodeWeight, menuExeWeight, menuResultsWeight);
+            Assert.IsFalse(menuResultsWeight.Enabled);
+            Assert.IsFalse(menuExeWeight.Enabled);
+            Assert.IsFalse(menuResultsWeight.Enabled);
+        }
+
+        [TestMethod]
+        public void FormValidateTest()
+        {
+            //TODO
+        }
+
+        [TestMethod]
         public void OnButtonAddTestCaseClickTest()
         {
-            
-
-
-            
             radioTC.Checked = true;
             radioTNC.Checked = false;
 
           //  MainScreenLogic.OnButtonAddTestCaseClick(radioTC, radioTNC, input, output);
+        }
+
+        [TestMethod] 
+        public void LimitWeightsChangeTest()
+        {
+            menuCodeWeight.Value = 100;
+            MainScreenLogic.LimitWeightsChange(menuCodeWeight, menuExeWeight, menuResultsWeight);
+            try
+            {
+                menuExeWeight.Value = 100;
+            }
+            catch
+            {
+                // Nothing(Dont set menuExeWeight)
+            }
+            MainScreenLogic.LimitWeightsChange(menuCodeWeight, menuExeWeight, menuResultsWeight);
+            Assert.AreEqual(100, menuCodeWeight.Value);
+            Assert.AreEqual(0, menuExeWeight.Value);
         }
     }
 }

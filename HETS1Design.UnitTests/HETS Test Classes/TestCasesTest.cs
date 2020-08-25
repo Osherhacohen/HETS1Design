@@ -21,15 +21,12 @@ namespace HETS1Design
         public void Initialize()
         {
             fileToCheckContent = File.ReadAllText(@"..\..\..\Assets\Test Required FIles\TestCasesTest\GeneralTestCasesExample.txt");
+            TestCases.ResetTestCases();
             //inputFileToCheckContent = File.ReadAllText(@"..\..\..\Assets\Test Required FIles\TestCasesTest\InputTestCasesExample.txt"); 
             //outputFileToCheckContent = File.ReadAllText(@"..\..\..\Assets\Test Required FIles\TestCasesTest\OutputTestCasesExample.txt");
         }
 
-        [TestMethod]
-        public void StartFunction_Starts()
-        {
-            //TODO
-        }
+   
 
         [TestMethod]
         public void OnAddTestCaseTest()
