@@ -63,16 +63,30 @@ namespace HETS1Design
 
         }
 
-        public static void CompileHelper(Button btnCompile)
+        public static void CompileHelper(Button btnCompile, TextBox txtArchivePath)
         {
+            string validateText= FormValidate(txtArchivePath);
+            if(validateText.CompareTo("OK") != 0)
+                    MessageBox.Show(FormValidate(txtArchivePath), "Error"); ;
+
             btnCompile.Text = "Working on compilation...";
             btnCompile.Update();
+
+            if (Submissions.ActivateCompilation()) //Both run and check that it finished running.
+                btnCompile.Text = "Compile Programs";
         }
 
-        public static void RunHelper(Button btnRunProgram)
+        public static void RunHelper(Button btnRunProgram, TextBox txtArchivePath)
         {
-            btnRunProgram.Text = "Running programs...";
+            string validateText = FormValidate(txtArchivePath);
+            if (validateText.CompareTo("OK") != 0)
+                MessageBox.Show(FormValidate(txtArchivePath), "Error"); ;
+
+            btnRunProgram.Text = "Working on compilation...";
             btnRunProgram.Update();
+
+            if (Submissions.ActivateExecution()) //Both run and check that it finished running.
+                btnRunProgram.Text = "Compile Programs";
         }
 
         public static void Option64BitCompilerChange()
