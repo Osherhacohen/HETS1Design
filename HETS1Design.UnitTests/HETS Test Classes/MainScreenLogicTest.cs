@@ -122,5 +122,55 @@ namespace HETS1Design.UnitTests
             Assert.AreEqual(100, menuCodeWeight.Value);
             Assert.AreEqual(0, menuExeWeight.Value);
         }
+
+        [TestMethod]
+        public void EnableGradingCheckedChangeTest()
+        {
+            checkBoxEnableGrading.Checked = true;
+            MainScreenLogic.EnableGradingCheckedChange(checkBoxEnableGrading, menuCodeWeight, menuExeWeight, menuResultsWeight);
+            checkBoxEnableGrading.Checked = false;
+            MainScreenLogic.EnableGradingCheckedChange(checkBoxEnableGrading, menuCodeWeight, menuExeWeight, menuResultsWeight);
+        }
+
+        [TestMethod]
+        public void CompileHelperTest()
+        {
+            //**IGNORE**//
+            //txtArchivePath = @"C:\Users\USER\Desktop\הנדסת תוכנה\שנה ג\סמסטר ב\אימות ובדיקות תוכנה\Project\מבוא למדעי המחשב חשמל ואנרגיה תשף.א מלכי-תרגיל בית 3- אסקי-5637.zip";
+            //MainScreenLogic.FormValidate();       
+            //string validateText = FormValidate();
+        }
+
+        [TestMethod]
+        public void Option64BitCompilerChangeTest()
+        {
+            CodeChecker.use32bitCompiler = false;
+            MainScreenLogic.Option64BitCompilerChange();
+        }
+
+        [TestMethod]
+        public void Option32BitCompilerChangeTest()
+        {
+            CodeChecker.use32bitCompiler = true;
+            MainScreenLogic.Option32BitCompilerChange();
+        }
+        [TestMethod]
+        public void TimeoutValueChangeTest()
+        {
+
+            //**IGNORE**//
+            //int timeoutSeconds = CodeChecker.timeoutSeconds;
+           
+            //CodeChecker.timeoutSeconds = 5;
+
+            //MainScreenLogic.TimeoutValueChange();
+
+            //Assert.AreEqual(5, MainScreenLogic.TimeoutValueChange(CodeChecker.timeoutSeconds));
+        }
+        [TestMethod]
+        public void PrepareFileDialogTest()
+        {
+            //TODO
+        }
     }
 }
