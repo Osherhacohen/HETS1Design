@@ -59,8 +59,8 @@ namespace HETS1Design
         [TestMethod]
         public void Grading_Test()
         {
-            s1.AddExe(@"..\..\..\Assets\CodeToCheck\Source.exe");
-            s1.AddCode(@"..\..\..\Assets\CodeToCheck\Source.c");
+            s1.AddExe(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.exe");
+            s1.AddCode(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.c");
 
             s1.CompileSubmittedCode();
             s1.RunSubmittedProgram();            
