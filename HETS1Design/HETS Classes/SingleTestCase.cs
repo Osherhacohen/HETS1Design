@@ -150,8 +150,8 @@ namespace HETS1Design
 
                 for (int i = 0; i < inputs.Count; i++)
                 {
-                    inputs[i] = (boundInitialIndex < 0) ? inputs[i] : inputs[i].Remove(boundInitialIndex, "__[Bound] ".Length + numerals.Length + 1);
-                    inputs[i] = inputs[i].Insert(boundInitialIndex, newInputs[i] + " ");
+                    inputs[i] = (boundInitialIndex < 0) ? inputs[i] : inputs[i].Remove(boundInitialIndex, "__[Bound] ".Length + numerals.Length);
+                    inputs[i] = inputs[i].Insert(boundInitialIndex, newInputs[i]);
                 }
                 //for (int i = 0; i < inputs.Count; i++)
                 //{
@@ -181,7 +181,85 @@ namespace HETS1Design
             //(TNC: 1 below lower limit, 1 above upper limit):
 
             //We can use ReturnBoundaryTestCases for this to create the middle 5 Test Cases and create 2 other cases.
-            return null;
+            List<string> inputs = new List<string>(7);
+            string[] newInputs = new string[7];
+            for (int i = 0; i < 7; i++)
+            {
+                inputs.Add(input);
+                Console.WriteLine(inputs[i]);
+            }
+
+            int boundInitialIndex = input.IndexOf("__[EP] ");
+
+            string[] elements = input.Split(' ');
+            List<string> bounds = new List<string>();
+            for (int i = 0; i < elements.Length; i++)
+            {
+                if (elements[i] == "__[EP]")
+                {
+                    bounds.Add(elements[i] + " " + elements[i + 1] + " " + elements[i + 2]);
+                }
+            }
+            foreach (string i in bounds)
+            {
+                Console.WriteLine(i);
+            }
+
+            int boundIndex = bounds[0].IndexOf("__[EP] ");
+            Console.WriteLine("Index: " + boundIndex);
+            string numerals = (boundIndex < 0) ? bounds[0] : bounds[0].Remove(boundIndex, "__[EP] ".Length);
+            if (Regex.IsMatch(numerals, @"\d\s\d"))
+            {
+                string[] singulars = numerals.Split(' ');
+                List<int> inputsIntegers = new List<int>(singulars.Length);
+                for (int i = 0; i < singulars.Length; i++)
+                {
+                    Console.WriteLine("Stringy: " + singulars[i]);
+                    inputsIntegers.Add(int.Parse(singulars[i]));
+                    Console.WriteLine("Inty: " + inputsIntegers[i]);
+                }
+                newInputs[0] = (inputsIntegers[0] - 1).ToString();
+                newInputs[1] = inputsIntegers[0].ToString();
+                newInputs[2] = (inputsIntegers[0] + 1).ToString();
+                newInputs[3] = ((int)(inputsIntegers[0] + inputsIntegers[1]) / 2).ToString();
+                newInputs[4] = (inputsIntegers[1] - 1).ToString();
+                newInputs[5] = (inputsIntegers[1]).ToString();
+                newInputs[6] = (inputsIntegers[1] + 1).ToString();
+
+                /*debug*/
+                foreach (string s in newInputs)
+                {
+                    Console.WriteLine(s);
+                }
+                /*end debug*/
+
+                for (int i = 0; i < inputs.Count; i++)
+                {
+                    inputs[i] = (boundInitialIndex < 0) ? inputs[i] : inputs[i].Remove(boundInitialIndex, "__[EP] ".Length + numerals.Length);
+                    inputs[i] = inputs[i].Insert(boundInitialIndex, newInputs[i] + "");
+                }
+                for (int i = 0; i < inputs.Count; i++)
+                {
+                    Console.WriteLine(inputs[i]);
+                }
+                /*end debug*/
+            }
+            else
+            {
+                Console.WriteLine("EP isn't written well!");
+                //throw an exception later
+            }
+
+
+            List<SingleTestCase> boundTests = new List<SingleTestCase>();
+            boundTests.Add(new SingleTestCase(inputs[0], this.output, !this.equal));
+            for (int i = 1; i < 5; i++)
+            {
+                boundTests.Add(new SingleTestCase(inputs[i], this.output, this.equal));
+            }
+            boundTests.Add(new SingleTestCase(inputs[6], this.output, !this.equal));
+            return boundTests;
+
         }
 
 
