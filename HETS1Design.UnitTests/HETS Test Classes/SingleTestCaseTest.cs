@@ -94,21 +94,21 @@ namespace HETS1Design
         public void ReturnEPTestCases_Test()
         {
             //374F, 375T, 376T, 3687T, 6999T, 7000T, 7001F 
-            string input = "__[EP] 375 7000";
+            string input = "9\r\n__[EP] 375 7000";
             SingleTestCase sp1 = new SingleTestCase(input, "kokoriko", true);
             List<SingleTestCase> list1 = sp1.ReturnEPTestCases();
             //foreach (SingleTestCase s in list1)
             //{
-            //    System.Windows.Forms.MessageBox.Show("Input: " + s.input + " Output: " + s.output + ", TC? " + s.equal, "SingleTestCaseTest");
+            //    System.Windows.Forms.MessageBox.Show("Input: \n" + s.input + " \nOutput: " + s.output + ", TC? " + s.equal, "SingleTestCaseTest");
             //}
             Assert.AreEqual(7, list1.Count);
-            Assert.AreEqual("374", list1[0].input);
-            Assert.AreEqual("375", list1[1].input);
-            Assert.AreEqual("376", list1[2].input);
-            Assert.AreEqual("3687", list1[3].input);
-            Assert.AreEqual("6999", list1[4].input);
-            Assert.AreEqual("7000", list1[5].input);
-            Assert.AreEqual("7001", list1[6].input);
+            Assert.AreEqual("9\r\n374", list1[0].input);
+            Assert.AreEqual("9\r\n375", list1[1].input);
+            Assert.AreEqual("9\r\n376", list1[2].input);
+            Assert.AreEqual("9\r\n3687", list1[3].input);
+            Assert.AreEqual("9\r\n6999", list1[4].input);
+            Assert.AreEqual("9\r\n7000", list1[5].input);
+            Assert.AreEqual("9\r\n7001", list1[6].input);
             Assert.IsFalse(list1[0].equal);
             Assert.IsTrue(list1[1].equal);
             Assert.IsTrue(list1[2].equal);

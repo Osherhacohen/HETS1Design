@@ -98,6 +98,7 @@ namespace HETS1Design
             //Multiplies the rest of the text including other boundary syntax and returns a list of 5 test cases with same output
             //but input according to boundary range. (lower limit, 1 above lower limit, middle, one below upper limit, upper limit)
 
+
             List<string> inputs = new List<string>(5);
             string[] newInputs = new string[5];
             for (int i = 0; i < 5; i++)
@@ -105,10 +106,10 @@ namespace HETS1Design
                 inputs.Add(this.input);
                 //Console.WriteLine(inputs[i]);
             }
+                       
 
             int boundInitialIndex = this.input.IndexOf("__[Bound] ");
-
-            string[] elements = this.input.Split(' ');
+            string[] elements = this.input.Split(' ','\n');
             List<string> bounds = new List<string>();
             for (int i = 0; i < elements.Length; i++)
             {
@@ -183,6 +184,9 @@ namespace HETS1Design
                 throw new Exception("Boundary isn't written well!");
             }
 
+
+
+
             List<SingleTestCase> boundTests = new List<SingleTestCase>();
             for(int i=0;i<5;i++)
             {
@@ -210,8 +214,7 @@ namespace HETS1Design
             }
 
             int boundInitialIndex = input.IndexOf("__[EP] ");
-
-            string[] elements = input.Split(' ');
+            string[] elements = input.Split(' ','\n');
             List<string> bounds = new List<string>();
             for (int i = 0; i < elements.Length; i++)
             {
