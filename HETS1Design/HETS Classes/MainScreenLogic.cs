@@ -82,11 +82,11 @@ namespace HETS1Design
             if (validateText.CompareTo("OK") != 0)
                 MessageBox.Show(FormValidate(txtArchivePath), "Error"); ;
 
-            btnRunProgram.Text = "Working on compilation...";
+            btnRunProgram.Text = "Running Programs...";
             btnRunProgram.Update();
 
             if (Submissions.ActivateExecution()) //Both run and check that it finished running.
-                btnRunProgram.Text = "Compile Programs";
+                btnRunProgram.Text = "Run Programs";
         }
 
         public static void Option64BitCompilerChange()
