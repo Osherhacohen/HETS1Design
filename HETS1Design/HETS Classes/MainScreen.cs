@@ -25,9 +25,7 @@ namespace HETS1Design
         }
         private void MainScreen_Load(object sender, EventArgs e)
         {
-            this.menuCodeWeight.Enabled = false;
-            this.menuExeWeight.Enabled = false;
-            this.menuResultsWeight.Enabled = false;
+            MainScreenLogic.OnMainScreenLoad(this.menuCodeWeight, this.menuExeWeight, this.menuResultsWeight);
         }
 
         private void MainScreen_HelpButtonClicked(object sender, CancelEventArgs e)
@@ -76,16 +74,13 @@ namespace HETS1Design
 
         private void btnSaveIO_Click(object sender, EventArgs e)
         {
-            File.WriteAllText(Path.GetDirectoryName(this.txtInputPath.Text) + @"\HETS1-Azo Generated INPUT.txt", TestCases.inputText);
-            File.WriteAllText(Path.GetDirectoryName(this.txtInputPath.Text) + @"\HETS1-Azo Generated OUTPUT.txt", TestCases.outputText);
+            MainScreenLogic.OnButtonSaveIOClick(this.txtInputPath, this.txtOutputPath);
+            
         }
 
         private void btnAddTestCase_Click(object sender, EventArgs e)
         {
-            if (this.radioTC.Checked)
-                TestCases.OnAddTestCase(this.txtInputAppend.Text, this.txtOutputAppend.Text, true);
-            if (this.radioTNC.Checked)
-                TestCases.OnAddTestCase(this.txtInputAppend.Text, this.txtOutputAppend.Text, false);
+            MainScreenLogic.OnButtonAddTestCaseClick(this.radioTC, this.radioTNC, this.txtInputAppend, this.txtOutputAppend);
         }
 
 

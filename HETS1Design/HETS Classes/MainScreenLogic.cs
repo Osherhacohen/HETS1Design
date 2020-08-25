@@ -5,12 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.IO;
 
 namespace HETS1Design
 {
     //This class will contain all the business logic for Main screen that is NOT an event type. 
     public static class MainScreenLogic
     {
+        public static void OnMainScreenLoad(NumericUpDown menuCodeWeight, NumericUpDown menuExeWeight, NumericUpDown menuResultsWeight)
+        {
+            menuCodeWeight.Enabled = false;
+            menuExeWeight.Enabled = false;
+            menuResultsWeight.Enabled = false;
+        }
 
         public static string FormValidate(TextBox txtArchivePath)
         {
@@ -168,6 +175,20 @@ namespace HETS1Design
             //This will be used to get the results table. (Currently string).
             textBoxTEMPORARY.Text += Submissions.GetAllSubmissionsResults(txtArchivePath.Text);
 
+        }
+
+        public static void OnButtonSaveIOClick(TextBox txtInputPath, TextBox txtOutputPath)
+        {
+            File.WriteAllText(Path.GetDirectoryName(txtInputPath.Text) + @"\HETS1-Azo Generated INPUT.txt", TestCases.inputText);
+            File.WriteAllText(Path.GetDirectoryName(txtOutputPath.Text) + @"\HETS1-Azo Generated OUTPUT.txt", TestCases.outputText);
+        }
+
+        public static void OnButtonAddTestCaseClick(RadioButton radioTC, RadioButton radioTNC, TextBox txtInputAppend, TextBox txtOutputAppend)
+        {
+            if (radioTC.Checked)
+                TestCases.OnAddTestCase(txtInputAppend.Text, txtOutputAppend.Text, true);
+            if (radioTNC.Checked)
+                TestCases.OnAddTestCase(txtInputAppend.Text, txtOutputAppend.Text, false);
         }
     }
 }
