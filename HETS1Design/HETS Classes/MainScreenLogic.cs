@@ -19,7 +19,7 @@ namespace HETS1Design
             menuResultsWeight.Enabled = false;
         }
 
-        public static string FormValidate(TextBox txtArchivePath)
+        public static string FormValidate(TextBox txtArchivePath)//TextBox txtInputPath, TextBox txtOutputPath)
         {
             if (txtArchivePath.Text == "")
                 return "Choose archive file to continue!";
