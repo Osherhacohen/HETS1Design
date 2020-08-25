@@ -23,6 +23,8 @@ namespace HETS1Design
         {
             InitializeComponent();
         }
+
+
         private void MainScreen_Load(object sender, EventArgs e)
         {
             MainScreenLogic.OnMainScreenLoad(this.menuCodeWeight, this.menuExeWeight, this.menuResultsWeight);
@@ -34,35 +36,20 @@ namespace HETS1Design
         }
 
         private void btnCompile_Click(object sender, EventArgs e)
-        {
-            string validateOk = MainScreenLogic.FormValidate(this.txtArchivePath);
-            if (validateOk.CompareTo("OK") != 0)
-                MessageBox.Show(validateOk, "Error");
-
-            MainScreenLogic.CompileHelper(btnCompile);
-
-
-            if (Submissions.ActivateCompilation()) //Both run and check that it finished running.
-                this.btnCompile.Text = "Compile Programs";
+        { 
+            MainScreenLogic.CompileHelper(this.btnCompile, this.txtArchivePath);
         }
 
 
         private void btnRunProgram_Click(object sender, EventArgs e)
         {
-            string validateOk = MainScreenLogic.FormValidate(this.txtArchivePath);
-            if (validateOk.CompareTo("OK") != 0)
-                MessageBox.Show(validateOk, "Error");
-
-            MainScreenLogic.RunHelper(btnRunProgram);
-
-            if (Submissions.ActivateExecution()) //Both run and check that it finished running.
-                this.btnRunProgram.Text = "Run Programs";
+            MainScreenLogic.RunHelper(this.btnRunProgram,this.txtArchivePath);
         }
 
 
         private void btnResults_Click(object sender, EventArgs e)
         {
-            MainScreenLogic.ShowResults(textBoxTEMPORARY, txtArchivePath);
+            MainScreenLogic.ShowResults(this.textBoxTEMPORARY, this.txtArchivePath);
         }
 
         private void btnDetailedResults_Click(object sender, EventArgs e)
