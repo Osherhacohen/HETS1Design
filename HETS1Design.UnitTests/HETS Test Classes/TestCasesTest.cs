@@ -12,12 +12,17 @@ namespace HETS1Design
     {
         //Global variable used for testing
         string fileToCheckContent;
+        //string inputFileToCheckContent;
+        //string outputFileToCheckContent;
 
-       //Works in a similar manner to "Before" in JUnit
+
+        //Works in a similar manner to "Before" in JUnit
         [TestInitialize]
         public void Initialize()
         {
-            fileToCheckContent = File.ReadAllText(@"..\..\..\Assets\IOToCheck\TestCasesExample.txt");
+            fileToCheckContent = File.ReadAllText(@"..\..\..\Assets\Test Required FIles\TestCasesTest\GeneralTestCasesExample.txt");
+            //inputFileToCheckContent = File.ReadAllText(@"..\..\..\Assets\Test Required FIles\TestCasesTest\InputTestCasesExample.txt"); 
+            //outputFileToCheckContent = File.ReadAllText(@"..\..\..\Assets\Test Required FIles\TestCasesTest\OutputTestCasesExample.txt");
         }
 
         [TestMethod]
