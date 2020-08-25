@@ -186,7 +186,7 @@ namespace HETS1Design
             for (int i = 0; i < 7; i++)
             {
                 inputs.Add(input);
-                Console.WriteLine(inputs[i]);
+                //Console.WriteLine(inputs[i]);
             }
 
             int boundInitialIndex = input.IndexOf("__[EP] ");
@@ -200,13 +200,13 @@ namespace HETS1Design
                     bounds.Add(elements[i] + " " + elements[i + 1] + " " + elements[i + 2]);
                 }
             }
-            foreach (string i in bounds)
-            {
-                Console.WriteLine(i);
-            }
+            //foreach (string i in bounds)
+            //{
+            //    Console.WriteLine(i);
+            //}
 
             int boundIndex = bounds[0].IndexOf("__[EP] ");
-            Console.WriteLine("Index: " + boundIndex);
+            //Console.WriteLine("Index: " + boundIndex);
             string numerals = (boundIndex < 0) ? bounds[0] : bounds[0].Remove(boundIndex, "__[EP] ".Length);
             if (Regex.IsMatch(numerals, @"\d\s\d"))
             {
@@ -214,9 +214,9 @@ namespace HETS1Design
                 List<int> inputsIntegers = new List<int>(singulars.Length);
                 for (int i = 0; i < singulars.Length; i++)
                 {
-                    Console.WriteLine("Stringy: " + singulars[i]);
+                    //Console.WriteLine("Stringy: " + singulars[i]);
                     inputsIntegers.Add(int.Parse(singulars[i]));
-                    Console.WriteLine("Inty: " + inputsIntegers[i]);
+                    //Console.WriteLine("Inty: " + inputsIntegers[i]);
                 }
                 newInputs[0] = (inputsIntegers[0] - 1).ToString();
                 newInputs[1] = inputsIntegers[0].ToString();
@@ -226,28 +226,27 @@ namespace HETS1Design
                 newInputs[5] = (inputsIntegers[1]).ToString();
                 newInputs[6] = (inputsIntegers[1] + 1).ToString();
 
-                /*debug*/
-                foreach (string s in newInputs)
-                {
-                    Console.WriteLine(s);
-                }
-                /*end debug*/
+                ///*debug*/
+                //foreach (string s in newInputs)
+                //{
+                //    Console.WriteLine(s);
+                //}
+                ///*end debug*/
 
                 for (int i = 0; i < inputs.Count; i++)
                 {
                     inputs[i] = (boundInitialIndex < 0) ? inputs[i] : inputs[i].Remove(boundInitialIndex, "__[EP] ".Length + numerals.Length);
                     inputs[i] = inputs[i].Insert(boundInitialIndex, newInputs[i] + "");
                 }
-                for (int i = 0; i < inputs.Count; i++)
-                {
-                    Console.WriteLine(inputs[i]);
-                }
-                /*end debug*/
+                //for (int i = 0; i < inputs.Count; i++)
+                //{
+                //    Console.WriteLine(inputs[i]);
+                //}
+                ///*end debug*/
             }
             else
             {
-                Console.WriteLine("EP isn't written well!");
-                //throw an exception later
+                throw new Exception("EP isn't written well!");
             }
 
 
