@@ -135,12 +135,31 @@ namespace HETS1Design
                     inputsIntegers.Add(int.Parse(singulars[i]));
                     //Console.WriteLine("Inty: " + inputsIntegers[i]);
                 }
-                newInputs[0] = inputsIntegers[0].ToString();
-                newInputs[1] = (inputsIntegers[0] + 1).ToString();
-                newInputs[2] = ((int)(inputsIntegers[0] + inputsIntegers[1]) / 2).ToString();
-                newInputs[3] = (inputsIntegers[1] - 1).ToString();
-                newInputs[4] = (inputsIntegers[1]).ToString();
+                if(inputsIntegers[0]> inputsIntegers[1])
+                {
+                    throw new Exception("Lower boundary needs to be on left side!");
+                }
+                else
+                {
+                    if(inputsIntegers[0] == inputsIntegers[1])
+                    {
+                        newInputs[0] = (inputsIntegers[0]).ToString();
+                        inputs[0] = (boundInitialIndex < 0) ? inputs[0] : inputs[0].Remove(boundInitialIndex, "__[Bound] ".Length + numerals.Length);
+                        inputs[0] = inputs[0].Insert(boundInitialIndex, newInputs[0] + "");
+                        List<SingleTestCase> singleBoundCaseList = new List<SingleTestCase>();
+                        singleBoundCaseList.Add(new SingleTestCase(inputs[0], this.output, this.equal));
+                        return singleBoundCaseList;
 
+                    }
+                    else
+                    {
+                        newInputs[0] = inputsIntegers[0].ToString();
+                        newInputs[1] = (inputsIntegers[0] + 1).ToString();
+                        newInputs[2] = ((int)(inputsIntegers[0] + inputsIntegers[1]) / 2).ToString();
+                        newInputs[3] = (inputsIntegers[1] - 1).ToString();
+                        newInputs[4] = (inputsIntegers[1]).ToString();
+                    }
+                }
                 ///*debug*/
                 //foreach (string s in newInputs)
                 //{
@@ -218,13 +237,32 @@ namespace HETS1Design
                     inputsIntegers.Add(int.Parse(singulars[i]));
                     //Console.WriteLine("Inty: " + inputsIntegers[i]);
                 }
-                newInputs[0] = (inputsIntegers[0] - 1).ToString();
-                newInputs[1] = inputsIntegers[0].ToString();
-                newInputs[2] = (inputsIntegers[0] + 1).ToString();
-                newInputs[3] = ((int)(inputsIntegers[0] + inputsIntegers[1]) / 2).ToString();
-                newInputs[4] = (inputsIntegers[1] - 1).ToString();
-                newInputs[5] = (inputsIntegers[1]).ToString();
-                newInputs[6] = (inputsIntegers[1] + 1).ToString();
+                if(inputsIntegers[0]>inputsIntegers[1])
+                {
+                    throw new Exception("Lower EP needs to be on left side!");
+                }
+                else
+                {
+                    if(inputsIntegers[0] == inputsIntegers[1])
+                    {
+                        newInputs[0] = (inputsIntegers[0]).ToString();
+                        inputs[0] = (boundInitialIndex < 0) ? inputs[0] : inputs[0].Remove(boundInitialIndex, "__[EP] ".Length + numerals.Length);
+                        inputs[0] = inputs[0].Insert(boundInitialIndex, newInputs[0] + "");
+                        List<SingleTestCase> singleEPCaseList = new List<SingleTestCase>();
+                        singleEPCaseList.Add(new SingleTestCase(inputs[0], this.output, this.equal));
+                        return singleEPCaseList;
+                    }
+                    else
+                    {
+                        newInputs[0] = (inputsIntegers[0] - 1).ToString();
+                        newInputs[1] = inputsIntegers[0].ToString();
+                        newInputs[2] = (inputsIntegers[0] + 1).ToString();
+                        newInputs[3] = ((int)(inputsIntegers[0] + inputsIntegers[1]) / 2).ToString();
+                        newInputs[4] = (inputsIntegers[1] - 1).ToString();
+                        newInputs[5] = (inputsIntegers[1]).ToString();
+                        newInputs[6] = (inputsIntegers[1] + 1).ToString();
+                    }
+                }
 
                 ///*debug*/
                 //foreach (string s in newInputs)
@@ -250,14 +288,14 @@ namespace HETS1Design
             }
 
 
-            List<SingleTestCase> boundTests = new List<SingleTestCase>();
-            boundTests.Add(new SingleTestCase(inputs[0], this.output, !this.equal));
+            List<SingleTestCase> epTests = new List<SingleTestCase>();
+            epTests.Add(new SingleTestCase(inputs[0], this.output, !this.equal));
             for (int i = 1; i < 5; i++)
             {
-                boundTests.Add(new SingleTestCase(inputs[i], this.output, this.equal));
+                epTests.Add(new SingleTestCase(inputs[i], this.output, this.equal));
             }
-            boundTests.Add(new SingleTestCase(inputs[6], this.output, !this.equal));
-            return boundTests;
+            epTests.Add(new SingleTestCase(inputs[6], this.output, !this.equal));
+            return epTests;
 
         }
 
