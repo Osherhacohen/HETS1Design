@@ -160,6 +160,7 @@ namespace HETS1Design
 
         private void btnExportCSV_Click(object sender, EventArgs e)
         {
+            MainScreenLogic.OnExportToCSV(saveCSVFile, dataGridResults);
         }
     }
 }
