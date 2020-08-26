@@ -115,6 +115,7 @@ namespace HETS1Design
         public static void PrepareFileDialog(string conditions, OpenFileDialog openDialog)
         {
             openDialog.Filter = conditions;
+            openDialog.ShowDialog();
         }
 
         public static void OpenArchiveFile(OpenFileDialog openArchiveDialog, TextBox txtArchivePath, Button btnResults)
