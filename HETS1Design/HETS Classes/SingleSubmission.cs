@@ -88,6 +88,7 @@ namespace HETS1Design
                             string outputResults = CodeChecker.RunEXE(exePath, tc.input);
                             submittedProgramOutputs.Add(new OutputResult(outputResults));
                         }
+
                         if (File.Exists(compiledExePath)&&Submissions.checkCode) //If there's just the compiled .exe and only it needs to be checked.
                         {
                             string outputResults = CodeChecker.RunEXE(compiledExePath, tc.input);

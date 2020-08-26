@@ -6,9 +6,8 @@ namespace HETS1Design
     [TestClass]
     public class SingleSubmissionTest
     {
-        SingleSubmission s1;
-        SingleSubmission s2;
-        SingleSubmission s3;
+        SingleSubmission s1,s2,s3;
+
 
         [TestInitialize]
         public void Initialize()
@@ -18,9 +17,11 @@ namespace HETS1Design
             s1 = new SingleSubmission("21325");
             s2 = new SingleSubmission("54324");
             s3 = new SingleSubmission("53252");
-            s1.AddCode(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.c");
-            s2.AddCode(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.c");
-            s3.AddExe(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.exe");
+            s2.AddCode(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source1.c");
+            s2.AddExe(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source1.exe");
+
+            s3.AddExe(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source2.exe");
+
             bool isTC = false; // TNC
             string input = "Check input"; // This is a TNC and we know these vakues are incorrect output
             string output = "Check output"; // So we know the result will be true
@@ -117,8 +118,10 @@ namespace HETS1Design
         {
             string st = s2.GetAllSingleSubmissionResults();
             Assert.AreEqual("No results.", st);
+            TestCases.OnAddTestCase("2", "2", false);
             s2.CompileSubmittedCode();
             s2.RunSubmittedProgram();
+            s2.CorrectResultsCount();
             s2.CompareResultsToDesiredResults();
             string st2 = s2.GetAllSingleSubmissionResults();
             Assert.AreNotEqual("No results.", st2);
