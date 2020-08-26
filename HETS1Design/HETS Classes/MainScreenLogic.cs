@@ -19,14 +19,14 @@ namespace HETS1Design
             menuResultsWeight.Enabled = false;
         }
 
-        public static string FormValidate(TextBox txtArchivePath)//TextBox txtInputPath, TextBox txtOutputPath)
+        public static string FormValidate(TextBox txtArchivePath, TextBox txtInputPath, TextBox txtOutputPath)
         {
             if (txtArchivePath.Text == "")
                 return "Choose archive file to continue!";
-            //if (txtInputPath.Text == "")
-            //return "Choose input test case file to continue!";
-            //if (txtOutputPath.Text == "")
-            //return "Choose output test case file to continue!";
+            if (txtInputPath.Text == "")
+            return "Choose input test case file to continue!";
+            if (txtOutputPath.Text == "")
+            return "Choose output test case file to continue!";
             return "OK";
         }
 
@@ -63,30 +63,38 @@ namespace HETS1Design
 
         }
 
-        public static void CompileHelper(Button btnCompile, TextBox txtArchivePath)
+        public static void CompileHelper(Button btnCompile, TextBox txtArchivePath, TextBox txtInputPath, TextBox txtOutputPath)
         {
-            string validateText= FormValidate(txtArchivePath);
+            string validateText= FormValidate(txtArchivePath, txtInputPath, txtOutputPath);
             if(validateText.CompareTo("OK") != 0)
-                    MessageBox.Show(FormValidate(txtArchivePath), "Error"); ;
+                    MessageBox.Show(validateText, "Error"); 
+            else
+            { 
+                btnCompile.Text = "Working on compilation...";
+                btnCompile.Update();
 
-            btnCompile.Text = "Working on compilation...";
-            btnCompile.Update();
+                if (Submissions.ActivateCompilation()) //Both compile and check that it finished compiling.
+                    btnCompile.Text = "Compile Programs";
+            }
 
-            if (Submissions.ActivateCompilation()) //Both run and check that it finished running.
-                btnCompile.Text = "Compile Programs";
+
         }
 
-        public static void RunHelper(Button btnRunProgram, TextBox txtArchivePath)
+        public static void RunHelper(Button btnRunProgram, TextBox txtArchivePath, TextBox txtInputPath, TextBox txtOutputPath, Button btnResults)
         {
-            string validateText = FormValidate(txtArchivePath);
+            string validateText = FormValidate(txtArchivePath, txtInputPath, txtOutputPath);
             if (validateText.CompareTo("OK") != 0)
-                MessageBox.Show(FormValidate(txtArchivePath), "Error"); ;
+                MessageBox.Show(validateText, "Error"); 
+            else
+            {
+                btnRunProgram.Text = "Running Programs...";
+                btnRunProgram.Update();
 
-            btnRunProgram.Text = "Running Programs...";
-            btnRunProgram.Update();
+                if (Submissions.ActivateExecution()) //Both run and check that it finished running.
+                    btnRunProgram.Text = "Run Programs";
 
-            if (Submissions.ActivateExecution()) //Both run and check that it finished running.
-                btnRunProgram.Text = "Run Programs";
+                btnResults.Enabled = true;
+            }
         }
 
         public static void Option64BitCompilerChange()
@@ -110,13 +118,14 @@ namespace HETS1Design
             openDialog.ShowDialog();
         }
 
-        public static void OpenArchiveFile(OpenFileDialog openArchiveDialog, TextBox txtArchivePath)
+        public static void OpenArchiveFile(OpenFileDialog openArchiveDialog, TextBox txtArchivePath, Button btnResults)
         {
             try
             {
             string zipFile = openArchiveDialog.FileName;
             txtArchivePath.Text = zipFile;
             Submissions.ResetSubmissions();
+            btnResults.Enabled = false;
             ZipArchiveHandler.GetSubmissionData(zipFile, true); //Extract submissions data.
 
             }

@@ -37,13 +37,13 @@ namespace HETS1Design
 
         private void btnCompile_Click(object sender, EventArgs e)
         { 
-            MainScreenLogic.CompileHelper(this.btnCompile, this.txtArchivePath);
+            MainScreenLogic.CompileHelper(this.btnCompile, this.txtArchivePath, this.txtInputPath, this.txtOutputPath);
         }
 
 
         private void btnRunProgram_Click(object sender, EventArgs e)
         {
-            MainScreenLogic.RunHelper(this.btnRunProgram,this.txtArchivePath);
+            MainScreenLogic.RunHelper(this.btnRunProgram, this.txtArchivePath, this.txtInputPath, this.txtOutputPath, this.btnResults);
         }
 
 
@@ -89,7 +89,7 @@ namespace HETS1Design
 
         private void openArchiveDialog_FileOk(object sender, CancelEventArgs e)
         {
-            MainScreenLogic.OpenArchiveFile(openArchiveDialog, txtArchivePath);
+            MainScreenLogic.OpenArchiveFile(this.openArchiveDialog, this.txtArchivePath, this.btnResults);
         }
 
 

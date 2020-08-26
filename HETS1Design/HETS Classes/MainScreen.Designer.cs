@@ -384,6 +384,7 @@ namespace HETS1Design
             // 
             // btnResults
             // 
+            this.btnResults.Enabled = false;
             this.btnResults.Location = new System.Drawing.Point(423, 400);
             this.btnResults.Name = "btnResults";
             this.btnResults.Size = new System.Drawing.Size(160, 30);
@@ -605,6 +606,7 @@ namespace HETS1Design
             // 
             // btnDetailedResults
             // 
+            this.btnDetailedResults.Enabled = false;
             this.btnDetailedResults.Location = new System.Drawing.Point(628, 400);
             this.btnDetailedResults.Name = "btnDetailedResults";
             this.btnDetailedResults.Size = new System.Drawing.Size(160, 30);
