@@ -1,0 +1,85 @@
+Compiler version: 64Bit
+
+. ID: אחמד סכראן_7092_assignsubmission_file_
+Code path: C:\Users\User\Desktop\Studies\אימות ובדיקות תכנה\Project\Stage 3\Designs\HETS1\Assets\Test Required FIles\Debugging Required Files\Codes To Check\אחמד סכראן_7092_assignsubmission_file_\mtla3.c
+Exe path: C:\Users\User\Desktop\Studies\אימות ובדיקות תכנה\Project\Stage 3\Designs\HETS1\Assets\Test Required FIles\Debugging Required Files\Codes To Check\אחמד סכראן_7092_assignsubmission_file_\Exe\Source.exe
+Code submitted: True
+Exe submitted: True
+Compiler output: 
+Compiled Exe path: 
+
+
+Submitted .exe results:
+Input:
+
+9 5
+
+Suppoed output:
+
+1
+
+Actual output:
+
+enter 2 chars seperated by space:
+your char diff is: 4
+
+
+Wrong OutputInput:
+
+9 5
+
+Suppoed output:
+
+1
+
+Actual output:
+
+enter 2 chars seperated by space:
+your char diff is: 1
+
+
+Correct OutputInput:
+
+9 5
+
+Suppoed output:
+
+1
+
+Actual output:
+
+enter 2 chars seperated by space:
+your char diff is: 4
+
+
+Correct OutputInput:
+
+9 5
+
+Suppoed output:
+
+1
+
+Actual output:
+
+enter 2 chars seperated by space:
+The chars must be seperated by a comma!
+
+
+Wrong OutputInput:
+
+9 5
+
+Suppoed output:
+
+1
+
+Actual output:
+
+enter 2 chars seperated by space:
+The chars must be seperated by a comma!
+
+
+Wrong Output
+Overall success rate of: 40.0%
+

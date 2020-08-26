@@ -49,8 +49,8 @@ namespace HETS1Design
 
         private void btnResults_Click(object sender, EventArgs e)
         {
-            MainScreenLogic.OnShowResults(this.dataGridResults);
-            //MainScreenLogic.OnShowResults(this.textBoxTEMPORARY);
+            MainScreenLogic.OnShowResults(this.dataGridResults, this.btnDetailedResults);
+            
         }
 
         private void btnDetailedResults_Click(object sender, EventArgs e)
