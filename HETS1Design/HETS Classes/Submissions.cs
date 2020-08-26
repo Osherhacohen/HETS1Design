@@ -83,7 +83,6 @@ namespace HETS1Design
 
 
 
-            int i = 0;
             foreach (SingleSubmission sub in Submissions.submissions)
             {
                 DataRow submissionRow = rdt.NewRow();
@@ -147,17 +146,17 @@ namespace HETS1Design
             if (!Directory.Exists(Path.GetDirectoryName(zipPath) + @"\Detailed Results HETS - Azo"))
             Directory.CreateDirectory(Path.GetDirectoryName(zipPath) + @"\Detailed Results HETS - Azo");
 
-            string createText = "Compiler version: 64Bit\r\n\r\n";
-            if (CodeChecker.use32bitCompiler)
-                createText = "Compiler version: 32Bit\r\n\r\n";
 
             ActivateGrading();
 
             
             foreach (SingleSubmission sub in Submissions.submissions)
             {
+                string createText = "Compiler version: 64Bit\r\n\r\n";
+                if (CodeChecker.use32bitCompiler)
+                    createText = "Compiler version: 32Bit\r\n\r\n";
 
-                createText +=". ID: " + sub.submitID + "\r\n"
+                createText +="ID: " + sub.submitID + "\r\n"
                     + "Code path: " + sub.codePath + "\r\n"
                     + "Exe path: " + sub.exePath + "\r\n"
                     + "Code submitted: " + sub.codeExists + "\r\n"

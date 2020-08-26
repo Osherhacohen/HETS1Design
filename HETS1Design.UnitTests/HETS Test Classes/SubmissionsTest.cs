@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Data;
+using System.IO;
+using HETS1Design;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HETS1Design
@@ -54,12 +57,29 @@ namespace HETS1Design
         }
 
         [TestMethod]
+        public void SaveDetailedResultTest()
+        {
+            Submissions.SaveDetailedResults(@"..\..\..\Assets\Test Required FIles\SubmissionsTest\ZipForTest.zip");
+            string createdDirectory = @"..\..\..\Assets\Test Required FIles\SubmissionsTest\Detailed Results HETS - Azo";
+            bool createdDirectoryExists = Directory.Exists(createdDirectory);
+            Assert.IsTrue(createdDirectoryExists);
+
+            string createdFile = createdDirectory + @"\"+Submissions.submissions[0].submitID+".txt"; 
+            bool txtFileExists = File.Exists(createdFile);
+            Assert.IsTrue(txtFileExists);
+
+
+        }
+
+        [TestMethod]
         public void ResetSubmissionsTest()
         {
             Assert.AreEqual(1, Submissions.submissions.Count);
             Submissions.ResetSubmissions();
             Assert.AreEqual(0, Submissions.submissions.Count);
         }
+
+
 
         [TestCleanup]
         public void TestCleanup()

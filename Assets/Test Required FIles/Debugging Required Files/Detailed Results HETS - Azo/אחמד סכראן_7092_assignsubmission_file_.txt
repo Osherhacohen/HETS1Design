@@ -1,6 +1,6 @@
 Compiler version: 64Bit
 
-. ID: אחמד סכראן_7092_assignsubmission_file_
+ID: אחמד סכראן_7092_assignsubmission_file_
 Code path: C:\Users\User\Desktop\Studies\אימות ובדיקות תכנה\Project\Stage 3\Designs\HETS1\Assets\Test Required FIles\Debugging Required Files\Codes To Check\אחמד סכראן_7092_assignsubmission_file_\mtla3.c
 Exe path: C:\Users\User\Desktop\Studies\אימות ובדיקות תכנה\Project\Stage 3\Designs\HETS1\Assets\Test Required FIles\Debugging Required Files\Codes To Check\אחמד סכראן_7092_assignsubmission_file_\Exe\Source.exe
 Code submitted: True
@@ -9,503 +9,373 @@ Compiler output:
 Compiled Exe path: C:\Users\User\Desktop\Studies\אימות ובדיקות תכנה\Project\Stage 3\Designs\HETS1\Assets\Test Required FIles\Debugging Required Files\Codes To Check\אחמד סכראן_7092_assignsubmission_file_\mtla3.exe
 
 
-compiled .exe results:
+***********Submitted .exe results:
+****Input:
 
-compiled .exe results:
-Input:
+1 9
 
-1
-
-Suppoed output:
-
-9 5
-
-Actual output:
-
-Timed out!
-
-Wrong Output!
-
-
-compiled .exe results:
-
-compiled .exe results:
-Input:
+****Suppoesd output:
 
 1
 
-Suppoed output:
+****Actual output:
 
-9 5
-
-Actual output:
-
-Timed out!
-
-Wrong Output!
-
-Input:
-
-1
-
-Suppoed output:
-
-9 5
-
-Actual output:
-
-Timed out!
-
-Correct Output!
+enter 2 chars seperated by space:
+your char diff is: 8
 
 
-compiled .exe results:
+**Wrong Output****Input:
 
-compiled .exe results:
-Input:
+1 9
+
+****Suppoesd output:
 
 1
 
-Suppoed output:
+****Actual output:
 
-9 5
-
-Actual output:
-
-Timed out!
-
-Wrong Output!
+enter 2 chars seperated by space:
+your char diff is: 7
 
 
-compiled .exe results:
+**Wrong Output****Input:
 
-compiled .exe results:
-Input:
+1 9
+
+****Suppoesd output:
 
 1
 
-Suppoed output:
+****Actual output:
 
-9 5
+enter 2 chars seperated by space:
+your char diff is: 6
 
-Actual output:
 
-Timed out!
+**Wrong Output****Input:
 
-Wrong Output!
+1 9
 
-Input:
-
-1
-
-Suppoed output:
-
-9 5
-
-Actual output:
-
-Timed out!
-
-Correct Output!
-
-Input:
+****Suppoesd output:
 
 1
 
-Suppoed output:
+****Actual output:
 
-9 5
-
-Actual output:
-
-Timed out!
-
-Correct Output!
+enter 2 chars seperated by space:
+The chars must be seperated by a comma!
 
 
-compiled .exe results:
+**Wrong Output****Input:
 
-compiled .exe results:
-Input:
+1 9
+
+****Suppoesd output:
 
 1
 
-Suppoed output:
+****Actual output:
 
-9 5
-
-Actual output:
-
-Timed out!
-
-Wrong Output!
+enter 2 chars seperated by space:
+The chars must be seperated by a comma!
 
 
-compiled .exe results:
+**Wrong Output****Input:
 
-compiled .exe results:
-Input:
+1 9
+
+****Suppoesd output:
 
 1
 
-Suppoed output:
+****Actual output:
 
-9 5
-
-Actual output:
-
-Timed out!
-
-Wrong Output!
-
-Input:
-
-1
-
-Suppoed output:
-
-9 5
-
-Actual output:
-
-Timed out!
-
-Correct Output!
+enter 2 chars seperated by space:
+The chars must be seperated by a comma!
 
 
-compiled .exe results:
+**Wrong Output****Input:
 
-compiled .exe results:
-Input:
+1 9
+
+****Suppoesd output:
 
 1
 
-Suppoed output:
+****Actual output:
 
-9 5
-
-Actual output:
-
-Timed out!
-
-Wrong Output!
+enter 2 chars seperated by space:
+your char diff is: 1
 
 
-compiled .exe results:
+**Wrong Output****Input:
 
-compiled .exe results:
-Input:
+1 9
+
+****Suppoesd output:
 
 1
 
-Suppoed output:
+****Actual output:
 
-9 5
+enter 2 chars seperated by space:
+your char diff is: 1
 
-Actual output:
 
-Timed out!
+**Correct Output****Input:
 
-Wrong Output!
+1 9
 
-Input:
-
-1
-
-Suppoed output:
-
-9 5
-
-Actual output:
-
-Timed out!
-
-Correct Output!
-
-Input:
+****Suppoesd output:
 
 1
 
-Suppoed output:
+****Actual output:
 
-9 5
-
-Actual output:
-
-Timed out!
-
-Correct Output!
-
-Input:
-
-1
-
-Suppoed output:
-
-9 5
-
-Actual output:
-
-Timed out!
-
-Wrong Output!
+enter 2 chars seperated by space:
+your char diff is: 1
 
 
-compiled .exe results:
+**Correct Output****Input:
 
-compiled .exe results:
-Input:
+1 9
+
+****Suppoesd output:
 
 1
 
-Suppoed output:
+****Actual output:
 
-9 5
-
-Actual output:
-
-Timed out!
-
-Wrong Output!
+enter 2 chars seperated by space:
+your char diff is: 1
 
 
-compiled .exe results:
+**Correct Output****Input:
 
-compiled .exe results:
-Input:
+1 9
+
+****Suppoesd output:
 
 1
 
-Suppoed output:
+****Actual output:
 
-9 5
-
-Actual output:
-
-Timed out!
-
-Wrong Output!
-
-Input:
-
-1
-
-Suppoed output:
-
-9 5
-
-Actual output:
-
-Timed out!
-
-Correct Output!
+enter 2 chars seperated by space:
+your char diff is: 1
 
 
-compiled .exe results:
+**Correct Output****Input:
 
-compiled .exe results:
-Input:
+1 9
+
+****Suppoesd output:
 
 1
 
-Suppoed output:
+****Actual output:
 
-9 5
-
-Actual output:
-
-Timed out!
-
-Wrong Output!
+enter 2 chars seperated by space:
+your char diff is: 1
 
 
-compiled .exe results:
+**Correct Output****Input:
 
-compiled .exe results:
-Input:
+1 9
+
+****Suppoesd output:
 
 1
 
-Suppoed output:
+****Actual output:
 
-9 5
+enter 2 chars seperated by space:
+your char diff is: 1
 
-Actual output:
 
-Timed out!
+**Wrong Output
+***********Compiled .exe results:
+****Input:
 
-Wrong Output!
+1 9
 
-Input:
-
-1
-
-Suppoed output:
-
-9 5
-
-Actual output:
-
-Timed out!
-
-Correct Output!
-
-Input:
+****Supposed output:
 
 1
 
-Suppoed output:
-
-9 5
-
-Actual output:
+****Actual output:
 
 Timed out!
 
-Correct Output!
+**Wrong Output!
 
+****Input:
 
-compiled .exe results:
+1 9
 
-compiled .exe results:
-Input:
+****Supposed output:
 
 1
 
-Suppoed output:
-
-9 5
-
-Actual output:
+****Actual output:
 
 Timed out!
 
-Wrong Output!
+**Wrong Output!
 
+****Input:
 
-compiled .exe results:
+1 9
 
-compiled .exe results:
-Input:
+****Supposed output:
 
 1
 
-Suppoed output:
-
-9 5
-
-Actual output:
+****Actual output:
 
 Timed out!
 
-Wrong Output!
+**Wrong Output!
 
-Input:
+****Input:
+
+1 9
+
+****Supposed output:
 
 1
 
-Suppoed output:
-
-9 5
-
-Actual output:
+****Actual output:
 
 Timed out!
 
-Correct Output!
+**Wrong Output!
 
+****Input:
 
-compiled .exe results:
+1 9
 
-compiled .exe results:
-Input:
+****Supposed output:
 
 1
 
-Suppoed output:
-
-9 5
-
-Actual output:
+****Actual output:
 
 Timed out!
 
-Wrong Output!
+**Wrong Output!
 
+****Input:
 
-compiled .exe results:
+1 9
 
-compiled .exe results:
-Input:
+****Supposed output:
 
 1
 
-Suppoed output:
-
-9 5
-
-Actual output:
+****Actual output:
 
 Timed out!
 
-Wrong Output!
+**Wrong Output!
 
-Input:
+****Input:
+
+1 9
+
+****Supposed output:
 
 1
 
-Suppoed output:
-
-9 5
-
-Actual output:
+****Actual output:
 
 Timed out!
 
-Correct Output!
+**Wrong Output!
 
-Input:
+****Input:
+
+1 9
+
+****Supposed output:
 
 1
 
-Suppoed output:
-
-9 5
-
-Actual output:
+****Actual output:
 
 Timed out!
 
-Correct Output!
+**Correct Output!
 
-Input:
+****Input:
+
+1 9
+
+****Supposed output:
 
 1
 
-Suppoed output:
-
-9 5
-
-Actual output:
+****Actual output:
 
 Timed out!
 
-Wrong Output!
+**Correct Output!
 
-Input:
+****Input:
+
+1 9
+
+****Supposed output:
 
 1
 
-Suppoed output:
-
-9 5
-
-Actual output:
+****Actual output:
 
 Timed out!
 
-Wrong Output!
+**Correct Output!
+
+****Input:
+
+1 9
+
+****Supposed output:
+
+1
+
+****Actual output:
+
+Timed out!
+
+**Correct Output!
+
+****Input:
+
+1 9
+
+****Supposed output:
+
+1
+
+****Actual output:
+
+Timed out!
+
+**Correct Output!
+
+****Input:
+
+1 9
+
+****Supposed output:
+
+1
+
+****Actual output:
+
+Timed out!
+
+**Wrong Output!
 
 
-Overall success rate of: 40.0% with POSSIBLE CHEATING!
+Overall success rate of: 38.461538461538461538461538460% with POSSIBLE CHEATING!
 
