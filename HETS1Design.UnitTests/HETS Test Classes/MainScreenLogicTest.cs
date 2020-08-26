@@ -203,5 +203,32 @@ namespace HETS1Design.UnitTests
             MainScreenLogic.ShowResults(textBoxTEMPORARY, txtArchivePath);
             Assert.AreNotEqual("", textBoxTEMPORARY.Text);
         }
+
+        [TestMethod]
+        public void OnCheckCodeRadioChange_Success()
+        {
+            MainScreenLogic.OnCheckCodeRadioChange(btnCompile);
+            Assert.IsTrue(Submissions.checkCode);
+            Assert.IsFalse(Submissions.checkExe);
+            Assert.IsTrue(btnCompile.Enabled);
+        }
+
+        [TestMethod]
+        public void OnCheckExeRadioChange_Success()
+        {
+            MainScreenLogic.OnCheckExeRadioChange(btnCompile);
+            Assert.IsFalse(Submissions.checkCode);
+            Assert.IsTrue(Submissions.checkExe);
+            Assert.IsFalse(btnCompile.Enabled);
+        }
+
+        [TestMethod]
+        public void OnCheckBothRadioChange_Success()
+        {
+            MainScreenLogic.OnCheckBothRadioChange(btnCompile);
+            Assert.IsTrue(Submissions.checkCode);
+            Assert.IsTrue(Submissions.checkExe);
+            Assert.IsTrue(btnCompile.Enabled);
+        }
     }
 }
