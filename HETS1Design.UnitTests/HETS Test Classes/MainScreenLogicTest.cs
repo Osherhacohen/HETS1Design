@@ -94,6 +94,25 @@ namespace HETS1Design.UnitTests
         public void FormValidateTest()
         {
             //TODO
+            txtArchivePath.Text = "";
+            txtInputPath.Text = "";
+            txtOutputPath.Text = "";
+            Assert.AreEqual("Choose archive file to continue!", MainScreenLogic.FormValidate(txtArchivePath, txtInputPath, txtOutputPath));
+
+            txtArchivePath.Text = "fsdgsdfghdf";
+            txtInputPath.Text = "";
+            txtOutputPath.Text = "";
+            Assert.AreEqual("Choose input test case file to continue!", MainScreenLogic.FormValidate(txtArchivePath, txtInputPath, txtOutputPath));
+
+            txtArchivePath.Text = "fsdgsdfghdf";
+            txtInputPath.Text = "ghsjhfgsydtgrfhj";
+            txtOutputPath.Text = "";
+            Assert.AreEqual("Choose output test case file to continue!", MainScreenLogic.FormValidate(txtArchivePath, txtInputPath, txtOutputPath));
+
+            txtArchivePath.Text = "fsdgsdfghdf";
+            txtInputPath.Text = "ghsjhfgsydtgrfhj";
+            txtOutputPath.Text = "hejwhfdkhtfsejhflsldjfjaslk";
+            Assert.AreEqual("OK", MainScreenLogic.FormValidate(txtArchivePath, txtInputPath, txtOutputPath));
         }
 
         [TestMethod]
@@ -171,6 +190,18 @@ namespace HETS1Design.UnitTests
         public void PrepareFileDialogTest()
         {
             //TODO
+            MessageBox.Show("The test will open a file dialog. Afterwards, press either OK or Cancel to continue", "MainScreenLogic test", MessageBoxButtons.OK);
+            MainScreenLogic.PrepareFileDialog("Text files (*.txt)|*.txt|All files (*.*)|*.*", openArchiveDialog);
+            Assert.IsNotNull(MainScreenLogic.resultOpen);
+
+        }
+
+        [TestMethod]
+        public void ShowResults_Success()
+        {
+            txtArchivePath.Text = @"..\..\..\Assets\Test Required FIles\ZipArchiveHandlerTest\ZipForTest.zip";
+            MainScreenLogic.ShowResults(textBoxTEMPORARY, txtArchivePath);
+            Assert.AreNotEqual("", textBoxTEMPORARY.Text);
         }
     }
 }

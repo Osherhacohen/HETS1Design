@@ -12,6 +12,7 @@ namespace HETS1Design
     //This class will contain all the business logic for Main screen that is NOT an event type. 
     public static class MainScreenLogic
     {
+        public static DialogResult resultOpen;
         public static void OnMainScreenLoad(NumericUpDown menuCodeWeight, NumericUpDown menuExeWeight, NumericUpDown menuResultsWeight)
         {
             menuCodeWeight.Enabled = false;
@@ -115,7 +116,7 @@ namespace HETS1Design
         public static void PrepareFileDialog(string conditions, OpenFileDialog openDialog)
         {
             openDialog.Filter = conditions;
-            openDialog.ShowDialog();
+            resultOpen = openDialog.ShowDialog();
         }
 
         public static void OpenArchiveFile(OpenFileDialog openArchiveDialog, TextBox txtArchivePath, Button btnResults)
