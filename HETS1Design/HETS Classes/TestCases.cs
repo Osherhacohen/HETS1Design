@@ -138,7 +138,9 @@ namespace HETS1Design
         {
             //Check if the input/output files content format is correct before building.
             if (CountTestCases(inputFileText) != CountTestCases(outputFileText))
-            { MessageBox.Show("Test cases number does not match!\r\nPlease check your input/output files."); }
+            {
+                throw new Exception("Test cases number does not match!\r\nPlease check your input/output files.");
+            }
             else
             {
                 List<String> input = TestCasesSeparator(inputFileText);

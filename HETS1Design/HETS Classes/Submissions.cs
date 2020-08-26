@@ -10,6 +10,8 @@ namespace HETS1Design
     {
         public static List<SingleSubmission> submissions = new List<SingleSubmission>(); //List of submissions from students.
         public static int codeWeight = -1, exeWeight = -1, correctResultsWeight = -1;
+        public static bool checkCode = true; //Default at start.
+        public static bool checkExe = true;
 
         //Activates compilation for all submissions.
         public static bool ActivateCompilation()

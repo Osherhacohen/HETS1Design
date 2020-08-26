@@ -106,7 +106,7 @@ namespace HETS1Design
                 inputs.Add(this.input);
             }
                        
-
+            //Split the text to elements and look for the keyword in each of of them.
             int boundInitialIndex = this.input.IndexOf("__[Bound] ");
             string[] elements = this.input.Split(' ','\n');
             List<string> bounds = new List<string>();

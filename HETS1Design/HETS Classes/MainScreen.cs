@@ -141,5 +141,20 @@ namespace HETS1Design
         {
             MainScreenLogic.TimeoutValueChange(timeoutNumUpDown);
         }
+
+        private void radioBtnExecutable_CheckedChanged(object sender, EventArgs e)
+        {
+            MainScreenLogic.OnCheckCodeRadioChange(this.btnCompile);
+        }
+
+        private void radioBtnCode_CheckedChanged(object sender, EventArgs e)
+        {
+            MainScreenLogic.OnCheckExeRadioChange(this.btnCompile);
+        }
+
+        private void radioBtnBothExeAndCode_CheckedChanged(object sender, EventArgs e)
+        {
+            MainScreenLogic.OnCheckBothRadioChange(this.btnCompile);
+        }
     }
 }

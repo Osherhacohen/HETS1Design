@@ -112,19 +112,19 @@ namespace HETS1Design
 
         public static void OpenArchiveFile(OpenFileDialog openArchiveDialog, TextBox txtArchivePath)
         {
-            //try
-            //{
+            try
+            {
             string zipFile = openArchiveDialog.FileName;
             txtArchivePath.Text = zipFile;
             Submissions.ResetSubmissions();
             ZipArchiveHandler.GetSubmissionData(zipFile, true); //Extract submissions data.
-                                                                
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+            }
+            catch (Exception ex)
+            {
+                txtArchivePath.Text = "";
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public static void DisplayGuideHelpBox()
@@ -141,44 +141,47 @@ namespace HETS1Design
         }
 
         public static void OpenInputFile(OpenFileDialog openInputDialog, TextBox txtInputPath, TextBox txtOutputPath)
-        {
-            //try
-            //{
+        {    
             string inputTextFile = openInputDialog.FileName;
             txtInputPath.Text = openInputDialog.FileName;
-            if (txtInputPath.Text != "" && txtOutputPath.Text != "")
+
+            try
             {
-                TestCases.ResetTestCases();
-                TestCases.ExtractTestCasesFromText(txtInputPath.Text, txtOutputPath.Text);
+                if (txtInputPath.Text != "" && txtOutputPath.Text != "")
+                {
+                    TestCases.ResetTestCases();
+                    TestCases.ExtractTestCasesFromText(txtInputPath.Text, txtOutputPath.Text);
+                }
             }
 
-            //some_buttons.Enabled = true; //Do this later
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+            catch (Exception ex)
+            {
+                txtInputPath.Text = "";
+                txtOutputPath.Text = "";
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public static void OpenOutputFile(OpenFileDialog openOutputDialog, TextBox txtOutputPath, TextBox txtInputPath)
-        {
-            //try
-            //{
+        { 
             string outputTextFile = openOutputDialog.FileName;
             txtOutputPath.Text = openOutputDialog.FileName;
-            if (txtInputPath.Text != "" && txtOutputPath.Text != "")
-            {
-                TestCases.ResetTestCases();
-                TestCases.ExtractTestCasesFromText(txtInputPath.Text, txtOutputPath.Text);
-            }
-            //some_buttons.Enabled = true; //Do this later
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+            try
+            {
+                if (txtInputPath.Text != "" && txtOutputPath.Text != "")
+                {
+                    TestCases.ResetTestCases();
+                    TestCases.ExtractTestCasesFromText(txtInputPath.Text, txtOutputPath.Text);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                txtInputPath.Text = "";
+                txtOutputPath.Text = "";
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
@@ -211,6 +214,27 @@ namespace HETS1Design
                    "please choose the Save new I/O options. \r\nMake sure you already have chosen input/output " +
                    "files since they will be saved in the same directory as your original files.");
             }
+        }
+
+        public static void OnCheckCodeRadioChange(Button btnCompile)
+        {
+            Submissions.checkCode = true;
+            Submissions.checkExe = false;
+            btnCompile.Enabled = true;
+        }
+
+        public static void OnCheckExeRadioChange(Button btnCompile)
+        {
+            Submissions.checkCode = false;
+            Submissions.checkExe = true;
+            btnCompile.Enabled = false;
+        }
+
+        public static void OnCheckBothRadioChange(Button btnCompile)
+        {
+            Submissions.checkCode = true;
+            Submissions.checkExe = true;
+            btnCompile.Enabled = true;
         }
     }
 }

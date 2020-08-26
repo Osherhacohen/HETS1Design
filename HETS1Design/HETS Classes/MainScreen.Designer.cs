@@ -316,14 +316,13 @@ namespace HETS1Design
             // radioBtnExecutable
             // 
             this.radioBtnExecutable.AutoSize = true;
-            this.radioBtnExecutable.Checked = true;
             this.radioBtnExecutable.Location = new System.Drawing.Point(27, 30);
             this.radioBtnExecutable.Name = "radioBtnExecutable";
             this.radioBtnExecutable.Size = new System.Drawing.Size(79, 17);
             this.radioBtnExecutable.TabIndex = 5;
-            this.radioBtnExecutable.TabStop = true;
             this.radioBtnExecutable.Text = "C Code File";
             this.radioBtnExecutable.UseVisualStyleBackColor = true;
+            this.radioBtnExecutable.CheckedChanged += new System.EventHandler(this.radioBtnExecutable_CheckedChanged);
             // 
             // radioBtnCode
             // 
@@ -332,13 +331,14 @@ namespace HETS1Design
             this.radioBtnCode.Name = "radioBtnCode";
             this.radioBtnCode.Size = new System.Drawing.Size(78, 17);
             this.radioBtnCode.TabIndex = 4;
-            this.radioBtnCode.TabStop = true;
             this.radioBtnCode.Text = "Executable";
             this.radioBtnCode.UseVisualStyleBackColor = true;
+            this.radioBtnCode.CheckedChanged += new System.EventHandler(this.radioBtnCode_CheckedChanged);
             // 
             // radioBtnBothExeAndCode
             // 
             this.radioBtnBothExeAndCode.AutoSize = true;
+            this.radioBtnBothExeAndCode.Checked = true;
             this.radioBtnBothExeAndCode.Location = new System.Drawing.Point(196, 30);
             this.radioBtnBothExeAndCode.Name = "radioBtnBothExeAndCode";
             this.radioBtnBothExeAndCode.Size = new System.Drawing.Size(47, 17);
@@ -346,6 +346,7 @@ namespace HETS1Design
             this.radioBtnBothExeAndCode.TabStop = true;
             this.radioBtnBothExeAndCode.Text = "Both";
             this.radioBtnBothExeAndCode.UseVisualStyleBackColor = true;
+            this.radioBtnBothExeAndCode.CheckedChanged += new System.EventHandler(this.radioBtnBothExeAndCode_CheckedChanged);
             // 
             // radioButton32BitCompiler
             // 

@@ -57,7 +57,7 @@ namespace HETS1Design
         //We don't pass an argument here since SingleSubmission it supposed to be contained in Submissions and it has the list.
         public void CompileSubmittedCode()
         {
-            if (codeExists)
+            if (codeExists&&Submissions.checkCode)
             {
                 this.compilerOutput = CodeChecker.CompileCode(codePath);
                 //If it succeeds, the new .exe file path should be this (replace ".c" with ".exe"):
@@ -83,12 +83,12 @@ namespace HETS1Design
                     compiledProgramOutputs.Clear(); //we can add fresh results.
                     foreach (SingleTestCase tc in TestCases.testCases)
                     {
-                        if (File.Exists(exePath))
+                        if (File.Exists(exePath)&&Submissions.checkExe) //If there's a submitted .exe and it needs to be checked.
                         {
                             string outputResults = CodeChecker.RunEXE(exePath, tc.input);
                             submittedProgramOutputs.Add(new OutputResult(outputResults));
                         }
-                        if (File.Exists(compiledExePath))
+                        if (File.Exists(compiledExePath)&&Submissions.checkCode) //If there's just the compiled .exe and only it needs to be checked.
                         {
                             string outputResults = CodeChecker.RunEXE(compiledExePath, tc.input);
                             compiledProgramOutputs.Add(new OutputResult(outputResults));

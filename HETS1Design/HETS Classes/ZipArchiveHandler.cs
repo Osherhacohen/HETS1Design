@@ -73,6 +73,7 @@ namespace HETS1Design
 
                 string _2CharExtention = zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 2)); //File extension.
 
+
                 if (_2CharExtention == ".c" || _2CharExtention == ".h") //If extension is .c (c code) or .h (c header).
                 {
                     string codePath = newDirectory + @"\" + Path.GetFileName(zipEntry.FullName);
@@ -81,7 +82,10 @@ namespace HETS1Design
                     Submissions.submissions.Last().AddCode(codePath); //Always edit the newest Submission entry.
                 }
 
+
+
                 string _4CharExtension = zipEntry.FullName.Substring(Math.Max(0, zipEntry.FullName.Length - 4)); //File extension.
+
 
                 if (_4CharExtension == ".exe") //If extension is .exe put it in a new folder to prevent conflict with any TCC compiled .exe.
                 {
@@ -93,6 +97,7 @@ namespace HETS1Design
 
                     Submissions.submissions.Last().AddExe(exePath);  //Always edit the newest Submission entry.
                 }
+
 
                 if (_4CharExtension == ".zip") //If extension is .zip, put it in a new folder with the same zip archive file name.
                 {
