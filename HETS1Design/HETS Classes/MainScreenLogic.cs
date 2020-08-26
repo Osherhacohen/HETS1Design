@@ -206,19 +206,16 @@ namespace HETS1Design
 
 
 
-        public static void OnShowResults(DataGridView dataGridResults)//TextBox textBoxTEMPORARY)
+        public static void OnShowResults(DataGridView dataGridResults, Button btnDetailedResults)//TextBox textBoxTEMPORARY)
         {
             dataGridResults.DataSource = Submissions.GetResultsTable();
             dataGridResults.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-
-
-            //14334134441424212442212141212
+            btnDetailedResults.Enabled = true;
         }
 
         public static void OnSaveDetailedResults(TextBox txtArchivePath)
         {
-             
+            Submissions.SaveDetailedResults(txtArchivePath.Text);
         }
 
         public static void OnExportToCSV(SaveFileDialog csvPath)

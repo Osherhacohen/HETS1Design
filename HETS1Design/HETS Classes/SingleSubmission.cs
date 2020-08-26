@@ -191,22 +191,42 @@ namespace HETS1Design
             return percent.ToString()+"%";
         }
 
-        //Get all of the results from the current submission.
+        //Get all of the (detailed) results from the current submission.
         public string GetAllSingleSubmissionResults()
         {
             string allResults = "No results.";
             if (submittedProgramOutputs.Count > 0)
             {
-                allResults="\r\nSubmitted.exe results:\r\n";
+                allResults="\r\nSubmitted .exe results:\r\n";
+                int i = 0;
                 foreach (OutputResult r in submittedProgramOutputs)
-                allResults +=r.GetResultOutput+"\r\n\r\n";
+                {
+                    allResults += "Input:\r\n\r\n" + TestCases.testCases[i].input + "\r\n\r\n";
+                    allResults += "Suppoed output:\r\n\r\n"+TestCases.testCases[i].output + "\r\n\r\n";
+                    allResults += "Actual output:\r\n\r\n" + r.GetResultOutput + "\r\n\r\n";
+                    if (r.DidItMatch)
+                        allResults += "Correct Output";
+                    else
+                        allResults += "Wrong Output";
+                }
             }
 
             if (compiledProgramOutputs.Count > 0)
             {
-                allResults += "\r\nCompiled .exe results:\r\n";
+                allResults = "\r\ncompiled .exe results:\r\n";
+
+                int i = 0;
                 foreach (OutputResult r in compiledProgramOutputs)
-                    allResults += r.GetResultOutput + "\r\n\r\n";
+                {
+                    allResults +=
+                    allResults += "Input:\r\n\r\n" + TestCases.testCases[i].input + "\r\n\r\n";
+                    allResults += "Suppoed output:\r\n\r\n" + TestCases.testCases[i].output + "\r\n\r\n";
+                    allResults += "Actual output:\r\n\r\n" + r.GetResultOutput + "\r\n\r\n";
+                    if (r.DidItMatch)
+                        allResults += "Correct Output!\r\n\r\n";
+                    else
+                        allResults += "Wrong Output!\r\n\r\n";
+                }
             }
             return allResults;
         }
