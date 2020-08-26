@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace HETS1Design
 {
@@ -62,7 +63,6 @@ namespace HETS1Design
 
 
             int i = 0;
-
             foreach (SingleSubmission sub in Submissions.submissions)
             {
                 ActivateGrading();
@@ -92,9 +92,18 @@ namespace HETS1Design
         }
 
         //Saves the .csv table in the desired location.
-        public static void SaveResults(string saveCSVPath)
+        public static DataTable SaveResults()
         {
-            //Saves the csv in the saveCSVPath
+            string compiler = "Compiler version is 64Bit";
+            if (CodeChecker.use32bitCompiler)
+                compiler = "Compiler version is 32Bit";
+            DataTable dt=new DataTable("Submissions Results ("+compiler+"):");
+
+
+
+
+
+            return dt;
         }
 
         //Creates a new folder with a detailed text file for each submissions.
