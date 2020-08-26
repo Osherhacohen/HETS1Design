@@ -145,11 +145,12 @@ namespace HETS1Design
                 "\r\n\r\n*If you wish to have a Boundary test for one input, place __[Bound] Number1 Number2" +
                 " where you would place the original output." +
                 "\r\n\r\n*For the same but with Equivalence Partitioning use __[EP] Number1 Number2 instead." +
+                "\r\n*In both cases Number2 needs to be higher in value than Number1." +
                 "\r\n\r\n*Spaces and New Lines (enter) DO matter! No matter if you don't see them, make sure" +
                 "you write your input/output files correctly (and tell your students to mind it too!) ");
         }
 
-        public static void OpenInputFile(OpenFileDialog openInputDialog, TextBox txtInputPath, TextBox txtOutputPath)
+        public static void OpenInputFile(OpenFileDialog openInputDialog, TextBox txtInputPath, TextBox txtOutputPath, Button btnAddTestCase, Button btnSaveIO)
         {    
             string inputTextFile = openInputDialog.FileName;
             txtInputPath.Text = openInputDialog.FileName;
@@ -160,6 +161,8 @@ namespace HETS1Design
                 {
                     TestCases.ResetTestCases();
                     TestCases.ExtractTestCasesFromText(txtInputPath.Text, txtOutputPath.Text);
+                    btnAddTestCase.Enabled = true;
+                    btnSaveIO.Enabled = true;
                 }
             }
 
@@ -168,10 +171,12 @@ namespace HETS1Design
                 txtInputPath.Text = "";
                 txtOutputPath.Text = "";
                 MessageBox.Show(ex.Message);
+                btnAddTestCase.Enabled = false;
+                btnSaveIO.Enabled = false;
             }
         }
 
-        public static void OpenOutputFile(OpenFileDialog openOutputDialog, TextBox txtOutputPath, TextBox txtInputPath)
+        public static void OpenOutputFile(OpenFileDialog openOutputDialog, TextBox txtOutputPath, TextBox txtInputPath, Button btnAddTestCase, Button btnSaveIO)
         { 
             string outputTextFile = openOutputDialog.FileName;
             txtOutputPath.Text = openOutputDialog.FileName;
@@ -182,6 +187,8 @@ namespace HETS1Design
                 {
                     TestCases.ResetTestCases();
                     TestCases.ExtractTestCasesFromText(txtInputPath.Text, txtOutputPath.Text);
+                    btnAddTestCase.Enabled = true;
+                    btnSaveIO.Enabled = true;
                 }
             }
 
@@ -190,6 +197,8 @@ namespace HETS1Design
                 txtInputPath.Text = "";
                 txtOutputPath.Text = "";
                 MessageBox.Show(ex.Message);
+                btnAddTestCase.Enabled = false;
+                btnSaveIO.Enabled = false;
             }
         }
 
@@ -215,6 +224,7 @@ namespace HETS1Design
                 TestCases.OnAddTestCase(txtInputAppend.Text, txtOutputAppend.Text, true);
             if (radioTNC.Checked)
                 TestCases.OnAddTestCase(txtInputAppend.Text, txtOutputAppend.Text, false);
+
 
             if (txtInputAppend.Text != "" && txtOutputAppend.Text != "")
             {

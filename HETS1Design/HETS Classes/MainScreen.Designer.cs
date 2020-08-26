@@ -166,6 +166,7 @@ namespace HETS1Design
             // 
             // btnSaveIO
             // 
+            this.btnSaveIO.Enabled = false;
             this.btnSaveIO.Location = new System.Drawing.Point(653, 175);
             this.btnSaveIO.Name = "btnSaveIO";
             this.btnSaveIO.Size = new System.Drawing.Size(116, 23);
@@ -239,6 +240,7 @@ namespace HETS1Design
             // 
             // btnAddTestCase
             // 
+            this.btnAddTestCase.Enabled = false;
             this.btnAddTestCase.Location = new System.Drawing.Point(255, 165);
             this.btnAddTestCase.Name = "btnAddTestCase";
             this.btnAddTestCase.Size = new System.Drawing.Size(234, 23);

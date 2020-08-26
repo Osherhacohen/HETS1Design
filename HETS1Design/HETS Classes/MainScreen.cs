@@ -96,12 +96,12 @@ namespace HETS1Design
 
         private void openInputDialog_FileOk(object sender, CancelEventArgs e)
         {
-            MainScreenLogic.OpenInputFile(this.openInputDialog, this.txtInputPath, this.txtOutputPath);
+            MainScreenLogic.OpenInputFile(this.openInputDialog, this.txtInputPath, this.txtOutputPath, this.btnAddTestCase, this.btnSaveIO);
         }
 
         private void openOutputDialog_FileOk(object sender, CancelEventArgs e)
         {
-            MainScreenLogic.OpenOutputFile(this.openOutputDialog, this.txtOutputPath, this.txtInputPath);
+            MainScreenLogic.OpenOutputFile(this.openOutputDialog, this.txtOutputPath, this.txtInputPath, this.btnAddTestCase, this.btnSaveIO);
         }
 
 
