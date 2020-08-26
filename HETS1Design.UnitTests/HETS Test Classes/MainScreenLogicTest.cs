@@ -228,5 +228,34 @@ namespace HETS1Design
             Assert.IsTrue(Submissions.checkExe);
             Assert.IsTrue(btnCompile.Enabled);
         }
+
+        [TestMethod]
+        public void OpenInputFileTest()
+        {
+            openOutputDialog.FileName = @"..\..\..\Assets\Test Required FIles\Debugging Required Files\OpenInputFileFuncTest.txt";
+            txtOutputPath.Text = openOutputDialog.FileName;
+
+            MainScreenLogic.OpenOutputFile(openOutputDialog, txtOutputPath, txtInputPath, btnAddTestCase, btnSaveIO);
+
+            txtInputPath.Text = "‏‏test";   //Catch Exception
+            txtOutputPath.Text = "‏‏test"; //Catch Exception
+
+            Assert.IsNotNull(openOutputDialog);
+
+
+            MainScreenLogic.OpenOutputFile(openOutputDialog, txtOutputPath, txtInputPath, btnAddTestCase, btnSaveIO);
+
+            txtInputPath.Text = @"..\..\..\Assets\Test Required FIles\Debugging Required Files\OpenInputFileFuncTest.txt";  
+            txtOutputPath.Text = @"..\..\..\Assets\Test Required FIles\Debugging Required Files\‏‏OpenInputFileFuncTest.txt";
+
+            MainScreenLogic.OpenOutputFile(openOutputDialog, txtOutputPath, txtInputPath, btnAddTestCase, btnSaveIO);
+
+            Assert.IsTrue(btnAddTestCase.Enabled);
+            Assert.IsTrue(btnSaveIO.Enabled);
+
+
+
+
+        }
     }
 }
