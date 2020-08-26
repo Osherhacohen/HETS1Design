@@ -26,8 +26,6 @@ namespace HETS1Design
             //outputFileToCheckContent = File.ReadAllText(@"..\..\..\Assets\Test Required FIles\TestCasesTest\OutputTestCasesExample.txt");
         }
 
-   
-
         [TestMethod]
         public void OnAddTestCaseTest()
         {
