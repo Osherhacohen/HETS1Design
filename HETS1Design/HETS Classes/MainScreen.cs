@@ -49,15 +49,19 @@ namespace HETS1Design
 
         private void btnResults_Click(object sender, EventArgs e)
         {
-            MainScreenLogic.ShowResults(this.textBoxTEMPORARY, this.txtArchivePath);
+            MainScreenLogic.OnShowResults(this.dataGridResults);
+            //MainScreenLogic.OnShowResults(this.textBoxTEMPORARY);
         }
 
         private void btnDetailedResults_Click(object sender, EventArgs e)
         {
-            //TODO: Per submission test case results (Input/Output/Desired Output/Matching?)
-            //Add it in another folder called "Detailed Results"
+            MainScreenLogic.OnSaveDetailedResults(this.txtArchivePath);
         }
 
+        private void saveCSVFile_FileOk(object sender, CancelEventArgs e)
+        {
+            MainScreenLogic.OnExportToCSV(this.saveCSVFile);
+        }
 
         private void btnSaveIO_Click(object sender, EventArgs e)
         {
@@ -86,12 +90,10 @@ namespace HETS1Design
             MainScreenLogic.PrepareFileDialog("Text files (*.txt)|*.txt|All files (*.*)|*.*", openOutputDialog);
         }
 
-
         private void openArchiveDialog_FileOk(object sender, CancelEventArgs e)
         {
             MainScreenLogic.OpenArchiveFile(this.openArchiveDialog, this.txtArchivePath, this.btnResults);
         }
-
 
 
         private void openInputDialog_FileOk(object sender, CancelEventArgs e)
@@ -103,7 +105,6 @@ namespace HETS1Design
         {
             MainScreenLogic.OpenOutputFile(this.openOutputDialog, this.txtOutputPath, this.txtInputPath, this.btnAddTestCase, this.btnSaveIO);
         }
-
 
 
         private void menuCodeWeight_ValueChanged(object sender, EventArgs e)

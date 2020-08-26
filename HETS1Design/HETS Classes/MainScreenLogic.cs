@@ -206,11 +206,26 @@ namespace HETS1Design
 
 
 
-        public static void ShowResults(TextBox textBoxTEMPORARY, TextBox txtArchivePath)
+        public static void OnShowResults(DataGridView dataGridResults)//TextBox textBoxTEMPORARY)
         {
-            textBoxTEMPORARY.Text = "";
-            //This will be used to get the results table. (Currently string).
-            textBoxTEMPORARY.Text += Submissions.GetAllSubmissionsResults(txtArchivePath.Text);
+            //textBoxTEMPORARY.Text = "";
+            ////This will be used to get the results table. (Currently string).
+            //textBoxTEMPORARY.Text += Submissions.GetAllSubmissionsResults();       
+            
+
+
+        }
+
+        public static void OnSaveDetailedResults(TextBox txtArchivePath)
+        {
+             
+        }
+
+        public static void OnExportToCSV(SaveFileDialog csvPath)
+        {
+            csvPath.Filter = "CSV File|*.csv";
+            csvPath.Title = "Save The Results File";
+            DataTable dt;
 
         }
 

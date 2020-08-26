@@ -416,6 +416,7 @@ namespace HETS1Design
             this.textBoxTEMPORARY.Size = new System.Drawing.Size(756, 230);
             this.textBoxTEMPORARY.TabIndex = 11;
             this.textBoxTEMPORARY.Text = "Temporary Text Box";
+            this.textBoxTEMPORARY.Visible = false;
             this.textBoxTEMPORARY.WordWrap = false;
             // 
             // dataGridResults
@@ -447,6 +448,10 @@ namespace HETS1Design
             // openOutputDialog
             // 
             this.openOutputDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openOutputDialog_FileOk);
+            // 
+            // saveCSVFile
+            // 
+            this.saveCSVFile.FileOk += new System.ComponentModel.CancelEventHandler(this.saveCSVFile_FileOk);
             // 
             // groupBox5
             // 

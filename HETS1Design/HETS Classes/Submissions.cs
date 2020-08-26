@@ -54,7 +54,7 @@ namespace HETS1Design
         
         
         //Returns a text with the detailed results.
-        public static string GetAllSubmissionsResults(string zipPath) //We may turn this into the final csv file at some point.
+        public static string GetAllSubmissionsResults() //We may turn this into the final csv file at some point.
         {
 
             string createText = "Compiler version: 64Bit\r\n\r\n";
@@ -92,18 +92,31 @@ namespace HETS1Design
         }
 
         //Saves the .csv table in the desired location.
-        public static DataTable SaveResults()
+        public static DataTable GetResultsTable()
         {
             string compiler = "Compiler version is 64Bit";
             if (CodeChecker.use32bitCompiler)
                 compiler = "Compiler version is 32Bit";
             DataTable dt=new DataTable("Submissions Results ("+compiler+"):");
 
+            int i = 0;
+            foreach (SingleSubmission sub in Submissions.submissions)
+            {
+                ActivateGrading();
+                DataRow submissionRow=dt.NewRow();
 
 
 
 
-            return dt;
+
+                dt.Rows.Add(submissionRow);
+            }
+
+
+
+
+
+                return dt;
         }
 
         //Creates a new folder with a detailed text file for each submissions.
