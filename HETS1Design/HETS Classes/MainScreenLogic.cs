@@ -203,6 +203,14 @@ namespace HETS1Design
                 TestCases.OnAddTestCase(txtInputAppend.Text, txtOutputAppend.Text, true);
             if (radioTNC.Checked)
                 TestCases.OnAddTestCase(txtInputAppend.Text, txtOutputAppend.Text, false);
+
+            if (txtInputAppend.Text != "" && txtOutputAppend.Text != "")
+            {
+                MessageBox.Show("Added a new test case!\r\n" +
+                   "In order to save the new array of test cases (Both input and output files)\r\n" +
+                   "please choose the Save new I/O options. \r\nMake sure you already have chosen input/output " +
+                   "files since they will be saved in the same directory as your original files.");
+            }
         }
     }
 }
