@@ -78,19 +78,9 @@ namespace HETS1Design
             }
         }
 
-        //***************************TODO AT SOME POINT
-
-        //Leave this headache functions for later
-
-        //***************************TODO AT SOME POINT
-
 
          
-        //Problems:
-        //1. Boundaries are too close to each other (6999-7000) - solved with GroupBy
-        //2. Left boundary is larger than the right one (9000-7000) - solved with Exception throwing
-        //3. Boundaries are the same (7000-7000) - solved with returning a single-item list
-        //4. Use this snippet for the EP but with boolean value(?) - Done
+
         public List<SingleTestCase> ReturnBoundaryTestCases() 
         {
             //Takes one (the first to scan) boundary syntax and multiply the test case by 5 with the boundary input range. (5 __[TC])  
@@ -167,9 +157,7 @@ namespace HETS1Design
             {
                 throw new Exception("Boundary isn't written well!");
             }
-
-
-
+                        
 
             List<SingleTestCase> boundTests = new List<SingleTestCase>();
             for(int i=0;i<5;i++)

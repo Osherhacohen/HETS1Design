@@ -98,7 +98,7 @@ namespace HETS1Design
         }
 
         //Creates a new folder with a detailed text file for each submissions.
-        public static void SaveDetailedResults()
+        public static void SaveDetailedResults(string zipPath)
         {       
             //Do not use this yet.
             //File.WriteAllText(Path.GetDirectoryName(zipPath)+@"\info.txt", createText); 
