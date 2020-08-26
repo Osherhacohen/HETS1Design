@@ -2,8 +2,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
-namespace HETS1Design.UnitTests
+
+namespace HETS1Design
 {
     [TestClass]
     public class MainScreenLogicTest
@@ -185,15 +187,6 @@ namespace HETS1Design.UnitTests
             //MainScreenLogic.TimeoutValueChange();
 
             //Assert.AreEqual(5, MainScreenLogic.TimeoutValueChange(CodeChecker.timeoutSeconds));
-        }
-        [TestMethod]
-        public void PrepareFileDialogTest()
-        {
-            //TODO
-            MessageBox.Show("The test will open a file dialog. Afterwards, press either OK or Cancel to continue", "MainScreenLogic test", MessageBoxButtons.OK);
-            MainScreenLogic.PrepareFileDialog("Text files (*.txt)|*.txt|All files (*.*)|*.*", openArchiveDialog);
-            Assert.IsNotNull(MainScreenLogic.resultOpen);
-
         }
 
         [TestMethod]
