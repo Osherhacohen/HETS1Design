@@ -7,6 +7,13 @@ namespace HETS1Design
     [TestClass]
     public class ZipArchiveHandlerTest
     {
+        [TestInitialize]
+        public void Initialize()
+        {
+            Submissions.ResetSubmissions();
+            TestCases.ResetTestCases();
+        }
+
         [TestMethod]
         public void ZipArchiveHandler_Success()
         {
@@ -17,6 +24,13 @@ namespace HETS1Design
             Assert.IsTrue(File.Exists(@"..\..\..\Assets\Test Required FIles\ZipArchiveHandlerTest\Codes To Check\אחמד סכראן_7092_assignsubmission_file_\code files\erl.h"));
             Assert.IsTrue(File.Exists(@"..\..\..\Assets\Test Required FIles\ZipArchiveHandlerTest\Codes To Check\אחמד סכראן_7092_assignsubmission_file_\code files\Targil5a.c"));
             Assert.IsTrue(File.Exists(@"..\..\..\Assets\Test Required FIles\ZipArchiveHandlerTest\Codes To Check\אחמד סכראן_7092_assignsubmission_file_\Exe\Source.exe"));
+        }
+
+        [TestCleanup]
+        public void TestCleanup()
+        {
+            Submissions.ResetSubmissions();
+            TestCases.ResetTestCases();
         }
     }
 }

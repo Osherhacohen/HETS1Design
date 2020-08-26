@@ -61,5 +61,12 @@ namespace HETS1Design
             Assert.AreEqual(0, Submissions.submissions.Count);
         }
 
+        [TestCleanup]
+        public void TestCleanup()
+        {
+            Submissions.ResetSubmissions();
+            TestCases.ResetTestCases();
+        }
+
     }
 }

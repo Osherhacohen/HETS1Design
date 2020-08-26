@@ -10,6 +10,7 @@ namespace HETS1Design
     [TestClass]
     public class MainScreenLogicTest
     {
+        #region Many Objects
         TextBox txtArchivePath;
         Button btnBrowseArchive;
         Button btnSaveIO;
@@ -44,9 +45,12 @@ namespace HETS1Design
         Button btnRunProgram;
         Button btnDetailedResults;
         DataGridView dataGridResults;
+        #endregion
+
         [TestInitialize]
         public void TestInit()
         {
+            #region Many Inits
             txtArchivePath = new System.Windows.Forms.TextBox();
             btnBrowseArchive = new System.Windows.Forms.Button();
             btnSaveIO = new System.Windows.Forms.Button();
@@ -81,6 +85,7 @@ namespace HETS1Design
             btnRunProgram = new System.Windows.Forms.Button();
             btnDetailedResults = new System.Windows.Forms.Button();
             dataGridResults = new System.Windows.Forms.DataGridView();
+            #endregion
         }
 
         [TestMethod]

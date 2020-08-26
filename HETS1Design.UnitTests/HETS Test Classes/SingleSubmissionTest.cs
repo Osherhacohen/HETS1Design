@@ -23,10 +23,12 @@ namespace HETS1Design
             s3.AddExe(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.exe");
             bool isTC = false; // TNC
             string input = "Check input"; // This is a TNC and we know these vakues are incorrect output
-            string output = "check output"; // So we know the result will be true
+            string output = "Check output"; // So we know the result will be true
             TestCases.OnAddTestCase(input, output, isTC); // We want the submisstion at least one currect result
             TestCases.OnAddTestCase(input, output, isTC); // We want the submisstion at least one currect result
         }
+
+
 
         [TestMethod]
         public void SingleSubmission_Creates()
@@ -74,11 +76,6 @@ namespace HETS1Design
         {
             s1.AddCode(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.c");
             s1.AddExe(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.exe");
-            //bool isTC = false; // TNC
-            //string input = "Check input"; // This is a TNC and we know these vakues are incorrect output
-            //string output = "check output"; // So we know the result will be true
-            //TestCases.OnAddTestCase(input, output, isTC); // We want the submisstion at least one currect result
-            //TestCases.OnAddTestCase(input, output, isTC); // We want the submisstion at least one currect result
 
             s1.CompileSubmittedCode();
             s1.RunSubmittedProgram();
@@ -120,14 +117,11 @@ namespace HETS1Design
         {
             string st = s2.GetAllSingleSubmissionResults();
             Assert.AreEqual("No results.", st);
-
-            s2.AddCode(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.c");
-
             s2.CompileSubmittedCode();
             s2.RunSubmittedProgram();
             s2.CompareResultsToDesiredResults();
-            st = s2.GetAllSingleSubmissionResults();
-            Assert.AreNotEqual("No results.", st);
+            string st2 = s2.GetAllSingleSubmissionResults();
+            Assert.AreNotEqual("No results.", st2);
         }
 
         [TestMethod]
@@ -138,7 +132,13 @@ namespace HETS1Design
             s3.CompareResultsToDesiredResults();
             int res3 = s3.CorrectResultsCount();
             Assert.AreEqual(2, res3);
+        }
 
+        [TestCleanup]
+        public void TestCleanup()
+        {
+            Submissions.ResetSubmissions();
+            TestCases.ResetTestCases();
         }
     }
 }

@@ -12,10 +12,14 @@ namespace HETS1Design
         [TestInitialize]
         public void Initialize()
         {
+            Submissions.ResetSubmissions();
+            TestCases.ResetTestCases();
             s1 = new SingleTestCase("7 6", "12", true);
             s2 = new SingleTestCase("__[Bound]3 5 10", "10", true);
             s3 = new SingleTestCase("__[EP]3 9 17", "19", true);
         }
+
+
 
         [TestMethod]
         public void SingleTestCase_CreatedSuccessfully()

@@ -20,6 +20,8 @@ namespace HETS1Design
         [TestInitialize]
         public void Initialize()
         {
+            Submissions.ResetSubmissions();
+            TestCases.ResetTestCases();
             fileToCheckContent = File.ReadAllText(@"..\..\..\Assets\Test Required FIles\TestCasesTest\GeneralTestCasesExample.txt");
             TestCases.ResetTestCases();
             //inputFileToCheckContent = File.ReadAllText(@"..\..\..\Assets\Test Required FIles\TestCasesTest\InputTestCasesExample.txt"); 
@@ -120,6 +122,13 @@ namespace HETS1Design
         public void MultiplyTestCasesByEP_Multiplies()
         {
             //TODO (how to validate recursive method?)
+        }
+
+        [TestCleanup]
+        public void TestCleanup()
+        {
+            Submissions.ResetSubmissions();
+            TestCases.ResetTestCases();
         }
 
     }
