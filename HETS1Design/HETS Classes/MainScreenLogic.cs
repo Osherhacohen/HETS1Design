@@ -208,12 +208,12 @@ namespace HETS1Design
 
         public static void OnShowResults(DataGridView dataGridResults)//TextBox textBoxTEMPORARY)
         {
-            //textBoxTEMPORARY.Text = "";
-            ////This will be used to get the results table. (Currently string).
-            //textBoxTEMPORARY.Text += Submissions.GetAllSubmissionsResults();       
-            
+            dataGridResults.DataSource = Submissions.GetResultsTable();
+            dataGridResults.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
 
+
+            //14334134441424212442212141212
         }
 
         public static void OnSaveDetailedResults(TextBox txtArchivePath)

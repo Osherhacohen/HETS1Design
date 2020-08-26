@@ -94,29 +94,78 @@ namespace HETS1Design
         //Saves the .csv table in the desired location.
         public static DataTable GetResultsTable()
         {
+            ActivateGrading();
+
             string compiler = "Compiler version is 64Bit";
             if (CodeChecker.use32bitCompiler)
                 compiler = "Compiler version is 32Bit";
-            DataTable dt=new DataTable("Submissions Results ("+compiler+"):");
+            DataTable rdt=new DataTable("Submissions Results ("+compiler+"):");
+
+
+            //Name the headers.
+            rdt.Columns.Add("ID");
+            rdt.Columns.Add(".c File Submitted");
+            rdt.Columns.Add(".c File Compiled");
+            rdt.Columns.Add(".exe File Submitted");
+            rdt.Columns.Add("Success Rate");
+            rdt.Columns.Add("Grade");
+            rdt.Columns.Add("Possible Cheating");
+
+
 
             int i = 0;
             foreach (SingleSubmission sub in Submissions.submissions)
             {
-                ActivateGrading();
-                DataRow submissionRow=dt.NewRow();
+                DataRow submissionRow = rdt.NewRow();
+                string whatToWrite="";
+
+                submissionRow["ID"] = sub.submitID;
+
+                if (sub.codeExists)
+                    whatToWrite ="Yes";
+                else
+                    whatToWrite = "No";
+                submissionRow[".c File Submitted"] = whatToWrite;
+
+
+                if (sub.compiledExePath != null) //Making sure there's a correct path in compiled .exe path (there's no path <2).
+                    whatToWrite = "Yes";
+                else
+                    whatToWrite = "No";
+                submissionRow[".c File Compiled"] = whatToWrite;
 
 
 
+                if (sub.exePath != null) //Making sure there's a correct path in submitted .exe path (there's no path <2).
+                    whatToWrite = "Yes";
+                else
+                    whatToWrite = "No";
+                submissionRow[".exe File Submitted"] = whatToWrite;
 
 
-                dt.Rows.Add(submissionRow);
+                
+                submissionRow["Success Rate"] = sub.CorrectResultsPercentage();
+
+
+                if (codeWeight == -1)
+                    whatToWrite = "N/A";
+                else
+                    whatToWrite = sub.finalGrade.ToString();
+                submissionRow["Grade"] = whatToWrite;
+
+
+                if (sub.possibleCheating)
+                    whatToWrite = "Yes";
+                else
+                    whatToWrite = "";
+                submissionRow["Possible Cheating"] = whatToWrite;                
+
+
+
+                rdt.Rows.Add(submissionRow);
             }
 
-
-
-
-
-                return dt;
+            return rdt;
         }
 
         //Creates a new folder with a detailed text file for each submissions.
