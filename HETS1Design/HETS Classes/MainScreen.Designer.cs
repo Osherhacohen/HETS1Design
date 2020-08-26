@@ -436,6 +436,7 @@ namespace HETS1Design
             this.btnExportCSV.TabIndex = 10;
             this.btnExportCSV.Text = "Export to CSV";
             this.btnExportCSV.UseVisualStyleBackColor = true;
+            this.btnExportCSV.Click += new System.EventHandler(this.btnExportCSV_Click);
             // 
             // openArchiveDialog
             // 
