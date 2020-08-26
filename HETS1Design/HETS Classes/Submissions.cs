@@ -144,6 +144,7 @@ namespace HETS1Design
         //Returns a text with the detailed results.
         public static void SaveDetailedResults(string zipPath) //We may turn this into the final csv file at some point.
         {
+            if (!Directory.Exists(Path.GetDirectoryName(zipPath) + @"\Detailed Results HETS - Azo"))
             Directory.CreateDirectory(Path.GetDirectoryName(zipPath) + @"\Detailed Results HETS - Azo");
 
             string createText = "Compiler version: 64Bit\r\n\r\n";

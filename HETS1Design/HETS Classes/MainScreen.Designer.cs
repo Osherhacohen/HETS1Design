@@ -452,8 +452,7 @@ namespace HETS1Design
             // 
             // saveCSVFile
             // 
-            this.saveCSVFile.FileOk += new System.ComponentModel.CancelEventHandler(this.saveCSVFile_FileOk);
-            // 
+           // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.checkBoxEnableGrading);

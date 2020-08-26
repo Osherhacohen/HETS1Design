@@ -197,35 +197,35 @@ namespace HETS1Design
             string allResults = "No results.";
             if (submittedProgramOutputs.Count > 0)
             {
-                allResults="\r\nSubmitted .exe results:\r\n";
+                allResults="\r\n*****Submitted .exe results:\r\n";
                 int i = 0;
                 foreach (OutputResult r in submittedProgramOutputs)
                 {
-                    allResults += "Input:\r\n\r\n" + TestCases.testCases[i].input + "\r\n\r\n";
-                    allResults += "Suppoed output:\r\n\r\n"+TestCases.testCases[i].output + "\r\n\r\n";
-                    allResults += "Actual output:\r\n\r\n" + r.GetResultOutput + "\r\n\r\n";
+                    allResults += "**Input:\r\n\r\n" + TestCases.testCases[i].input + "\r\n\r\n";
+                    allResults += "**Suppoed output:\r\n\r\n"+TestCases.testCases[i].output + "\r\n\r\n";
+                    allResults += "**Actual output:\r\n\r\n" + r.GetResultOutput + "\r\n\r\n";
                     if (r.DidItMatch)
-                        allResults += "Correct Output";
+                        allResults += "*Correct Output";
                     else
-                        allResults += "Wrong Output";
+                        allResults += "*Wrong Output";
                 }
             }
 
             if (compiledProgramOutputs.Count > 0)
             {
-                allResults = "\r\ncompiled .exe results:\r\n";
+                allResults = "\r\n*****Compiled .exe results:\r\n";
 
                 int i = 0;
                 foreach (OutputResult r in compiledProgramOutputs)
                 {
                     allResults +=
-                    allResults += "Input:\r\n\r\n" + TestCases.testCases[i].input + "\r\n\r\n";
-                    allResults += "Suppoed output:\r\n\r\n" + TestCases.testCases[i].output + "\r\n\r\n";
-                    allResults += "Actual output:\r\n\r\n" + r.GetResultOutput + "\r\n\r\n";
+                    allResults += "**Input:\r\n\r\n" + TestCases.testCases[i].input + "\r\n\r\n";
+                    allResults += "**Suppoed output:\r\n\r\n" + TestCases.testCases[i].output + "\r\n\r\n";
+                    allResults += "**Actual output:\r\n\r\n" + r.GetResultOutput + "\r\n\r\n";
                     if (r.DidItMatch)
-                        allResults += "Correct Output!\r\n\r\n";
+                        allResults += "*Correct Output!\r\n\r\n";
                     else
-                        allResults += "Wrong Output!\r\n\r\n";
+                        allResults += "*Wrong Output!\r\n\r\n";
                 }
             }
             return allResults;

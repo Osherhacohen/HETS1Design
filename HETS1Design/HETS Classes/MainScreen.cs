@@ -58,11 +58,6 @@ namespace HETS1Design
             MainScreenLogic.OnSaveDetailedResults(this.txtArchivePath);
         }
 
-        private void saveCSVFile_FileOk(object sender, CancelEventArgs e)
-        {
-            MainScreenLogic.OnExportToCSV(this.saveCSVFile);
-        }
-
         private void btnSaveIO_Click(object sender, EventArgs e)
         {
             MainScreenLogic.OnButtonSaveIOClick(this.txtInputPath, this.txtOutputPath);
