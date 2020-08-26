@@ -7,12 +7,25 @@ namespace HETS1Design
     public class SingleSubmissionTest
     {
         SingleSubmission s1;
+        SingleSubmission s2;
+        SingleSubmission s3;
+
         [TestInitialize]
         public void Initialize()
         {
+            Submissions.ResetSubmissions();
+            TestCases.ResetTestCases();
             s1 = new SingleSubmission("21325");
-            s1.AddCode(@"..\..\..\Assets\CodeToCheck\Source.c");
-
+            s2 = new SingleSubmission("54324");
+            s3 = new SingleSubmission("53252");
+            s1.AddCode(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.c");
+            s2.AddCode(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.c");
+            s3.AddExe(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.exe");
+            bool isTC = false; // TNC
+            string input = "Check input"; // This is a TNC and we know these vakues are incorrect output
+            string output = "check output"; // So we know the result will be true
+            TestCases.OnAddTestCase(input, output, isTC); // We want the submisstion at least one currect result
+            TestCases.OnAddTestCase(input, output, isTC); // We want the submisstion at least one currect result
         }
 
         [TestMethod]
@@ -25,16 +38,16 @@ namespace HETS1Design
         [TestMethod]
         public void AddCode_Success()
         {
-            s1.AddCode(@"..\..\..\Assets\CodeToCheck\Source.c");
-            Assert.AreEqual(@"..\..\..\Assets\CodeToCheck\Source.c", s1.codePath);
+            s1.AddCode(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.c");
+            Assert.AreEqual(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.c", s1.codePath);
             Assert.IsTrue(s1.codeExists);
         }
 
         [TestMethod]
         public void AddExe_Success()
         {
-            s1.AddExe(@"..\..\..\Assets\CodeToCheck\Source.exe");
-            Assert.AreEqual(@"..\..\..\Assets\CodeToCheck\Source.exe", s1.exePath);
+            s1.AddExe(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.exe");
+            Assert.AreEqual(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.exe", s1.exePath);
             Assert.IsTrue(s1.exeExists);
         }
 
@@ -61,11 +74,11 @@ namespace HETS1Design
         {
             s1.AddCode(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.c");
             s1.AddExe(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.exe");
-            bool isTC = false; // TNC
-            string input = "Check input"; // This is a TNC and we know these vakues are incorrect output
-            string output = "check output"; // So we know the result will be true
-            TestCases.OnAddTestCase(input, output, isTC); // We want the submisstion at least one currect result
-            TestCases.OnAddTestCase(input, output, isTC); // We want the submisstion at least one currect result
+            //bool isTC = false; // TNC
+            //string input = "Check input"; // This is a TNC and we know these vakues are incorrect output
+            //string output = "check output"; // So we know the result will be true
+            //TestCases.OnAddTestCase(input, output, isTC); // We want the submisstion at least one currect result
+            //TestCases.OnAddTestCase(input, output, isTC); // We want the submisstion at least one currect result
 
             s1.CompileSubmittedCode();
             s1.RunSubmittedProgram();
@@ -95,5 +108,37 @@ namespace HETS1Design
             
         }
 
+        [TestMethod]
+        public void CorrectResultsPercentage_Test()
+        {
+            string st = s1.CorrectResultsPercentage();
+            Assert.IsTrue(st.Contains("%"));
+        }
+
+        [TestMethod]
+        public void GetAllSingleSubmissionResults_Test()
+        {
+            string st = s2.GetAllSingleSubmissionResults();
+            Assert.AreEqual("No results.", st);
+
+            s2.AddCode(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.c");
+
+            s2.CompileSubmittedCode();
+            s2.RunSubmittedProgram();
+            s2.CompareResultsToDesiredResults();
+            st = s2.GetAllSingleSubmissionResults();
+            Assert.AreNotEqual("No results.", st);
+        }
+
+        [TestMethod]
+        public void CorrectResultsCount()
+        {
+            s3.AddExe(@"..\..\..\Assets\Test Required FIles\SingleSubmissionTest\Source.exe");
+            s3.RunSubmittedProgram();
+            s3.CompareResultsToDesiredResults();
+            int res3 = s3.CorrectResultsCount();
+            Assert.AreEqual(2, res3);
+
+        }
     }
 }
