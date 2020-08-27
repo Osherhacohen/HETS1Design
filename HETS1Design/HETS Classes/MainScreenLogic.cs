@@ -7,12 +7,16 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.IO;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 
 
 namespace HETS1Design
 {
     //This class will contain all the business logic for Main screen that is NOT an event type. 
     //Many of these are simple button logic and will not be commented on.
+    
+    //[ExcludeFromCodeCoverage] //Was used in the script test.
+
     public static class MainScreenLogic
     {
         public static void OnMainScreenLoad(NumericUpDown menuCodeWeight, NumericUpDown menuExeWeight, NumericUpDown menuResultsWeight)
