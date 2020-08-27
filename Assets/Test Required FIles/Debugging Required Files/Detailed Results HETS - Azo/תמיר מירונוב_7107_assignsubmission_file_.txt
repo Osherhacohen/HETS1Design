@@ -106,5 +106,5 @@ The diff between two character is: 8
 
 Overall success rate of: 40.0%
 
-Grade: 70
+Grade: 67
 

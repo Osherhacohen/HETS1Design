@@ -106,5 +106,5 @@ The absolute value of characters is: 17
 
 Overall success rate of: 40.0%
 
-Grade: 70
+Grade: 67
 

@@ -106,5 +106,5 @@ You entered the characters 1 and 9.The ASCII values of the characters are 49 and
 
 Overall success rate of: 40.0%
 
-Grade: 70
+Grade: 67
 

@@ -106,5 +106,5 @@ plese enter two chars with space between them
 
 Overall success rate of: 40.0%
 
-Grade: 70
+Grade: 67
 

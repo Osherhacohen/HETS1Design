@@ -12,5 +12,5 @@ Compiled Exe path:
 No results.
 Overall success rate of: 0%
 
-Grade: 25
+Grade: 20
 
