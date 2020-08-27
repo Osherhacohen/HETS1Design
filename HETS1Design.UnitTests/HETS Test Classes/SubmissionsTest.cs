@@ -24,14 +24,16 @@ namespace HETS1Design
         [TestMethod]
         public void ActivateCompilation_Finished()
         {
-            var result = Submissions.ActivateCompilation();
+            System.Windows.Forms.Button b= new System.Windows.Forms.Button();
+            var result = Submissions.ActivateCompilation(b);
             Assert.IsTrue(result);
         }
 
         [TestMethod]
         public void ActivateExecution_Finished()
         {
-            var result = Submissions.ActivateExecution();
+            System.Windows.Forms.Button b = new System.Windows.Forms.Button();
+            var result = Submissions.ActivateExecution(b);
             Assert.IsTrue(result);
         }
 
