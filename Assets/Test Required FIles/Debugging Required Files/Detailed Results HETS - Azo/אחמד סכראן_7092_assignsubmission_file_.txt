@@ -17,7 +17,9 @@ Compiled Exe path: C:\Users\User\Desktop\Studies\אימות ובדיקות תכ�
 
 ****Suppoesd output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
@@ -25,13 +27,15 @@ enter 2 chars seperated by space:
 your char diff is: 4
 
 
-**Wrong Output****Input:
+**Correct Output****Input:
 
 9 5
 
 ****Suppoesd output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
@@ -45,7 +49,9 @@ your char diff is: 1
 
 ****Suppoesd output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
@@ -59,26 +65,30 @@ your char diff is: 4
 
 ****Suppoesd output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
 enter 2 chars seperated by space:
-The chars must be seperated by a comma!
+your char diff is: 7
 
 
-**Wrong Output****Input:
+**Correct Output****Input:
 
 9 5
 
 ****Suppoesd output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
 enter 2 chars seperated by space:
-The chars must be seperated by a comma!
+your char diff is: 8
 
 
 **Wrong Output
@@ -90,7 +100,9 @@ The chars must be seperated by a comma!
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
@@ -104,7 +116,9 @@ Timed out!
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
@@ -118,7 +132,9 @@ Timed out!
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
@@ -132,7 +148,9 @@ Timed out!
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
@@ -146,7 +164,9 @@ Timed out!
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
@@ -155,5 +175,5 @@ Timed out!
 **Wrong Output!
 
 
-Overall success rate of: 40.0% with POSSIBLE CHEATING!
+Overall success rate of: 80.0% with POSSIBLE CHEATING!
 

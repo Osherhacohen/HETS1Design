@@ -18,7 +18,9 @@ No results.
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
@@ -33,7 +35,9 @@ The absolute value of characters is: 25
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
@@ -48,7 +52,9 @@ The absolute value of characters is: 19
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
@@ -63,12 +69,14 @@ The absolute value of characters is: 23
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
 Please enter two characters
-The absolute value of characters is: 0
+The absolute value of characters is: 25
 
 **Wrong Output!
 
@@ -78,12 +86,14 @@ The absolute value of characters is: 0
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
 Please enter two characters
-The absolute value of characters is: 2
+The absolute value of characters is: 17
 
 **Wrong Output!
 

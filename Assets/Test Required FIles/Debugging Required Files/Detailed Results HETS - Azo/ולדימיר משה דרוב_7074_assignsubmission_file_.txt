@@ -18,7 +18,9 @@ No results.
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
@@ -33,7 +35,9 @@ plese enter two chars with space between them
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
@@ -48,7 +52,9 @@ plese enter two chars with space between them
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
@@ -63,13 +69,14 @@ plese enter two chars with space between them
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
 plese enter two chars with space between them
-error! type space between the chars
-
+ the absolute number between two chars is 7
 
 **Wrong Output!
 
@@ -79,13 +86,14 @@ error! type space between the chars
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
 plese enter two chars with space between them
-error! type space between the chars
-
+ the absolute number between two chars is 8
 
 **Wrong Output!
 

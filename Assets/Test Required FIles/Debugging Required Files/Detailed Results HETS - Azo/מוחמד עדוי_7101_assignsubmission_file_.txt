@@ -17,7 +17,9 @@ No results.
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
@@ -33,7 +35,9 @@ the diff is 4
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
@@ -49,7 +53,9 @@ the diff is 1
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
@@ -65,12 +71,14 @@ the diff is 4
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
 prees two letter
-error
+the diff is 7
 
 
 **Wrong Output!
@@ -81,12 +89,14 @@ error
 
 ****Supposed output:
 
-1
+enter 2 chars seperated by space:
+your char diff is: 4
+
 
 ****Actual output:
 
 prees two letter
-error
+the diff is 8
 
 
 **Wrong Output!
