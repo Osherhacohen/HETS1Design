@@ -94,7 +94,6 @@ namespace HETS1Design
         //Description above.
         public static List<string> TestCasesSeparator(string textFileContent)
         {
-            //string textCaseContent = File.ReadAllText(textFileContent); //This gets a string of content.
             List<string> testCasesList = new List<string>();
 
             using (StringReader sr = new StringReader(textFileContent))

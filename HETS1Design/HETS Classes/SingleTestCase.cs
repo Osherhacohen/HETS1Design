@@ -79,7 +79,13 @@ namespace HETS1Design
         }
 
 
-         
+        //*****************************************************************************************
+        /*The next functions may be fairly complicated. Thet consist of many small operations 
+         in order to fultill what's needed of them. So, in order not to fill the editor with green
+         text, we'll just describe what they do instead of how they do it.*/
+        //*****************************************************************************************
+
+
 
         public List<SingleTestCase> ReturnBoundaryTestCases() 
         {
@@ -184,6 +190,7 @@ namespace HETS1Design
                 inputs.Add(input);
             }
 
+            //Split the text to elements and look for the keyword in each of of them.
             int boundInitialIndex = input.IndexOf("__[EP] ");
             string[] elements = input.Split(' ','\n');
             List<string> bounds = new List<string>();

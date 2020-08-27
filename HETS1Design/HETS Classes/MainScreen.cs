@@ -87,7 +87,7 @@ namespace HETS1Design
 
         private void openArchiveDialog_FileOk(object sender, CancelEventArgs e)
         {
-            MainScreenLogic.OpenArchiveFile(this.openArchiveDialog, this.txtArchivePath, this.btnResults);
+            MainScreenLogic.OpenArchiveFile(this.openArchiveDialog, this.txtArchivePath, this.btnResults, this.btnDetailedResults);
         }
 
 

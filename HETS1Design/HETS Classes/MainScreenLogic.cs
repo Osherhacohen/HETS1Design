@@ -12,6 +12,7 @@ using System.Data;
 namespace HETS1Design
 {
     //This class will contain all the business logic for Main screen that is NOT an event type. 
+    //Many of these are simple button logic and will not be commented on.
     public static class MainScreenLogic
     {
         public static void OnMainScreenLoad(NumericUpDown menuCodeWeight, NumericUpDown menuExeWeight, NumericUpDown menuResultsWeight)
@@ -32,6 +33,7 @@ namespace HETS1Design
             return "OK";
         }
 
+        //Code for limiting the overall grade sum to 100;
         public static void LimitWeightsChange(NumericUpDown menuCodeWeight, NumericUpDown menuExeWeight, NumericUpDown menuResultsWeight)
         {
             menuCodeWeight.Maximum = 100 - (menuExeWeight.Value + menuResultsWeight.Value);
@@ -42,6 +44,7 @@ namespace HETS1Design
             Submissions.correctResultsWeight = (int)menuResultsWeight.Value;
         }
 
+        //Code for activating grading or not.
         public static void EnableGradingCheckedChange(CheckBox checkBoxEnableGrading, NumericUpDown menuCodeWeight, NumericUpDown menuExeWeight, NumericUpDown menuResultsWeight)
         {
             if (checkBoxEnableGrading.Checked)
@@ -114,7 +117,7 @@ namespace HETS1Design
             openDialog.ShowDialog();
         }
 
-        public static void OpenArchiveFile(OpenFileDialog openArchiveDialog, TextBox txtArchivePath, Button btnResults)
+        public static void OpenArchiveFile(OpenFileDialog openArchiveDialog, TextBox txtArchivePath, Button btnResults, Button btnDetailedResults)
         {
             try
             {
@@ -122,6 +125,7 @@ namespace HETS1Design
             txtArchivePath.Text = zipFile;
             Submissions.ResetSubmissions();
             btnResults.Enabled = false;
+            btnDetailedResults.Enabled = false;
             ZipArchiveHandler.GetSubmissionData(zipFile, true); //Extract submissions data.
 
             }
@@ -132,6 +136,7 @@ namespace HETS1Design
             }
         }
 
+        //The small scale guide we have.
         public static void DisplayGuideHelpBox()
         {
             MessageBox.Show("*I/O files must have symmetry." +
