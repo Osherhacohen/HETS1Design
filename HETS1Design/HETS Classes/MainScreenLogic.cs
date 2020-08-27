@@ -72,11 +72,8 @@ namespace HETS1Design
                     MessageBox.Show(validateText, "Error"); 
             else
             { 
-                btnCompile.Text = "Working on compilation...";
-                btnCompile.Update();
-
-                if (Submissions.ActivateCompilation()) //Both compile and check that it finished compiling.
-                    btnCompile.Text = "Compile Programs";
+                if (Submissions.ActivateCompilation(btnCompile)) //Both compile and check that it finished compiling. (Send button for text updates)
+                    btnCompile.Text = "Compile Programs"; //Return to the original text.
             }
 
 
@@ -89,11 +86,8 @@ namespace HETS1Design
                 MessageBox.Show(validateText, "Error"); 
             else
             {
-                btnRunProgram.Text = "Running Programs...";
-                btnRunProgram.Update();
-
-                if (Submissions.ActivateExecution()) //Both run and check that it finished running.
-                    btnRunProgram.Text = "Run Programs";
+                if (Submissions.ActivateExecution(btnRunProgram)) //Both run and check that it finished running. (Send button for text updates).
+                    btnRunProgram.Text = "Run Programs"; //Return to the original text.
 
                 btnResults.Enabled = true;
             }

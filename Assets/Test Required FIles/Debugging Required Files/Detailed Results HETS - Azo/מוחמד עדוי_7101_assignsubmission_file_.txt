@@ -9,10 +9,11 @@ Compiler output:
 Compiled Exe path: C:\Users\User\Desktop\Studies\אימות ובדיקות תכנה\Project\Stage 3\Designs\HETS1\Assets\Test Required FIles\Debugging Required Files\Codes To Check\מוחמד עדוי_7101_assignsubmission_file_\מוחמד עדוי\mohamad.exe
 
 No results.
+
 ***********Compiled .exe results:
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -21,14 +22,14 @@ No results.
 ****Actual output:
 
 prees two letter
-the diff is 8
+the diff is 4
 
 
 **Wrong Output!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -37,14 +38,14 @@ the diff is 8
 ****Actual output:
 
 prees two letter
-the diff is 7
+the diff is 1
 
 
-**Wrong Output!
+**Correct Output!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -53,14 +54,14 @@ the diff is 7
 ****Actual output:
 
 prees two letter
-the diff is 6
+the diff is 4
 
 
-**Wrong Output!
+**Correct Output!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -76,7 +77,7 @@ error
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -90,134 +91,6 @@ error
 
 **Wrong Output!
 
-****Input:
 
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-prees two letter
-error
-
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-prees two letter
-the diff is 1
-
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-prees two letter
-the diff is 1
-
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-prees two letter
-the diff is 1
-
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-prees two letter
-the diff is 1
-
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-prees two letter
-the diff is 1
-
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-prees two letter
-the diff is 1
-
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-prees two letter
-the diff is 1
-
-
-**Wrong Output!
-
-
-Overall success rate of: 38.461538461538461538461538460%
+Overall success rate of: 40.0%
 

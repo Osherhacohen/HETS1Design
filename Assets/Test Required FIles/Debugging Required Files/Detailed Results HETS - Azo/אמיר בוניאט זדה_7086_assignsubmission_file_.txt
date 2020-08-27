@@ -10,10 +10,11 @@ Compiler output: Source.c:8: warning: implicit declaration of function 'scanf_s'
 Compiled Exe path: C:\Users\User\Desktop\Studies\אימות ובדיקות תכנה\Project\Stage 3\Designs\HETS1\Assets\Test Required FIles\Debugging Required Files\Codes To Check\אמיר בוניאט זדה_7086_assignsubmission_file_\Source.exe
 
 No results.
+
 ***********Compiled .exe results:
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -22,14 +23,14 @@ No results.
 ****Actual output:
 
 enter 2 chars seperated by space:
-your char diff is: 8
+your char diff is: 4
 
 
 **Wrong Output!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -38,14 +39,14 @@ your char diff is: 8
 ****Actual output:
 
 enter 2 chars seperated by space:
-your char diff is: 7
+your char diff is: 1
 
 
-**Wrong Output!
+**Correct Output!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -54,14 +55,14 @@ your char diff is: 7
 ****Actual output:
 
 enter 2 chars seperated by space:
-your char diff is: 6
+your char diff is: 4
 
 
-**Wrong Output!
+**Correct Output!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -77,7 +78,7 @@ The chars must be seperated by a comma!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -91,134 +92,6 @@ The chars must be seperated by a comma!
 
 **Wrong Output!
 
-****Input:
 
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-enter 2 chars seperated by space:
-The chars must be seperated by a comma!
-
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-enter 2 chars seperated by space:
-your char diff is: 1
-
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-enter 2 chars seperated by space:
-your char diff is: 1
-
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-enter 2 chars seperated by space:
-your char diff is: 1
-
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-enter 2 chars seperated by space:
-your char diff is: 1
-
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-enter 2 chars seperated by space:
-your char diff is: 1
-
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-enter 2 chars seperated by space:
-your char diff is: 1
-
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-enter 2 chars seperated by space:
-your char diff is: 1
-
-
-**Wrong Output!
-
-
-Overall success rate of: 38.461538461538461538461538460%
+Overall success rate of: 40.0%
 

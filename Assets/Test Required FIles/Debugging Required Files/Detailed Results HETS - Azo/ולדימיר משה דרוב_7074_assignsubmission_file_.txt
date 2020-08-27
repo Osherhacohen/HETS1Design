@@ -10,10 +10,11 @@ Compiler output: Source7.c:8: warning: implicit declaration of function 'scanf_s
 Compiled Exe path: C:\Users\User\Desktop\Studies\אימות ובדיקות תכנה\Project\Stage 3\Designs\HETS1\Assets\Test Required FIles\Debugging Required Files\Codes To Check\ולדימיר משה דרוב_7074_assignsubmission_file_\Source7.exe
 
 No results.
+
 ***********Compiled .exe results:
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -22,13 +23,13 @@ No results.
 ****Actual output:
 
 plese enter two chars with space between them
- the absolute number between two chars is 8
+ the absolute number between two chars is 4
 
 **Wrong Output!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -37,13 +38,13 @@ plese enter two chars with space between them
 ****Actual output:
 
 plese enter two chars with space between them
- the absolute number between two chars is 7
+ the absolute number between two chars is 1
 
-**Wrong Output!
+**Correct Output!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -52,13 +53,13 @@ plese enter two chars with space between them
 ****Actual output:
 
 plese enter two chars with space between them
- the absolute number between two chars is 6
+ the absolute number between two chars is 4
 
-**Wrong Output!
+**Correct Output!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -74,7 +75,7 @@ error! type space between the chars
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -88,127 +89,6 @@ error! type space between the chars
 
 **Wrong Output!
 
-****Input:
 
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-plese enter two chars with space between them
-error! type space between the chars
-
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-plese enter two chars with space between them
- the absolute number between two chars is 1
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-plese enter two chars with space between them
- the absolute number between two chars is 1
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-plese enter two chars with space between them
- the absolute number between two chars is 1
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-plese enter two chars with space between them
- the absolute number between two chars is 1
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-plese enter two chars with space between them
- the absolute number between two chars is 1
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-plese enter two chars with space between them
- the absolute number between two chars is 1
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-plese enter two chars with space between them
- the absolute number between two chars is 1
-
-**Wrong Output!
-
-
-Overall success rate of: 38.461538461538461538461538460%
+Overall success rate of: 40.0%
 

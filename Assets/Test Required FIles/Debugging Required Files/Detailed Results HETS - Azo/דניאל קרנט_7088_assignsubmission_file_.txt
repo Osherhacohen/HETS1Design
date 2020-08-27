@@ -10,10 +10,11 @@ Compiler output: Source.c:15: warning: implicit declaration of function 'scanf_s
 Compiled Exe path: C:\Users\User\Desktop\Studies\אימות ובדיקות תכנה\Project\Stage 3\Designs\HETS1\Assets\Test Required FIles\Debugging Required Files\Codes To Check\דניאל קרנט_7088_assignsubmission_file_\Source.exe
 
 No results.
+
 ***********Compiled .exe results:
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -22,103 +23,13 @@ No results.
 ****Actual output:
 
 Please enter two characters
-The absolute value of characters is: 17
+The absolute value of characters is: 25
 
 **Wrong Output!
 
 ****Input:
 
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two characters
-The absolute value of characters is: 18
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two characters
-The absolute value of characters is: 19
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two characters
-The absolute value of characters is: 17
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two characters
-The absolute value of characters is: 18
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two characters
-The absolute value of characters is: 19
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two characters
-The absolute value of characters is: 19
-
-**Wrong Output!
-
-****Input:
-
-1 9
+9 5
 
 ****Supposed output:
 
@@ -133,7 +44,7 @@ The absolute value of characters is: 19
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -142,13 +53,13 @@ The absolute value of characters is: 19
 ****Actual output:
 
 Please enter two characters
-The absolute value of characters is: 19
+The absolute value of characters is: 23
 
 **Correct Output!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -157,13 +68,13 @@ The absolute value of characters is: 19
 ****Actual output:
 
 Please enter two characters
-The absolute value of characters is: 19
+The absolute value of characters is: 0
 
-**Correct Output!
+**Wrong Output!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -172,40 +83,10 @@ The absolute value of characters is: 19
 ****Actual output:
 
 Please enter two characters
-The absolute value of characters is: 19
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two characters
-The absolute value of characters is: 19
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two characters
-The absolute value of characters is: 19
+The absolute value of characters is: 2
 
 **Wrong Output!
 
 
-Overall success rate of: 38.461538461538461538461538460%
+Overall success rate of: 40.0%
 

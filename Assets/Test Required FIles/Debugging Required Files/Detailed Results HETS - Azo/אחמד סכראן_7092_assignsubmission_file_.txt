@@ -9,10 +9,11 @@ Compiler output:
 Compiled Exe path: C:\Users\User\Desktop\Studies\אימות ובדיקות תכנה\Project\Stage 3\Designs\HETS1\Assets\Test Required FIles\Debugging Required Files\Codes To Check\אחמד סכראן_7092_assignsubmission_file_\mtla3.exe
 
 
+
 ***********Submitted .exe results:
 ****Input:
 
-1 9
+9 5
 
 ****Suppoesd output:
 
@@ -21,12 +22,12 @@ Compiled Exe path: C:\Users\User\Desktop\Studies\אימות ובדיקות תכ�
 ****Actual output:
 
 enter 2 chars seperated by space:
-your char diff is: 8
+your char diff is: 4
 
 
 **Wrong Output****Input:
 
-1 9
+9 5
 
 ****Suppoesd output:
 
@@ -35,12 +36,12 @@ your char diff is: 8
 ****Actual output:
 
 enter 2 chars seperated by space:
-your char diff is: 7
+your char diff is: 1
 
 
-**Wrong Output****Input:
+**Correct Output****Input:
 
-1 9
+9 5
 
 ****Suppoesd output:
 
@@ -49,12 +50,12 @@ your char diff is: 7
 ****Actual output:
 
 enter 2 chars seperated by space:
-your char diff is: 6
+your char diff is: 4
 
 
-**Wrong Output****Input:
+**Correct Output****Input:
 
-1 9
+9 5
 
 ****Suppoesd output:
 
@@ -68,7 +69,7 @@ The chars must be seperated by a comma!
 
 **Wrong Output****Input:
 
-1 9
+9 5
 
 ****Suppoesd output:
 
@@ -78,125 +79,14 @@ The chars must be seperated by a comma!
 
 enter 2 chars seperated by space:
 The chars must be seperated by a comma!
-
-
-**Wrong Output****Input:
-
-1 9
-
-****Suppoesd output:
-
-1
-
-****Actual output:
-
-enter 2 chars seperated by space:
-The chars must be seperated by a comma!
-
-
-**Wrong Output****Input:
-
-1 9
-
-****Suppoesd output:
-
-1
-
-****Actual output:
-
-enter 2 chars seperated by space:
-your char diff is: 1
-
-
-**Wrong Output****Input:
-
-1 9
-
-****Suppoesd output:
-
-1
-
-****Actual output:
-
-enter 2 chars seperated by space:
-your char diff is: 1
-
-
-**Correct Output****Input:
-
-1 9
-
-****Suppoesd output:
-
-1
-
-****Actual output:
-
-enter 2 chars seperated by space:
-your char diff is: 1
-
-
-**Correct Output****Input:
-
-1 9
-
-****Suppoesd output:
-
-1
-
-****Actual output:
-
-enter 2 chars seperated by space:
-your char diff is: 1
-
-
-**Correct Output****Input:
-
-1 9
-
-****Suppoesd output:
-
-1
-
-****Actual output:
-
-enter 2 chars seperated by space:
-your char diff is: 1
-
-
-**Correct Output****Input:
-
-1 9
-
-****Suppoesd output:
-
-1
-
-****Actual output:
-
-enter 2 chars seperated by space:
-your char diff is: 1
-
-
-**Correct Output****Input:
-
-1 9
-
-****Suppoesd output:
-
-1
-
-****Actual output:
-
-enter 2 chars seperated by space:
-your char diff is: 1
 
 
 **Wrong Output
+
 ***********Compiled .exe results:
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -210,91 +100,7 @@ Timed out!
 
 ****Input:
 
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Timed out!
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Timed out!
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Timed out!
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Timed out!
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Timed out!
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Timed out!
-
-**Wrong Output!
-
-****Input:
-
-1 9
+9 5
 
 ****Supposed output:
 
@@ -308,7 +114,7 @@ Timed out!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -322,7 +128,7 @@ Timed out!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -332,39 +138,11 @@ Timed out!
 
 Timed out!
 
-**Correct Output!
+**Wrong Output!
 
 ****Input:
 
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Timed out!
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Timed out!
-
-**Correct Output!
-
-****Input:
-
-1 9
+9 5
 
 ****Supposed output:
 
@@ -377,5 +155,5 @@ Timed out!
 **Wrong Output!
 
 
-Overall success rate of: 38.461538461538461538461538460% with POSSIBLE CHEATING!
+Overall success rate of: 40.0% with POSSIBLE CHEATING!
 

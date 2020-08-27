@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.IO;
 using System.Diagnostics.CodeAnalysis;
+using System.Windows.Forms;
 
 
 namespace HETS1Design
@@ -15,24 +16,39 @@ namespace HETS1Design
         public static List<SingleSubmission> submissions = new List<SingleSubmission>(); //List of submissions from students.
         public static int codeWeight = -1, exeWeight = -1, correctResultsWeight = -1;
         public static bool checkCode = true; //Default at start.
-        public static bool checkExe = true;
+        public static bool checkExe = true;       
+
 
         //Activates compilation for all submissions.
-        public static bool ActivateCompilation()
+        public static bool ActivateCompilation(Button btnCompile)
         {
+            int currentlyCompiling = 1;
             foreach (SingleSubmission sub in submissions)
-                sub.CompileSubmittedCode();
+            {
+                btnCompile.Text = "Compiling Code..." + currentlyCompiling.ToString() + "/" + submissions.Count.ToString();
+                btnCompile.Update();
+
+                sub.CompileSubmittedCode(); //The actual compilation of code.
+
+                currentlyCompiling++;
+            }
             return true;
         }
 
 
-        //Activates all the .exe files in the submissions.
-        public static bool ActivateExecution()
+        //Activates all the .exe files in the submissions. We wanted to avoid using an extra event, so we passed the button to update.
+        public static bool ActivateExecution(Button btnRun)
         {
+            int currentlyRunning = 1;
             foreach (SingleSubmission sub in submissions)
             {
-                sub.RunSubmittedProgram();
+                btnRun.Text = "Running Programs... " + currentlyRunning.ToString() + "/" + submissions.Count.ToString();
+                btnRun.Update(); //Update button text for currently running program.
+
+                sub.RunSubmittedProgram(); //The actual running of program.
                 sub.CompareResultsToDesiredResults();
+
+                currentlyRunning ++;
             }
             return true;
         }

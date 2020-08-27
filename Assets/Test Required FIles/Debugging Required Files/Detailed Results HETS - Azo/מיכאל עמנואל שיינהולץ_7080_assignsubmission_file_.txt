@@ -10,10 +10,11 @@ Compiler output: _שיינהולץ_תרגיל_בית_3_אסקי_להגשה.c:20:
 Compiled Exe path: C:\Users\User\Desktop\Studies\אימות ובדיקות תכנה\Project\Stage 3\Designs\HETS1\Assets\Test Required FIles\Debugging Required Files\Codes To Check\מיכאל עמנואל שיינהולץ_7080_assignsubmission_file_\_שיינהולץ_תרגיל_בית_3_אסקי_להגשה.exe
 
 No results.
+
 ***********Compiled .exe results:
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -22,13 +23,13 @@ No results.
 ****Actual output:
 
 Please enter two single characters, separated by a space. 
-You entered the characters 1 and 9.The ASCII values of the characters are 49 and 57, respectively.The absolute value of the difference between the ASCII values of each character you typed is 8
+You entered the characters 9 and 5.The ASCII values of the characters are 57 and 53, respectively.The absolute value of the difference between the ASCII values of each character you typed is 4
 
 **Wrong Output!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -37,13 +38,13 @@ You entered the characters 1 and 9.The ASCII values of the characters are 49 and
 ****Actual output:
 
 Please enter two single characters, separated by a space. 
-You entered the characters 2 and 9.The ASCII values of the characters are 50 and 57, respectively.The absolute value of the difference between the ASCII values of each character you typed is 7
+You entered the characters 3 and 4.The ASCII values of the characters are 51 and 52, respectively.The absolute value of the difference between the ASCII values of each character you typed is 1
 
-**Wrong Output!
+**Correct Output!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -52,13 +53,13 @@ You entered the characters 2 and 9.The ASCII values of the characters are 50 and
 ****Actual output:
 
 Please enter two single characters, separated by a space. 
-You entered the characters 3 and 9.The ASCII values of the characters are 51 and 57, respectively.The absolute value of the difference between the ASCII values of each character you typed is 6
+You entered the characters 7 and 3.The ASCII values of the characters are 55 and 51, respectively.The absolute value of the difference between the ASCII values of each character you typed is 4
 
-**Wrong Output!
+**Correct Output!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -75,7 +76,7 @@ they are within the right criteria.
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -90,128 +91,6 @@ they are within the right criteria.
 
 **Wrong Output!
 
-****Input:
 
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two single characters, separated by a space. 
-Input Error! Please restart the program
-and retype the input characters making sure
-they are within the right criteria.
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two single characters, separated by a space. 
-You entered the characters 3 and 4.The ASCII values of the characters are 51 and 52, respectively.The absolute value of the difference between the ASCII values of each character you typed is 1
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two single characters, separated by a space. 
-You entered the characters 3 and 4.The ASCII values of the characters are 51 and 52, respectively.The absolute value of the difference between the ASCII values of each character you typed is 1
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two single characters, separated by a space. 
-You entered the characters 3 and 4.The ASCII values of the characters are 51 and 52, respectively.The absolute value of the difference between the ASCII values of each character you typed is 1
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two single characters, separated by a space. 
-You entered the characters 3 and 4.The ASCII values of the characters are 51 and 52, respectively.The absolute value of the difference between the ASCII values of each character you typed is 1
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two single characters, separated by a space. 
-You entered the characters 3 and 4.The ASCII values of the characters are 51 and 52, respectively.The absolute value of the difference between the ASCII values of each character you typed is 1
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two single characters, separated by a space. 
-You entered the characters 3 and 4.The ASCII values of the characters are 51 and 52, respectively.The absolute value of the difference between the ASCII values of each character you typed is 1
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two single characters, separated by a space. 
-You entered the characters 3 and 4.The ASCII values of the characters are 51 and 52, respectively.The absolute value of the difference between the ASCII values of each character you typed is 1
-
-**Wrong Output!
-
-
-Overall success rate of: 38.461538461538461538461538460%
+Overall success rate of: 40.0%
 

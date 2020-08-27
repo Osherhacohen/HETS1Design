@@ -10,10 +10,11 @@ Compiler output: Targil5a.c:7: warning: implicit declaration of function 'scanf_
 Compiled Exe path: C:\Users\User\Desktop\Studies\אימות ובדיקות תכנה\Project\Stage 3\Designs\HETS1\Assets\Test Required FIles\Debugging Required Files\Codes To Check\תמיר מירונוב_7107_assignsubmission_file_\Targil5a.exe
 
 No results.
+
 ***********Compiled .exe results:
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -22,13 +23,13 @@ No results.
 ****Actual output:
 
 Please enter two character with space:
-The diff between two character is: 8
+The diff between two character is: 4
 
 **Wrong Output!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -37,13 +38,13 @@ The diff between two character is: 8
 ****Actual output:
 
 Please enter two character with space:
-The diff between two character is: 7
+The diff between two character is: 1
 
-**Wrong Output!
+**Correct Output!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -52,13 +53,13 @@ The diff between two character is: 7
 ****Actual output:
 
 Please enter two character with space:
-The diff between two character is: 6
+The diff between two character is: 4
 
-**Wrong Output!
+**Correct Output!
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -74,7 +75,7 @@ Error: there is no space between two characters
 
 ****Input:
 
-1 9
+9 5
 
 ****Supposed output:
 
@@ -88,127 +89,6 @@ Error: there is no space between two characters
 
 **Wrong Output!
 
-****Input:
 
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two character with space:
-Error: there is no space between two characters
-
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two character with space:
-The diff between two character is: 1
-
-**Wrong Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two character with space:
-The diff between two character is: 1
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two character with space:
-The diff between two character is: 1
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two character with space:
-The diff between two character is: 1
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two character with space:
-The diff between two character is: 1
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two character with space:
-The diff between two character is: 1
-
-**Correct Output!
-
-****Input:
-
-1 9
-
-****Supposed output:
-
-1
-
-****Actual output:
-
-Please enter two character with space:
-The diff between two character is: 1
-
-**Wrong Output!
-
-
-Overall success rate of: 38.461538461538461538461538460%
+Overall success rate of: 40.0%
 
