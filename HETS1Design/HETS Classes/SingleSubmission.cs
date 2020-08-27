@@ -206,9 +206,22 @@ namespace HETS1Design
                     allResults += "****Suppoesd output:\r\n\r\n"+TestCases.testCases[i].output + "\r\n\r\n";
                     allResults += "****Actual output:\r\n\r\n" + r.GetResultOutput + "\r\n\r\n";
                     if (r.DidItMatch)
-                        allResults += "**Correct Output\r\n\r\n";
+                    {
+                        allResults += "**Correct Output";
+                        bool isTC = TestCases.testCases[i].equal;
+                        if (!isTC)
+                            allResults += " (is TNC)";
+                        allResults +="\r\n\r\n";
+                    }
                     else
-                        allResults += "**Wrong Output\r\n\r\n";
+                    {
+                        allResults += "**Wrong Output!\r\n\r\n";
+                        bool isTC = TestCases.testCases[i].equal;
+                        if (!isTC)
+                            allResults += " (is TNC)";
+                        allResults += "\r\n\r\n";
+                    }
+                    i++;
                 }
             }
 
@@ -223,9 +236,22 @@ namespace HETS1Design
                     allResults += "****Supposed output:\r\n\r\n" + TestCases.testCases[i].output + "\r\n\r\n";
                     allResults += "****Actual output:\r\n\r\n" + r.GetResultOutput + "\r\n\r\n";
                     if (r.DidItMatch)
-                        allResults += "**Correct Output!\r\n\r\n";
+                    {
+                        allResults += "**Correct Output";
+                        bool isTC = TestCases.testCases[i].equal;
+                        if (!isTC)
+                            allResults += " (is TNC)";
+                        allResults += "\r\n\r\n";
+                    }
                     else
+                    {
                         allResults += "**Wrong Output!\r\n\r\n";
+                        bool isTC = TestCases.testCases[i].equal;
+                        if (!isTC)
+                            allResults += " (is TNC)";
+                        allResults += "\r\n\r\n";
+                    }
+                    i++;
                 }
             }
             return allResults;

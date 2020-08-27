@@ -29,14 +29,16 @@ The absolute value of characters is: 25
 
 **Wrong Output!
 
+
+
 ****Input:
 
-9 5
+3 4
 
 ****Supposed output:
 
 enter 2 chars seperated by space:
-your char diff is: 4
+your char diff is: 2
 
 
 ****Actual output:
@@ -44,16 +46,16 @@ your char diff is: 4
 Please enter two characters
 The absolute value of characters is: 19
 
-**Correct Output!
+**Correct Output (is TNC)
 
 ****Input:
 
-9 5
+7 3
 
 ****Supposed output:
 
 enter 2 chars seperated by space:
-your char diff is: 4
+your char diff is: 2
 
 
 ****Actual output:
@@ -61,16 +63,16 @@ your char diff is: 4
 Please enter two characters
 The absolute value of characters is: 23
 
-**Correct Output!
+**Correct Output (is TNC)
 
 ****Input:
 
-9 5
+9 2
 
 ****Supposed output:
 
 enter 2 chars seperated by space:
-your char diff is: 4
+your char diff is: 7
 
 
 ****Actual output:
@@ -80,14 +82,16 @@ The absolute value of characters is: 25
 
 **Wrong Output!
 
+
+
 ****Input:
 
-9 5
+1 9
 
 ****Supposed output:
 
 enter 2 chars seperated by space:
-your char diff is: 4
+your char diff is: 8
 
 
 ****Actual output:
@@ -98,5 +102,9 @@ The absolute value of characters is: 17
 **Wrong Output!
 
 
+
+
 Overall success rate of: 40.0%
+
+Grade: 70
 

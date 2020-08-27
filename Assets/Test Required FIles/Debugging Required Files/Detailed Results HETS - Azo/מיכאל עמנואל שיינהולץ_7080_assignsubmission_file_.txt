@@ -29,14 +29,16 @@ You entered the characters 9 and 5.The ASCII values of the characters are 57 and
 
 **Wrong Output!
 
+
+
 ****Input:
 
-9 5
+3 4
 
 ****Supposed output:
 
 enter 2 chars seperated by space:
-your char diff is: 4
+your char diff is: 2
 
 
 ****Actual output:
@@ -44,16 +46,16 @@ your char diff is: 4
 Please enter two single characters, separated by a space. 
 You entered the characters 3 and 4.The ASCII values of the characters are 51 and 52, respectively.The absolute value of the difference between the ASCII values of each character you typed is 1
 
-**Correct Output!
+**Correct Output (is TNC)
 
 ****Input:
 
-9 5
+7 3
 
 ****Supposed output:
 
 enter 2 chars seperated by space:
-your char diff is: 4
+your char diff is: 2
 
 
 ****Actual output:
@@ -61,16 +63,16 @@ your char diff is: 4
 Please enter two single characters, separated by a space. 
 You entered the characters 7 and 3.The ASCII values of the characters are 55 and 51, respectively.The absolute value of the difference between the ASCII values of each character you typed is 4
 
-**Correct Output!
+**Correct Output (is TNC)
 
 ****Input:
 
-9 5
+9 2
 
 ****Supposed output:
 
 enter 2 chars seperated by space:
-your char diff is: 4
+your char diff is: 7
 
 
 ****Actual output:
@@ -80,14 +82,16 @@ You entered the characters 9 and 2.The ASCII values of the characters are 57 and
 
 **Wrong Output!
 
+
+
 ****Input:
 
-9 5
+1 9
 
 ****Supposed output:
 
 enter 2 chars seperated by space:
-your char diff is: 4
+your char diff is: 8
 
 
 ****Actual output:
@@ -98,5 +102,9 @@ You entered the characters 1 and 9.The ASCII values of the characters are 49 and
 **Wrong Output!
 
 
+
+
 Overall success rate of: 40.0%
+
+Grade: 70
 

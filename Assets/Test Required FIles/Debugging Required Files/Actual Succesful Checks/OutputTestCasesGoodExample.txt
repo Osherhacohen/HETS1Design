@@ -17,3 +17,4 @@ your char diff is: 7
 __[TC] bla bla
 enter 2 chars seperated by space:
 your char diff is: 8
+

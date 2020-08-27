@@ -28,14 +28,16 @@ enter 2 chars seperated by space:
 your char diff is: 4
 
 
-**Correct Output****Input:
+**Correct Output
 
-9 5
+****Input:
+
+3 4
 
 ****Suppoesd output:
 
 enter 2 chars seperated by space:
-your char diff is: 4
+your char diff is: 2
 
 
 ****Actual output:
@@ -44,14 +46,16 @@ enter 2 chars seperated by space:
 your char diff is: 1
 
 
-**Correct Output****Input:
+**Correct Output (is TNC)
 
-9 5
+****Input:
+
+7 3
 
 ****Suppoesd output:
 
 enter 2 chars seperated by space:
-your char diff is: 4
+your char diff is: 2
 
 
 ****Actual output:
@@ -60,14 +64,16 @@ enter 2 chars seperated by space:
 your char diff is: 4
 
 
-**Correct Output****Input:
+**Correct Output (is TNC)
 
-9 5
+****Input:
+
+9 2
 
 ****Suppoesd output:
 
 enter 2 chars seperated by space:
-your char diff is: 4
+your char diff is: 7
 
 
 ****Actual output:
@@ -76,14 +82,16 @@ enter 2 chars seperated by space:
 your char diff is: 7
 
 
-**Correct Output****Input:
+**Correct Output
 
-9 5
+****Input:
+
+1 9
 
 ****Suppoesd output:
 
 enter 2 chars seperated by space:
-your char diff is: 4
+your char diff is: 8
 
 
 ****Actual output:
@@ -92,7 +100,9 @@ enter 2 chars seperated by space:
 your char diff is: 8
 
 
-**Wrong Output
+**Correct Output
+
+
 
 ***********Compiled .exe results:
 ****Input:
@@ -111,46 +121,48 @@ Please Enter Two Chars with only one space between them:Your Char Diffrence is: 
 
 **Wrong Output!
 
+
+
 ****Input:
 
-9 5
+3 4
 
 ****Supposed output:
 
 enter 2 chars seperated by space:
-your char diff is: 4
+your char diff is: 2
 
 
 ****Actual output:
 
 Please Enter Two Chars with only one space between them:Your Char Diffrence is: 1
 
-**Correct Output!
+**Correct Output (is TNC)
 
 ****Input:
 
-9 5
+7 3
 
 ****Supposed output:
 
 enter 2 chars seperated by space:
-your char diff is: 4
+your char diff is: 2
 
 
 ****Actual output:
 
 Please Enter Two Chars with only one space between them:Your Char Diffrence is: 4
 
-**Correct Output!
+**Correct Output (is TNC)
 
 ****Input:
 
-9 5
+9 2
 
 ****Supposed output:
 
 enter 2 chars seperated by space:
-your char diff is: 4
+your char diff is: 7
 
 
 ****Actual output:
@@ -159,14 +171,16 @@ Please Enter Two Chars with only one space between them:Your Char Diffrence is: 
 
 **Wrong Output!
 
+
+
 ****Input:
 
-9 5
+1 9
 
 ****Supposed output:
 
 enter 2 chars seperated by space:
-your char diff is: 4
+your char diff is: 8
 
 
 ****Actual output:
@@ -176,5 +190,9 @@ Please Enter Two Chars with only one space between them:Your Char Diffrence is: 
 **Wrong Output!
 
 
-Overall success rate of: 80.0% with POSSIBLE CHEATING!
+
+
+Overall success rate of: 100% with POSSIBLE CHEATING!
+
+Grade: 100
 
