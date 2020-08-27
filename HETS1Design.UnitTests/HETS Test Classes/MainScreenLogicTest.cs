@@ -158,14 +158,6 @@ namespace HETS1Design
             MainScreenLogic.EnableGradingCheckedChange(checkBoxEnableGrading, menuCodeWeight, menuExeWeight, menuResultsWeight);
         }
 
-        [TestMethod]
-        public void CompileHelperTest()
-        {
-            //**IGNORE**//
-            //txtArchivePath = @"C:\Users\USER\Desktop\הנדסת תוכנה\שנה ג\סמסטר ב\אימות ובדיקות תוכנה\Project\מבוא למדעי המחשב חשמל ואנרגיה תשף.א מלכי-תרגיל בית 3- אסקי-5637.zip";
-            //MainScreenLogic.FormValidate();       
-            //string validateText = FormValidate();
-        }
 
         [TestMethod]
         public void Option64BitCompilerChangeTest()
@@ -180,27 +172,7 @@ namespace HETS1Design
             CodeChecker.use32bitCompiler = true;
             MainScreenLogic.Option32BitCompilerChange();
         }
-        [TestMethod]
-        public void TimeoutValueChangeTest()
-        {
 
-            //**IGNORE**//
-            //int timeoutSeconds = CodeChecker.timeoutSeconds;
-           
-            //CodeChecker.timeoutSeconds = 5;
-
-            //MainScreenLogic.TimeoutValueChange();
-
-            //Assert.AreEqual(5, MainScreenLogic.TimeoutValueChange(CodeChecker.timeoutSeconds));
-        }
-
-        [TestMethod]
-        public void ShowResults_Success()
-        {
-            //txtArchivePath.Text = @"..\..\..\Assets\Test Required FIles\ZipArchiveHandlerTest\ZipForTest.zip";
-            //MainScreenLogic.ShowResults(textBoxTEMPORARY, txtArchivePath);
-            //Assert.AreNotEqual("", textBoxTEMPORARY.Text);
-        }
 
         [TestMethod]
         public void OnCheckCodeRadioChange_Success()
@@ -230,17 +202,36 @@ namespace HETS1Design
         }
 
         [TestMethod]
-        public void OpenInputFileTest()
+        public void OpenOutputFileTest()
         {
-            openOutputDialog.FileName = @"..\..\..\Assets\Test Required FIles\Debugging Required Files\OpenInputFileFuncTest.txt";
+            openOutputDialog.FileName = @"..\..\..\Assets\Test Required FIles\MainScreenLogicTest\OpenOutputFileFuncTest.txt";
             txtOutputPath.Text = openOutputDialog.FileName;
 
             MainScreenLogic.OpenOutputFile(openOutputDialog, txtOutputPath, txtInputPath, btnAddTestCase, btnSaveIO);
 
-            txtInputPath.Text = @"..\..\..\Assets\Test Required FIles\Debugging Required Files\OpenInputFileFuncTest.txt";  
-            txtOutputPath.Text = @"..\..\..\Assets\Test Required FIles\Debugging Required Files\‏‏OpenInputFileFuncTest.txt";
+            txtInputPath.Text = @"..\..\..\Assets\Test Required FIles\MainScreenLogicTest\OpenOutputFileFuncTest.txt";  
+            txtOutputPath.Text = @"..\..\..\Assets\Test Required FIles\MainScreenLogicTest\‏‏OpenOutputFileFuncTest.txt";
 
             MainScreenLogic.OpenOutputFile(openOutputDialog, txtOutputPath, txtInputPath, btnAddTestCase, btnSaveIO);
+
+            Assert.IsTrue(btnAddTestCase.Enabled);
+            Assert.IsTrue(btnSaveIO.Enabled);
+
+        }
+
+
+        [TestMethod]
+        public void OpenInputFileTest()
+        {
+            openInputDialog.FileName = @"..\..\..\Assets\Test Required FIles\MainScreenLogicTest\OpenInputFileFuncTest.txt";
+            txtInputPath.Text = openInputDialog.FileName;
+
+            MainScreenLogic.OpenInputFile(openInputDialog, txtInputPath, txtOutputPath, btnAddTestCase, btnSaveIO);
+
+            txtInputPath.Text = @"..\..\..\Assets\Test Required FIles\MainScreenLogicTest\OpenInputFileFuncTest.txt";
+            txtOutputPath.Text = @"..\..\..\Assets\Test Required FIles\MainScreenLogicTest\OpenInputFileFuncTest.txt";
+
+            MainScreenLogic.OpenInputFile(openInputDialog, txtInputPath, txtOutputPath, btnAddTestCase, btnSaveIO);
 
             Assert.IsTrue(btnAddTestCase.Enabled);
             Assert.IsTrue(btnSaveIO.Enabled);
