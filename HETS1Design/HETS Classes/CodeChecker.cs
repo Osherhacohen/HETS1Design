@@ -51,7 +51,12 @@ namespace HETS1Design
                 {
                     compilerOutput = sr.ReadToEnd();
                 }
-            }        
+            }
+
+            if (compilerOutput == "")
+            {
+                compilerOutput= "No errors or warnings detected.";
+            }
 
             p.Close();
             return compilerOutput;
