@@ -72,17 +72,17 @@ namespace HETS1Design
 
             private void btnBrowseArchive_Click(object sender, EventArgs e)
         {
-            MainScreenLogic.PrepareFileDialog("ZIP Archive files (*.zip)|*.zip|All files (*.*)|*.*", openArchiveDialog);
+            MainScreenLogic.PrepareFileDialog("ZIP Archive files (*.zip)|*.zip", openArchiveDialog);
         }
 
         private void btnBrowseInput_Click(object sender, EventArgs e)
         {
-            MainScreenLogic.PrepareFileDialog("Text files (*.txt)|*.txt|All files (*.*)|*.*", openInputDialog);
+            MainScreenLogic.PrepareFileDialog("Text files (*.txt)|*.txt", openInputDialog);
         }
 
         private void btnBrowseOutput_Click(object sender, EventArgs e)
         {
-            MainScreenLogic.PrepareFileDialog("Text files (*.txt)|*.txt|All files (*.*)|*.*", openOutputDialog);
+            MainScreenLogic.PrepareFileDialog("Text files (*.txt)|*.txt", openOutputDialog);
         }
 
         private void openArchiveDialog_FileOk(object sender, CancelEventArgs e)
