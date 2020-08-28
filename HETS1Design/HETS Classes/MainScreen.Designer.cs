@@ -63,7 +63,6 @@ namespace HETS1Design
             this.btnCompile = new System.Windows.Forms.Button();
             this.btnResults = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBoxTEMPORARY = new System.Windows.Forms.TextBox();
             this.dataGridResults = new System.Windows.Forms.DataGridView();
             this.btnExportCSV = new System.Windows.Forms.Button();
             this.openArchiveDialog = new System.Windows.Forms.OpenFileDialog();
@@ -397,7 +396,6 @@ namespace HETS1Design
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.textBoxTEMPORARY);
             this.groupBox4.Controls.Add(this.dataGridResults);
             this.groupBox4.Location = new System.Drawing.Point(17, 436);
             this.groupBox4.Name = "groupBox4";
@@ -405,19 +403,6 @@ namespace HETS1Design
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Results Table";
-            // 
-            // textBoxTEMPORARY
-            // 
-            this.textBoxTEMPORARY.BackColor = System.Drawing.SystemColors.Info;
-            this.textBoxTEMPORARY.Location = new System.Drawing.Point(9, 19);
-            this.textBoxTEMPORARY.Multiline = true;
-            this.textBoxTEMPORARY.Name = "textBoxTEMPORARY";
-            this.textBoxTEMPORARY.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxTEMPORARY.Size = new System.Drawing.Size(756, 230);
-            this.textBoxTEMPORARY.TabIndex = 11;
-            this.textBoxTEMPORARY.Text = "Temporary Text Box";
-            this.textBoxTEMPORARY.Visible = false;
-            this.textBoxTEMPORARY.WordWrap = false;
             // 
             // dataGridResults
             // 
@@ -450,9 +435,6 @@ namespace HETS1Design
             // 
             this.openOutputDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openOutputDialog_FileOk);
             // 
-            // saveCSVFile
-            // 
-           // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.checkBoxEnableGrading);
@@ -678,7 +660,6 @@ namespace HETS1Design
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResults)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -735,7 +716,6 @@ namespace HETS1Design
         private System.Windows.Forms.CheckBox checkBoxEnableGrading;
         private System.Windows.Forms.RadioButton radioButton32BitCompiler;
         private System.Windows.Forms.RadioButton radioButton64BitCompiler;
-        private System.Windows.Forms.TextBox textBoxTEMPORARY;
         private System.Windows.Forms.Label timeoutLabel;
         private System.Windows.Forms.NumericUpDown timeoutNumUpDown;
         private System.Windows.Forms.Label scndLabel;
